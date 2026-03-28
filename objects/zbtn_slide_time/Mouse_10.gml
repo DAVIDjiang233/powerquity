@@ -1,0 +1,1 @@
+global.mouseonbtn=1;

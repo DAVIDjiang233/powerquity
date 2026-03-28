@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_svget",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_svget",
+  "parent":{
+    "name":"制谱器",
+    "path":"folders/脚本/制谱器.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

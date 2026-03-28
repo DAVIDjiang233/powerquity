@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_getmousesv",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_getmousesv",
+  "parent":{
+    "name":"制谱器",
+    "path":"folders/脚本/制谱器.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

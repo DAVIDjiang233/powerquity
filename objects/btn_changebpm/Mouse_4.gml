@@ -1,0 +1,1 @@
+msg = get_integer_async("请输入数值", "");

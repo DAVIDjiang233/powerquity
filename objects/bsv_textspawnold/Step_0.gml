@@ -1,0 +1,1 @@
+if ctrl_playgame.gamepause!=0 alarm[0]++;

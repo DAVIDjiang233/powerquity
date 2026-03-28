@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_qwertyuiop_ctrl",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_qwertyuiop_ctrl",
+  "parent":{
+    "name":"脚本",
+    "path":"folders/脚本.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
