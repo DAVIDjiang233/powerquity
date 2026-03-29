@@ -24,7 +24,7 @@ if(global.judgelist[3]==0){
 }
 
 oldhighscore=global.highscore[global.level]%200;
-var _maxcolor=floor(global.highscore[global.level]/200),_maxacc=global.highscore[global.level]%200;
+var _maxcolor=floor(global.highscore[global.level]/200)*200,_maxacc=global.highscore[global.level]%200;
 if(_maxcolor<color) _maxcolor=color;
 if(_maxacc<acc) _maxacc=acc;
 if global.scored==0 exit;
