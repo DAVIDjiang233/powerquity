@@ -3,7 +3,7 @@ draw_set_font(global.fontall);
 draw_set_colour(c_white);
 draw_set_halign(fa_right);
 if(debug_mode) draw_text_transformed(1244, 700, "[DEBUG]",0.25,0.25,0);
-else draw_text_transformed(1244, 700, "[63281]",0.25,0.25,0);
+else draw_text_transformed(1244, 700, "[63290]",0.25,0.25,0);
 draw_set_halign(fa_center);
 if array_length(global.filelist)==0 {
 	draw_text_transformed(992, 160, "没有谱面 :(",0.5,0.5,0);
