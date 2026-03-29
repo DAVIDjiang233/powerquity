@@ -13,7 +13,7 @@ if array_length(global.filelist)==0 {
 	exit;
 }
 draw_set_halign(fa_left);
-draw_text_transformed(36, 700, "Z: 设置 / X: Mods / C: 导入谱面 / V: 编辑谱面(wip)",0.25,0.25,0);
+draw_text_transformed(36, 700, "Z: 设置 / X: Mods / C: 导入谱面 / V: 编辑谱面",0.25,0.25,0);
 draw_set_halign(fa_center);
 if chartrue==1{
 	

@@ -34,7 +34,6 @@
   "name":"powerquity",
   "resources":[
     {"id":{"name":"Font1","path":"fonts/Font1/Font1.yy",},},
-    {"id":{"name":"fontbig","path":"fonts/fontbig/fontbig.yy",},},
     {"id":{"name":"actrl_playgametime","path":"objects/actrl_playgametime/actrl_playgametime.yy",},},
     {"id":{"name":"base_changecolor","path":"objects/base_changecolor/base_changecolor.yy",},},
     {"id":{"name":"bsv_moveca","path":"objects/bsv_moveca/bsv_moveca.yy",},},
