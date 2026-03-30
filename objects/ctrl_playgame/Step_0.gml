@@ -170,6 +170,28 @@ while(chartlist<512&&0<array_length(global.svread)){
 			else global.chromatic[real(global.svread[0][3])]=0;
 			array_delete(global.svread,0,1);
 		}
+		else if(global.svread[0][0]=="CB"){
+			if global.svenable==1{
+				if !instance_exists(shad_bloom) instance_create_depth(114,514,-9999,shad_bloom);
+				var _alltime=floor(real(global.svread[0][3])*fps/(global.gamespeed*1000));
+				instance_create_depth(0,0,0,bsv_movebloom,
+				{
+					stime: real(global.svread[0][1]),
+					oriamont : real(global.svread[0][2]),
+					timinggroup : real(global.svread[0][4]),
+					movetype : real(global.svread[0][5]),
+					etime: real(global.svread[0][1])+real(global.svread[0][3])
+				});}
+			array_delete(global.svread,0,1);
+		}
+		else if(global.svread[0][0]=="CBN"){
+			if global.svenable==1{
+				if !instance_exists(shad_bloom) instance_create_depth(114,514,-9999,shad_bloom);
+				global.bloom[real(global.svread[0][3])]=real(global.svread[0][2]);
+			}
+			else global.bloom[real(global.svread[0][3])]=0;
+			array_delete(global.svread,0,1);
+		}
 		else if(global.svread[0][0]=="T"){
 			if global.svenable==1{
 			instance_create_depth(0,0,real(global.svread[0][26]),bsv_textspawn,

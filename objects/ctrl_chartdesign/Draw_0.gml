@@ -808,7 +808,19 @@ else if (designview==1){
 			draw_text_transformed(144,600,"未完成内容",0.3,0.3,0);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_left);
-			draw_text_transformed(300,350,"以下内容暂时无法在制谱器内编辑，需要手动编辑谱面文件：\n\nCA/CAN：chromatic特效\n格式：CAN,timing,a,type\nCA,timing,a,duration,type,ease\n\nT：显示文字\n格式：T,timing,text,time,x1,y1,gy1,sx1,sy1,a1,r1,x2,y2,gy2,sx2,sy2,a2,\n             r2,xease,yease,gyease,sxease,syease,aease,rease,color,depth\n\nE：谱面结束时间\n格式：E,timing\n\nR：重置随机组\n格式：R,timing,randomgroup\n注：在相同timing下，note会比变速早4000ms加载",0.3,0.3,0);
+			draw_text_transformed(300,350,"以下内容暂时无法在制谱器内编辑，需要手动编辑谱面文件：\n\nE：谱面结束时间\n格式：E,timing\n\nT：显示文字\n格式：T,timing,text,time,x1,y1,gy1,sx1,sy1,a1,r1,x2,y2,gy2,sx2,sy2,a2,\n             r2,xease,yease,gyease,sxease,syease,aease,rease,color,depth\n\nR：重置随机组\n格式：R,timing,randomgroup\n注：在相同timing下，note会比变速早4000ms加载",0.3,0.3,0);
+		}
+		else if(help==4){
+			draw_set_color(#000000);
+			draw_set_alpha(0.7);
+			draw_rectangle(220,0,800,1000,0);
+			draw_set_alpha(1);
+			draw_set_color(#ffffff);
+			draw_set_halign(fa_middle);
+			draw_text_transformed(144,600,"未完成内容",0.3,0.3,0);
+			draw_set_color(#ffffff);
+			draw_set_halign(fa_left);
+			draw_text_transformed(300,350,"以下内容暂时无法在制谱器内编辑，需要手动编辑谱面文件：\n\nCA/CAN：chromatic特效\n格式：CAN,timing,a,type\nCA,timing,a,duration,type,ease\n\nCB/CBN：bloom特效\n格式：CBN,timing,a,type\nCB,timing,a,duration,type,ease",0.3,0.3,0);
 		}
 	}
 	gpu_set_depth(_depth);
