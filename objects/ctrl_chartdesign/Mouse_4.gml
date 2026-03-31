@@ -52,6 +52,15 @@ if (designview==0){
 				_notex=global.chartread[i][5+floor(global.rand[real(global.chartread[i][2])]*(array_length(global.chartread[i])-5))];
 				if (_notex=="none"){_notex=0;}
 			}
+			else if(global.chartread[i][0]=="BP"){
+				_notex=real(global.chartread[i][2])+0.5;
+			}
+			else if(global.chartread[i][0]=="TP"){
+				_notex=real(global.chartread[i][2])+1;
+			}
+			else if(global.chartread[i][0]=="QP"){
+				_notex=real(global.chartread[i][2])+1.5;
+			}
 			else{
 				_notex=global.chartread[i][2];
 			}

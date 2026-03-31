@@ -89,21 +89,69 @@ if (designview==0){
 					257+102*real(global.chartread[_q][2]),
 					608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25
 				);
-				if(_canread==0) _canread=1;
+				if(_canread==0){
+					if(608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25<mouse_y+30
+					&&608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25>mouse_y-10
+					&&round((mouse_x-257)/102-real(global.chartread[_q][2]))>=0
+					&&round((mouse_x-257)/102-real(global.chartread[_q][2]))<=1){
+						draw_set_colour(c_green);
+						draw_set_alpha(0.5);
+						draw_rectangle(
+						205+102*real(global.chartread[_q][2]),
+						578+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25,
+						410+102*real(global.chartread[_q][2]),
+						618+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25,0)
+						_canread=2;
+						draw_set_colour(c_white);
+						draw_set_alpha(1);
+					}
+				}
 			}
 			else if(global.chartread[_q][0]=="TP"){
 				draw_sprite(spr_triper,0,
 					257+102*real(global.chartread[_q][2]),
 					608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25
 				);
-				if(_canread==0) _canread=1;
+				if(_canread==0){
+					if(608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25<mouse_y+30
+					&&608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25>mouse_y-10
+					&&round((mouse_x-257)/102-real(global.chartread[_q][2]))>=0
+					&&round((mouse_x-257)/102-real(global.chartread[_q][2]))<=2){
+						draw_set_colour(c_green);
+						draw_set_alpha(0.5);
+						draw_rectangle(
+						205+102*real(global.chartread[_q][2]),
+						578+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25,
+						512+102*real(global.chartread[_q][2]),
+						618+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25,0)
+						_canread=2;
+						draw_set_colour(c_white);
+						draw_set_alpha(1);
+					}
+				}
 			}
 			else if(global.chartread[_q][0]=="QP"){
 				draw_sprite(spr_quader,0,
 					257+102*real(global.chartread[_q][2]),
 					608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25
 				);
-				if(_canread==0) _canread=1;
+				if(_canread==0){
+					if(608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25<mouse_y+30
+					&&608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25>mouse_y-10
+					&&round((mouse_x-257)/102-real(global.chartread[_q][2]))>=0
+					&&round((mouse_x-257)/102-real(global.chartread[_q][2]))<=3){
+						draw_set_colour(c_green);
+						draw_set_alpha(0.5);
+						draw_rectangle(
+						205+102*real(global.chartread[_q][2]),
+						578+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25,
+						614+102*real(global.chartread[_q][2]),
+						618+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25,0)
+						_canread=2;
+						draw_set_colour(c_white);
+						draw_set_alpha(1);
+					}
+				}
 			}
 			else if(global.chartread[_q][0]=="F"){
 				draw_sprite_ext(spr_fakekey,0,
