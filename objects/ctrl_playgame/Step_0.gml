@@ -1,3 +1,41 @@
+if(keyboard_check_pressed(global.pressext[0])){
+	global.chartspeed=[1,1,1,1,1,1];
+	global.chartspeedtime=[[[1,-10000]],[[1,-10000]],[[1,-10000]],[[1,-10000]],[[1,-10000]],[[1,-10000]]];
+	global.chartmoveinspeed=[0,0,0,0,0,0];
+	global.chartmoveinglobal=[0,0,0,0,0,0];
+	global.chartxmove=[0,0,0,0,0,0];
+	global.rand=[random(0.998),random(0.998),random(0.998),random(0.998)];
+	global.pressreal=[ord("0"),ord("1"),ord("2"),ord("3"),ord("4"),ord("5")];
+	global.pressdet=[0,0,0,0,0,0];
+
+	global.bloom=[0];
+	global.chromatic=[0,1.05];
+
+	global.chartread=[];
+	global.svread=[];
+	global.presschangeread=[];
+	global.playtime=-2000;
+	global.keylist=[0,0,0,0,0,0];
+	global.keytouchlist=[0,0,0,0,0,0];
+	global.judgelist=[0,0,0,0];
+
+	room_restart();
+}
+
+if(keyboard_check_pressed(global.pressext[1])){
+	if alarm[1]>0 exit;
+	if gamepause==0{
+		alarm[1]=fps;
+		gamepause=1;
+		pausestart=current_time;
+		audio_pause_all();
+	}
+	else if (gamepause==1){
+		gamepause=2;
+		alarmpause=current_time+1000;
+		alarm[1]=0;
+	}
+}
 
 if(alarmpause<current_time&&alarmpause>-10000){
 	alarmpause=-999999

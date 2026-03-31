@@ -21,9 +21,9 @@ if file_exists(working_directory + "settings.txt"){
 }
 else{
 	var _file = file_text_open_write(working_directory + "settings.txt");
-	file_text_write_string(_file,"5\n4\n83\n68\n74\n75\n0\n1\n174\n352\n672\n1\n0\n83\n68\n74\n75\n240\n0\n0")
+	file_text_write_string(_file,"5\n4\n83\n68\n74\n75\n0\n1\n174\n352\n672\n1\n0\n83\n68\n74\n75\n240\n82\n80")
 	file_text_close(_file);
-	global.settings=[5,4,83,68,74,75,0,1,174,352,672,1,0,83,68,74,75,240,0,0];
+	global.settings=[5,4,83,68,74,75,0,1,174,352,672,1,0,83,68,74,75,240,82,80];
 }
 if window_get_width()==1280{
 	window_set_size(320*real(global.settings[1]), 184*real(global.settings[1]));
@@ -33,6 +33,7 @@ global.globalspeed=real(global.settings[0]);
 global.mirror=real(global.settings[12]);
 global.press=[real(global.settings[2]),real(global.settings[3]),real(global.settings[4]),real(global.settings[5]),real(global.settings[13]),real(global.settings[14]),real(global.settings[15]),real(global.settings[16])];
 global.pressreal=[ord("0"),ord("1"),ord("2"),ord("3"),ord("4"),ord("5")];
+global.pressext=[real(global.settings[18]),real(global.settings[19])];
 randomise();
 if (!directory_exists(working_directory + "/songlist"))
 {

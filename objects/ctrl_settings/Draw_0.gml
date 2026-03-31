@@ -16,12 +16,21 @@ if(setbase<=1){
 	draw_text_transformed(270, 350, "键位2: "+chr(global.settings[3])+"("+string(global.settings[3])+")",0.3,0.3,0);
 	draw_text_transformed(270, 400, "键位3: "+chr(global.settings[4])+"("+string(global.settings[4])+")",0.3,0.3,0);
 	draw_text_transformed(270, 450, "键位4: "+chr(global.settings[5])+"("+string(global.settings[5])+")",0.3,0.3,0);
+	
+	draw_text_transformed(270, 550, "重玩: "+chr(global.settings[18])+"("+string(global.settings[18])+")",0.3,0.3,0);
+	draw_text_transformed(270, 600, "快速暂停: "+chr(global.settings[19])+"("+string(global.settings[19])+")",0.3,0.3,0);
 
 	draw_text_transformed(830, 300, "键位1: "+chr(global.settings[13])+"("+string(global.settings[13])+")",0.3,0.3,0);
 	draw_text_transformed(830, 350, "键位2: "+chr(global.settings[14])+"("+string(global.settings[14])+")",0.3,0.3,0);
 	draw_text_transformed(830, 400, "键位3: "+chr(global.settings[15])+"("+string(global.settings[15])+")",0.3,0.3,0);
 	draw_text_transformed(830, 450, "键位4: "+chr(global.settings[16])+"("+string(global.settings[16])+")",0.3,0.3,0);
-	ry=300+50*settype;
+	if(settype<=3){
+		ry=300+50*settype;
+	}
+	else{
+		ry=350+50*settype;
+	}
+	
 	rx=250+setbase*560;
 	if(changekey==1){
 		ly=ry;

@@ -1,1 +1,1 @@
-settingall=[3,3,6,3];
+settingall=[5,3,6,3];

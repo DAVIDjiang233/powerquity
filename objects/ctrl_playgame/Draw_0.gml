@@ -112,15 +112,15 @@ if gamepause==1{
 	
 	if(global.mirror!=1){
 		draw_text_transformed(640, 160, "暂停",1,1,0);
-		draw_text_transformed(640, 290, "Enter: 继续",0.4,0.4,0);
+		draw_text_transformed(640, 290, chr(global.pressext[1])+" / Enter: 继续",0.4,0.4,0);
 		draw_text_transformed(640, 350, "ESC: 退出",0.4,0.4,0);
-		draw_text_transformed(640, 410, "R: 重玩",0.4,0.4,0);
+		draw_text_transformed(640, 410, chr(global.pressext[0])+": 重玩",0.4,0.4,0);
 	}
 	else{
 		draw_text_transformed(640, 160, "暂停",-1,1,0);
-		draw_text_transformed(640, 290, "Enter: 继续",-0.4,0.4,0);
+		draw_text_transformed(640, 290, chr(global.pressext[1])+" / Enter: 继续",-0.4,0.4,0);
 		draw_text_transformed(640, 350, "ESC: 退出",-0.4,0.4,0);
-		draw_text_transformed(640, 410, "R: 重玩",-0.4,0.4,0);
+		draw_text_transformed(640, 410, chr(global.pressext[0])+": 重玩",-0.4,0.4,0);
 	}
 }
 draw_set_colour(c_white);

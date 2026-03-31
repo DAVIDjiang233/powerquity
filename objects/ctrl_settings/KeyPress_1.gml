@@ -12,7 +12,12 @@ if(setbase<=1){
 	if(_q==59) _q=186;
 	if(91<=_q&&_q<=93) _q=_q+128;
 	if(setbase==0){
-		global.settings[settype+2]=_q;
+		if(settype<=3){
+			global.settings[settype+2]=_q;
+		}
+		else{
+			global.settings[settype+14]=_q;
+		}
 	}
 	else if(setbase==1){
 		global.settings[settype+13]=_q;
