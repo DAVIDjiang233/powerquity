@@ -1,5 +1,6 @@
 if (array_length(global.choose)==0) exit;
 if (ctrl_chartdesign.designview>0) exit;
+if (ctrl_chartdesign.designview<-1) exit;
 
 if type==4{
 	var _notetype=global.chartread[global.choose[0]][0];

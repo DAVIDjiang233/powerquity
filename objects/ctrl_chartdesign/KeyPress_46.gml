@@ -1,4 +1,4 @@
-if (designview<=0){
+if (designview<=0&&designview>=-1){
 	array_sort(global.choose,function(elm1, elm2){
 		return real(elm1)-real(elm2);
 	});
@@ -21,4 +21,8 @@ else if (designview==1){
 	scr_svdeleat(timinggroup);
 	scr_cancelsv();
 	global.svchoose=[[],[],[],[],[],[],[],[],[],[]];
+}
+else if (designview==-2){
+	array_delete(global.bpmlist,global.choose[0],1);
+	global.choose=[];
 }

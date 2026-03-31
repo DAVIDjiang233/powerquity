@@ -358,7 +358,7 @@ if (designview==0){
 			draw_text_transformed(244,368,"←修改谱面信息，鼠标左键点击",0.23,0.23,0);
 			draw_text_transformed(800,592,"鼠标滚轮\n↓随机数调整",0.23,0.23,0);
 			draw_set_halign(fa_middle);
-			draw_text_transformed(1104,96,"↑小节线BPM&延迟↑\n鼠标左键点击",0.23,0.23,0);
+			draw_text_transformed(1104,96,"↑谱面流速&小节线↑\n鼠标左键点击",0.23,0.23,0);
 			draw_text_transformed(144,600,"基础控件",0.3,0.3,0);
 			draw_set_color(c_gray);
 			draw_sprite_ext(spr_btn,0,864,208,4,1,0,c_gray,1);
@@ -1209,6 +1209,101 @@ else if (designview==-1){
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_left);
 			draw_text_transformed(300,350,"以下内容暂时无法在制谱器内编辑，需要手动编辑谱面文件：\n\nR：重置随机组\n格式：R,timing,randomgroup",0.3,0.3,0);
+		}
+	}
+}
+
+else if (designview==-2){
+	gpu_set_depth(8266);
+	draw_sprite(spr_backban,0,512,608);
+	gpu_set_depth(8000);
+	for (var i = 0; i < array_length(global.barlist); i++) {
+		draw_set_color(global.barlist[i][1]);
+		var bar_time = global.barlist[i][0];
+		
+		var _y=(global.playtime-bar_time)*0.25*global.globalspeed+610
+		if global.barlist[i][1]==#FC3636 
+			draw_line_width(298,_y,724,_y,5);
+		else if global.barlist[i][1]==#B36CFF||global.barlist[i][1]==#0093FD
+			draw_line_width(298,_y,724,_y,4);
+		else if global.barlist[i][1]==#F2C94C||global.barlist[i][1]==#F758A4
+			draw_line_width(298,_y,724,_y,3);
+		else draw_line_width(298,_y,724,_y,2);
+				
+		draw_set_halign(fa_left);
+		if real(global.barlist[i][2])>=1
+		draw_text_transformed(730,_y,"  "+string(global.barlist[i][2]),0.23,0.23,0);
+		else if real(global.barlist[i][2])>0 
+		draw_text_transformed(730,_y," "+string(global.barlist[i][2])+"/"+string(global.barline),0.2,0.2,0);
+	}
+	draw_set_halign(fa_middle);
+	draw_set_colour(c_white)
+	gpu_set_depth(_depth);
+	var _q=array_length(global.bpmlist)-1,_canread=0;
+	if(mouse_x>311&&mouse_x<715) _canread=1;
+	while(_q>=0){
+		if real(global.bpmlist[_q][0])<global.playtime break;
+		
+		if(array_length(global.choose)!=0&&global.choose[0]=_q){
+			draw_set_alpha(1);
+		}
+		else{
+			draw_set_alpha(0.65);
+		}
+		
+		draw_sprite(spr_triper,0,
+			410,
+			608+(global.playtime-real(global.bpmlist[_q][0]))*global.globalspeed*0.25
+		);
+		draw_set_alpha(1);
+		draw_text_transformed(511,
+		602+(global.playtime-real(global.bpmlist[_q][0]))*global.globalspeed*0.25
+		,"  "+string(global.bpmlist[_q][1]),0.27,0.27,0);
+		if(_canread==1){
+			if(608+(global.playtime-real(global.bpmlist[_q][0]))*global.globalspeed*0.25<mouse_y+30
+			&&608+(global.playtime-real(global.bpmlist[_q][0]))*global.globalspeed*0.25>mouse_y-10){
+				draw_set_colour(c_green);
+				draw_set_alpha(0.5);
+				draw_rectangle(
+				356,
+				578+(global.playtime-real(global.bpmlist[_q][0]))*global.globalspeed*0.25,
+				668,
+				618+(global.playtime-real(global.bpmlist[_q][0]))*global.globalspeed*0.25,0)
+				_canread=2;
+				draw_set_colour(c_white);
+				draw_set_alpha(1);
+			}
+		}
+		
+		_q--;
+	
+	}
+	draw_set_alpha(1);
+	if (mouse_x>311&&mouse_x<715&&_canread!=2){
+		draw_set_alpha(0.5);
+		if (global.barline>0&&(608+(global.playtime-global.bpmlist[0][0])*global.globalspeed*0.25)>mouse_y){
+			draw_sprite(spr_quader,0,359,
+					608+(global.playtime-scr_barfind(global.barlist,global.mousetime))*global.globalspeed*0.25
+				);
+		}
+		else if((608+(global.playtime)*global.globalspeed*0.25)>mouse_y&&mouse_y<608){
+			draw_sprite(spr_quader,0,359,mouse_y);
+		}
+		draw_set_alpha(1);
+	}
+	if (square_y!=-1){
+		draw_set_alpha(0.4);
+		gpu_set_depth(-9999);
+		draw_set_color(#00cc00);
+		draw_rectangle(mouse_x,mouse_y,square_x*102+257,((global.playtime-square_y)*global.globalspeed/4)+608,0);
+	}
+	if(mouse_x>64&&mouse_x<224&&mouse_y>640&&mouse_y<704){
+		gpu_set_depth(-10101);
+		if(help==0){
+			draw_set_alpha(1);
+			draw_set_color(#ffff00);
+			draw_set_halign(fa_left);
+			draw_text_transformed(32,600,"BPM教程\n我觉得不需要所以不写了",0.23,0.23,0);
 		}
 	}
 }

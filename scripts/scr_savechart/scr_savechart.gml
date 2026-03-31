@@ -1,4 +1,4 @@
-function scr_savechart(_file,_filesv){
+function scr_savechart(_file,_filesv,_filebpm){
 	
 	_file = file_text_open_write(_file);
 	file_text_write_string(_file, string(-ctrl_chartdesign.delay)+"\n");
@@ -162,6 +162,32 @@ function scr_savechart(_file,_filesv){
 		}
 	
 	file_text_close(_filesv);
+	
+	_filebpm = file_text_open_write(_filebpm);
+	
+	for (var j = 0; j < array_length(global.bpmlist); j++) {
+		var _result_string="";
+				
+		for (var i = 0; i < array_length(global.bpmlist[j]); i++) {
+				
+			if(scr_stringtreal(global.bpmlist[j][i])==0){
+				_result_string += global.bpmlist[j][i];
+			}
+			else{
+				_result_string += scr_floatostring(real(global.bpmlist[j][i]));
+			}
+			// 如果不是最后一个元素，添加分隔符
+			if (i < array_length(global.bpmlist[j]) - 1) {
+				_result_string += ",";
+			}
+
+		}
+		file_text_write_string(_filebpm, _result_string+"\n");
+			
+		}
+
+	
+	file_text_close(_filebpm);
 	
 	
 }

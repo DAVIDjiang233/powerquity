@@ -14,7 +14,8 @@ else if(lastmin<current_time/300000) {
 	while(lastmin<current_time/300000) lastmin++;
 	scr_savechart(
 		working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+"_Autosave.pqc",
-		working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+"_sv_Autosave.pqc"
+		working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+"_sv_Autosave.pqc",
+		working_directory + "songlist/"+string(global.filelist[global.chart])+"/bpmlist_Autosave.pqc"
 	);
 	//show_debug_message(lastmin);
 }
@@ -29,9 +30,14 @@ if (keyboard_check(vk_escape)){
 		{
 			file_delete(working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+"_sv_Old.pqc");
 		}
+		if (file_exists(working_directory + "songlist/"+string(global.filelist[global.chart])+"/bpmlist_Old.pqc"))
+		{
+			file_delete(working_directory + "songlist/"+string(global.filelist[global.chart])+"/bpmlist_Old.pqc");
+		}
 		scr_savechart(
 			working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+"_Backup.pqc",
-			working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+"_sv_Backup.pqc"
+			working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+"_sv_Backup.pqc",
+			working_directory + "songlist/"+string(global.filelist[global.chart])+"/bpmlist_Backup.pqc"
 		);
 		game_restart();
 	}
@@ -58,9 +64,21 @@ if (keyboard_check(vk_escape)){
 			    file_copy(working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+"_sv.pqc", working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+"_sv_Backup.pqc");
 			}
 		}
+		if (file_exists(working_directory + "songlist/"+string(global.filelist[global.chart])+"/bpmlist_Old.pqc"))
+		{
+			file_copy(working_directory + "songlist/"+string(global.filelist[global.chart])+"/bpmlist_Old.pqc", working_directory + "songlist/"+string(global.filelist[global.chart])+"/bpmlist_Backup.pqc");
+			file_delete(working_directory + "songlist/"+string(global.filelist[global.chart])+"/bpmlist_Old.pqc");
+		}
+		else{
+			if (file_exists(working_directory + "songlist/"+string(global.filelist[global.chart])+"/bpmlist.pqc"))
+			{
+			    file_copy(working_directory + "songlist/"+string(global.filelist[global.chart])+"/bpmlist.pqc", working_directory + "songlist/bpmlist_Backup.pqc");
+			}
+		}
 		scr_savechart(
 			working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+".pqc",
-			working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+"_sv.pqc"
+			working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+"_sv.pqc",
+			working_directory + "songlist/"+string(global.filelist[global.chart])+"/bpmlist.pqc"
 		);
 		game_restart();
 	
@@ -876,4 +894,34 @@ else if (designview==-1){
 	}
 }
 
+else if (designview==-2){
+	if (keyboard_check_pressed(ord("Q"))){
+		var _bpm=200;
+		for(var i=array_length(global.bpmlist)-1;i>=0;i--){
+			if (global.bpmlist[i][0]<global.mousetime){
+				_bpm=global.bpmlist[i][1];
+				break;
+			}
+		}
+		if (mouse_x>311&&mouse_x<715){
+			if (global.barline>0&&(608+(global.playtime-global.bpmlist[0][0])*global.globalspeed*0.25)>mouse_y){
+				
+				array_push(global.bpmlist,[scr_barfind(global.barlist,global.mousetime),_bpm]);
+				array_sort(global.bpmlist,function(elm1, elm2){
+					if real(elm1[0])>real(elm2[0]) return 1;
+					else if real(elm1[0])<real(elm2[0]) return -1;
+				});
+			}
+			else if((608+(global.playtime)*global.globalspeed*0.25)>mouse_y&&mouse_y<608){
+				array_push(global.chartread,[round(global.mousetime),_bpm]);
+				array_sort(global.bpmlist,function(elm1, elm2){
+					if real(elm1[0])>real(elm2[0]) return 1;
+					else if real(elm1[0])<real(elm2[0]) return -1;
+				});
+			}
+			global.choose=[];
+		}
+			
+	}
 	
+}

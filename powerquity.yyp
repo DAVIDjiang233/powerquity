@@ -44,6 +44,7 @@
     {"id":{"name":"bsv_speedchange","path":"objects/bsv_speedchange/bsv_speedchange.yy",},},
     {"id":{"name":"bsv_textspawn","path":"objects/bsv_textspawn/bsv_textspawn.yy",},},
     {"id":{"name":"bsv_textspawnold","path":"objects/bsv_textspawnold/bsv_textspawnold.yy",},},
+    {"id":{"name":"btn_changebar","path":"objects/btn_changebar/btn_changebar.yy",},},
     {"id":{"name":"btn_changebpm","path":"objects/btn_changebpm/btn_changebpm.yy",},},
     {"id":{"name":"btn_changechart","path":"objects/btn_changechart/btn_changechart.yy",},},
     {"id":{"name":"btn_changedelay","path":"objects/btn_changedelay/btn_changedelay.yy",},},

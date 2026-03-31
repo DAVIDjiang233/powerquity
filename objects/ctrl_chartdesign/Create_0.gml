@@ -34,8 +34,33 @@ global.svchange[3]=[[],[],[],[],[],[]];
 
 global.svchange[9]=[];
 
-if(scr_stringtreal(global.fileread[2])==1) global.bpmlist=[[0,real(global.fileread[2])]];
-else global.bpmlist=[[0,200]];
+if(file_exists(working_directory + "songlist/"+string(global.filelist[global.chart])+"/bpmlist.pqc")){
+	var i=0,_file=file_text_open_read(working_directory + "songlist/"+string(global.filelist[global.chart])+"/bpmlist.pqc");
+	while (!file_text_eof(_file))
+	{
+	    global.bpmlist[i] = string_split(file_text_read_string(_file),",");
+		while (global.bpmlist[i][0]==""&&!file_text_eof(_file)){
+			array_delete(global.bpmlist,i,1);
+			file_text_readln(_file);
+			global.bpmlist[i] = string_split(file_text_read_string(_file),",");
+		}
+		if (scr_stringtreal(global.bpmlist[i][0])!=1||scr_stringtreal(global.bpmlist[i][1])!=1) {
+			array_delete(global.bpmlist,i,1);
+			i--;
+		}
+		else {
+			global.bpmlist[i][0]=real(global.bpmlist[i][0]);
+			global.bpmlist[i][1]=real(global.bpmlist[i][1]);
+		}
+	    file_text_readln(_file);
+		i++;
+	}
+	file_text_close(_file);
+}
+else{
+	if(scr_stringtreal(global.fileread[2])==1) global.bpmlist=[[0,real(global.fileread[2])]];
+	else global.bpmlist=[[0,200]];
+}
 
 
 global.mousetime=0;

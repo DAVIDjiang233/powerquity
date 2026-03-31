@@ -29,3 +29,19 @@ else if (designview==-1){
 	}
 	global.choose=[];
 }
+else if (designview==-2){
+	if(array_length(global.bpmlist)==1)exit;
+	if (mouse_x<700&&mouse_x>500){
+		global.choose=[];
+		for(var i=array_length(global.bpmlist)-1;i>0;i--){
+
+			var _y=608+(global.playtime-real(global.bpmlist[i][0]))*global.globalspeed*0.25;
+				
+			if (_y<mouse_y+30&&mouse_y-10<_y){
+				array_delete(global.bpmlist,i,1);
+				global.barlist=scr_barline(global.bpmlist, global.playtime, global.playtime+5000);
+				break;
+			}
+		}
+	}
+}

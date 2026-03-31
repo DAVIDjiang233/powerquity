@@ -214,3 +214,26 @@ else if (designview==-1){
 		square_y=-1;
 	}
 }
+else if (designview==-2){
+	if(array_length(global.choose)!=0){
+		var _q=global.choose[0];
+		global.choose=[];
+		for(var i=_q-1;i>=0;i--){
+			var _y=608+(global.playtime-real(global.bpmlist[i][0]))*global.globalspeed*0.25;
+			if (_y<mouse_y+30&&mouse_y-10<_y){
+				global.choose=[i];
+				break;
+			}
+		}
+	}
+	if(array_length(global.choose)==0){
+		for(var i=array_length(global.bpmlist)-1;i>=0;i--){
+			var _y=608+(global.playtime-real(global.bpmlist[i][0]))*global.globalspeed*0.25;
+			if (_y<mouse_y+30&&mouse_y-10<_y){
+				global.choose=[i];
+				break;
+			}
+		}
+	}
+	show_debug_message(global.choose);
+}

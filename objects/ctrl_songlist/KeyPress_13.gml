@@ -186,6 +186,11 @@ else if chartloading==1{
 						, working_directory+"songlist/"+string(global.filelist[global.chart])+"/"+string(_i)+"_sv.pqc");
 					}
 				}
+				if (file_exists(working_directory+"songlist/"+string(global.filelist[global.chart])+"/bpmlist.pqc")){
+					zip_add_file(_zip
+					, _zipnum+"/bpmlist.pqc"
+					, working_directory+"songlist/"+string(global.filelist[global.chart])+"/bpmlist.pqc");
+				}
 				zip_add_file(_zip
 					, _zipnum+"/base.ogg"
 					, working_directory+"songlist/"+string(global.filelist[global.chart])+"/base.ogg");

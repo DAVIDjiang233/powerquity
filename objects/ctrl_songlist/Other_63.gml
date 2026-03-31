@@ -103,6 +103,10 @@ if (i_d == msg)
 							, _zipnum+"/main.pqc"
 							, working_directory+"songlist/"+string(global.filelist[global.chart])+"/main.pqc");
 						
+						zip_add_file(_zip
+							, _zipnum+"/bpmlist.pqc"
+							, working_directory+"songlist/"+string(global.filelist[global.chart])+"/bpmlist.pqc");
+						
 						zip_save(_zip, _file);
 						
 						chartloading=0;
