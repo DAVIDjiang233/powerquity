@@ -29,11 +29,17 @@ else{
 	
 	else if (setbase==3&&settype==0){
 		global.settings[0]=real(global.settings[0])-0.1;
-		if !keyboard_check(vk_control) global.settings[0]=real(global.settings[0])-0.4;
+		if !keyboard_check(vk_control){
+			global.settings[0]=real(global.settings[0])-0.4;
+			if keyboard_check(vk_shift) global.settings[0]-=0.5;
+		}
 		if global.settings[0]<=0 global.settings[0]=0.1;
 	}
 	else if (setbase==3&&settype==3){
 		global.settings[6]=real(global.settings[6])-1;
-		if !keyboard_check(vk_control) global.settings[6]=real(global.settings[6])-9;
+		if !keyboard_check(vk_control){
+			global.settings[6]=real(global.settings[6])-9;
+			if keyboard_check(vk_shift) global.settings[6]-=40;
+		}
 	}
 }
