@@ -6,6 +6,10 @@ if(debug_mode) draw_text_transformed(1244, 700, "[DEBUG]",0.25,0.25,0);
 else draw_text_transformed(1244, 700, GM_version,0.25,0.25,0);
 draw_set_halign(fa_center);
 if array_length(global.filelist)==0 {
+	draw_sprite(fonthint,0,100,300);
+	draw_set_colour(c_black);
+	draw_text_transformed(2422, 318, "【",-100,100,0);
+	draw_set_colour(c_white);
 	draw_text_transformed(992, 160, "没有谱面 :(",0.5,0.5,0);
 	draw_text_transformed(992, 218, "按R刷新",0.3,0.3,0);
 	draw_text_transformed(992, 268, "按C导入谱面",0.3,0.3,0);

@@ -121,6 +121,7 @@
     {"id":{"name":"Shader_bloom","path":"shaders/Shader_bloom/Shader_bloom.yy",},},
     {"id":{"name":"Shader_mirror","path":"shaders/Shader_mirror/Shader_mirror.yy",},},
     {"id":{"name":"Shader3","path":"shaders/Shader3/Shader3.yy",},},
+    {"id":{"name":"fonthint","path":"sprites/fonthint/fonthint.yy",},},
     {"id":{"name":"gunmu","path":"sprites/gunmu/gunmu.yy",},},
     {"id":{"name":"spr_backban","path":"sprites/spr_backban/spr_backban.yy",},},
     {"id":{"name":"spr_barline","path":"sprites/spr_barline/spr_barline.yy",},},
