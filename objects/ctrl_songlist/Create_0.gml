@@ -50,7 +50,7 @@ if (!directory_exists(working_directory + "/skin"))
 if (file_exists(working_directory + "/skin/font.ttf")) global.fontall=font_add(working_directory + "/skin/font.ttf",72,0,0,32,128);
 else if (file_exists(working_directory + "/skin/font.ttc")) global.fontall=font_add(working_directory + "/skin/font.ttc",72,0,0,32,128);
 else if (file_exists(working_directory + "/skin/font.otf")) global.fontall=font_add(working_directory + "/skin/font.otf",72,0,0,32,128);
-else global.fontall=font_add("denga",72,0,0,32,128);
+else global.fontall=font_add("deng",72,0,0,32,128);
 global.fileread=[];
 global.filelist=[];
 global.highscore=[];
