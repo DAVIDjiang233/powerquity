@@ -203,6 +203,30 @@ function scr_nibl(_string){
 			else return[[[0]],[]];
 			_strnum++;
 		}
+		//处理;
+		else if(string_char_at(_string,_strnum+1)==";"){
+			if(_lastnum=1){
+				while(array_length(_sym)>0){
+					if(_sym[array_length(_sym)-1]=="("&&_sym[array_length(_sym)-1]!="abs"
+					&&_sym[array_length(_sym)-1]!="sin"&&_sym[array_length(_sym)-1]!="cos"
+					&&_sym[array_length(_sym)-1]!="pow"){
+						return[[[0]],[]];
+					}
+					array_push(_rpn,_sym[array_length(_sym)-1]);
+					array_pop(_sym);
+				}
+				if(array_length(_rpnall[0])==array_length(_rpnall[1])){
+					array_push(_rpnall[0],_rpn);
+				}
+				else{
+					array_push(_rpnall[1],scr_calc([[_rpn],[]],0));
+				}
+				_rpn=[];
+				_lastnum=0;
+			}
+			else return[[[0]],[]];
+			_strnum++;
+		}
 			
 		else _strnum++;
 	}

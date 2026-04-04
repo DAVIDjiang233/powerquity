@@ -852,6 +852,23 @@ else if (designview==1){
 		else if(help==3){
 			draw_set_color(#000000);
 			draw_set_alpha(0.7);
+			draw_rectangle(250,0,800,1000,0);
+			draw_set_alpha(1);
+			draw_set_color(#ffffff);
+			draw_set_halign(fa_left);
+			draw_text_transformed(320,350,"\nCtrl+右键点击“缓动”按钮，输入数学公式来定义任意缓动曲线\n其中x为缓动进度(0→1)，计算结果 y 为对应的值(建议0→1)\n\n在两个表达式中间插入数值，并且使用\",\"或\";\"分隔，可创建分段函数\n示例： x^2;0.5;2x-0.75;0.75;x",0.3,0.3,0);
+			draw_set_halign(fa_middle);
+			draw_text_transformed(144,600,"自定义缓动",0.3,0.3,0);
+			draw_set_color(c_gray);
+			draw_sprite_ext(spr_btn,0,1024,256,4,1,0,c_gray,1);
+			draw_text_transformed(1024,256,"缓动",0.23,0.23,0);
+			draw_set_color(#ffffff);
+			draw_set_halign(fa_right);
+			draw_text_transformed(956,272,"↗",0.3,0.3,0);
+		}
+		else if(help==4){
+			draw_set_color(#000000);
+			draw_set_alpha(0.7);
 			draw_rectangle(220,0,800,1000,0);
 			draw_set_alpha(1);
 			draw_set_color(#ffffff);
@@ -861,7 +878,7 @@ else if (designview==1){
 			draw_set_halign(fa_left);
 			draw_text_transformed(300,350,"以下内容暂时无法在制谱器内编辑，需要手动编辑谱面文件：\n\nE：谱面结束时间\n格式：E,timing\n\nT：显示文字\n格式：T,timing,text,time,x1,y1,gy1,sx1,sy1,a1,r1,x2,y2,gy2,sx2,sy2,a2,\n             r2,xease,yease,gyease,sxease,syease,aease,rease,color,depth\n\nR：重置随机组\n格式：R,timing,randomgroup\n注：在相同timing下，note会比变速早4000ms加载",0.3,0.3,0);
 		}
-		else if(help==4){
+		else if(help==5){
 			draw_set_color(#000000);
 			draw_set_alpha(0.7);
 			draw_rectangle(220,0,800,1000,0);

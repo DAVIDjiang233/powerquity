@@ -214,9 +214,9 @@ function scr_nibl2str(_rpnall){
 		}
 		_str+=_cal[0];
 		if(_num<array_length(_rpnall[1])){
-		_str+=",";
-		_str+=_rpnall[1][_num];
-		_str+=",";
+		_str+=";";
+		_str+=scr_floatostring(_rpnall[1][_num]);
+		_str+=";";
 		}
 	}
 	return(_str);
