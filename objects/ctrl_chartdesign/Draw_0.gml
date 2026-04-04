@@ -2,6 +2,9 @@ draw_set_halign(fa_left);
 draw_set_font(global.fontall);
 draw_set_colour(c_white);
 draw_set_alpha(1);
+if(debug_mode){
+	draw_text_transformed(0,20,fps_real,0.3,0.3,0);
+}
 
 var _zwrite = gpu_get_zwriteenable();
 var _ztest = gpu_get_ztestenable();

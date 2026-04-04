@@ -39,7 +39,7 @@ function scr_savechart(_file,_filesv,_filebpm){
 				scr_floatostring(global.svchange[5][j][i][1]),
 				scr_floatostring(global.svchange[5][j][i][2]),
 				scr_floatostring(j),
-				scr_floatostring(global.svchange[5][j][i][3])
+				scr_array2nibl(global.svchange[5][j][i][3])
 			]);
 		}
 	}
@@ -51,7 +51,7 @@ function scr_savechart(_file,_filesv,_filebpm){
 				scr_floatostring(global.svchange[8][j][i][1]),
 				scr_floatostring(global.svchange[8][j][i][2]),
 				scr_floatostring(j),
-				scr_floatostring(global.svchange[8][j][i][3])
+				scr_array2nibl(global.svchange[8][j][i][3])
 			]);
 		}
 	}
@@ -63,7 +63,7 @@ function scr_savechart(_file,_filesv,_filebpm){
 				scr_floatostring(global.svchange[6][j][i][1]),
 				scr_floatostring(global.svchange[6][j][i][2]),
 				scr_floatostring(j),
-				scr_floatostring(global.svchange[6][j][i][3])
+				scr_array2nibl(global.svchange[6][j][i][3])
 			]);
 		}
 	}
@@ -75,7 +75,7 @@ function scr_savechart(_file,_filesv,_filebpm){
 				scr_floatostring(global.svchange[7][j][i][1]),
 				scr_floatostring(global.svchange[7][j][i][2]),
 				scr_floatostring(j),
-				scr_floatostring(global.svchange[7][j][i][3])
+				scr_array2nibl(global.svchange[7][j][i][3])
 			]);
 		}
 	}

@@ -116,7 +116,7 @@ while(chartlist<512&&0<array_length(global.svread)){
 					stime: real(global.svread[0][1]),
 					oriamont : real(global.svread[0][2]),
 					timinggroup : real(global.svread[0][4]),
-					movetype : real(global.svread[0][5]),
+					movetype : scr_nibl2array(global.svread[0][5]),
 					etime: real(global.svread[0][1])+real(global.svread[0][3])
 				});
 			}
@@ -135,7 +135,7 @@ while(chartlist<512&&0<array_length(global.svread)){
 					stime: real(global.svread[0][1]),
 					oriamont : real(global.svread[0][2]),
 					timinggroup : real(global.svread[0][4]),
-					movetype : real(global.svread[0][5]),
+					movetype : scr_nibl2array(global.svread[0][5]),
 					etime: real(global.svread[0][1])+real(global.svread[0][3])
 				});
 			}
@@ -154,7 +154,7 @@ while(chartlist<512&&0<array_length(global.svread)){
 					stime: real(global.svread[0][1]),
 					oriamont : real(global.svread[0][2]),
 					timinggroup : real(global.svread[0][4]),
-					movetype : real(global.svread[0][5]),
+					movetype : scr_nibl2array(global.svread[0][5]),
 					etime: real(global.svread[0][1])+real(global.svread[0][3])
 				});
 			}
@@ -174,7 +174,7 @@ while(chartlist<512&&0<array_length(global.svread)){
 					stime: real(global.svread[0][1]),
 					oriamont : real(global.svread[0][2]),
 					timinggroup : real(global.svread[0][4]),
-					movetype : real(global.svread[0][5]),
+					movetype : scr_nibl2array(global.svread[0][5]),
 					etime: real(global.svread[0][1])+real(global.svread[0][3])
 				});
 			}
@@ -195,7 +195,7 @@ while(chartlist<512&&0<array_length(global.svread)){
 					stime: real(global.svread[0][1]),
 					oriamont : real(global.svread[0][2]),
 					timinggroup : real(global.svread[0][4]),
-					movetype : real(global.svread[0][5]),
+					movetype : scr_nibl2array(global.svread[0][5]),
 					etime: real(global.svread[0][1])+real(global.svread[0][3])
 				});}
 			array_delete(global.svread,0,1);
@@ -217,7 +217,7 @@ while(chartlist<512&&0<array_length(global.svread)){
 					stime: real(global.svread[0][1]),
 					oriamont : real(global.svread[0][2]),
 					timinggroup : real(global.svread[0][4]),
-					movetype : real(global.svread[0][5]),
+					movetype : scr_nibl2array(global.svread[0][5]),
 					etime: real(global.svread[0][1])+real(global.svread[0][3])
 				});}
 			array_delete(global.svread,0,1);
@@ -251,13 +251,13 @@ while(chartlist<512&&0<array_length(global.svread)){
 					msy2 : real(global.svread[0][15]),
 					ma2 : real(global.svread[0][16]),
 					mr2 : real(global.svread[0][17]),
-					ex : real(global.svread[0][18]),
-					ey : real(global.svread[0][19]),
-					egy : real(global.svread[0][20]),
-					esx : real(global.svread[0][21]),
-					esy : real(global.svread[0][22]),
-					ea : real(global.svread[0][23]),
-					er : real(global.svread[0][24]),
+					ex : scr_nibl2array(global.svread[0][18]),
+					ey : scr_nibl2array(global.svread[0][19]),
+					egy : scr_nibl2array(global.svread[0][20]),
+					esx : scr_nibl2array(global.svread[0][21]),
+					esy : scr_nibl2array(global.svread[0][22]),
+					ea : scr_nibl2array(global.svread[0][23]),
+					er : scr_nibl2array(global.svread[0][24]),
 					txtcolor : real(global.svread[0][25]),
 				});}
 			array_delete(global.svread,0,1);

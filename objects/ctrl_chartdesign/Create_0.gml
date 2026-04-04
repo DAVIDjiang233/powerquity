@@ -121,7 +121,7 @@ while (!file_text_eof(_file))
 					global.svchange[5][_i]=[];
 				}
 			}
-			array_push(global.svchange[5][real(_sv[4])],[real(_sv[1]),real(_sv[2]),real(_sv[3]),real(_sv[5])]);
+			array_push(global.svchange[5][real(_sv[4])],[real(_sv[1]),real(_sv[2]),real(_sv[3]),scr_nibl2array(_sv[5])]);
 		}
 		else if(_sv[0]=="M"){
 			if(array_length(global.svchange[6])<=real(_sv[4])){
@@ -129,7 +129,7 @@ while (!file_text_eof(_file))
 					global.svchange[6][_i]=[];
 				}
 			}
-			array_push(global.svchange[6][real(_sv[4])],[real(_sv[1]),real(_sv[2]),real(_sv[3]),real(_sv[5])]);
+			array_push(global.svchange[6][real(_sv[4])],[real(_sv[1]),real(_sv[2]),real(_sv[3]),scr_nibl2array(_sv[5])]);
 		}
 		else if(_sv[0]=="MG"){
 			if(array_length(global.svchange[7])<=real(_sv[4])){
@@ -137,7 +137,7 @@ while (!file_text_eof(_file))
 					global.svchange[7][_i]=[];
 				}
 			}
-			array_push(global.svchange[7][real(_sv[4])],[real(_sv[1]),real(_sv[2]),real(_sv[3]),real(_sv[5])]);
+			array_push(global.svchange[7][real(_sv[4])],[real(_sv[1]),real(_sv[2]),real(_sv[3]),scr_nibl2array(_sv[5])]);
 		}
 		else if(_sv[0]=="X"){
 			if(array_length(global.svchange[8])<=real(_sv[4])){
@@ -145,7 +145,7 @@ while (!file_text_eof(_file))
 					global.svchange[8][_i]=[];
 				}
 			}
-			array_push(global.svchange[8][real(_sv[4])],[real(_sv[1]),real(_sv[2]),real(_sv[3]),real(_sv[5])]);
+			array_push(global.svchange[8][real(_sv[4])],[real(_sv[1]),real(_sv[2]),real(_sv[3]),scr_nibl2array(_sv[5])]);
 		}
 		else if(_sv[0]=="SN"){
 			if(array_length(global.svchange[1])<=real(_sv[3])){

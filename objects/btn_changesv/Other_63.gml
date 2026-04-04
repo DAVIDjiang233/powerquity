@@ -55,6 +55,11 @@ if (i_d == msg)
 					scr_cancelsv();
 				}
 			}
+			else if (type==4){
+				scr_tgsetnum(ctrl_chartdesign.timinggroup,scr_nibl(_num),3);
+				scr_cancelsv();
+			}
         }
     }
 }
+keyboard_key_release(vk_control);
