@@ -2,7 +2,7 @@ if (global.mouseonbtn==1) exit;
 if !keyboard_check(vk_control) exit;
 
 
-if (designview<=0){
+if (designview==0||designview==-1){
 	if array_length(global.choose)==0 exit;
 	global.copy=[];
 	for(var i=0;i<array_length(global.choose);i++){

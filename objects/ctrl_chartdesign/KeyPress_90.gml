@@ -2,7 +2,7 @@
 if (global.mouseonbtn==1) exit;
 if !keyboard_check(vk_control) exit;
 
-if (designview<=0){
+if (designview==0||designview==-1){
 	if(cancelchartlist<=0) exit;
 	cancelchartlist--;
 	

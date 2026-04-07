@@ -3,7 +3,7 @@ if !keyboard_check(vk_control) exit;
 if array_length(global.copy)==0 exit;
 
 
-if (designview<=0){
+if (designview==0||designview==-1){
 	if (global.mousetime<0) exit;
 	var _time=scr_barfind(global.barlist,global.mousetime);
 	global.choose=[];
