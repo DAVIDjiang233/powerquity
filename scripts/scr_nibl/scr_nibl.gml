@@ -6,6 +6,7 @@ function scr_nibl(_string){
 	var _numtemp="";
 	while(_strnum<string_length(_string)){
 		//处理数值
+		
 		if(
 		(ord(string_char_at(_string,_strnum+1))<=ord(9)
 		&&ord(string_char_at(_string,_strnum+1))>=ord(0))
@@ -207,9 +208,9 @@ function scr_nibl(_string){
 		else if(string_char_at(_string,_strnum+1)==";"){
 			if(_lastnum=1){
 				while(array_length(_sym)>0){
-					if(_sym[array_length(_sym)-1]=="("&&_sym[array_length(_sym)-1]!="abs"
-					&&_sym[array_length(_sym)-1]!="sin"&&_sym[array_length(_sym)-1]!="cos"
-					&&_sym[array_length(_sym)-1]!="pow"){
+					if(_sym[array_length(_sym)-1]=="("||_sym[array_length(_sym)-1]=="abs"
+					||_sym[array_length(_sym)-1]=="sin"||_sym[array_length(_sym)-1]=="cos"
+					||_sym[array_length(_sym)-1]=="pow"){
 						return[[[0]],[]];
 					}
 					array_push(_rpn,_sym[array_length(_sym)-1]);
