@@ -908,9 +908,9 @@ else if (designview==2){
 	while(_q>=0){
 		if real(global.chartread[_q][1])<global.playtime-20000 break;
 		
-		_xy=scr_chartxyset(real(global.chartread[_q][1]),real(global.chartread[_q][2]),real(global.chartread[_q][3]));
-		
 		if(global.chartread[_q][0]=="T"){
+			_xy=scr_chartxyset(real(global.chartread[_q][1]),real(global.chartread[_q][2]),real(global.chartread[_q][3]));
+		
 			if(real(global.chartread[_q][1])>global.playtime){
 				draw_sprite(spr_tap,0,
 					_xy[0],
@@ -931,6 +931,8 @@ else if (designview==2){
 			}	
 		}
 		else if(global.chartread[_q][0]=="BP"){
+			_xy=scr_chartxyset(real(global.chartread[_q][1]),real(global.chartread[_q][2]),real(global.chartread[_q][3]));
+		
 			if(real(global.chartread[_q][1])>global.playtime){
 				draw_sprite(spr_bumper,0,
 					_xy[0],
@@ -939,6 +941,8 @@ else if (designview==2){
 			}
 		}
 		else if(global.chartread[_q][0]=="TP"){
+			_xy=scr_chartxyset(real(global.chartread[_q][1]),real(global.chartread[_q][2]),real(global.chartread[_q][3]));
+		
 			if(real(global.chartread[_q][1])>global.playtime){
 				draw_sprite(spr_triper,0,
 					_xy[0],
@@ -947,6 +951,8 @@ else if (designview==2){
 			}
 		}
 		else if(global.chartread[_q][0]=="QP"){
+			_xy=scr_chartxyset(real(global.chartread[_q][1]),real(global.chartread[_q][2]),real(global.chartread[_q][3]));
+		
 			if(real(global.chartread[_q][1])>global.playtime){
 				draw_sprite(spr_quader,0,
 					_xy[0],
@@ -955,6 +961,8 @@ else if (designview==2){
 			}
 		}
 		else if(global.chartread[_q][0]=="F"){
+			_xy=scr_chartxyset(real(global.chartread[_q][1]),real(global.chartread[_q][2]),real(global.chartread[_q][3]));
+		
 			if(real(global.chartread[_q][1])>global.playtime){
 				draw_sprite_ext(spr_fakekey,0,
 					_xy[0],
@@ -978,6 +986,8 @@ else if (designview==2){
 			}	
 		}
 		else if(global.chartread[_q][0]=="B"){
+			_xy=scr_chartxyset(real(global.chartread[_q][1]),real(global.chartread[_q][2]),real(global.chartread[_q][3]));
+		
 			if(real(global.chartread[_q][1])>global.playtime){
 				gpu_set_depth(5500);
 				draw_set_colour(#999999);
@@ -986,6 +996,8 @@ else if (designview==2){
 			}
 		}
 		else if(global.chartread[_q][0]=="N"){
+			_xy=scr_chartxyset(real(global.chartread[_q][1]),real(global.chartread[_q][2]),real(global.chartread[_q][3]));
+		
 			if(real(global.chartread[_q][1])>global.playtime){
 				draw_sprite(spr_endtap,0,
 					_xy[0],
@@ -994,6 +1006,8 @@ else if (designview==2){
 			}
 		}
 		else if(global.chartread[_q][0]=="M"){
+			_xy=scr_chartxyset(real(global.chartread[_q][1]),real(global.chartread[_q][2]),real(global.chartread[_q][3]));
+		
 			if(real(global.chartread[_q][1])>global.playtime){
 				draw_sprite(spr_misstap,0,
 					_xy[0],
@@ -1014,6 +1028,8 @@ else if (designview==2){
 			}	
 		}
 		else if(global.chartread[_q][0]=="A"){
+			_xy=scr_chartxyset(real(global.chartread[_q][1]),real(global.chartread[_q][2]),real(global.chartread[_q][3]));
+		
 			if(real(global.chartread[_q][1])>global.playtime){
 				draw_sprite(spr_touchap,0,
 					_xy[0],
@@ -1034,6 +1050,8 @@ else if (designview==2){
 			}	
 		}
 		else if(global.chartread[_q][0]=="L"){
+			_xy=scr_chartxyset(real(global.chartread[_q][1]),real(global.chartread[_q][2]),real(global.chartread[_q][3]));
+		
 			var _yup=scr_chartxyset(real(global.chartread[_q][4]),real(global.chartread[_q][2]),real(global.chartread[_q][3]))[1];
 			
 			if(real(global.chartread[_q][1])>global.playtime){
@@ -1048,6 +1066,8 @@ else if (designview==2){
 			}
 		}
 		else if(global.chartread[_q][0]=="LN"){
+			_xy=scr_chartxyset(real(global.chartread[_q][1]),real(global.chartread[_q][2]),real(global.chartread[_q][3]));
+		
 			var _yup=scr_chartxyset(real(global.chartread[_q][4]),real(global.chartread[_q][2]),real(global.chartread[_q][3]))[1];
 			if(real(global.chartread[_q][1])>global.playtime){
 				draw_sprite(spr_tap,0,_xy[0],_xy[1]);
@@ -1062,6 +1082,8 @@ else if (designview==2){
 			}
 		}
 		else if(global.chartread[_q][0]=="P"){
+			_xy=scr_chartxyset(real(global.chartread[_q][1]),real(global.chartread[_q][2]),real(global.chartread[_q][3]));
+		
 			if(real(global.chartread[_q][1])>global.playtime){
 				gpu_set_depth(8000-((real(global.chartread[_q][1])-global.playtime)/10));
 				if global.chartread[_q][4]=="1" draw_set_colour(#440000);
