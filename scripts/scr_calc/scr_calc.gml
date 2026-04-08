@@ -41,7 +41,7 @@ function scr_calc(_rpnall,_x){
 			else return 0;
 		}
 		else if(_rpn[_i]=="pow"){
-			if(array_length(_cal)<=2) return 0;
+			if(array_length(_cal)<2) return 0;
 			if(_cal[array_length(_cal)-2]>0
 			||(_cal[array_length(_cal)-2]==0&&array_last(_cal)>=0)
 			||(_cal[array_length(_cal)-2]<0&&(round(array_last(_cal))==array_last(_cal)))
