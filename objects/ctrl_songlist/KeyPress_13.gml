@@ -23,7 +23,7 @@ else if chartloading==1{
 		if (loadchart != "")
 			{
 			    var q=zip_unzip(loadchart, working_directory + "songlist/");
-				game_restart();
+				scr_restart();
 			}
 	}
 	else if modtype==1{
@@ -41,7 +41,7 @@ else if chartloading==1{
 		else {
 			if (directory_exists(working_directory+"songlist/"+string(global.filelist[global.chart]))) 
 				directory_destroy(working_directory+"songlist/"+string(global.filelist[global.chart]));
-			game_restart();
+			scr_restart();
 		}
 	}
 	else if modtype==3{
@@ -99,7 +99,7 @@ else if chartloading==1{
 			}
 			file_text_close(_file);
 
-			game_restart();
+			scr_restart();
 		}
 	}
 	else if modtype==4{
@@ -157,7 +157,7 @@ else if chartloading==1{
 			}
 			file_text_close(_file);
 
-			game_restart();
+			scr_restart();
 		}
 	}
 	else if modtype==5 {
@@ -264,7 +264,7 @@ else if chartediting==1{
 			}
 			file_text_close(_file);
 			
-			game_restart();
+			scr_restart();
 		}
 	}
 }

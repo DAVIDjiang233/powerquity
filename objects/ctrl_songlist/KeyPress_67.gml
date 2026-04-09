@@ -4,7 +4,7 @@ if array_length(global.filelist)==0 {
 		if (loadchart != "")
 			{
 			    var q=zip_unzip(loadchart, working_directory + "songlist/");
-				game_restart();
+				scr_restart();
 			}
 
 }

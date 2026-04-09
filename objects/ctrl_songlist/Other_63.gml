@@ -32,7 +32,7 @@ if (i_d == msg)
 						file_text_write_string(_tempfile,_num+"\n曲师\nBPM但是可以随便填\n谱师\n难度");
 						file_text_close(_tempfile);
 				
-						game_restart();
+						scr_restart();
 				
 					}
 				}
@@ -70,7 +70,7 @@ if (i_d == msg)
 						);
 					}
 					directory_destroy(working_directory+"songlist/"+string(global.filelist[global.chart]));
-					game_restart();
+					scr_restart();
 				
 				}
 				if (modtype==6) {
@@ -140,7 +140,7 @@ if (i_d == msg)
 							file_text_write_string(_tempfile,_num+"\n曲师\nBPM但是可以随便填\n谱师\n难度");
 							file_text_close(_tempfile);
 				
-							game_restart();
+							scr_restart();
 				
 						}
 					}
@@ -168,7 +168,7 @@ if (i_d == msg)
 					file_text_close(_tempfile);
 							
 					
-					game_restart();
+					scr_restart();
 				}
 				else if (modtype==3) {
 					var _file = file_text_open_write(working_directory + "songlist/"+string(global.filelist[global.chart])+"/main.pqc");
@@ -189,7 +189,7 @@ if (i_d == msg)
 							
 					
 					
-					game_restart();
+					scr_restart();
 				}
 			}
 		}

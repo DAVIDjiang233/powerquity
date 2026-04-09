@@ -5,4 +5,4 @@ if gamepause==0{
 	pausestart=current_time;
 	audio_pause_all();
 }
-else if gamepause==1 game_restart();
+else if gamepause==1 scr_restart();

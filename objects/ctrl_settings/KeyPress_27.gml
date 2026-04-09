@@ -8,5 +8,5 @@ while(_q<array_length(global.settings)){
 }
 file_text_close(_file);
 
-game_restart();
+scr_restart();
 

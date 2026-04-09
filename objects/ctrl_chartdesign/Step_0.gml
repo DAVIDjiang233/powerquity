@@ -39,7 +39,7 @@ if (keyboard_check(vk_escape)){
 			working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+"_sv_Backup.pqc",
 			working_directory + "songlist/"+string(global.filelist[global.chart])+"/bpmlist_Backup.pqc"
 		);
-		game_restart();
+		scr_restart();
 	}
 	else if(keyboard_check_pressed(ord("S"))){
 		if (file_exists(working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+"_Old.pqc"))
@@ -80,7 +80,7 @@ if (keyboard_check(vk_escape)){
 			working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+"_sv.pqc",
 			working_directory + "songlist/"+string(global.filelist[global.chart])+"/bpmlist.pqc"
 		);
-		game_restart();
+		scr_restart();
 	
 	}
 }
