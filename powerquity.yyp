@@ -139,6 +139,7 @@
     {"id":{"name":"spr_dlt","path":"sprites/spr_dlt/spr_dlt.yy",},},
     {"id":{"name":"spr_endtap","path":"sprites/spr_endtap/spr_endtap.yy",},},
     {"id":{"name":"spr_fakekey","path":"sprites/spr_fakekey/spr_fakekey.yy",},},
+    {"id":{"name":"spr_fakeln","path":"sprites/spr_fakeln/spr_fakeln.yy",},},
     {"id":{"name":"spr_grondboard","path":"sprites/spr_grondboard/spr_grondboard.yy",},},
     {"id":{"name":"spr_lnkey","path":"sprites/spr_lnkey/spr_lnkey.yy",},},
     {"id":{"name":"spr_misstap","path":"sprites/spr_misstap/spr_misstap.yy",},},

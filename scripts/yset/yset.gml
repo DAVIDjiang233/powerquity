@@ -27,7 +27,7 @@ function yset(_time){
 		}
 	}
 	
-	var _y=global.playskin[67]+(_speed+global.chartmoveinspeed[timinggroup]*4)
+	var _y=global.playskin[71]+(_speed+global.chartmoveinspeed[timinggroup]*4)
 	*global.globalspeed*0.25*global.chartspeed[timinggroup]
 	+global.chartmoveinglobal[timinggroup];
 	return _y;

@@ -1,3 +1,3 @@
 y=yset(endtime);
 x=xset(key1,endtime);
-sprite_index=global.playskin[key1+27];
+sprite_index=global.playskin[key1+31];

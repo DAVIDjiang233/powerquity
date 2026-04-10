@@ -3,6 +3,7 @@ x-(sprite_get_width(global.playskin[key1+23])/2),yup,
 x+(sprite_get_width(global.playskin[key1+23])/2),yup,
 x+(sprite_get_width(global.playskin[key1+23])/2),ydo,
 x-(sprite_get_width(global.playskin[key1+23])/2),ydo,1);
+draw_sprite(global.playskin[key1+27],0,x,yup);
 if keytouched==0 draw_sprite(global.playskin[key1+19],0,x,ydo);
 if debug_mode{
 draw_set_halign(fa_center);
