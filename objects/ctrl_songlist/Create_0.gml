@@ -54,7 +54,30 @@ else if (file_exists(working_directory + "/skin/font.ttc")) global.fontall=font_
 else if (file_exists(working_directory + "/skin/font.otf")) global.fontall=font_add(working_directory + "/skin/font.otf",72,0,0,32,128);
 else global.fontall=font_add("deng",72,0,0,32,128);
 	
-global.playskin=[spr_tap,spr_tap,spr_tap,spr_tap];
+global.playskin=[
+spr_tap,spr_tap,spr_tap,spr_tap,
+spr_touchap,spr_touchap,spr_touchap,spr_touchap,
+spr_misstap,spr_misstap,spr_misstap,spr_misstap,
+spr_fakekey,
+spr_bumper,spr_bumper,spr_bumper,
+spr_triper,spr_triper,
+spr_quader,
+spr_lnkey,
+spr_tap,spr_tap,spr_tap,spr_tap,
+spr_lnkey,spr_lnkey,spr_lnkey,spr_lnkey,
+spr_endtap,spr_endtap,spr_endtap,spr_endtap,
+spr_backban,
+spr_grondboard,spr_grondboard,spr_grondboard,spr_grondboard,
+spr_grondboard,spr_grondboard,spr_grondboard,spr_grondboard,
+spr_grondboard,spr_grondboard,spr_grondboard,spr_grondboard,
+spr_grondboard,spr_grondboard,spr_grondboard,spr_grondboard,
+spr_grondboard,spr_grondboard,spr_grondboard,spr_grondboard,
+spr_grondboard,spr_grondboard,spr_grondboard,spr_grondboard,
+spr_grondboard,spr_grondboard,spr_grondboard,spr_grondboard,
+spr_grondboard,spr_grondboard,spr_grondboard,spr_grondboard,
+96,102,608,
+#ff6666,#ff9966,#66cc66,#6666ff,#ff3333,#ff7733,#33aa33,#3333ff];
+
 scr_loadskin("");
 //show_debug_message(global.playskin)
 global.fileread=[];

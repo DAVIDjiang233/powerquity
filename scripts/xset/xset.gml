@@ -1,4 +1,4 @@
 function xset(_key,_time){
-	var _x=385+102*_key+global.chartxmove[timinggroup]
+	var _x=(global.chartxmove[timinggroup]/102+_key-2.5)*global.playskin[66]+640
 	return _x;
 }

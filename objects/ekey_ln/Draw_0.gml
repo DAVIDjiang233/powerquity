@@ -1,5 +1,9 @@
-draw_sprite_pos(spr_lnkey,0,x-36,yup,x+36,yup,x+36,ydo,x-36,ydo,0.7);
-if keytouched==0 draw_sprite(spr_tap,0,x,ydo);
+draw_sprite_pos(global.playskin[key1+23],0,
+x-(sprite_get_width(global.playskin[key1+23])/2),yup,
+x+(sprite_get_width(global.playskin[key1+23])/2),yup,
+x+(sprite_get_width(global.playskin[key1+23])/2),ydo,
+x-(sprite_get_width(global.playskin[key1+23])/2),ydo,1);
+if keytouched==0 draw_sprite(global.playskin[key1+19],0,x,ydo);
 if debug_mode{
 draw_set_halign(fa_center);
 draw_set_font(Font1);
