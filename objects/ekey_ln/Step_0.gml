@@ -24,14 +24,21 @@ if keytouched==0{
 	}
 	
 	if keyboard_check_pressed(global.pressreal[key1]){
-		judge(startime);
+		if(exjudge==0){
+			global.judgelist[0]++;
+		}
+		else{
+			judge(startime);
+			instance_create_depth(640+(global.playtime-startime)/global.judgesize,global.settings[9],-1145,showhit);
+		}
+		
 		global.keytouchlist[key1]=keyamo+0.5;
-		instance_create_depth(640+(global.playtime-startime)/global.judgesize,global.settings[9],-1145,showhit);
+		
 		keytouched=1;
 	}
 }
 else if(keytouched==3){
-	ydo=608;
+	ydo=global.playskin[71];
 	if endtime<global.playtime {
 		global.judgelist[0]++;
 		instance_destroy();

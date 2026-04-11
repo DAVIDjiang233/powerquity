@@ -6,6 +6,6 @@ if endtime<global.playtime instance_destroy();
 
 yup=yset(endtime);
 if(startime>global.playtime) ydo=yset(startime);
-else ydo=608;
+else ydo=global.playskin[71];
 
 

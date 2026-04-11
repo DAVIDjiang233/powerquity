@@ -310,6 +310,7 @@ while(chartlist<64&&0<array_length(global.chartread)){
 			else{
 				global.chartread[0][0]="T";
 				global.chartread[0][2]=_track;
+				global.chartread[0][4]=1;
 			}
 		}
 		else if(global.chartread[0][0]=="RF"){
@@ -359,12 +360,16 @@ while(chartlist<64&&0<array_length(global.chartread)){
 				array_push(autopress[_i],
 				["T",real(global.chartread[0][1])+_timing]);
 			}
+			if(array_length(global.chartread[0])<5){
+				global.chartread[0][4]=1;
+			}
 			instance_create_depth(0,-1145,-2880,ekey,
 			{
 				endtime : real(global.chartread[0][1]),
 				key1 : real(global.chartread[0][2]),
 				timinggroup : real(global.chartread[0][3]),
-				keyamo : global.keylist[real(global.chartread[0][2])]
+				keyamo : global.keylist[real(global.chartread[0][2])],
+				exjudge : real(global.chartread[0][4])
 			});
 			global.keylist[global.chartread[0][2]]++;
 			array_delete(global.chartread,0,1);
@@ -387,13 +392,17 @@ while(chartlist<64&&0<array_length(global.chartread)){
 					["BP",real(global.chartread[0][1])+_timing]);
 				}
 			}
+			if(array_length(global.chartread[0])<5){
+				global.chartread[0][4]=0;
+			}
 			instance_create_depth(0,-1145,-2880,ekey_bumper,
 			{
 				endtime : real(global.chartread[0][1]),
 				key1 : real(global.chartread[0][2]),
 				timinggroup : real(global.chartread[0][3]),
 				keyamo : global.keylist[real(global.chartread[0][2])],
-				keyamo2 : global.keylist[real(global.chartread[0][2])+1]
+				keyamo2 : global.keylist[real(global.chartread[0][2])+1],
+				exjudge : real(global.chartread[0][4])
 			});
 			global.keylist[global.chartread[0][2]]++;
 			global.keylist[real(global.chartread[0][2])+1]++;
@@ -417,6 +426,9 @@ while(chartlist<64&&0<array_length(global.chartread)){
 					["TP",real(global.chartread[0][1])+_timing]);
 				}
 			}
+			if(array_length(global.chartread[0])<5){
+				global.chartread[0][4]=0;
+			}
 			instance_create_depth(0,-1145,-2880,ekey_triper,
 			{
 				endtime : real(global.chartread[0][1]),
@@ -424,7 +436,8 @@ while(chartlist<64&&0<array_length(global.chartread)){
 				timinggroup : real(global.chartread[0][3]),
 				keyamo : global.keylist[real(global.chartread[0][2])],
 				keyamo2 : global.keylist[real(global.chartread[0][2])+1],
-				keyamo3 : global.keylist[real(global.chartread[0][2])+2]
+				keyamo3 : global.keylist[real(global.chartread[0][2])+2],
+				exjudge : real(global.chartread[0][4])
 			});
 			global.keylist[global.chartread[0][2]]++;
 			global.keylist[real(global.chartread[0][2])+1]++;
@@ -449,6 +462,9 @@ while(chartlist<64&&0<array_length(global.chartread)){
 					["QP",real(global.chartread[0][1])+_timing]);
 				}
 			}
+			if(array_length(global.chartread[0])<5){
+				global.chartread[0][4]=0;
+			}
 			instance_create_depth(0,-1145,-2880,ekey_quader,
 			{
 				endtime : real(global.chartread[0][1]),
@@ -457,7 +473,8 @@ while(chartlist<64&&0<array_length(global.chartread)){
 				keyamo : global.keylist[real(global.chartread[0][2])],
 				keyamo2 : global.keylist[real(global.chartread[0][2])+1],
 				keyamo3 : global.keylist[real(global.chartread[0][2])+2],
-				keyamo4 : global.keylist[real(global.chartread[0][2])+3]
+				keyamo4 : global.keylist[real(global.chartread[0][2])+3],
+				exjudge : real(global.chartread[0][4])
 			});
 			global.keylist[global.chartread[0][2]]++;
 			global.keylist[real(global.chartread[0][2])+1]++;
@@ -569,13 +586,17 @@ while(chartlist<64&&0<array_length(global.chartread)){
 				array_push(autopress[_i],
 				["LN",real(global.chartread[0][1])+_timing,real(global.chartread[0][4])]);
 			}
+			if(array_length(global.chartread[0])<6){
+				global.chartread[0][5]=1;
+			}
 			instance_create_depth(0,-1145,-800,ekey_ln,
 			{
 				startime : real(global.chartread[0][1]),
 				key1 : real(global.chartread[0][2]),
 				timinggroup : real(global.chartread[0][3]),
 				endtime : real(global.chartread[0][4]),
-				keyamo : global.keylist[real(global.chartread[0][2])]
+				keyamo : global.keylist[real(global.chartread[0][2])],
+				exjudge : real(global.chartread[0][5])
 			});
 				global.keylist[global.chartread[0][2]]++;
 				array_delete(global.chartread,0,1);

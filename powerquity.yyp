@@ -143,6 +143,7 @@
     {"id":{"name":"spr_grondboard","path":"sprites/spr_grondboard/spr_grondboard.yy",},},
     {"id":{"name":"spr_lnkey","path":"sprites/spr_lnkey/spr_lnkey.yy",},},
     {"id":{"name":"spr_misstap","path":"sprites/spr_misstap/spr_misstap.yy",},},
+    {"id":{"name":"spr_presschange","path":"sprites/spr_presschange/spr_presschange.yy",},},
     {"id":{"name":"spr_presser1","path":"sprites/spr_presser1/spr_presser1.yy",},},
     {"id":{"name":"spr_presser2","path":"sprites/spr_presser2/spr_presser2.yy",},},
     {"id":{"name":"spr_quader","path":"sprites/spr_quader/spr_quader.yy",},},

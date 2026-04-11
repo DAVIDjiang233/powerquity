@@ -19,14 +19,14 @@ if (global.playtime>endtime+125*global.judgesize){
 //press
 
 
-if (keyboard_check_pressed(global.pressreal[key1])){
-	global.judgelist[0]++;
-	global.keytouchlist[key1]=keyamo+0.4;
-	global.keytouchlist[key1+1]=keyamo2+0.4;
-	instance_destroy();
-}
-else if (keyboard_check_pressed(global.pressreal[key1+1])){
-	global.judgelist[0]++;
+if (keyboard_check_pressed(global.pressreal[key1])||keyboard_check_pressed(global.pressreal[key1+1])){
+	if(exjudge==0){
+		global.judgelist[0]++;
+	}
+	else{
+		judge(endtime);
+		instance_create_depth(640+(global.playtime-endtime)/global.judgesize,global.settings[9],-1145,showhit);
+	}
 	global.keytouchlist[key1]=keyamo+0.4;
 	global.keytouchlist[key1+1]=keyamo2+0.4;
 	instance_destroy();

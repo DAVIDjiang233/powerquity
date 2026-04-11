@@ -5,28 +5,30 @@ gpu_set_ztestenable(true);
 var _depth = gpu_get_depth();
 
 gpu_set_depth(_depth);
-if changebar=="1" draw_set_colour(#440000);
-if changebar=="2" draw_set_colour(#442200);
-if changebar=="3" draw_set_colour(#003300);
-if changebar=="4" draw_set_colour(#000044);
-draw_rectangle(x-(global.playskin[69]/2),-1,x+(global.playskin[69]/2)-1,608-power(endtime-global.playtime,3)/19000000,false);
+if changebar=="1" draw_set_colour(global.playskin[80]);
+if changebar=="2" draw_set_colour(global.playskin[81]);
+if changebar=="3" draw_set_colour(global.playskin[82]);
+if changebar=="4" draw_set_colour(global.playskin[83]);
+draw_rectangle(x-(global.playskin[69]/2),-1,x+(global.playskin[69]/2)-1,global.playskin[71]-power(endtime-global.playtime,3)/19000000,false);
 
 draw_set_alpha((endtime-global.playtime)/4000)
-if changebar=="1" draw_set_colour(#ff0000);
-if changebar=="2" draw_set_colour(#ff9900);
-if changebar=="3" draw_set_colour(#00cc00);
-if changebar=="4" draw_set_colour(#0000ff);
-draw_rectangle(x-(global.playskin[69]/2),-1,x-(global.playskin[69]/2)+6,608-power(endtime-global.playtime,3)/19000000,false);
-draw_rectangle(x+(global.playskin[69]/2)-7,-1,x+(global.playskin[69]/2)-1,608-power(endtime-global.playtime,3)/19000000,false);
+if changebar=="1" draw_set_colour(global.playskin[84]);
+if changebar=="2" draw_set_colour(global.playskin[85]);
+if changebar=="3" draw_set_colour(global.playskin[86]);
+if changebar=="4" draw_set_colour(global.playskin[87]);
+draw_rectangle(x-(global.playskin[69]/2),-1,x-(global.playskin[69]/2)+6,global.playskin[71]-power(endtime-global.playtime,3)/19000000,false);
+draw_rectangle(x+(global.playskin[69]/2)-7,-1,x+(global.playskin[69]/2)-1,global.playskin[71]-power(endtime-global.playtime,3)/19000000,false);
 draw_set_alpha(1)
 
 gpu_set_depth(-400);
 
-if changebar=="1" draw_set_colour(#ff0000);
-if changebar=="2" draw_set_colour(#ffff00);
-if changebar=="3" draw_set_colour(#00ff00);
-if changebar=="4" draw_set_colour(#0000ff);
-draw_rectangle(x-(global.playskin[69]/2),y-12,x+(global.playskin[69]/2)-1,y,false);
+
+
+
+if changebar=="1" draw_sprite_ext(global.playskin[87+(key1*4)+real(changebar)],0,x,y,1,1,0,global.playskin[88],1);
+if changebar=="2" draw_sprite_ext(global.playskin[87+(key1*4)+real(changebar)],0,x,y,1,1,0,global.playskin[89],1);
+if changebar=="3" draw_sprite_ext(global.playskin[87+(key1*4)+real(changebar)],0,x,y,1,1,0,global.playskin[90],1);
+if changebar=="4" draw_sprite_ext(global.playskin[87+(key1*4)+real(changebar)],0,x,y,1,1,0,global.playskin[91],1);
 
 //draw_text(x, y-10, string(keyamo));
 gpu_set_depth(_depth);
