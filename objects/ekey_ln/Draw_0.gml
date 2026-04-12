@@ -18,7 +18,6 @@ else{
 	if keytouched==0 draw_sprite(global.playskin[key1+117],0,x,ydo);
 }
 
-if keytouched==0 draw_sprite(global.playskin[key1+19],0,x,ydo);
 if debug_mode{
 draw_set_halign(fa_center);
 draw_set_font(Font1);

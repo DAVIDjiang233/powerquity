@@ -20,7 +20,7 @@ function scr_loadskin(_filein){
 		
 		for(var _i=0;_i<array_length(_fileread);_i++){
 			if(scr_stringtreal(_fileread[_i][0])==1){
-				if(_fileread[_i][0]>=69&&_fileread[_i][0]<=78){
+				if(_fileread[_i][0]>=69&&_fileread[_i][0]<=91){
 					global.playskin[real(_fileread[_i][0])]=real(_fileread[_i][1]);
 				}
 				else if(scr_stringtreal(_fileread[_i][1])==1){

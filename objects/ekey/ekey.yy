@@ -38,8 +38,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_tap",
-    "path":"sprites/spr_tap/spr_tap.yy",
+    "name":"spr_tap_judge",
+    "path":"sprites/spr_tap_judge/spr_tap_judge.yy",
   },
   "spriteMaskId":null,
   "visible":true,

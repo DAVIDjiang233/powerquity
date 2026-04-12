@@ -89,35 +89,35 @@ if (i_d == msg)
 				}
 			}
 			else if (type==4){
-				if (global.chartread[global.choose[0]][0]=="RF"||global.chartread[global.choose[0]][0]=="F"){
-					var _str = string_replace_all(_num, "#", "");
-					if (string_length(_str) == 6) {
-				        _str = string_lower(_str);
-						var r_hex = string_copy(_str, 1, 2);
-					    var g_hex = string_copy(_str, 3, 2);
-					    var b_hex = string_copy(_str, 5, 2);
-						_str=b_hex+g_hex+r_hex
-						var _decimal = 0;
-					    for (var i = 0; i < 6; i++) {
-					        var _char = string_char_at(_str, 6 - i);
-					        var _digit = 0;
+				//if (global.chartread[global.choose[0]][0]=="RF"||global.chartread[global.choose[0]][0]=="F"){
+				var _str = string_replace_all(_num, "#", "");
+				if (string_length(_str) == 6) {
+				    _str = string_lower(_str);
+					var r_hex = string_copy(_str, 1, 2);
+					var g_hex = string_copy(_str, 3, 2);
+					var b_hex = string_copy(_str, 5, 2);
+					_str=b_hex+g_hex+r_hex
+					var _decimal = 0;
+					for (var i = 0; i < 6; i++) {
+					    var _char = string_char_at(_str, 6 - i);
+					    var _digit = 0;
         
-					        if (scr_stringtreal(_char)==1) {
-					            _digit = real(_char);
-					        } 
-							else {
-					            _digit = ord(_char) - 87;
-					        }
-        
-					        _decimal += _digit * power(16, i);
+					    if (scr_stringtreal(_char)==1) {
+					        _digit = real(_char);
+					    } 
+						else {
+					        _digit = ord(_char) - 87;
 					    }
-						for (var i=0;i<array_length(global.choose);i++){
-							var _notetype=global.chartread[global.choose[i]][0];
-								global.chartread[global.choose[i]][4]=_decimal;
-						}
-						scr_cancelchart();
-				    }
+        
+					    _decimal += _digit * power(16, i);
+					}
+					for (var i=0;i<array_length(global.choose);i++){
+						var _notetype=global.chartread[global.choose[i]][0];
+							global.chartread[global.choose[i]][4]=_decimal;
+					}
+					scr_cancelchart();
 				}
+				/*}
 				else{
 					if (scr_stringtreal(_num)==1&&real(_num)>=0){
 						for (var i=0;i<array_length(global.choose);i++){
@@ -125,16 +125,25 @@ if (i_d == msg)
 						}
 						scr_cancelchart();
 					}
-				}
+				}*/
 			}
 			else if(type==5){
 				if (scr_stringtreal(_num)==1&&real(_num)>=0){
-					
-					if(real(_num)>=0&&real(_num)<=3){
-						for (var i=0;i<array_length(global.choose);i++){
-							global.chartread[global.choose[i]][2]=round(real(_num));
+					if (global.chartread[global.choose[0]][0]=="L"||global.chartread[global.choose[0]][0]=="LN"){
+						if (scr_stringtreal(_num)==1&&real(_num)>=0){
+							for (var i=0;i<array_length(global.choose);i++){
+								global.chartread[global.choose[i]][4]=round(real(_num));
+							}
+							scr_cancelchart();
 						}
-						scr_cancelchart();
+					}
+					else{
+						if(real(_num)>=0&&real(_num)<=3){
+							for (var i=0;i<array_length(global.choose);i++){
+								global.chartread[global.choose[i]][2]=round(real(_num));
+							}
+							scr_cancelchart();
+						}
 					}
 					
 				}

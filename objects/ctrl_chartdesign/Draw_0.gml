@@ -55,10 +55,18 @@ if (designview==0){
 			else draw_set_alpha(1);
 		
 			if(global.chartread[_q][0]=="T"){
-				draw_sprite(spr_tap,0,
-					257+102*real(global.chartread[_q][2]),
-					608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25
-				);
+				if(real(global.chartread[_q][4]))==0{
+					draw_sprite(spr_tap,0,
+						257+102*real(global.chartread[_q][2]),
+						608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25
+					);
+				}
+				else{
+					draw_sprite(spr_tap_judge,0,
+						257+102*real(global.chartread[_q][2]),
+						608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25
+					);
+				}
 				if(_canread==0) _canread=1;
 			}
 			else if(global.chartread[_q][0]=="RT"){
@@ -66,7 +74,7 @@ if (designview==0){
 				if (_track=="none"){
 					_track=0;
 				}
-				draw_sprite(spr_tap,0,
+				draw_sprite(spr_tap_judge,0,
 					257+102*real(_track),
 					608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25
 				);
@@ -87,11 +95,19 @@ if (designview==0){
 					}
 				}
 			}
-			else if(global.chartread[_q][0]=="BP"){
-				draw_sprite(spr_bumper,0,
-					257+102*real(global.chartread[_q][2]),
-					608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25
-				);
+			else if(global.chartread[_q][0]=="BP"){		
+				if(real(global.chartread[_q][4]))==0{
+					draw_sprite(spr_bumper,0,
+						257+102*real(global.chartread[_q][2]),
+						608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25
+					);
+				}
+				else{
+					draw_sprite(spr_bumper_judge,0,
+						257+102*real(global.chartread[_q][2]),
+						608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25
+					);
+				}
 				if(_canread==0){
 					if(608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25<mouse_y+30
 					&&608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25>mouse_y-10
@@ -111,10 +127,19 @@ if (designview==0){
 				}
 			}
 			else if(global.chartread[_q][0]=="TP"){
-				draw_sprite(spr_triper,0,
-					257+102*real(global.chartread[_q][2]),
-					608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25
-				);
+				
+				if(real(global.chartread[_q][4]))==0{
+					draw_sprite(spr_triper,0,
+						257+102*real(global.chartread[_q][2]),
+						608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25
+					);
+				}
+				else{
+					draw_sprite(spr_triper_judge,0,
+						257+102*real(global.chartread[_q][2]),
+						608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25
+					);
+				}
 				if(_canread==0){
 					if(608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25<mouse_y+30
 					&&608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25>mouse_y-10
@@ -134,10 +159,19 @@ if (designview==0){
 				}
 			}
 			else if(global.chartread[_q][0]=="QP"){
-				draw_sprite(spr_quader,0,
-					257+102*real(global.chartread[_q][2]),
-					608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25
-				);
+				
+				if(real(global.chartread[_q][4]))==0{
+					draw_sprite(spr_quader,0,
+						257+102*real(global.chartread[_q][2]),
+						608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25
+					);
+				}
+				else{
+					draw_sprite(spr_quader_judge,0,
+						257+102*real(global.chartread[_q][2]),
+						608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25
+					);
+				}
 				if(_canread==0){
 					if(608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25<mouse_y+30
 					&&608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25>mouse_y-10
@@ -293,7 +327,13 @@ if (designview==0){
 				var _x=257+102*real(global.chartread[_q][2]),
 				yup=608+(global.playtime-real(global.chartread[_q][4]))*global.globalspeed*0.25,
 				ydo=608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25;
-				draw_sprite(spr_tap,0,_x,ydo);
+				
+				if(real(global.chartread[_q][5]))==0{
+					draw_sprite(spr_tap,0,_x,ydo);
+				}
+				else{
+					draw_sprite(spr_tap_judge,0,_x,ydo);
+				}
 				gpu_set_depth(6000);
 				if (draw_get_alpha()==1){
 					draw_sprite_pos(spr_lnkey,0,_x-36,yup,_x+36,yup,_x+36,ydo,_x-36,ydo,0.7);
@@ -912,10 +952,13 @@ else if (designview==2){
 			_xy=scr_chartxyset(real(global.chartread[_q][1]),real(global.chartread[_q][2]),real(global.chartread[_q][3]));
 		
 			if(real(global.chartread[_q][1])>global.playtime){
-				draw_sprite(spr_tap,0,
-					_xy[0],
-					_xy[1]
-				);
+				
+				if(real(global.chartread[_q][4]))==0{
+					draw_sprite(spr_tap,0,_xy[0],_xy[1]);
+				}
+				else{
+					draw_sprite(spr_tap_judge,0,_xy[0],_xy[1]);
+				}
 			}
 		}
 		else if(global.chartread[_q][0]=="RT"){
@@ -923,7 +966,7 @@ else if (designview==2){
 				var _track=global.chartread[_q][4+floor(global.rand[real(global.chartread[_q][2])]*(array_length(global.chartread[_q])-4))];
 				if (_track!="none"){
 					var _xy2=scr_chartxyset(real(global.chartread[_q][1]),real(_track),real(global.chartread[_q][3]));
-					draw_sprite(spr_tap,0,
+					draw_sprite(spr_tap_judge,0,
 						_xy2[0],
 						_xy2[1]
 					);
@@ -934,30 +977,36 @@ else if (designview==2){
 			_xy=scr_chartxyset(real(global.chartread[_q][1]),real(global.chartread[_q][2]),real(global.chartread[_q][3]));
 		
 			if(real(global.chartread[_q][1])>global.playtime){
-				draw_sprite(spr_bumper,0,
-					_xy[0],
-					_xy[1]
-				);
+				if(real(global.chartread[_q][4]))==0{
+					draw_sprite(spr_bumper,0,_xy[0],_xy[1]);
+				}
+				else{
+					draw_sprite(spr_bumper_judge,0,_xy[0],_xy[1]);
+				}
 			}
 		}
 		else if(global.chartread[_q][0]=="TP"){
 			_xy=scr_chartxyset(real(global.chartread[_q][1]),real(global.chartread[_q][2]),real(global.chartread[_q][3]));
 		
 			if(real(global.chartread[_q][1])>global.playtime){
-				draw_sprite(spr_triper,0,
-					_xy[0],
-					_xy[1]
-				);
+				if(real(global.chartread[_q][4]))==0{
+					draw_sprite(spr_triper,0,_xy[0],_xy[1]);
+				}
+				else{
+					draw_sprite(spr_triper_judge,0,_xy[0],_xy[1]);
+				}
 			}
 		}
 		else if(global.chartread[_q][0]=="QP"){
 			_xy=scr_chartxyset(real(global.chartread[_q][1]),real(global.chartread[_q][2]),real(global.chartread[_q][3]));
 		
 			if(real(global.chartread[_q][1])>global.playtime){
-				draw_sprite(spr_quader,0,
-					_xy[0],
-					_xy[1]
-				);
+				if(real(global.chartread[_q][4]))==0{
+					draw_sprite(spr_quader,0,_xy[0],_xy[1]);
+				}
+				else{
+					draw_sprite(spr_quader_judge,0,_xy[0],_xy[1]);
+				}
 			}
 		}
 		else if(global.chartread[_q][0]=="F"){
@@ -1070,7 +1119,12 @@ else if (designview==2){
 		
 			var _yup=scr_chartxyset(real(global.chartread[_q][4]),real(global.chartread[_q][2]),real(global.chartread[_q][3]))[1];
 			if(real(global.chartread[_q][1])>global.playtime){
-				draw_sprite(spr_tap,0,_xy[0],_xy[1]);
+				if(real(global.chartread[_q][5]))==0{
+					draw_sprite(spr_tap,0,_xy[0],_xy[1]);
+				}
+				else{
+					draw_sprite(spr_tap_judge,0,_xy[0],_xy[1]);
+				}
 				gpu_set_depth(6000);
 				draw_sprite_pos(spr_lnkey,0,_xy[0]-36,_yup,_xy[0]+36,_yup,_xy[0]+36,_xy[1],_xy[0]-36,_xy[1],0.7);
 				gpu_set_depth(_depth);
@@ -1172,7 +1226,7 @@ else if (designview==-1){
 			if array_get_index(global.choose,_q)==-1 draw_set_alpha(0.65);
 			else draw_set_alpha(1);
 			if(global.chartread[_q][0]=="RT"){
-				draw_sprite(spr_tap,0,
+				draw_sprite(spr_tap_judge,0,
 					359+102*real(global.chartread[_q][2]),
 					608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25
 				);

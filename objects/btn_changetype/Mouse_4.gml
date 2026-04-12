@@ -78,8 +78,11 @@ if type==0{
 			for (var i=0;i<array_length(global.choose);i++){
 				if(global.chartread[global.choose[i]][0]!="RT"&&global.chartread[global.choose[i]][0]!="RM"&&global.chartread[global.choose[i]][0]!="RA"&&global.chartread[global.choose[i]][0]!="RF"){
 					global.chartread[global.choose[i]][0]="T";
-					while(array_length(global.chartread[global.choose[i]])>4){
-						array_delete(global.chartread[global.choose[i]],4,1);
+					while(array_length(global.chartread[global.choose[i]])>5){
+						array_pop(global.chartread[global.choose[i]]);
+					}
+					if(global.chartread[global.choose[i]][4]!=0){
+						global.chartread[global.choose[i]][4]=1;
 					}
 				}
 			}

@@ -92,7 +92,16 @@ while (!file_text_eof(_file))
 	}
 	if (global.chartread[i][0]=="") {array_delete(global.chartread,i,1);
 		i--;
+	}
+	if(global.chartread[i][0]=="LN"&&array_length(global.chartread[i])<6){
+		global.chartread[i][5]=1;
+	}
+	if(array_length(global.chartread[i])==4){
+		if(global.chartread[i][0]=="T"||global.chartread[i][0]=="N"){
+			global.chartread[i][4]=1;
 		}
+		else global.chartread[i][4]=0;
+	}
     file_text_readln(_file);
 	i++;
 }
