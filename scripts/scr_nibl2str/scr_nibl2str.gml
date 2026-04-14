@@ -199,6 +199,18 @@ function scr_nibl2str(_rpnall){
 			else if(_rpnall[0][_num][_i]=="x") {
 				array_push(_cal,"x");
 			}
+			else if(_rpnall[0][_num][_i]=="spd") {
+				array_push(_cal,"spd");
+			}
+			else if(_rpnall[0][_num][_i]=="ly") {
+				array_push(_cal,"ly");
+			}
+			else if(_rpnall[0][_num][_i]=="lx1") {
+				array_push(_cal,"lx1");
+			}
+			else if(_rpnall[0][_num][_i]=="lx2") {
+				array_push(_cal,"lx2");
+			}
 			else if(_rpnall[0][_num][_i]=="3.14159") {
 				array_push(_cal,"p");
 			}

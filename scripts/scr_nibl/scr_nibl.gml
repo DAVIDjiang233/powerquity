@@ -100,8 +100,7 @@ function scr_nibl(_string){
 		}
 		//处理abs
 		else if(string_char_at(_string,_strnum+1)=="a"){
-			if(string_char_at(_string,_strnum+2)=="b"&&string_char_at(_string,_strnum+3)=="s"
-			&&string_char_at(_string,_strnum+4)=="("){
+			if(string_pos_ext("bs(", _string, _strnum+1)==_strnum+2){
 				if(_lastnum=1){
 					array_push(_sym,"*");
 					_lastnum=0;
@@ -113,8 +112,7 @@ function scr_nibl(_string){
 		}
 		//处理cos
 		else if(string_char_at(_string,_strnum+1)=="c"){
-			if(string_char_at(_string,_strnum+2)=="o"&&string_char_at(_string,_strnum+3)=="s"
-			&&string_char_at(_string,_strnum+4)=="("){
+			if(string_pos_ext("os(", _string, _strnum+1)==_strnum+2){
 				if(_lastnum=1){
 					array_push(_sym,"*");
 					_lastnum=0;
@@ -124,10 +122,37 @@ function scr_nibl(_string){
 			}
 			_strnum++;
 		}
+		//处理l
+		else if(string_char_at(_string,_strnum+1)=="l"){
+			if(string_pos_ext("x1", _string, _strnum+1)==_strnum+2){
+				array_push(_rpn,"lx1");
+				if(_lastnum==1){
+					array_push(_rpn,"*");
+				}
+				_lastnum=1;
+				_strnum+=2;
+			}
+			else if(string_pos_ext("x2", _string, _strnum+1)==_strnum+2){
+				array_push(_rpn,"lx2");
+				if(_lastnum==1){
+					array_push(_rpn,"*");
+				}
+				_lastnum=1;
+				_strnum+=2;
+			}
+			if(string_char_at(_string,_strnum+2)=="y"){
+				array_push(_rpn,"ly");
+				if(_lastnum==1){
+					array_push(_rpn,"*");
+				}
+				_lastnum=1;
+				_strnum+=1;
+			}
+			_strnum++;
+		}
 		//处理pow pi
 		else if(string_char_at(_string,_strnum+1)=="p"){
-			if(string_char_at(_string,_strnum+2)=="o"&&string_char_at(_string,_strnum+3)=="w"
-			&&string_char_at(_string,_strnum+4)=="("){
+			if(string_pos_ext("ow(", _string, _strnum+1)==_strnum+2){
 				if(_lastnum=1){
 					array_push(_sym,"*");
 					_lastnum=0;
@@ -144,16 +169,23 @@ function scr_nibl(_string){
 			}
 			_strnum++;
 		}
-		//处理sin
+		//处理sin spd
 		else if(string_char_at(_string,_strnum+1)=="s"){
-			if(string_char_at(_string,_strnum+2)=="i"&&string_char_at(_string,_strnum+3)=="n"
-			&&string_char_at(_string,_strnum+4)=="("){
+			if(string_pos_ext("in(", _string, _strnum+1)==_strnum+2){
 				if(_lastnum=1){
 					array_push(_sym,"*");
 					_lastnum=0;
 				}
 				array_push(_sym,"sin");
 				_strnum+=3;
+			}
+			else if(string_pos_ext("pd", _string, _strnum+1)==_strnum+2){
+				array_push(_rpn,"spd");
+				if(_lastnum==1){
+					array_push(_rpn,"*");
+				}
+				_lastnum=1;
+				_strnum+=2;
 			}
 			_strnum++;
 		}

@@ -875,7 +875,7 @@ else if (designview==1){
 			draw_text_transformed(144,600,"变速效果",0.3,0.3,0);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_left);
-			draw_text_transformed(300,350,"SV(灰)：区间变速\n\nSF(红)：全局变速\n\nY(黄)：调整Y坐标，Y>0时note判定位置在判定线下方\n受SF影响\n\nYG(绿)：调整Y坐标，Y>0时note判定位置在判定线下方\n不受SF影响\n\nX(蓝)：调整X坐标，Y>0时note判定位置在原始位置右侧",0.3,0.3,0);
+			draw_text_transformed(300,350,"SV(灰)：区间变速\n\nSF(红)：全局变速\n\nY(黄)：调整Y坐标，Y>0时note判定位置在判定线下方\n受SF影响\n\nYG(绿)：调整Y坐标，Y>0时note判定位置在判定线下方\n不受SF影响\n\nX(蓝)：调整X坐标，X>0时note判定位置在原始位置右侧",0.3,0.3,0);
 		}
 		else if(help==2){
 			draw_set_color(#000000);
@@ -896,7 +896,7 @@ else if (designview==1){
 			draw_set_alpha(1);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_left);
-			draw_text_transformed(320,350,"\nCtrl+右键点击“缓动”按钮，输入数学公式来定义任意缓动曲线\n其中x为缓动进度(0→1)，计算结果 y 为对应的值(建议0→1)\n\n在两个表达式中间插入数值，并且使用\",\"或\";\"分隔，可创建分段函数\n示例： x^2;0.5;2x-0.75;0.75;x",0.3,0.3,0);
+			draw_text_transformed(320,340,"\nCtrl+右键点击“缓动”按钮，输入数学公式来定义任意缓动曲线\n其中x为缓动进度(0→1)，计算结果 y 为对应的值(建议0→1)\n\n在两个表达式中间插入数值，并且使用\",\"或\";\"分隔，可创建分段函数\n示例： x^2;0.5;2x-0.75;0.75;x\n\n特殊参数说明：\nlx1：轨道宽度，默认值96\nlx2：相邻轨道距离，默认值102\nspd：当前流速\nly：轨道y坐标，默认为608",0.3,0.3,0);
 			draw_set_halign(fa_middle);
 			draw_text_transformed(144,600,"自定义缓动",0.3,0.3,0);
 			draw_set_color(c_gray);
@@ -904,7 +904,7 @@ else if (designview==1){
 			draw_text_transformed(1024,256,"缓动",0.23,0.23,0);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_right);
-			draw_text_transformed(956,272,"↗",0.3,0.3,0);
+			draw_text_transformed(956,248,"↘",0.3,0.3,0);
 		}
 		else if(help==4){
 			draw_set_color(#000000);

@@ -47,7 +47,7 @@ else if(keytouched==3){
 else{
 	
 	if keyboard_check(global.pressreal[key1]){
-		ydo=608;
+		ydo=global.playskin[71];
 		if endtime<global.playtime {
 			global.judgelist[0]++;
 			instance_destroy();

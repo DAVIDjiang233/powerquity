@@ -12,6 +12,22 @@ function scr_calc(_rpnall,_x){
 			array_push(_cal,_x);
 			_i++;
 		}
+		else if(_rpn[_i]=="spd"){
+			array_push(_cal,global.globalspeed);
+			_i++;
+		}
+		else if(_rpn[_i]=="ly"){
+			array_push(_cal,global.playskin[71]);
+			_i++;
+		}
+		else if(_rpn[_i]=="lx1"){
+			array_push(_cal,global.playskin[69]);
+			_i++;
+		} 
+		else if(_rpn[_i]=="lx2"){
+			array_push(_cal,global.playskin[70]);
+			_i++;
+		}
 		else if(_rpn[_i]=="+"){
 			_cal[array_length(_cal)-2]+=array_pop(_cal);
 			_i++;
