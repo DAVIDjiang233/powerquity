@@ -42,7 +42,7 @@ if(alarmpause<current_time&&alarmpause>-10000){
 	audio_resume_all();
 	gamepause=0;
 	pausetime=pausetime+current_time-pausestart;
-	base_changecolor.pressedtype=0;
+	base_pause.pressedtype=0;
 	
 	
 	if global.playtype==1 {

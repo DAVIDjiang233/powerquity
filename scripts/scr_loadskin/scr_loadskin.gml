@@ -1,6 +1,8 @@
 function scr_loadskin(_filein){
 	
-	var _fileread=[]
+	var _fileread=[];
+	var _lastskinum=array_length(global.playskin)-1;
+	//游玩界面
 	if (file_exists(working_directory + "skin/"+_filein+"0play.txt")){
 		var _file = file_text_open_read(working_directory + "skin/"+_filein+"0play.txt");
 		var i=0;
@@ -20,6 +22,9 @@ function scr_loadskin(_filein){
 		
 		for(var _i=0;_i<array_length(_fileread);_i++){
 			if(scr_stringtreal(_fileread[_i][0])==1){
+				if(_fileread[_i][0]<=-1){
+					_fileread[_i][0]=_lastskinum-_fileread[_i][0];
+				}
 				if(_fileread[_i][0]>=69&&_fileread[_i][0]<=91){
 					global.playskin[real(_fileread[_i][0])]=real(_fileread[_i][1]);
 				}
@@ -35,4 +40,6 @@ function scr_loadskin(_filein){
 		}
 		
 	}
+	
+	return(_lastskinum);
 }
