@@ -1,2 +1,2 @@
-depth=2950;
+depth=10000;
 sprite_index=global.playskin[36];

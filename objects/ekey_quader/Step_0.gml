@@ -12,7 +12,7 @@ if (global.playtime>endtime+125*global.judgesize){
 	global.keytouchlist[key1+2]=keyamo3+0.5;
 	global.keytouchlist[key1+3]=keyamo4+0.5;
 	instance_destroy(showdetail);
-	instance_create_depth(640,0,-1145,showdetail);
+	instance_create_depth(640,0,-5000,showdetail);
 	instance_destroy();
 }
 
@@ -28,7 +28,7 @@ if (keyboard_check_pressed(global.pressreal[key1])||keyboard_check_pressed(globa
 	}
 	else{
 		judge(endtime);
-		instance_create_depth(640+(global.playtime-endtime)/global.judgesize,global.settings[9],-1145,showhit);
+		instance_create_depth(640+(global.playtime-endtime)/global.judgesize,global.settings[9],-5000,showhit);
 	}
 	global.keytouchlist[key1]=keyamo+0.2;
 	global.keytouchlist[key1+1]=keyamo2+0.2;

@@ -363,7 +363,7 @@ while(chartlist<64&&0<array_length(global.chartread)){
 			if(array_length(global.chartread[0])<5){
 				global.chartread[0][4]=1;
 			}
-			instance_create_depth(0,-1145,-2880,ekey,
+			instance_create_depth(0,-1145,-2000,ekey,
 			{
 				endtime : real(global.chartread[0][1]),
 				key1 : real(global.chartread[0][2]),
@@ -395,7 +395,7 @@ while(chartlist<64&&0<array_length(global.chartread)){
 			if(array_length(global.chartread[0])<5){
 				global.chartread[0][4]=0;
 			}
-			instance_create_depth(0,-1145,-2880,ekey_bumper,
+			instance_create_depth(0,-1145,-2000,ekey_bumper,
 			{
 				endtime : real(global.chartread[0][1]),
 				key1 : real(global.chartread[0][2]),
@@ -429,7 +429,7 @@ while(chartlist<64&&0<array_length(global.chartread)){
 			if(array_length(global.chartread[0])<5){
 				global.chartread[0][4]=0;
 			}
-			instance_create_depth(0,-1145,-2880,ekey_triper,
+			instance_create_depth(0,-1145,-2000,ekey_triper,
 			{
 				endtime : real(global.chartread[0][1]),
 				key1 : real(global.chartread[0][2]),
@@ -465,7 +465,7 @@ while(chartlist<64&&0<array_length(global.chartread)){
 			if(array_length(global.chartread[0])<5){
 				global.chartread[0][4]=0;
 			}
-			instance_create_depth(0,-1145,-2880,ekey_quader,
+			instance_create_depth(0,-1145,-2000,ekey_quader,
 			{
 				endtime : real(global.chartread[0][1]),
 				key1 : real(global.chartread[0][2]),
@@ -485,7 +485,7 @@ while(chartlist<64&&0<array_length(global.chartread)){
 		//fake
 		else if(global.chartread[0][0]=="F"){
 			if global.svenable==1{
-				instance_create_depth(0,-1145,-2880,ekey_fake,
+				instance_create_depth(0,-1145,-2000,ekey_fake,
 				{
 					endtime : real(global.chartread[0][1]),
 					key1 : real(global.chartread[0][2]),
@@ -498,7 +498,7 @@ while(chartlist<64&&0<array_length(global.chartread)){
 		//barline
 		else if(global.chartread[0][0]=="B"){
 			if global.svenable==1{
-				instance_create_depth(0,-1145,-400,ekey_barline,
+				instance_create_depth(0,-1145,-1000,ekey_barline,
 				{
 					endtime : real(global.chartread[0][1]),
 					key1 : real(global.chartread[0][2]),
@@ -518,7 +518,7 @@ while(chartlist<64&&0<array_length(global.chartread)){
 				array_push(autopress[_i],
 				["N",real(global.chartread[0][1])+_timing-250,real(global.chartread[0][1])+_timing]);
 			}
-			instance_create_depth(0,-1145,-2880,ekey_endtap,
+			instance_create_depth(0,-1145,-2000,ekey_endtap,
 			{
 				endtime : real(global.chartread[0][1]),
 				key1 : real(global.chartread[0][2]),
@@ -535,7 +535,7 @@ while(chartlist<64&&0<array_length(global.chartread)){
 				array_push(autopress[_i],
 				["M",real(global.chartread[0][1])]);
 			}
-			instance_create_depth(0,-1145,-2880,ekey_miss,
+			instance_create_depth(0,-1145,-2000,ekey_miss,
 			{
 				endtime : real(global.chartread[0][1]),
 				key1 : real(global.chartread[0][2]),
@@ -550,7 +550,7 @@ while(chartlist<64&&0<array_length(global.chartread)){
 				var _timing=scr_rand(global.taptiming[_i][0], global.taptiming[_i][1]);
 				array_push(autopress2[_i],["A",real(global.chartread[0][1])+_timing]);
 			}
-			instance_create_depth(0,-1145,-2880,ekey_touchap,
+			instance_create_depth(0,-1145,-2000,ekey_touchap,
 			{
 				endtime : real(global.chartread[0][1]),
 				key1 : real(global.chartread[0][2]),
@@ -561,7 +561,7 @@ while(chartlist<64&&0<array_length(global.chartread)){
 		//fakeln
 		else if(global.chartread[0][0]=="L"){
 			if global.svenable==1{
-				instance_create_depth(0,-1145,-800,ekey_fakeln,
+				instance_create_depth(0,-1145,0,ekey_fakeln,
 			{
 				startime : real(global.chartread[0][1]),
 				key1 : real(global.chartread[0][2]),
@@ -589,7 +589,7 @@ while(chartlist<64&&0<array_length(global.chartread)){
 			if(array_length(global.chartread[0])<6){
 				global.chartread[0][5]=1;
 			}
-			instance_create_depth(0,-1145,-800,ekey_ln,
+			instance_create_depth(0,-1145,0,ekey_ln,
 			{
 				startime : real(global.chartread[0][1]),
 				key1 : real(global.chartread[0][2]),
@@ -603,7 +603,7 @@ while(chartlist<64&&0<array_length(global.chartread)){
 			}
 		//presschange
 		else if(global.chartread[0][0]=="P"){
-				instance_create_depth(0,-1145,800,ekey_presschange,
+				instance_create_depth(0,-1145,5000,ekey_presschange,
 			{
 				endtime : real(global.chartread[0][1]),
 				key1 : real(global.chartread[0][2]),

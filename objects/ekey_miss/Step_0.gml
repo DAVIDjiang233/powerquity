@@ -14,7 +14,7 @@ if (global.playtime>endtime+15*global.judgesize){
 if keyboard_check(global.pressreal[key1]){
 		global.judgelist[3]++;
 		instance_destroy(showdetail);
-		instance_create_depth(640,0,-1145,showdetail);
+		instance_create_depth(640,0,-5000,showdetail);
 		instance_destroy();
 }
 

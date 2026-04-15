@@ -936,9 +936,9 @@ else if (designview==1){
 }
 
 else if (designview==2){
-	gpu_set_depth(8266);
+	gpu_set_depth(10000);
 	draw_sprite(spr_backban,0,640,608);
-	gpu_set_depth(_depth);
+	gpu_set_depth(-2000);
 	var _q=global.list;
 	var _xy=[0,0];
 	draw_set_alpha(1);
@@ -1038,10 +1038,10 @@ else if (designview==2){
 			_xy=scr_chartxyset(real(global.chartread[_q][1]),real(global.chartread[_q][2]),real(global.chartread[_q][3]));
 		
 			if(real(global.chartread[_q][1])>global.playtime){
-				gpu_set_depth(5500);
+				gpu_set_depth(-1000);
 				draw_set_colour(#999999);
 				draw_rectangle(_xy[0]-48,_xy[1]+6,_xy[0]+48,_xy[1],false);
-				gpu_set_depth(_depth);
+				gpu_set_depth(-2000);
 			}
 		}
 		else if(global.chartread[_q][0]=="N"){
@@ -1104,14 +1104,14 @@ else if (designview==2){
 			var _yup=scr_chartxyset(real(global.chartread[_q][4]),real(global.chartread[_q][2]),real(global.chartread[_q][3]))[1];
 			
 			if(real(global.chartread[_q][1])>global.playtime){
-				gpu_set_depth(6000);
+				gpu_set_depth(0);
 				draw_sprite_pos(spr_lnkey,0,_xy[0]-36,_yup,_xy[0]+36,_yup,_xy[0]+36,_xy[1],_xy[0]-36,_xy[1],0.5);
-				gpu_set_depth(_depth);
+				gpu_set_depth(-2000);
 			}
 			else if(real(global.chartread[_q][4])>global.playtime){
-				gpu_set_depth(6000);
+				gpu_set_depth(0);
 				draw_sprite_pos(spr_lnkey,0,_xy[0]-36,_yup,_xy[0]+36,_yup,_xy[0]+36,608,_xy[0]-36,608,0.5);
-				gpu_set_depth(_depth);
+				gpu_set_depth(-2000);
 			}
 		}
 		else if(global.chartread[_q][0]=="LN"){
@@ -1125,21 +1125,21 @@ else if (designview==2){
 				else{
 					draw_sprite(spr_tap_judge,0,_xy[0],_xy[1]);
 				}
-				gpu_set_depth(6000);
+				gpu_set_depth(0);
 				draw_sprite_pos(spr_lnkey,0,_xy[0]-36,_yup,_xy[0]+36,_yup,_xy[0]+36,_xy[1],_xy[0]-36,_xy[1],0.7);
-				gpu_set_depth(_depth);
+				gpu_set_depth(-2000);
 			}
 			else if(real(global.chartread[_q][4])>global.playtime){
-				gpu_set_depth(6000);
+				gpu_set_depth(0);
 				draw_sprite_pos(spr_lnkey,0,_xy[0]-36,_yup,_xy[0]+36,_yup,_xy[0]+36,608,_xy[0]-36,608,0.7);
-				gpu_set_depth(_depth);
+				gpu_set_depth(-2000);
 			}
 		}
 		else if(global.chartread[_q][0]=="P"){
 			_xy=scr_chartxyset(real(global.chartread[_q][1]),real(global.chartread[_q][2]),real(global.chartread[_q][3]));
 		
 			if(real(global.chartread[_q][1])>global.playtime){
-				gpu_set_depth(8000-((real(global.chartread[_q][1])-global.playtime)/10));
+				gpu_set_depth(5000-((real(global.chartread[_q][1])-global.playtime)/10));
 				if global.chartread[_q][4]=="1" draw_set_colour(#440000);
 				if global.chartread[_q][4]=="2" draw_set_colour(#442200);
 				if global.chartread[_q][4]=="3" draw_set_colour(#003300);
@@ -1158,9 +1158,9 @@ else if (designview==2){
 				if global.chartread[_q][4]=="2" draw_set_colour(#ffff00);
 				if global.chartread[_q][4]=="3" draw_set_colour(#00ff00);
 				if global.chartread[_q][4]=="4" draw_set_colour(#0000ff);
-				gpu_set_depth(-4000);
+				gpu_set_depth(-1000);
 				draw_rectangle(_xy[0]-48,_xy[1]-12,_xy[0]+47,_xy[1],false);
-				gpu_set_depth(_depth);
+				gpu_set_depth(-2000);
 				draw_set_colour(c_white);
 			}
 		}
@@ -1172,7 +1172,7 @@ else if (designview==2){
 				_xy[0],
 				_xy[1],
 				string(global.chartread[_q][3]),0.22,0.22,0);
-				gpu_set_depth(_depth);
+				gpu_set_depth(-2000);
 			}
 		
 		
@@ -1183,7 +1183,7 @@ else if (designview==2){
 	if(timinggroup>=0){
 		_xy=scr_chartxyset(global.playtime,2.5,timinggroup);
 		
-		gpu_set_depth(7000);
+		gpu_set_depth(10000);
 		draw_sprite(spr_timinggroupban,0,_xy[0],_xy[1]);
 	}
 	gpu_set_depth(_depth);

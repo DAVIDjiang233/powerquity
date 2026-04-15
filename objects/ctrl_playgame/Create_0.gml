@@ -2,7 +2,7 @@ game_set_speed(global.settings[17], gamespeed_fps);
 audio_stop_all();
 timingdelay=real(global.settings[6])*global.gamespeed;
 var i = 0;
-depth=-8266;
+depth=-5000;
 startime=current_time+9999999;
 pausetime=0;
 gamepause=0;

@@ -20,7 +20,7 @@ draw_rectangle(x-(global.playskin[69]/2),-1,x-(global.playskin[69]/2)+6,global.p
 draw_rectangle(x+(global.playskin[69]/2)-7,-1,x+(global.playskin[69]/2)-1,global.playskin[71]-power(endtime-global.playtime,3)/19000000,false);
 draw_set_alpha(1)
 
-gpu_set_depth(-400);
+gpu_set_depth(-1000);
 
 
 

@@ -18,7 +18,7 @@ if keytouched==0{
 		else{
 			global.judgelist[3]+=2;
 			global.keytouchlist[key1]=keyamo+0.5;
-			instance_create_depth(640+(global.playtime-startime)/global.judgesize,global.settings[9],-1145,showhit);
+			instance_create_depth(640+(global.playtime-startime)/global.judgesize,global.settings[9],-5000,showhit);
 			instance_destroy();
 		}
 	}
@@ -29,7 +29,7 @@ if keytouched==0{
 		}
 		else{
 			judge(startime);
-			instance_create_depth(640+(global.playtime-startime)/global.judgesize,global.settings[9],-1145,showhit);
+			instance_create_depth(640+(global.playtime-startime)/global.judgesize,global.settings[9],-5000,showhit);
 		}
 		
 		global.keytouchlist[key1]=keyamo+0.5;
@@ -61,7 +61,7 @@ else{
 		else {
 			global.judgelist[3]++;
 			instance_destroy(showdetail);
-			instance_create_depth(640,0,-1145,showdetail);
+			instance_create_depth(640,0,-5000,showdetail);
 			instance_destroy();
 		}
 	}
