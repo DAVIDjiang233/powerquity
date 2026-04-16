@@ -262,6 +262,38 @@ while(chartlist<512&&0<array_length(global.svread)){
 				});}
 			array_delete(global.svread,0,1);
 		}
+		else if(global.svread[0][0]=="P"){
+			if global.svenable==1{
+				if(real(global.svread[0][2])<=-1){
+					global.svread[0][2]=global.lastskinum-real(global.svread[0][2]);
+				}
+			instance_create_depth(0,0,real(global.svread[0][23]),bsv_spritespawn,
+				{
+					stime: real(global.svread[0][1]),
+					etime: real(global.svread[0][1])+real(global.svread[0][3]),
+					spr : global.playskin[real(global.svread[0][2])],
+					mx1 : real(global.svread[0][4]),
+					my1 : real(global.svread[0][5]),
+					msx1 : real(global.svread[0][6]),
+					msy1 : real(global.svread[0][7]),
+					ma1 : real(global.svread[0][8]),
+					mr1 : real(global.svread[0][9]),
+					mx2 : real(global.svread[0][10]),
+					my2 : real(global.svread[0][11]),
+					msx2 : real(global.svread[0][12]),
+					msy2 : real(global.svread[0][13]),
+					ma2 : real(global.svread[0][14]),
+					mr2 : real(global.svread[0][15]),
+					ex : scr_nibl2array(global.svread[0][16]),
+					ey : scr_nibl2array(global.svread[0][17]),
+					esx : scr_nibl2array(global.svread[0][18]),
+					esy : scr_nibl2array(global.svread[0][19]),
+					ea : scr_nibl2array(global.svread[0][20]),
+					er : scr_nibl2array(global.svread[0][21]),
+					sprcolor : real(global.svread[0][22]),
+				});}
+			array_delete(global.svread,0,1);
+		}
 		else if(global.svread[0][0]=="Told"){
 			if global.svenable==1{
 			instance_create_depth(0,0,0,bsv_textspawnold,

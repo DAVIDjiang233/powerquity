@@ -290,6 +290,8 @@ else{
 	global.bloom=[0];
 	global.chromatic=[0,1.05];
 	
+	global.lastskinum=array_length(global.playskin)-1;
+	
 	if playtypemod!=0 global.playtype=playtypemod;
 
 	global.chartread=[];
