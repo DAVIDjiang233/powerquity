@@ -43,14 +43,13 @@ function scr_loadskin(_filein){
 							}
 							if(_j==array_length(global.playskin)){
 								sprite_delete(global.playskin[real(_fileread[_i][0])]);
-								show_debug_message("clean")
+								//show_debug_message("clean")
 							}
 						}
 						global.playskin[real(_fileread[_i][0])]=global.playskin[real(_fileread[_i][1])];
 					}
 				}
 				else{
-					
 					if(real(_fileread[_i][0])<array_length(global.playskin)
 					&&string_starts_with(sprite_get_name(global.playskin[real(_fileread[_i][0])]),"__")){
 						var _j=0
@@ -63,13 +62,29 @@ function scr_loadskin(_filein){
 						}
 						if(_j==array_length(global.playskin)){
 							sprite_delete(global.playskin[real(_fileread[_i][0])]);
-							show_debug_message("clean")
+							//show_debug_message("clean")
 						}
 					}
 					
-					global.playskin[real(_fileread[_i][0])]=sprite_add(
-					working_directory+_filein+"skin/"+_fileread[_i][1]
-					, real(_fileread[_i][2]), false, false, real(_fileread[_i][3]), real(_fileread[_i][4]))
+					if(real(_fileread[_i][2])>=1){
+						global.playskin[real(_fileread[_i][0])]=sprite_add(
+						working_directory+_filein+"skin/"+_fileread[_i][1]
+						, real(_fileread[_i][2]), false, false, real(_fileread[_i][3]), real(_fileread[_i][4]));
+					}
+					else{
+						global.playskin[real(_fileread[_i][0])]=sprite_add(
+						working_directory+_filein+"skin/"+string_insert("_0",_fileread[_i][1],string_last_pos(".",_fileread[_i][1]))
+						, 1, false, false, real(_fileread[_i][3]), real(_fileread[_i][4]));
+						var _num=1;
+						while(file_exists(working_directory+_filein+"skin/"+string_insert("_"+string(_num),_fileread[_i][1],string_last_pos(".",_fileread[_i][1])))){
+							var _sprtemp=sprite_add(
+							working_directory+_filein+"skin/"+string_insert("_"+string(_num),_fileread[_i][1],string_last_pos(".",_fileread[_i][1]))
+							, 1, false, false, 0, 0);
+							sprite_merge(global.playskin[real(_fileread[_i][0])],_sprtemp);
+							sprite_delete(_sprtemp);
+							_num++;
+						}
+					}
 				}
 			}
 		}
