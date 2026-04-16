@@ -7,18 +7,10 @@ draw_rectangle(0,0,2222,2222,0);
 draw_set_colour(c_white);
 draw_set_alpha(1);
 	
-if(global.mirror!=1){
-	draw_text_transformed(640, 160, "暂停",1,1,0);
-	draw_text_transformed(640, 290, chr(global.pressext[1])+" / Enter: 继续",0.4,0.4,0);
-	draw_text_transformed(640, 350, "ESC: 退出",0.4,0.4,0);
-	draw_text_transformed(640, 410, chr(global.pressext[0])+": 重玩",0.4,0.4,0);
-}
-else{
-	draw_text_transformed(640, 160, "暂停",-1,1,0);
-	draw_text_transformed(640, 290, chr(global.pressext[1])+" / Enter: 继续",-0.4,0.4,0);
-	draw_text_transformed(640, 350, "ESC: 退出",-0.4,0.4,0);
-	draw_text_transformed(640, 410, chr(global.pressext[0])+": 重玩",-0.4,0.4,0);
-}
+draw_text_transformed(640, 160, "暂停",1,1,0);
+draw_text_transformed(640, 290, chr(global.pressext[1])+" / Enter: 继续",0.4,0.4,0);
+draw_text_transformed(640, 350, "ESC: 退出",0.4,0.4,0);
+draw_text_transformed(640, 410, chr(global.pressext[0])+": 重玩",0.4,0.4,0);
 
 if global.playtype==1 exit;
 
@@ -35,14 +27,8 @@ while(_x1<=4){
 
 draw_set_color(#ff0000);
 if mouse_check_button(mb_left)&&pressedtype!=0{
-	if(global.mirror!=1){
-		if (pressedtype<5) draw_line_width(x-255+pressedtype*90,y-108+69,mouse_x,mouse_y,5);
-		else draw_line_width(x-180+pressedtype,y-108+123,mouse_x,mouse_y,5);
-	}
-	else{
-		if (pressedtype<5) draw_line_width(x-255+pressedtype*90,y-108+69,1280-mouse_x,mouse_y,5);
-		else draw_line_width(x-180+pressedtype,y-108+123,1280-mouse_x,mouse_y,5);
-	}
+	if (pressedtype<5) draw_line_width(x-255+pressedtype*90,y-108+69,mouse_x,mouse_y,5);
+	else draw_line_width(x-180+pressedtype,y-108+123,mouse_x,mouse_y,5);
 }
 
 if global.pressreal[1]==ord("1") draw_set_color(#ff3333);
