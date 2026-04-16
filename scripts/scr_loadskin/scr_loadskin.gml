@@ -3,8 +3,9 @@ function scr_loadskin(_filein){
 	var _fileread=[];
 	var _lastskinum=array_length(global.playskin)-1;
 	//游玩界面
-	if (file_exists(working_directory + "skin/"+_filein+"0play.txt")){
-		var _file = file_text_open_read(working_directory + "skin/"+_filein+"0play.txt");
+	
+	if (file_exists(working_directory + _filein + "skin/0play.txt")){
+		var _file = file_text_open_read(working_directory + _filein + "skin/0play.txt");
 		var i=0;
 		while (!file_text_eof(_file))
 		{
@@ -29,11 +30,45 @@ function scr_loadskin(_filein){
 					global.playskin[real(_fileread[_i][0])]=real(_fileread[_i][1]);
 				}
 				else if(scr_stringtreal(_fileread[_i][1])==1){
-					global.playskin[real(_fileread[_i][0])]=global.playskin[real(_fileread[_i][1])];
+					if(real(_fileread[_i][1])!=real(_fileread[_i][0])){
+						if(real(_fileread[_i][0])<array_length(global.playskin)
+						&&string_starts_with(sprite_get_name(global.playskin[real(_fileread[_i][0])]),"__")){
+							var _j=0
+							while(_j<array_length(global.playskin)){
+								if(global.playskin[real(_fileread[_i][0])]==global.playskin[_j]
+									&&real(_fileread[_i][0])!=_j){
+									break;
+								}
+								_j++
+							}
+							if(_j==array_length(global.playskin)){
+								sprite_delete(global.playskin[real(_fileread[_i][0])]);
+								show_debug_message("clean")
+							}
+						}
+						global.playskin[real(_fileread[_i][0])]=global.playskin[real(_fileread[_i][1])];
+					}
 				}
 				else{
+					
+					if(real(_fileread[_i][0])<array_length(global.playskin)
+					&&string_starts_with(sprite_get_name(global.playskin[real(_fileread[_i][0])]),"__")){
+						var _j=0
+						while(_j<array_length(global.playskin)){
+							if(global.playskin[real(_fileread[_i][0])]==global.playskin[_j]
+								&&real(_fileread[_i][0])!=_j){
+								break;
+							}
+							_j++
+						}
+						if(_j==array_length(global.playskin)){
+							sprite_delete(global.playskin[real(_fileread[_i][0])]);
+							show_debug_message("clean")
+						}
+					}
+					
 					global.playskin[real(_fileread[_i][0])]=sprite_add(
-					working_directory+"/skin/"+_filein+_fileread[_i][1]
+					working_directory+_filein+"skin/"+_fileread[_i][1]
 					, real(_fileread[_i][2]), false, false, real(_fileread[_i][3]), real(_fileread[_i][4]))
 				}
 			}

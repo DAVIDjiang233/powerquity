@@ -47,27 +47,46 @@ if (i_d == msg)
 					if(array_contains(global.filelist,_basename)) exit;
 					directory_create(working_directory+"songlist/"+_basename);
 					var _files = [];
-					var _file_name = file_find_first(working_directory+"songlist/"+string(global.filelist[global.chart])+"/*.pqc", 0);
+					var _file_name = file_find_first(working_directory+"songlist/"+string(global.filelist[global.chart])+"/*", 0);
 
 					while (_file_name != "")
 					{
 					    array_push(_files, _file_name);
 					    _file_name = file_find_next();
 					}
+					file_find_close();
 					//show_debug_message(_files);
 					file_rename(
 					working_directory+"highscore/"+string(global.filelist[global.chart])+".pqc",
 					working_directory+"highscore/"+_basename+".pqc"
-					);
-					file_rename(
-					working_directory+"songlist/"+string(global.filelist[global.chart])+"/base.ogg",
-					working_directory+"songlist/"+_basename+"/base.ogg"
 					);
 					for(var _i=0;_i<array_length(_files);_i++){
 						file_rename(
 						working_directory+"songlist/"+string(global.filelist[global.chart])+"/"+_files[_i],
 						working_directory+"songlist/"+_basename+"/"+_files[_i]
 						);
+					}
+					
+					if (directory_exists(working_directory+"songlist/"+string(global.filelist[global.chart])+"/skin/"))
+					{
+						directory_create(working_directory+"songlist/"+_basename+"/skin");
+						_files = [];
+						_file_name = file_find_first(working_directory+"songlist/"+string(global.filelist[global.chart])+"/skin/*", 0);
+
+						while (_file_name != "")
+						{
+						    array_push(_files, _file_name);
+						    _file_name = file_find_next();
+						}
+						file_find_close();
+						//show_debug_message(_files)
+						for(var _i=0;_i<array_length(_files);_i++){
+							file_rename(
+							working_directory+"songlist/"+string(global.filelist[global.chart])+"/skin/"+_files[_i],
+							working_directory+"songlist/"+_basename+"/skin/"+_files[_i]
+							);
+						}
+						
 					}
 					directory_destroy(working_directory+"songlist/"+string(global.filelist[global.chart]));
 					scr_restart();
@@ -106,6 +125,25 @@ if (i_d == msg)
 						zip_add_file(_zip
 							, _zipnum+"/bpmlist.pqc"
 							, working_directory+"songlist/"+string(global.filelist[global.chart])+"/bpmlist.pqc");
+						
+						if (directory_exists(working_directory+"songlist/"+string(global.filelist[global.chart])+"/skin/"))
+						{
+							var _files = [];
+							var _file_name = file_find_first(working_directory+"songlist/"+string(global.filelist[global.chart])+"/skin/*", 0);
+
+							while (_file_name != "")
+							{
+							    array_push(_files, _file_name);
+							    _file_name = file_find_next();
+							}
+							file_find_close();
+							//show_debug_message(_files)
+							for(var _i=0;_i<array_length(_files);_i++){
+								zip_add_file(_zip
+								, _zipnum+"/skin/"+_files[_i]
+								, working_directory+"songlist/"+string(global.filelist[global.chart])+"/skin/"+_files[_i]);
+							}
+						}
 						
 						zip_save(_zip, _file);
 						

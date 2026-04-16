@@ -198,7 +198,24 @@ else if chartloading==1{
 				zip_add_file(_zip
 					, _zipnum+"/main.pqc"
 					, working_directory+"songlist/"+string(global.filelist[global.chart])+"/main.pqc");
-						
+				if (directory_exists(working_directory+"songlist/"+string(global.filelist[global.chart])+"/skin/"))
+				{
+					var _files = [];
+					var _file_name = file_find_first(working_directory+"songlist/"+string(global.filelist[global.chart])+"/skin/*", 0);
+
+					while (_file_name != "")
+					{
+						array_push(_files, _file_name);
+						_file_name = file_find_next();
+					}
+					file_find_close();
+					//show_debug_message(_files)
+					for(var _i=0;_i<array_length(_files);_i++){
+						zip_add_file(_zip
+						, _zipnum+"/skin/"+_files[_i]
+						, working_directory+"songlist/"+string(global.filelist[global.chart])+"/skin/"+_files[_i]);
+					}
+				}
 				zip_save(_zip, _file);
 				chartloading=0;
 			}
@@ -290,7 +307,10 @@ else{
 	global.bloom=[0];
 	global.chromatic=[0,1.05];
 	
-	global.lastskinum=array_length(global.playskin)-1;
+	if(directory_exists(working_directory+"songlist/"+string(global.filelist[global.chart])+"/skin/")){
+		global.lastskinum=scr_loadskin("songlist/"+string(global.filelist[global.chart])+"/")
+	}
+	else global.lastskinum=array_length(global.playskin)-1;
 	
 	if playtypemod!=0 global.playtype=playtypemod;
 
