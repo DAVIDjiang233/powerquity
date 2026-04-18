@@ -72,13 +72,14 @@ function scr_loadskin(_filein){
 						, real(_fileread[_i][2]), false, false, real(_fileread[_i][3]), real(_fileread[_i][4]));
 					}
 					else{
+						var _name=working_directory+_filein+"skin/"+string_insert("_{0}",_fileread[_i][1],string_last_pos(".",_fileread[_i][1]));
 						global.playskin[real(_fileread[_i][0])]=sprite_add(
-						working_directory+_filein+"skin/"+string_insert("_0",_fileread[_i][1],string_last_pos(".",_fileread[_i][1]))
+						string(_name,0)
 						, 1, false, false, real(_fileread[_i][3]), real(_fileread[_i][4]));
 						var _num=1;
-						while(file_exists(working_directory+_filein+"skin/"+string_insert("_"+string(_num),_fileread[_i][1],string_last_pos(".",_fileread[_i][1])))){
+						while(file_exists(string(_name,_num))){
 							var _sprtemp=sprite_add(
-							working_directory+_filein+"skin/"+string_insert("_"+string(_num),_fileread[_i][1],string_last_pos(".",_fileread[_i][1]))
+							string(_name,_num)
 							, 1, false, false, 0, 0);
 							sprite_merge(global.playskin[real(_fileread[_i][0])],_sprtemp);
 							sprite_delete(_sprtemp);

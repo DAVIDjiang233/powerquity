@@ -108,14 +108,125 @@ else global.fontall=font_add("deng",72,0,0,32,128);
 	gunmu,
 	gunmu,
 	gunmu,
-	spr_lightoff,spr_lighton
+	spr_lightoff,spr_lighton,
+	gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,
+	gunmu,gunmu,
+	
+	gunmu,gunmu,
+	gunmu,gunmu,
+	gunmu,gunmu,
+	gunmu,gunmu,
+	gunmu,gunmu,
+	
+	gunmu,
+	gunmu,
+	
+	gunmu,
+	gunmu,
+	gunmu,
+	gunmu,
+	gunmu,
+	
+	gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,
+	
+	gunmu,gunmu,
+	gunmu,gunmu,
+	
+	gunmu,gunmu,
+	
+	gunmu,gunmu,
+	gunmu,gunmu,
+	
+	gunmu,gunmu,
+	gunmu,gunmu,
+	gunmu,gunmu,
+	gunmu,gunmu,
+	gunmu,gunmu,
+	
+	gunmu,gunmu,
+	
+	gunmu,gunmu,
+	gunmu,gunmu,
+	
+	gunmu,gunmu,gunmu,gunmu,gunmu,
+	gunmu,gunmu,gunmu,gunmu,gunmu,gunmu,gunmu,gunmu,
+	60
 	];
 }
 
 //show_debug_message(array_length(global.playskin));
 scr_loadskin("");
 //show_debug_message(array_length(global.playskin));
-//show_debug_message(global.playskin)
+//show_debug_message(global.playskin[260])
 global.fileread=[];
 global.filelist=[];
 global.highscore=[];

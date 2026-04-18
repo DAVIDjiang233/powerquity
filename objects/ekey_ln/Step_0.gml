@@ -12,11 +12,25 @@ if keytouched==0{
 	if (global.playtime>startime+125*global.judgesize){
 		if(global.autoplay==1) {
 			global.judgelist[0]++;
+			instance_create_depth(global.playskin[70]*(key1-2.5)+640,global.playskin[71],-3000,showhitlighting,
+			{
+				stime : global.playtime,
+				spr : global.playskin[exjudge*20+280+key1],
+				sfps : global.playskin[411]
+			}
+			);
 			global.keytouchlist[key1]=keyamo+0.5;
 			keytouched=3;
 		}
 		else{
 			global.judgelist[3]+=2;
+			instance_create_depth(global.playskin[70]*(key1-2.5)+640,global.playskin[71],-3000,showhitlighting,
+			{
+				stime : global.playtime,
+				spr : global.playskin[exjudge*32+284+key1],
+				sfps : global.playskin[411]
+			}
+			);
 			global.keytouchlist[key1]=keyamo+0.5;
 			instance_create_depth(640+(global.playtime-startime)/global.judgesize,global.settings[9],-5000,showhit);
 			instance_destroy();
@@ -26,9 +40,22 @@ if keytouched==0{
 	if keyboard_check_pressed(global.pressreal[key1]){
 		if(exjudge==0){
 			global.judgelist[0]++;
+			instance_create_depth(global.playskin[70]*(key1-2.5)+640,global.playskin[71],-3000,showhitlighting,
+			{
+				stime : global.playtime,
+				spr : global.playskin[280+key1],
+				sfps : global.playskin[411]
+			}
+			);
 		}
 		else{
-			judge(startime);
+			instance_create_depth(global.playskin[70]*(key1-2.5)+640,global.playskin[71],-3000,showhitlighting,
+			{
+				stime : global.playtime,
+				spr : global.playskin[judge(startime)*4+300+key1],
+				sfps : global.playskin[411]
+			}
+			);
 			instance_create_depth(640+(global.playtime-startime)/global.judgesize,global.settings[9],-5000,showhit);
 		}
 		
@@ -41,6 +68,13 @@ else if(keytouched==3){
 	ydo=global.playskin[71];
 	if endtime<global.playtime {
 		global.judgelist[0]++;
+		instance_create_depth(global.playskin[70]*(key1-2.5)+640,global.playskin[71],-3000,showhitlighting,
+		{
+			stime : global.playtime,
+			spr : global.playskin[exjudge*32+292+key1],
+			sfps : global.playskin[411]
+		}
+		);
 		instance_destroy();
 	}
 }
@@ -50,16 +84,37 @@ else{
 		ydo=global.playskin[71];
 		if endtime<global.playtime {
 			global.judgelist[0]++;
+			instance_create_depth(global.playskin[70]*(key1-2.5)+640,global.playskin[71],-3000,showhitlighting,
+			{
+				stime : global.playtime,
+				spr : global.playskin[exjudge*32+292+key1],
+				sfps : global.playskin[411]
+			}
+			);
 			instance_destroy();
 		}
 	}
 	else{
 		if endtime-125*global.judgesize<global.playtime {
 			global.judgelist[0]++;
+			instance_create_depth(global.playskin[70]*(key1-2.5)+640,global.playskin[71],-3000,showhitlighting,
+			{
+				stime : global.playtime,
+				spr : global.playskin[exjudge*32+292+key1],
+				sfps : global.playskin[411]
+			}
+			);
 			instance_destroy();
 		}
 		else {
 			global.judgelist[3]++;
+			instance_create_depth(global.playskin[70]*(key1-2.5)+640,global.playskin[71],-3000,showhitlighting,
+			{
+				stime : global.playtime,
+				spr : global.playskin[exjudge*32+296+key1],
+				sfps : global.playskin[411]
+			}
+			);
 			instance_destroy(showdetail);
 			instance_create_depth(640,0,-5000,showdetail);
 			instance_destroy();
