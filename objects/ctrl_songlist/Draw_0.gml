@@ -46,15 +46,22 @@ if chartrue==1{
 
 	draw_text_transformed(992, 518, "难度: "+string(global.fileread[global.level*2+4]),0.3,0.3,0);
 	draw_text_transformed(992, 578, "谱师: "+string(global.fileread[global.level*2+3]),0.3,0.3,0);
-	if playtypemod==0{
-		if global.playtype==1 draw_text_transformed(992, 638, "游玩类型: Mania",0.3,0.3,0);
-		if global.playtype==2 draw_text_transformed(992, 638, "游玩类型: QWERTYUIOP!!",0.3,0.3,0);
+	if(global.chartrans==0){
+		if playtypemod==0{
+			if global.playtype==1 draw_text_transformed(992, 638, "游玩类型: Mania",0.3,0.3,0);
+			if global.playtype==2 draw_text_transformed(992, 638, "游玩类型: QWERTYUIOP!!",0.3,0.3,0);
+		}
+		else{
+			draw_set_colour(c_yellow);
+			if playtypemod==1 draw_text_transformed(992, 638, "游玩类型: Mania",0.3,0.3,0);
+			if playtypemod==2 draw_text_transformed(992, 638, "游玩类型: QWERTYUIOP!!",0.3,0.3,0);
+			draw_set_colour(c_white);
+		}
 	}
 	else{
-		draw_set_colour(c_yellow);
-		if playtypemod==1 draw_text_transformed(992, 638, "游玩类型: Mania",0.3,0.3,0);
-		if playtypemod==2 draw_text_transformed(992, 638, "游玩类型: QWERTYUIOP!!",0.3,0.3,0);
-		draw_set_colour(c_white);
+		if(global.chartrans=="sv"){
+			draw_text_transformed(992, 638, "转谱类型: stary/vivify",0.3,0.3,0);
+		}
 	}
 	if(global.highscore[global.level]>=600){
 		draw_set_colour(c_yellow);
@@ -208,8 +215,15 @@ else if chartediting==1{
 		}
 	}
 	draw_triangle(50,340+50*modtype,35,350+50*modtype,35,330+50*modtype,false);
-	draw_set_colour(c_white);
+	
+	if(global.chartrans==0){
+		draw_set_colour(c_white);
+	}
+	else{
+		draw_set_colour(c_gray);
+	}
 	draw_text_transformed(80, 340, "编辑当前谱面",0.3,0.3,0);
+	draw_set_colour(c_white);
 	draw_text_transformed(80, 390, "导入音乐并创建谱面",0.3,0.3,0);
 	draw_text_transformed(80, 440, "创建新谱面",0.3,0.3,0);
 	draw_text_transformed(80, 490, "复制当前谱面",0.3,0.3,0);

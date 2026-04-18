@@ -224,10 +224,12 @@ else if chartloading==1{
 }
 else if chartediting==1{
 	if modtype==0 {
-		global.playskin[69]=96;
-		global.playskin[70]=102;
-		global.playskin[71]=608;
-		room_goto(room_chartdesign);
+		if(global.chartrans==0){
+			global.playskin[69]=96;
+			global.playskin[70]=102;
+			global.playskin[71]=608;
+			room_goto(room_chartdesign);
+		}
 	}
 	else if modtype==1 {
 		msg = get_integer_async("输入曲名", "");

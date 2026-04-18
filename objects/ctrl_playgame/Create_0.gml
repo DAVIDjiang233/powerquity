@@ -42,36 +42,45 @@ global.cooldowntiming=[[6000,8000],[6000,8000],[6000,8000],[6000,8000]];
 
 var _file = file_text_open_read(working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+".pqc");
 delay=file_text_read_string(_file);
-delay=floor(-real(delay));
-file_text_readln(_file);
+if(scr_stringtreal(delay)==1){
+	delay=floor(-real(delay));
+	file_text_readln(_file);
 
-if (global.mirror==1&&!instance_exists(shad_mirror)){
-	instance_create_depth(114,514,-9999,shad_mirror);
-}
-if global.playtype==2 keyboard_key_press(ord("1"));
-
-if (global.autoplay==1) global.judgesize=0.001;
-else if(global.autoplay==2){
-	keyboard_key_release(global.pressreal[1]);
-	keyboard_key_release(global.pressreal[2]);
-	keyboard_key_release(global.pressreal[3]);
-	keyboard_key_release(global.pressreal[4]);
-}
-
-file_text_readln(_file);
-while (!file_text_eof(_file))
-{
-    global.chartread[i] = string_split(file_text_read_string(_file),",");
-	while (global.chartread[i][0]==""&&!file_text_eof(_file)){
-		array_delete(global.chartread,i,1);
-		file_text_readln(_file);
-		global.chartread[i] = string_split(file_text_read_string(_file),",");
+	if (global.mirror==1&&!instance_exists(shad_mirror)){
+		instance_create_depth(114,514,-9999,shad_mirror);
 	}
-	if (global.chartread[i][0]=="") {array_delete(global.chartread,i,1);
-		i--;
+	if global.playtype==2 keyboard_key_press(ord("1"));
+
+	if (global.autoplay==1) global.judgesize=0.001;
+	else if(global.autoplay==2){
+		keyboard_key_release(global.pressreal[1]);
+		keyboard_key_release(global.pressreal[2]);
+		keyboard_key_release(global.pressreal[3]);
+		keyboard_key_release(global.pressreal[4]);
+	}
+
+	file_text_readln(_file);
+	while (!file_text_eof(_file))
+	{
+	    global.chartread[i] = string_split(file_text_read_string(_file),",");
+		while (global.chartread[i][0]==""&&!file_text_eof(_file)){
+			array_delete(global.chartread,i,1);
+			file_text_readln(_file);
+			global.chartread[i] = string_split(file_text_read_string(_file),",");
 		}
-    file_text_readln(_file);
-	i++;
+		if (global.chartread[i][0]=="") {array_delete(global.chartread,i,1);
+			i--;
+			}
+	    file_text_readln(_file);
+		i++;
+	}
+}
+else{
+	delay=string_split(delay,",")
+	if(delay[0]="sv"){
+		global.chartread=scr_sv2pqc(working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+delay[1]);
+	}
+	delay=0;
 }
 file_text_close(_file);
 
@@ -82,6 +91,8 @@ array_sort(global.chartread,function(elm1, elm2){
 	else if elm1[0]="L" return 1;
 	else return -1;
 });
+
+show_debug_message(global.chartread);
 
 
 i = 0;

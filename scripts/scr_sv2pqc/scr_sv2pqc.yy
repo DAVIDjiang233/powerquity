@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_stringtreal",
+  "%Name":"scr_sv2pqc",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_stringtreal",
+  "name":"scr_sv2pqc",
   "parent":{
-    "name":"脚本",
-    "path":"folders/脚本.yy",
+    "name":"转谱",
+    "path":"folders/脚本/转谱.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

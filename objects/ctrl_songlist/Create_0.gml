@@ -230,6 +230,7 @@ scr_loadskin("");
 global.fileread=[];
 global.filelist=[];
 global.highscore=[];
+global.chartrans=0;
 global.chart=0;
 global.level=0;
 var _amon=0;

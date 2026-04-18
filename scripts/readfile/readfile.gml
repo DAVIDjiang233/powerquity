@@ -29,6 +29,11 @@ function readfile(){
 	}
 	file_text_close(_file);
 	_file = file_text_open_read(working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+".pqc");
+	global.chartrans=file_text_read_string(_file);
+	if(scr_stringtreal(global.chartrans)==1){
+		global.chartrans=0;
+	}
+	else global.chartrans=string_split(global.chartrans,",")[0];
 	file_text_readln(_file);
 	global.playtype=file_text_read_string(_file);
 	file_text_close(_file);
