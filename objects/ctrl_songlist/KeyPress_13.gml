@@ -19,12 +19,18 @@ if moding==1{
 else if chartloading==1{
 	if modtype==0{
 		var loadchart;
-		loadchart = get_open_filename("powerquity chart file|*.pqp;*.zip", "");
-		if (loadchart != "")
-			{
-			    var q=zip_unzip(loadchart, working_directory + "songlist/");
+		loadchart = get_open_filename("powerquity chart file|*.pqp;*.zip;*.svc", "");
+		if (loadchart != ""){
+			if(filename_ext(loadchart)==".svc"){
+				var q=zip_unzip(loadchart, working_directory + "songlist/"+filename_change_ext(filename_name(loadchart),"")+"/");
+				scr_svcload(working_directory + "songlist/"+filename_change_ext(filename_name(loadchart),"")+"/");
 				scr_restart();
 			}
+			else{
+				var q=zip_unzip(loadchart, working_directory + "songlist/");
+				scr_restart();
+			}
+		}
 	}
 	else if modtype==1{
 		if confirmt==0 confirmt=1;

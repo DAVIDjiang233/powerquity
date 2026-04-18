@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_svcload",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_svcload",
+  "parent":{
+    "name":"转谱",
+    "path":"folders/脚本/转谱.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

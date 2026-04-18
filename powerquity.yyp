@@ -121,6 +121,7 @@
     {"id":{"name":"scr_savechart","path":"scripts/scr_savechart/scr_savechart.yy",},},
     {"id":{"name":"scr_stringtreal","path":"scripts/scr_stringtreal/scr_stringtreal.yy",},},
     {"id":{"name":"scr_sv2pqc","path":"scripts/scr_sv2pqc/scr_sv2pqc.yy",},},
+    {"id":{"name":"scr_svcload","path":"scripts/scr_svcload/scr_svcload.yy",},},
     {"id":{"name":"scr_svdeleat","path":"scripts/scr_svdeleat/scr_svdeleat.yy",},},
     {"id":{"name":"scr_svget","path":"scripts/scr_svget/scr_svget.yy",},},
     {"id":{"name":"scr_svset","path":"scripts/scr_svset/scr_svset.yy",},},

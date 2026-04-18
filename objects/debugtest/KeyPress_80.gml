@@ -1,1 +1,1 @@
-scr_sv2pqc(working_directory + "test.json");
+//show_debug_message(filename_change_ext(filename_name("as/qqq.sxs"),""))
