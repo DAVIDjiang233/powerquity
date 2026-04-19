@@ -32,7 +32,7 @@ if (global.playtime>endtime+125*global.judgesize){
 }
 
 //press
-	if keyboard_check_pressed(global.pressreal[key1]){
+	if (global.pressing[global.pressreal[key1-1]]==3){
 		global.judgelist[3]++;
 		instance_create_depth(global.playskin[70]*(key1-2.5)+640,global.playskin[71],-3000,showhitlighting,
 		{
@@ -49,7 +49,7 @@ if (global.playtime>endtime+125*global.judgesize){
 
 
 //relerase
-if keyboard_check_released(global.pressreal[key1]){
+if global.pressing[global.pressreal[key1-1]]==1{
 	instance_create_depth(global.playskin[70]*(key1-2.5)+640,global.playskin[71],-3000,showhitlighting,
 		{
 			stime : global.playtime,

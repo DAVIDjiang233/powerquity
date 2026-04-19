@@ -32,7 +32,8 @@ if window_get_width()==1280{
 global.globalspeed=real(global.settings[0]);
 global.mirror=real(global.settings[12]);
 global.press=[real(global.settings[2]),real(global.settings[3]),real(global.settings[4]),real(global.settings[5]),real(global.settings[13]),real(global.settings[14]),real(global.settings[15]),real(global.settings[16])];
-global.pressreal=[ord("0"),ord("1"),ord("2"),ord("3"),ord("4"),ord("5")];
+global.pressreal=[0,1,2,3];
+global.pressing=[0,0,0,0]
 global.pressext=[real(global.settings[18]),real(global.settings[19])];
 randomise();
 if (!directory_exists(working_directory + "/songlist"))

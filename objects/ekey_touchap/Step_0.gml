@@ -32,7 +32,7 @@ else if (global.playtime>endtime+125){
 
 
 //press
-if keyboard_check(global.pressreal[key1]){
+if global.pressing[global.pressreal[key1-1]]>=2{
 	judged=1;
 }
 if(global.playtime>endtime&&judged==1){

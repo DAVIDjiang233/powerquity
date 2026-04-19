@@ -37,7 +37,7 @@ if keytouched==0{
 		}
 	}
 	
-	if keyboard_check_pressed(global.pressreal[key1]){
+	if global.pressing[global.pressreal[key1-1]]==3{
 		if(exjudge==0){
 			global.judgelist[0]++;
 			instance_create_depth(global.playskin[70]*(key1-2.5)+640,global.playskin[71],-3000,showhitlighting,
@@ -80,7 +80,7 @@ else if(keytouched==3){
 }
 else{
 	
-	if keyboard_check(global.pressreal[key1]){
+	if global.pressing[global.pressreal[key1-1]]>=2{
 		ydo=global.playskin[71];
 		if endtime<global.playtime {
 			global.judgelist[0]++;

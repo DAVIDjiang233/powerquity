@@ -53,10 +53,7 @@ if(scr_stringtreal(delay)==1){
 
 	if (global.autoplay==1) global.judgesize=0.001;
 	else if(global.autoplay==2){
-		keyboard_key_release(global.pressreal[1]);
-		keyboard_key_release(global.pressreal[2]);
-		keyboard_key_release(global.pressreal[3]);
-		keyboard_key_release(global.pressreal[4]);
+		global.pressing=[0,0,0,0];
 	}
 
 	file_text_readln(_file);

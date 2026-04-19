@@ -309,7 +309,7 @@ else{
 	global.chartmoveinspeed=[0,0,0,0,0,0];
 	global.chartmoveinglobal=[0,0,0,0,0,0];
 	global.rand=[random(0.998),random(0.998),random(0.998),random(0.998)];
-	global.pressreal=[ord("0"),ord("1"),ord("2"),ord("3"),ord("4"),ord("5")];
+	global.pressreal=[0,1,2,3];
 	global.globalspeed=global.globalspeed/global.gamespeed;
 
 	global.bloom=[0];

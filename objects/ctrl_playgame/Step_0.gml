@@ -704,7 +704,9 @@ for(var _i=0;_i<4;_i++){
 		if(autopress[_i][0][0]=="T"){
 			
 			if(array_length(autopress[_i])>1&&autopress[_i][1][0]=="N"){
-				global.pressing[global.pressreal[_i]]=3;
+				if(global.pressing[global.pressreal[_i]]<=1){
+					global.pressing[global.pressreal[_i]]=3;
+				}
 			}
 			else if(global.pressing[global.pressreal[_i]]>=2||autocooldown[_i]>global.playtime){
 				var _cooldown=autocooldown[_i];
@@ -727,7 +729,9 @@ for(var _i=0;_i<4;_i++){
 				array_insert(autopress[_i],0,["QQQ",0]);
 			}
 			else if(array_length(autorelease[_i])==0||array_length(autopress[_i])==1||autopress[_i][1][1]<autorelease[_i][0]){
-				global.pressing[global.pressreal[_i]]=3;
+				if(global.pressing[global.pressreal[_i]]<=1){
+					global.pressing[global.pressreal[_i]]=3;
+				}
 				if(array_length(autopress[_i])>1&&autopress[_i][1][1]<autopress[_i][0][1]+_release)
 				_release/=2;
 				array_push(autorelease[_i],autopress[_i][0][1]+_release);
@@ -751,13 +755,15 @@ for(var _i=0;_i<4;_i++){
 			
 			_release=scr_rand(global.releasetiming[_k][0], global.releasetiming[_k][1]);
 			
-			global.pressing[global.pressreal[_k]]=3;
 			if(array_length(autopress[_k])>_j&&autopress[_k][_j][0]=="N"){
 			}
 			else if(global.pressing[global.pressreal[_k]]>=2){
 			}
 			else if(array_length(autorelease[_k])==0||array_length(autopress[_k])==_j||autopress[_k][_j][1]<autorelease[_k][0]){
 				array_push(autorelease[_k],autopress[_i][0][1]+_release);
+			}
+			if(global.pressing[global.pressreal[_k]]<=1){
+				global.pressing[global.pressreal[_k]]=3;
 			}
 			_i=_k;
 		}
@@ -773,13 +779,15 @@ for(var _i=0;_i<4;_i++){
 			
 			_release=scr_rand(global.releasetiming[_k][0], global.releasetiming[_k][1]);
 			
-			global.pressing[global.pressreal[_k]]=3
 			if(array_length(autopress[_k])>_j&&autopress[_k][_j][0]=="N"){
 			}
 			else if(global.pressing[global.pressreal[_k]]>=2){
 			}
 			else if(array_length(autorelease[_k])==0||array_length(autopress[_k])==_j||autopress[_k][_j][1]<autorelease[_k][0]){
 				array_push(autorelease[_k],autopress[_i][0][1]+_release);
+			}
+			if(global.pressing[global.pressreal[_k]]<=1){
+				global.pressing[global.pressreal[_k]]=3;
 			}
 			_i=_k;
 		}
@@ -798,7 +806,6 @@ for(var _i=0;_i<4;_i++){
 			
 			_release=scr_rand(global.releasetiming[_k][0], global.releasetiming[_k][1]);
 			
-			global.pressing[global.pressreal[_k]]=3;
 			if(array_length(autopress[_k])>_j&&autopress[_k][_j][0]=="N"){
 			}
 			else if(global.pressing[global.pressreal[_k]]>=2){
@@ -806,11 +813,16 @@ for(var _i=0;_i<4;_i++){
 			else if(array_length(autorelease[_k])==0||array_length(autopress[_k])==_j||autopress[_k][_j][1]<autorelease[_k][0]){
 				array_push(autorelease[_k],autopress[_i][0][1]+_release);
 			}
+			if(global.pressing[global.pressreal[_k]]<=1){
+				global.pressing[global.pressreal[_k]]=3;
+			}
 			_i=_k;
 		}
 		else if(autopress[_i][0][0]=="N"){
 			if(array_length(autopress[_i])==1||autopress[_i][1][1]>autopress[_i][0][2]){
-				global.pressing[global.pressreal[_i]]=3;
+				if(global.pressing[global.pressreal[_i]]<=1){
+					global.pressing[global.pressreal[_i]]=3;
+				}
 				autorelease[_i]=[];
 				array_push(autorelease[_i],autopress[_i][0][2]);
 				array_push(autopress2[_i],["N",autopress[_i][0][2]]);
@@ -823,7 +835,9 @@ for(var _i=0;_i<4;_i++){
 		}
 		else if(autopress[_i][0][0]=="LN"){
 			if(array_length(autopress[_i])>1&&autopress[_i][1][0]=="N"){
-				global.pressing[global.pressreal[_i]]=3;
+				if(global.pressing[global.pressreal[_i]]<=1){
+					global.pressing[global.pressreal[_i]]=3;
+				}
 			}
 			else if(global.pressing[global.pressreal[_i]]>=2||autocooldown[_i]>global.playtime){
 				var _cooldown=autocooldown[_i];
@@ -846,7 +860,9 @@ for(var _i=0;_i<4;_i++){
 				array_insert(autopress[_i],0,["QQQ",0]);
 			}
 			else if(array_length(autorelease[_i])==0||array_length(autopress[_i])==1||autopress[_i][1][1]<autorelease[_i][0]){
-				global.pressing[global.pressreal[_i]]=3;
+				if(global.pressing[global.pressreal[_i]]<=1){
+					global.pressing[global.pressreal[_i]]=3;
+				}
 				if(array_length(autopress[_i])>1&&autopress[_i][1][1]<autopress[_i][0][2]+_release)
 				_release/=2;
 				if(array_length(autopress[_i])>1&&autopress[_i][1][1]<autopress[_i][0][2]+_release)
