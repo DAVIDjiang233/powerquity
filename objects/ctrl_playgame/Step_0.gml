@@ -291,6 +291,7 @@ while(chartlist<512&&0<array_length(global.svread)){
 					ea : scr_nibl2array(global.svread[0][20]),
 					er : scr_nibl2array(global.svread[0][21]),
 					sprcolor : real(global.svread[0][22]),
+					sprfps : real(global.svread[0][24])
 				});}
 			array_delete(global.svread,0,1);
 		}

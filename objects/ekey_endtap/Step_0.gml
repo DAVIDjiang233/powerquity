@@ -11,7 +11,7 @@ if (global.playtime>endtime+125*global.judgesize){
 		instance_create_depth(global.playskin[70]*(key1-2.5)+640,global.playskin[71],-3000,showhitlighting,
 		{
 			stime : global.playtime,
-			spr : global.playskin[261+key1],
+			spr : global.playskin[260+key1],
 			sfps : global.playskin[411]
 		}
 		);
@@ -53,7 +53,7 @@ if keyboard_check_released(global.pressreal[key1]){
 	instance_create_depth(global.playskin[70]*(key1-2.5)+640,global.playskin[71],-3000,showhitlighting,
 		{
 			stime : global.playtime,
-			spr : global.playskin[judge(endtime)*4+261+key1],
+			spr : global.playskin[judge(endtime)*4+260+key1],
 			sfps : global.playskin[411]
 		}
 		);

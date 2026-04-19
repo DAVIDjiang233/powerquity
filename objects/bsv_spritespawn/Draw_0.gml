@@ -1,4 +1,4 @@
-draw_sprite_ext(spr,floor((global.playtime-stime)*3/100),
+draw_sprite_ext(spr,floor((global.playtime-stime)*sprfps/1000),
 	scr_tcscal(stime,etime,mx1,mx2,global.playtime,ex),
 	scr_tcscal(stime,etime,my1,my2,global.playtime,ey),
 	scr_tcscal(stime,etime,msx1,msx2,global.playtime,esx),
