@@ -5,8 +5,7 @@ if(keyboard_check_pressed(global.pressext[0])){
 	global.chartmoveinglobal=[0,0,0,0,0,0];
 	global.chartxmove=[0,0,0,0,0,0];
 	global.rand=[random(0.998),random(0.998),random(0.998),random(0.998)];
-	global.pressreal=[ord("0"),ord("1"),ord("2"),ord("3"),ord("4"),ord("5")];
-	global.pressdet=[0,0,0,0,0,0];
+	global.pressreal=[0,1,2,3];
 
 	global.bloom=[0];
 	global.chromatic=[0,1.05];
@@ -37,6 +36,12 @@ if(keyboard_check_pressed(global.pressext[1])){
 	}
 }
 
+if (gamepause==0){
+	for(var _j=0;_j<4;_j++){
+		if(global.pressing[_j]=1||global.pressing[_j]=3) global.pressing[_j]-=1;
+	}
+}
+
 if(alarmpause<current_time&&alarmpause>-10000){
 	alarmpause=-999999
 	audio_resume_all();
@@ -45,20 +50,40 @@ if(alarmpause<current_time&&alarmpause>-10000){
 	base_pause.pressedtype=0;
 	
 	
-	if global.playtype==1 {
-		if !keyboard_check(global.press[0]) {keyboard_key_release(ord("1"));global.pressdet[1]=0;}
-		if !keyboard_check(global.press[1]) {keyboard_key_release(ord("2"));global.pressdet[2]=0;}
-		if !keyboard_check(global.press[2]) {keyboard_key_release(ord("3"));global.pressdet[3]=0;}
-		if !keyboard_check(global.press[3]) {keyboard_key_release(ord("4"));global.pressdet[4]=0;}
+	if (global.playtype==1) {
+		for(var _j=0;_j<4;_j++){
+			if (keyboard_check(global.press[_j])){
+				if(global.pressing[_j]<=1){
+					global.pressing[_j]=3;
+				}
+			}
+			else if(global.pressing[_j]>=2){
+				global.pressing[_j]=1;
+			}
+		}
 	
 	}
 	else{
-		if !keyboard_check(global.press[5])&&keyboard_check(ord("2")) {
-			keyboard_key_release(ord("2"));global.pressdet[2]=0;
-			keyboard_key_press(ord("1"));global.pressdet[1]=1;
+		if(keyboard_check(global.press[5])){
+			if(global.pressing[global.pressreal[0]]>=2){
+				global.pressing[global.pressreal[0]]=1;
+				global.pressing[global.pressreal[1]]=3;
+			}
 		}
-		if !keyboard_check(global.press[6]) {keyboard_key_release(ord("3"));global.pressdet[3]=0;}
-		if !keyboard_check(global.press[7]) {keyboard_key_release(ord("4"));global.pressdet[4]=0;}
+		else if(global.pressing[global.pressreal[1]]>=2){
+			global.pressing[global.pressreal[1]]=1;
+			global.pressing[global.pressreal[0]]=3;
+		}
+		for(var _j=2;_j<4;_j++){
+			if (keyboard_check(global.press[_j])){
+				if(global.pressing[_j]<=1){
+					global.pressing[_j]=3;
+				}
+			}
+			else if(global.pressing[_j]>=2){
+				global.pressing[_j]=1;
+			}
+		}
 	}
 	
 }
@@ -73,6 +98,7 @@ global.keytouchlist[2]=ceil(global.keytouchlist[2]);
 global.keytouchlist[3]=ceil(global.keytouchlist[3]);
 global.keytouchlist[4]=ceil(global.keytouchlist[4]);
 global.keytouchlist[5]=ceil(global.keytouchlist[5]);
+
 
 if global.playtype==1 scr_normal_ctrl();
 else scr_qwertyuiop_ctrl();
@@ -665,7 +691,7 @@ while(chartlist<array_length(global.chartspeedtime)){
 //show_debug_message(autopress);
 for(var _i=0;_i<4;_i++){
 	if (array_length(autorelease[_i])>0&&autorelease[_i][0]<=global.playtime){
-		keyboard_key_release(global.pressreal[_i+1]);
+		global.pressing[global.pressreal[_i]]=1;
 		array_delete(autorelease[_i],0,1);
 		autocooldown[_i]=global.playtime+scr_rand(global.cooldowntiming[_i][0], global.cooldowntiming[_i][1]);
 	}
@@ -678,11 +704,11 @@ for(var _i=0;_i<4;_i++){
 		if(autopress[_i][0][0]=="T"){
 			
 			if(array_length(autopress[_i])>1&&autopress[_i][1][0]=="N"){
-				keyboard_key_press(global.pressreal[_i+1]);
+				global.pressing[global.pressreal[_i]]=3;
 			}
-			else if(keyboard_check(global.pressreal[_i+1])||autocooldown[_i]>global.playtime){
+			else if(global.pressing[global.pressreal[_i]]>=2||autocooldown[_i]>global.playtime){
 				var _cooldown=autocooldown[_i];
-				if(keyboard_check(global.pressreal[_i+1])&&array_length(autorelease[_i])>0) var _cooldown=autorelease[_i][0];
+				if(global.pressing[global.pressreal[_i]]>=2&&array_length(autorelease[_i])>0) _cooldown=autorelease[_i][0];
 				autopress[_i][0][1]=_cooldown;
 				array_sort(autopress[_i],
 				function(elm1, elm2)
@@ -701,7 +727,7 @@ for(var _i=0;_i<4;_i++){
 				array_insert(autopress[_i],0,["QQQ",0]);
 			}
 			else if(array_length(autorelease[_i])==0||array_length(autopress[_i])==1||autopress[_i][1][1]<autorelease[_i][0]){
-				keyboard_key_press(global.pressreal[_i+1]);
+				global.pressing[global.pressreal[_i]]=3;
 				if(array_length(autopress[_i])>1&&autopress[_i][1][1]<autopress[_i][0][1]+_release)
 				_release/=2;
 				array_push(autorelease[_i],autopress[_i][0][1]+_release);
@@ -719,16 +745,16 @@ for(var _i=0;_i<4;_i++){
 		else if(autopress[_i][0][0]=="BP"){
 			var _j=1,_k=_i;
 			
-			if(keyboard_check(global.pressreal[_k+1])||autocooldown[_k]>global.playtime||
+			if(global.pressing[global.pressreal[_k]]>=2||autocooldown[_k]>global.playtime||
 			(array_length(autopress[_k])>1&&autopress[_k][1][0]!="N"&&autopress[_k][1][1]-30<global.playtime))
 			{_k++;_j=0;}
 			
 			_release=scr_rand(global.releasetiming[_k][0], global.releasetiming[_k][1]);
 			
-			keyboard_key_press(global.pressreal[_k+1]);
+			global.pressing[global.pressreal[_k]]=3;
 			if(array_length(autopress[_k])>_j&&autopress[_k][_j][0]=="N"){
 			}
-			else if(keyboard_check(global.pressreal[_k+1])){
+			else if(global.pressing[global.pressreal[_k]]>=2){
 			}
 			else if(array_length(autorelease[_k])==0||array_length(autopress[_k])==_j||autopress[_k][_j][1]<autorelease[_k][0]){
 				array_push(autorelease[_k],autopress[_i][0][1]+_release);
@@ -738,19 +764,19 @@ for(var _i=0;_i<4;_i++){
 		else if(autopress[_i][0][0]=="TP"){
 			var _j=1,_k=_i;
 			
-			if(keyboard_check(global.pressreal[_k+1])||autocooldown[_k]>global.playtime||
+			if(global.pressing[global.pressreal[_k]]>=2||autocooldown[_k]>global.playtime||
 			(array_length(autopress[_k])>1&&autopress[_k][1][0]!="N"&&autopress[_k][1][1]-30<global.playtime))
 			{_k++;_j=0;}
-			if(keyboard_check(global.pressreal[_k+1])||autocooldown[_k]>global.playtime||
+			if(global.pressing[global.pressreal[_k]]>=2||autocooldown[_k]>global.playtime||
 			(array_length(autopress[_k])>1&&autopress[_k][1][0]!="N"&&autopress[_k][1][1]-30<global.playtime))
 			{_k++;}
 			
 			_release=scr_rand(global.releasetiming[_k][0], global.releasetiming[_k][1]);
 			
-			keyboard_key_press(global.pressreal[_k+1]);
+			global.pressing[global.pressreal[_k]]=3
 			if(array_length(autopress[_k])>_j&&autopress[_k][_j][0]=="N"){
 			}
-			else if(keyboard_check(global.pressreal[_k+1])){
+			else if(global.pressing[global.pressreal[_k]]>=2){
 			}
 			else if(array_length(autorelease[_k])==0||array_length(autopress[_k])==_j||autopress[_k][_j][1]<autorelease[_k][0]){
 				array_push(autorelease[_k],autopress[_i][0][1]+_release);
@@ -760,22 +786,22 @@ for(var _i=0;_i<4;_i++){
 		else if(autopress[_i][0][0]=="QP"){
 			var _j=1,_k=_i;
 			
-			if(keyboard_check(global.pressreal[_k+1])||autocooldown[_k]>global.playtime||
+			if(global.pressing[global.pressreal[_k]]>=2||autocooldown[_k]>global.playtime||
 			(array_length(autopress[_k])>1&&autopress[_k][1][0]!="N"&&autopress[_k][1][1]-30<global.playtime))
 			{_k++;_j=0;}
-			if(keyboard_check(global.pressreal[_k+1])||autocooldown[_k]>global.playtime||
+			if(global.pressing[global.pressreal[_k]]>=2||autocooldown[_k]>global.playtime||
 			(array_length(autopress[_k])>1&&autopress[_k][1][0]!="N"&&autopress[_k][1][1]-30<global.playtime))
 			{_k++;}
-			if(keyboard_check(global.pressreal[_k+1])||autocooldown[_k]>global.playtime||
+			if(global.pressing[global.pressreal[_k]]>=2||autocooldown[_k]>global.playtime||
 			(array_length(autopress[_k])>1&&autopress[_k][1][0]!="N"&&autopress[_k][1][1]-30<global.playtime))
 			{_k++;}
 			
 			_release=scr_rand(global.releasetiming[_k][0], global.releasetiming[_k][1]);
 			
-			keyboard_key_press(global.pressreal[_k+1]);
+			global.pressing[global.pressreal[_k]]=3;
 			if(array_length(autopress[_k])>_j&&autopress[_k][_j][0]=="N"){
 			}
-			else if(keyboard_check(global.pressreal[_k+1])){
+			else if(global.pressing[global.pressreal[_k]]>=2){
 			}
 			else if(array_length(autorelease[_k])==0||array_length(autopress[_k])==_j||autopress[_k][_j][1]<autorelease[_k][0]){
 				array_push(autorelease[_k],autopress[_i][0][1]+_release);
@@ -784,7 +810,7 @@ for(var _i=0;_i<4;_i++){
 		}
 		else if(autopress[_i][0][0]=="N"){
 			if(array_length(autopress[_i])==1||autopress[_i][1][1]>autopress[_i][0][2]){
-				keyboard_key_press(global.pressreal[_i+1]);
+				global.pressing[global.pressreal[_i]]=3;
 				autorelease[_i]=[];
 				array_push(autorelease[_i],autopress[_i][0][2]);
 				array_push(autopress2[_i],["N",autopress[_i][0][2]]);
@@ -797,11 +823,11 @@ for(var _i=0;_i<4;_i++){
 		}
 		else if(autopress[_i][0][0]=="LN"){
 			if(array_length(autopress[_i])>1&&autopress[_i][1][0]=="N"){
-				keyboard_key_press(global.pressreal[_i+1]);
+				global.pressing[global.pressreal[_i]]=3;
 			}
-			else if(keyboard_check(global.pressreal[_i+1])||autocooldown[_i]>global.playtime){
+			else if(global.pressing[global.pressreal[_i]]>=2||autocooldown[_i]>global.playtime){
 				var _cooldown=autocooldown[_i];
-				if(keyboard_check(global.pressreal[_i+1])&&array_length(autorelease[_i])>0) var _cooldown=autorelease[_i][0];
+				if(global.pressing[global.pressreal[_i]]>=2&&array_length(autorelease[_i])>0) _cooldown=autorelease[_i][0];
 				autopress[_i][0][1]=_cooldown;
 				array_sort(autopress[_i],
 				function(elm1, elm2)
@@ -820,7 +846,7 @@ for(var _i=0;_i<4;_i++){
 				array_insert(autopress[_i],0,["QQQ",0]);
 			}
 			else if(array_length(autorelease[_i])==0||array_length(autopress[_i])==1||autopress[_i][1][1]<autorelease[_i][0]){
-				keyboard_key_press(global.pressreal[_i+1]);
+				global.pressing[global.pressreal[_i]]=3;
 				if(array_length(autopress[_i])>1&&autopress[_i][1][1]<autopress[_i][0][2]+_release)
 				_release/=2;
 				if(array_length(autopress[_i])>1&&autopress[_i][1][1]<autopress[_i][0][2]+_release)
@@ -841,9 +867,9 @@ for(var _i=0;_i<4;_i++){
 			var _p=9999999,_p2=9999999,_r=9999999;
 			if(array_length(autopress[_i])>0) _p=autopress[_i][0][1];
 			if(array_length(autorelease[_i])>0) _r=autorelease[_i][0];
-			if(!keyboard_check(global.pressreal[_i+1])){
+			if(global.pressing[global.pressreal[_i]]<=1){
 				if(_p-global.playtime>150){
-					keyboard_key_press(global.pressreal[_i+1]);
+					global.pressing[global.pressreal[_i]]=3;
 					array_push(autorelease[_i],global.playtime+_release);
 					array_sort(autorelease[_i],true);
 					while(array_length(autopress2[_i])>1&&_p>autopress2[_i][1][1]&&autopress2[_i][1][0]=="A"){
