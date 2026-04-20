@@ -4,8 +4,8 @@ function scr_loadskin(_filein){
 	var _lastskinum=array_length(global.playskin)-1;
 	//游玩界面
 	
-	if (file_exists(working_directory + _filein + "skin/0play.txt")){
-		var _file = file_text_open_read(working_directory + _filein + "skin/0play.txt");
+	if (file_exists(working_directory + _filein + "/0play.txt")){
+		var _file = file_text_open_read(working_directory + _filein + "/0play.txt");
 		var i=0;
 		while (!file_text_eof(_file))
 		{
@@ -26,7 +26,7 @@ function scr_loadskin(_filein){
 				if(_fileread[_i][0]<=-1){
 					_fileread[_i][0]=_lastskinum-_fileread[_i][0];
 				}
-				if(_fileread[_i][0]>=69&&_fileread[_i][0]<=91){
+				if((_fileread[_i][0]>=69&&_fileread[_i][0]<=91)||(_fileread[_i][0]>=411&&_fileread[_i][0]<=412)){
 					global.playskin[real(_fileread[_i][0])]=real(_fileread[_i][1]);
 				}
 				else if(scr_stringtreal(_fileread[_i][1])==1){
@@ -68,11 +68,11 @@ function scr_loadskin(_filein){
 					
 					if(real(_fileread[_i][2])>=1){
 						global.playskin[real(_fileread[_i][0])]=sprite_add(
-						working_directory+_filein+"skin/"+_fileread[_i][1]
+						working_directory+_filein+"/"+_fileread[_i][1]
 						, real(_fileread[_i][2]), false, false, real(_fileread[_i][3]), real(_fileread[_i][4]));
 					}
 					else{
-						var _name=working_directory+_filein+"skin/"+string_insert("_{0}",_fileread[_i][1],string_last_pos(".",_fileread[_i][1]));
+						var _name=working_directory+_filein+"/"+string_insert("_{0}",_fileread[_i][1],string_last_pos(".",_fileread[_i][1]));
 						global.playskin[real(_fileread[_i][0])]=sprite_add(
 						string(_name,0)
 						, 1, false, false, real(_fileread[_i][3]), real(_fileread[_i][4]));

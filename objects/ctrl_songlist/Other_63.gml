@@ -31,7 +31,7 @@ if (i_d == msg)
 						_tempfile = file_text_open_write(working_directory + "songlist/" + _basename + "/main.pqc");
 						file_text_write_string(_tempfile,_num+"\n曲师\nBPM但是可以随便填\n谱师\n难度");
 						file_text_close(_tempfile);
-				
+						audio_destroy_stream(_musicplay);
 						scr_restart();
 				
 					}
@@ -177,7 +177,7 @@ if (i_d == msg)
 							_tempfile = file_text_open_write(working_directory + "songlist/" + _basename + "/main.pqc");
 							file_text_write_string(_tempfile,_num+"\n曲师\nBPM但是可以随便填\n谱师\n难度");
 							file_text_close(_tempfile);
-				
+							audio_destroy_stream(_musicplay);
 							scr_restart();
 				
 						}
@@ -205,7 +205,7 @@ if (i_d == msg)
 					file_text_write_string(_tempfile,"E,"+string(ceil(audio_sound_length(_musicplay)*1000)));
 					file_text_close(_tempfile);
 							
-					
+					audio_destroy_stream(_musicplay);
 					scr_restart();
 				}
 				else if (modtype==3) {

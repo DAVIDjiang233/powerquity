@@ -48,6 +48,11 @@ if (!directory_exists(working_directory + "/skin"))
 {
     directory_create(working_directory + "/skin");
 }
+if (!file_exists(working_directory + "/skin/settings.txt")){
+	var _file = file_text_open_write(working_directory + "/skin/settings.txt");
+	file_text_write_string(_file,"gunmu")
+	file_text_close(_file);
+}
 
 if (file_exists(working_directory + "/skin/font.ttf")) global.fontall=font_add(working_directory + "/skin/font.ttf",72,0,0,32,128);
 else if (file_exists(working_directory + "/skin/font.ttc")) global.fontall=font_add(working_directory + "/skin/font.ttc",72,0,0,32,128);
@@ -111,7 +116,7 @@ else global.fontall=font_add("deng",72,0,0,32,128);
 	gunmu,
 	spr_lightoff,spr_lighton,
 	gunmu,gunmu,gunmu,gunmu,
-	gunmu,gunmu,gunmu,
+	spr_hitearly,spr_hitmiss,spr_hitlate,
 	
 	gunmu,gunmu,gunmu,gunmu,
 	gunmu,gunmu,gunmu,gunmu,
@@ -220,14 +225,16 @@ else global.fontall=font_add("deng",72,0,0,32,128);
 	
 	gunmu,gunmu,gunmu,gunmu,gunmu,
 	gunmu,gunmu,gunmu,gunmu,gunmu,gunmu,gunmu,gunmu,
-	60
+	60,200
 	];
 }
-
+var _file = file_text_open_read(working_directory + "/skin/settings.txt");
+var _skin = file_text_readln(_file);
+file_text_close(_file);
 //show_debug_message(array_length(global.playskin));
-scr_loadskin("");
+if (directory_exists(working_directory + "/skin/" + _skin)) scr_loadskin("skin/"+_skin);
 //show_debug_message(array_length(global.playskin));
-//show_debug_message(global.playskin[260])
+//show_debug_message(global.playskin[412])
 global.fileread=[];
 global.filelist=[];
 global.highscore=[];

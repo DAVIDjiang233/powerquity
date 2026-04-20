@@ -30,4 +30,5 @@ function scr_svcload(_dir){
 	_file = file_text_open_write(_dir + "0_sv.pqc");
 	file_text_write_string(_file,"E,"+string(ceil(audio_sound_length(_musicplay)*1000)));
 	file_text_close(_file);
+	audio_destroy_stream(_musicplay);
 }

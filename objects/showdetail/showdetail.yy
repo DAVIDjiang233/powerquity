@@ -27,7 +27,11 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[],
+  "properties":[
+    {"$GMObjectProperty":"v2","%Name":"spr","filters":[],"listItems":[],"multiselect":false,"name":"spr","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"gunmu","path":"sprites/gunmu/gunmu.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"gunmu","varType":5,},
+    {"$GMObjectProperty":"v2","%Name":"sfps","filters":[],"listItems":[],"multiselect":false,"name":"sfps","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"60","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"stime","filters":[],"listItems":[],"multiselect":false,"name":"stime","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+  ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,

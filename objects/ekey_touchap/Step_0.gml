@@ -26,7 +26,11 @@ else if (global.playtime>endtime+125){
 		}
 	);
 	instance_destroy(showdetail);
-	instance_create_depth(640,0,-5000,showdetail);
+	instance_create_depth(640,0,-5000,showdetail,{
+		stime : global.playtime,
+		spr : global.playskin[173],
+		sfps : global.playskin[411]
+	});
 	instance_destroy();
 }
 

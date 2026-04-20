@@ -316,7 +316,7 @@ else{
 	global.chromatic=[0,1.05];
 	
 	if(directory_exists(working_directory+"songlist/"+string(global.filelist[global.chart])+"/skin/")){
-		global.lastskinum=scr_loadskin("songlist/"+string(global.filelist[global.chart])+"/")
+		global.lastskinum=scr_loadskin("songlist/"+string(global.filelist[global.chart])+"/skin")
 	}
 	else global.lastskinum=array_length(global.playskin)-1;
 	

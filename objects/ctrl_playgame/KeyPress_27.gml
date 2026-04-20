@@ -5,4 +5,7 @@ if gamepause==0{
 	pausestart=current_time;
 	audio_pause_all();
 }
-else if gamepause==1 scr_restart();
+else if (gamepause==1) {
+	audio_destroy_stream(musicplay);
+	scr_restart();
+}
