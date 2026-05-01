@@ -1,4 +1,4 @@
-function scr_calc(_rpnall,_x){
+function scr_calc(_rpnall,_x,error_result=0){
 	var _cal=[];
 	var _num=0;
 	while(_num<array_length(_rpnall[1])&&_rpnall[1][_num]<_x){
@@ -41,7 +41,7 @@ function scr_calc(_rpnall,_x){
 			_i++;
 		}
 		else if(_rpn[_i]=="/"){
-			if(_cal[array_length(_cal)-1]==0) return 0;
+			if(_cal[array_length(_cal)-1]==0) return error_result;
 			_cal[array_length(_cal)-2]/=array_pop(_cal);
 			_i++;
 		}
@@ -54,10 +54,10 @@ function scr_calc(_rpnall,_x){
 				array_pop(_cal);
 				_i++;
 			}
-			else return 0;
+			else return error_result;
 		}
 		else if(_rpn[_i]=="pow"){
-			if(array_length(_cal)<2) return 0;
+			if(array_length(_cal)<2) return error_result;
 			if(_cal[array_length(_cal)-2]>0
 			||(_cal[array_length(_cal)-2]==0&&array_last(_cal)>=0)
 			||(_cal[array_length(_cal)-2]<0&&(round(array_last(_cal))==array_last(_cal)))
@@ -66,7 +66,7 @@ function scr_calc(_rpnall,_x){
 				array_pop(_cal);
 				_i++;
 			}
-			else return 0;
+			else return error_result;
 		}
 		else if(_rpn[_i]=="abs"){
 			_cal[array_length(_cal)-1]=abs(array_last(_cal));

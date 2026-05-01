@@ -1,5 +1,5 @@
 draw_set_halign(fa_left);
-draw_set_font(global.fontall);
+draw_set_font(global.fontall[0]);
 draw_set_colour(c_white);
 draw_set_alpha(1);
 //draw_text(192, 576, "judgelist"+string(global.judgelist));

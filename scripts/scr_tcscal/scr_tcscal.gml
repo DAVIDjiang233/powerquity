@@ -1,8 +1,8 @@
-function scr_tcscal(st,et,sx,ex,t,l){
+function scr_tcscal(st,et,sx,ex,t,l,error=0){
 	
 	t=(t-st)/(et-st);
 	if(typeof(l)=="array"){
-		t=scr_calc(l,t)
+		t=scr_calc(l,t,error)
 	}
 	else{
 		if(t<0){

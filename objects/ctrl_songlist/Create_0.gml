@@ -53,11 +53,11 @@ if (!file_exists(working_directory + "/skin/settings.txt")){
 	file_text_write_string(_file,"gunmu")
 	file_text_close(_file);
 }
-
-if (file_exists(working_directory + "/skin/font.ttf")) global.fontall=font_add(working_directory + "/skin/font.ttf",72,0,0,32,128);
-else if (file_exists(working_directory + "/skin/font.ttc")) global.fontall=font_add(working_directory + "/skin/font.ttc",72,0,0,32,128);
-else if (file_exists(working_directory + "/skin/font.otf")) global.fontall=font_add(working_directory + "/skin/font.otf",72,0,0,32,128);
-else global.fontall=font_add("deng",72,0,0,32,128);
+global.fontall=[];
+if (file_exists(working_directory + "/skin/font.ttf")) global.fontall[0]=font_add(working_directory + "/skin/font.ttf",72,0,0,32,128);
+else if (file_exists(working_directory + "/skin/font.ttc")) global.fontall[0]=font_add(working_directory + "/skin/font.ttc",72,0,0,32,128);
+else if (file_exists(working_directory + "/skin/font.otf")) global.fontall[0]=font_add(working_directory + "/skin/font.otf",72,0,0,32,128);
+else global.fontall[0]=font_add("deng",72,0,0,32,128);
 
 {
 	global.playskin=[
