@@ -122,6 +122,18 @@ function scr_nibl(_string){
 			}
 			_strnum++;
 		}
+		//处理floor
+		else if(string_char_at(_string,_strnum+1)=="f"){
+			if(string_pos_ext("loor(", _string, _strnum+1)==_strnum+2){
+				if(_lastnum=1){
+					array_push(_sym,"*");
+					_lastnum=0;
+				}
+				array_push(_sym,"flo");
+				_strnum+=5;
+			}
+			_strnum++;
+		}
 		//处理l
 		else if(string_char_at(_string,_strnum+1)=="l"){
 			if(string_pos_ext("x1", _string, _strnum+1)==_strnum+2){
@@ -195,7 +207,7 @@ function scr_nibl(_string){
 				while(array_length(_sym)>0&&
 				_sym[array_length(_sym)-1]!="("&&_sym[array_length(_sym)-1]!="abs"
 				&&_sym[array_length(_sym)-1]!="sin"&&_sym[array_length(_sym)-1]!="cos"
-				&&_sym[array_length(_sym)-1]!="pow"
+				&&_sym[array_length(_sym)-1]!="pow"&&_sym[array_length(_sym)-1]!="flo"
 				){
 					array_push(_rpn,_sym[array_length(_sym)-1]);
 					array_pop(_sym);
@@ -217,7 +229,7 @@ function scr_nibl(_string){
 				while(array_length(_sym)>0&&
 				_sym[array_length(_sym)-1]!="("&&_sym[array_length(_sym)-1]!="abs"
 				&&_sym[array_length(_sym)-1]!="sin"&&_sym[array_length(_sym)-1]!="cos"
-				&&_sym[array_length(_sym)-1]!="pow"
+				&&_sym[array_length(_sym)-1]!="pow"&&_sym[array_length(_sym)-1]!="flo"
 				){
 					array_push(_rpn,_sym[array_length(_sym)-1]);
 					array_pop(_sym);
@@ -242,7 +254,7 @@ function scr_nibl(_string){
 				while(array_length(_sym)>0){
 					if(_sym[array_length(_sym)-1]=="("||_sym[array_length(_sym)-1]=="abs"
 					||_sym[array_length(_sym)-1]=="sin"||_sym[array_length(_sym)-1]=="cos"
-					||_sym[array_length(_sym)-1]=="pow"){
+					||_sym[array_length(_sym)-1]=="pow"||_sym[array_length(_sym)-1]=="flo"){
 						return[[[0]],[]];
 					}
 					array_push(_rpn,_sym[array_length(_sym)-1]);

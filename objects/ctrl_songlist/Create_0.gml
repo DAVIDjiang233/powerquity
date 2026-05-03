@@ -54,11 +54,6 @@ if (!file_exists(working_directory + "/skin/settings.txt")){
 	file_text_close(_file);
 }
 global.fontall=[];
-if (file_exists(working_directory + "/skin/font.ttf")) global.fontall[0]=font_add(working_directory + "/skin/font.ttf",72,0,0,32,128);
-else if (file_exists(working_directory + "/skin/font.ttc")) global.fontall[0]=font_add(working_directory + "/skin/font.ttc",72,0,0,32,128);
-else if (file_exists(working_directory + "/skin/font.otf")) global.fontall[0]=font_add(working_directory + "/skin/font.otf",72,0,0,32,128);
-else global.fontall[0]=font_add("deng",72,0,0,32,128);
-
 {
 	global.playskin=[
 	spr_tap,spr_tap,spr_tap,spr_tap,
@@ -233,6 +228,13 @@ var _skin = file_text_readln(_file);
 file_text_close(_file);
 //show_debug_message(array_length(global.playskin));
 if (directory_exists(working_directory + "/skin/" + _skin)) scr_loadskin("skin/"+_skin);
+
+if(array_length(global.fontall)==0){
+	if (file_exists(working_directory + "/skin/font.ttf")) global.fontall[0]=font_add(working_directory + "/skin/font.ttf",72,0,0,32,128);
+	else if (file_exists(working_directory + "/skin/font.ttc")) global.fontall[0]=font_add(working_directory + "/skin/font.ttc",72,0,0,32,128);
+	else if (file_exists(working_directory + "/skin/font.otf")) global.fontall[0]=font_add(working_directory + "/skin/font.otf",72,0,0,32,128);
+	else global.fontall[0]=font_add("deng",72,0,0,32,128);
+}
 //show_debug_message(array_length(global.playskin));
 //show_debug_message(global.playskin[412])
 global.fileread=[];

@@ -72,6 +72,10 @@ function scr_calc(_rpnall,_x,error_result=0){
 			_cal[array_length(_cal)-1]=abs(array_last(_cal));
 			_i++;
 		}
+		else if(_rpn[_i]=="flo"){
+			_cal[array_length(_cal)-1]=floor(array_last(_cal));
+			_i++;
+		}
 		else if(_rpn[_i]=="sin"){
 			_cal[array_length(_cal)-1]=sin(array_last(_cal));
 			_i++;
