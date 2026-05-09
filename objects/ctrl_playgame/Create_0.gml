@@ -2,7 +2,7 @@ game_set_speed(global.settings[17], gamespeed_fps);
 audio_stop_all();
 timingdelay=real(global.settings[6])*global.gamespeed;
 var i = 0;
-depth=-5000;
+depth=-6000;
 startime=current_time+9999999;
 pausetime=0;
 gamepause=0;
@@ -39,6 +39,48 @@ global.taptiming=[[-6,-5],[-6,-5],[-6,-5],[-6,-5]];
 global.releasetiming=[[7000,9000],[7000,9000],[7000,9000],[7000,9000]];
 global.cooldowntiming=[[6000,8000],[6000,8000],[6000,8000],[6000,8000]];
 */
+
+for(var _i=0;_i<array_length(global.playtext);_i++){
+	if(global.playtext[_i]!=0){
+		instance_create_depth(
+			0,0,global.playtext[_i][1],bplaytext,
+			{
+				halign : global.playtext[_i][0],
+				mx : global.playtext[_i][2],
+				my : global.playtext[_i][3],
+				textshow : global.playtext[_i][4],
+				msx : global.playtext[_i][5],
+				msy : global.playtext[_i][6],
+				angle : global.playtext[_i][7],
+				alpha : global.playtext[_i][8],
+				font : global.playtext[_i][9],
+				color : global.playtext[_i][10],
+				maxsize : global.playtext[_i][11],
+				mirror : global.playtext[_i][12]
+			}
+		);
+	}
+}
+
+for(var _i=0;_i<array_length(global.playsprite);_i++){
+	if(global.playsprite[_i]!=0){
+		instance_create_depth(
+			0,0,global.playsprite[_i][0],bplaysprite,
+			{
+				mx : global.playsprite[_i][1],
+				my : global.playsprite[_i][2],
+				spr : global.playskin[global.playsprite[_i][3]],
+				msx : global.playsprite[_i][4],
+				msy : global.playsprite[_i][5],
+				angle : global.playsprite[_i][6],
+				alpha : global.playsprite[_i][7],
+				color : global.playsprite[_i][8],
+				sprfps : global.playsprite[_i][9],
+				mirror : global.playsprite[_i][10]
+			}
+		);
+	}
+}
 
 var _file = file_text_open_read(working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+".pqc");
 delay=file_text_read_string(_file);
@@ -89,7 +131,7 @@ array_sort(global.chartread,function(elm1, elm2){
 	else return -1;
 });
 
-show_debug_message(global.chartread);
+//show_debug_message(global.chartread);
 
 
 i = 0;

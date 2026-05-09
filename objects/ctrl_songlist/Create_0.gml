@@ -7,7 +7,6 @@ global.svenable=1;
 global.judgesize=1;
 global.mirror=0;
 global.autoplay=0;
-
 if file_exists(working_directory + "settings.txt"){
 	var _file = file_text_open_read(working_directory + "settings.txt");
 	var i=0;
@@ -54,7 +53,15 @@ if (!file_exists(working_directory + "/skin/settings.txt")){
 	file_text_close(_file);
 }
 global.fontall=[];
-{
+/*skinnumber*/{
+global.skinnumber=[
+	96,102,608,
+	#ff6666,#ff9966,#66cc66,#6666ff,#ff3333,#ff7733,#33aa33,#3333ff,
+	#440000,#442200,#003300,#000044,#ff0000,#ff9900,#00cc00,#0000ff,#ff0000,#ffff00,#00ff00,#0000ff,
+	60,200
+];
+}
+/*playskin*/{
 	global.playskin=[
 	spr_tap,spr_tap,spr_tap,spr_tap,
 	spr_touchap,spr_touchap,spr_touchap,spr_touchap,
@@ -77,7 +84,7 @@ global.fontall=[];
 	spr_grondboard,spr_grondboard,spr_grondboard,spr_grondboard,
 	spr_grondboard,spr_grondboard,spr_grondboard,spr_grondboard,
 	spr_grondboard,spr_grondboard,spr_grondboard,spr_grondboard,
-	96,102,608,
+	spr_blackbg,102,608,
 	#ff6666,#ff9966,#66cc66,#6666ff,#ff3333,#ff7733,#33aa33,#3333ff,
 	#440000,#442200,#003300,#000044,#ff0000,#ff9900,#00cc00,#0000ff,#ff0000,#ffff00,#00ff00,#0000ff,
 	spr_presschange,spr_presschange,spr_presschange,spr_presschange,
@@ -219,14 +226,40 @@ global.fontall=[];
 	gunmu,gunmu,
 	
 	gunmu,gunmu,gunmu,gunmu,gunmu,
-	gunmu,gunmu,gunmu,gunmu,gunmu,gunmu,gunmu,gunmu,
-	60,200
+	gunmu,gunmu,gunmu,gunmu,gunmu,gunmu,gunmu,gunmu
 	];
 }
+/*playtext*/{
+global.playtext=[
+	[1,-5000,640,174,"{0}%",0.3,0.3,0,1,0,16777215,10000,1],
+	[0,-5000,240,500,"{1}",0.3,0.3,0,1,0,16777215,10000,1],
+	[0,-5000,240,540,"{2}",0.3,0.3,0,1,0,16777215,10000,1],
+	[0,-5000,240,580,"{3}",0.3,0.3,0,1,0,16777215,10000,1],
+	[0,-5000,240,620,"{4}",0.3,0.3,0,1,0,16777215,10000,1],
+	[0,-5000,-10000,-10000,"{5}",0.3,0.3,0,0,0,0,10000,1],
+	[0,-5000,-10000,-10000,"{6}",0.3,0.3,0,0,0,0,10000,1],
+	[0,-5000,-10000,-10000,"{7}",0.3,0.3,0,0,0,0,10000,1],
+	[0,-5000,-10000,-10000,"{8}",0.3,0.3,0,0,0,0,10000,1],
+	[0,-5000,-10000,-10000,"{9}",0.3,0.3,0,0,0,0,10000,1],
+	[0,-5000,90,60,"FPS: {10}",0.3,0.3,0,1,0,16777215,10000,1],
+	[0,-5000,[[[10,"txt",0.3,"*",90,"+"]],[]],70,"/{11}",0.15,0.15,0,1,0,16777215,10000,1],
+	[0,-5000,100,500,"Perfect:",0.3,0.3,0,1,0,16777215,10000,1],
+	[0,-5000,100,540,"Great:",0.3,0.3,0,1,0,16777215,10000,1],
+	[0,-5000,100,580,"Good:",0.3,0.3,0,1,0,16777215,10000,1],
+	[0,-5000,100,620,"Miss:",0.3,0.3,0,1,0,16777215,10000,1]
+];
+}
+/*playsprite*/{
+global.playsprite=[
+	[15000,640,368,69,1,1,0,1,16777215,1,0]
+];
+}
+
 var _file = file_text_open_read(working_directory + "/skin/settings.txt");
 var _skin = file_text_readln(_file);
 file_text_close(_file);
 //show_debug_message(array_length(global.playskin));
+//show_debug_message(global.playskin);
 if (directory_exists(working_directory + "/skin/" + _skin)) scr_loadskin("skin/"+_skin);
 
 if(array_length(global.fontall)==0){
@@ -235,6 +268,7 @@ if(array_length(global.fontall)==0){
 	else if (file_exists(working_directory + "/skin/font.otf")) global.fontall[0]=font_add(working_directory + "/skin/font.otf",72,0,0,32,128);
 	else global.fontall[0]=font_add("deng",72,0,0,32,128);
 }
+
 //show_debug_message(array_length(global.playskin));
 //show_debug_message(global.playskin[412])
 global.fileread=[];

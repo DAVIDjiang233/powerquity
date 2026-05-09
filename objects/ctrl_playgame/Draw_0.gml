@@ -2,34 +2,10 @@ draw_set_halign(fa_left);
 draw_set_font(global.fontall[0]);
 draw_set_colour(c_white);
 draw_set_alpha(1);
-//draw_text(192, 576, "judgelist"+string(global.judgelist));
-if global.settings[7]==1{
-	
-	
-	if(global.mirror!=1){
-		draw_text_transformed(100, 500,"Perfect:",0.3,0.3,0);
-		draw_text_transformed(100, 540,"Great:",0.3,0.3,0);
-		draw_text_transformed(100, 580,"Good:",0.3,0.3,0);
-		draw_text_transformed(100, 620,"Miss:",0.3,0.3,0);
-		draw_text_transformed(240, 500,global.judgelist[0],0.3,0.3,0);
-		draw_text_transformed(240, 540,global.judgelist[1],0.3,0.3,0);
-		draw_text_transformed(240, 580,global.judgelist[2],0.3,0.3,0);
-		draw_text_transformed(240, 620,global.judgelist[3],0.3,0.3,0);
-	}
-	else{
-		draw_text_transformed(1180, 500,"Perfect:",-0.3,0.3,0);
-		draw_text_transformed(1180, 540,"Great:",-0.3,0.3,0);
-		draw_text_transformed(1180, 580,"Good:",-0.3,0.3,0);
-		draw_text_transformed(1180, 620,"Miss:",-0.3,0.3,0);
-		draw_text_transformed(1040, 500,global.judgelist[0],-0.3,0.3,0);
-		draw_text_transformed(1040, 540,global.judgelist[1],-0.3,0.3,0);
-		draw_text_transformed(1040, 580,global.judgelist[2],-0.3,0.3,0);
-		draw_text_transformed(1040, 620,global.judgelist[3],-0.3,0.3,0);
-	}
-}
+
 
 var _fps="FPS: "+string_format(fps,0,0)
-if(global.mirror!=1){
+/*if(global.mirror!=1){
 	draw_text_transformed(90, 60,_fps,0.3,0.3,0);
 	
 	draw_text_transformed(90+(string_width(_fps)*0.3), 70,"/"+string(global.settings[17]),0.15,0.15,0);
@@ -37,11 +13,7 @@ if(global.mirror!=1){
 else{
 	draw_text_transformed(1190, 60,_fps,-0.3,0.3,0);
 	draw_text_transformed(1190-(string_width(_fps)*0.3), 70,"/"+string(global.settings[17]),-0.15,0.15,0);
-}
-if (startime>current_time+9000000){
-	draw_text_transformed(640, 160, "谱面加载中",2*(0.5-global.mirror),1,0);
-
-}
+}*/
 
 if debug_mode{
 	draw_text_transformed(192, 300, string(global.playtime),0.2,0.2,0);
@@ -82,25 +54,10 @@ if debug_mode{
 }
 
 draw_set_halign(fa_center);
-if(global.judgelist[0]+global.judgelist[1]+global.judgelist[2]!=0){
-	if(global.mirror!=1){
-		draw_text_transformed(640, global.settings[8], string_format(100*(global.judgelist[0]+global.judgelist[1]*0.75+global.judgelist[2]*0.5)
-		  /(global.judgelist[0]+global.judgelist[1]+global.judgelist[2]+global.judgelist[3]),0,2)+"%",0.3,0.3,0);
-	}
-	else{
-		draw_text_transformed(640, global.settings[8], string_format(100*(global.judgelist[0]+global.judgelist[1]*0.75+global.judgelist[2]*0.5)
-		  /(global.judgelist[0]+global.judgelist[1]+global.judgelist[2]+global.judgelist[3]),0,2)+"%",-0.3,0.3,0);
-	}
-}
+
 if (alarmpause>current_time){
 	draw_text_transformed(640, 288,(alarmpause-current_time)/1000,0.6*(0.5-global.mirror),0.3,0);
 }
-/*
-if keyboard_check(ord("1")) draw_text(480, 640,"1");
-if keyboard_check(ord("2")) draw_text(576, 640,"2");
-if keyboard_check(ord("3")) draw_text(672, 640,"3");
-if keyboard_check(ord("4")) draw_text(768, 640,"4");
-*/
 
 draw_set_colour(c_white);
 draw_set_alpha(1);

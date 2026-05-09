@@ -122,6 +122,18 @@ function scr_nibl(_string){
 			}
 			_strnum++;
 		}
+		//处理text
+		else if(string_char_at(_string,_strnum+1)=="t"){
+			if(string_pos_ext("ext(", _string, _strnum+1)==_strnum+2){
+				if(_lastnum=1){
+					array_push(_sym,"*");
+					_lastnum=0;
+				}
+				array_push(_sym,"txt");
+				_strnum+=4;
+			}
+			_strnum++;
+		}
 		//处理floor
 		else if(string_char_at(_string,_strnum+1)=="f"){
 			if(string_pos_ext("loor(", _string, _strnum+1)==_strnum+2){
@@ -208,6 +220,7 @@ function scr_nibl(_string){
 				_sym[array_length(_sym)-1]!="("&&_sym[array_length(_sym)-1]!="abs"
 				&&_sym[array_length(_sym)-1]!="sin"&&_sym[array_length(_sym)-1]!="cos"
 				&&_sym[array_length(_sym)-1]!="pow"&&_sym[array_length(_sym)-1]!="flo"
+				&&_sym[array_length(_sym)-1]!="txt"
 				){
 					array_push(_rpn,_sym[array_length(_sym)-1]);
 					array_pop(_sym);

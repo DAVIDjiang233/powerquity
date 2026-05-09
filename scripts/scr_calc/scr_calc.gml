@@ -17,15 +17,15 @@ function scr_calc(_rpnall,_x,error_result=0){
 			_i++;
 		}
 		else if(_rpn[_i]=="ly"){
-			array_push(_cal,global.playskin[71]);
+			array_push(_cal,global.skinnumber[2]);
 			_i++;
 		}
 		else if(_rpn[_i]=="lx1"){
-			array_push(_cal,global.playskin[69]);
+			array_push(_cal,global.skinnumber[0]);
 			_i++;
 		} 
 		else if(_rpn[_i]=="lx2"){
-			array_push(_cal,global.playskin[70]);
+			array_push(_cal,global.skinnumber[1]);
 			_i++;
 		}
 		else if(_rpn[_i]=="+"){
@@ -64,6 +64,20 @@ function scr_calc(_rpnall,_x,error_result=0){
 			){
 				_cal[array_length(_cal)-2]=power(_cal[array_length(_cal)-2],array_last(_cal));
 				array_pop(_cal);
+				_i++;
+			}
+			else return error_result;
+		}
+		else if(_rpn[_i]=="txt"){
+			_cal[array_length(_cal)-1]=floor(_cal[array_length(_cal)-1]);
+			if(_cal[array_length(_cal)-1]<=-1){
+				_cal[array_length(_cal)-1]=global.lastnum[1]-_cal[array_length(_cal)-1];
+			}
+			if(_cal[array_length(_cal)-1]<array_length(global.playtext)
+			&&global.playtext[_cal[array_length(_cal)-1]]!=0){
+				_cal[array_length(_cal)-1]=
+				string_width(scr_stringset(global.playtext[_cal[array_length(_cal)-1]][4]))
+				/font_get_size(draw_get_font())*72;
 				_i++;
 			}
 			else return error_result;

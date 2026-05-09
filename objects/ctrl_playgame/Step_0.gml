@@ -291,7 +291,7 @@ while(chartlist<512&&0<array_length(global.svread)){
 		else if(global.svread[0][0]=="P"){
 			if global.svenable==1{
 				if(real(global.svread[0][2])<=-1){
-					global.svread[0][2]=global.lastskinum-real(global.svread[0][2]);
+					global.svread[0][2]=global.lastnum[0]-real(global.svread[0][2]);
 				}
 			instance_create_depth(0,0,real(global.svread[0][23]),bsv_spritespawn,
 				{

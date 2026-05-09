@@ -1,0 +1,19 @@
+function scr_stringset(_string){
+	return(
+	string(
+			_string,
+			actrl_playgametime.playtext[0],
+			global.judgelist[0],
+			global.judgelist[1],
+			global.judgelist[2],
+			global.judgelist[3],
+			global.fileread[0],
+			global.fileread[1],
+			global.fileread[2],
+			global.fileread[global.level*2+4],
+			global.fileread[global.level*2+3],
+			string_format(fps,0,0),
+			string(global.settings[17])
+		)
+	);
+}

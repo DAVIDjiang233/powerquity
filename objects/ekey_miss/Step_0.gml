@@ -5,11 +5,11 @@ if (global.playtime<endtime-15*global.judgesize) exit;
 //miss
 if (global.playtime>endtime+15*global.judgesize){
 	global.judgelist[0]++;
-	instance_create_depth(global.playskin[70]*(key1-2.5)+640,global.playskin[71],-3000,showhitlighting,
+	instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 		{
 			stime : global.playtime,
 			spr : global.playskin[210+key1],
-			sfps : global.playskin[411]
+			sfps : global.skinnumber[23]
 		}
 	);
 	instance_destroy();
@@ -20,18 +20,18 @@ if (global.playtime>endtime+15*global.judgesize){
 //press
 if global.pressing[global.pressreal[key1-1]]>=2{
 		global.judgelist[3]++;
-		instance_create_depth(global.playskin[70]*(key1-2.5)+640,global.playskin[71],-3000,showhitlighting,
+		instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 			{
 				stime : global.playtime,
 				spr : global.playskin[214+key1],
-				sfps : global.playskin[411]
+				sfps : global.skinnumber[23]
 			}
 		);
 		instance_destroy(showdetail);
 		instance_create_depth(640,0,-5000,showdetail,{
 		stime : global.playtime,
 		spr : global.playskin[173],
-		sfps : global.playskin[411]
+		sfps : global.skinnumber[23]
 	});
 		instance_destroy();
 }

@@ -7,21 +7,21 @@ if (global.playtime<endtime-125*global.judgesize) exit;
 if (global.playtime>endtime+125*global.judgesize){
 	if(global.autoplay==1) {
 		global.judgelist[0]++;
-		instance_create_depth(global.playskin[70]*(key1-2.5)+640,global.playskin[71],-3000,showhitlighting,
+		instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 		{
 			stime : global.playtime,
 			spr : global.playskin[exjudge*6+218+key1],
-			sfps : global.playskin[411]
+			sfps : global.skinnumber[23]
 		}
 		);
 	}
 	else {
 		global.judgelist[3]++;
-		instance_create_depth(global.playskin[70]*(key1-2.5)+640,global.playskin[71],-3000,showhitlighting,
+		instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 		{
 			stime : global.playtime,
 			spr : global.playskin[exjudge*15+221+key1],
-			sfps : global.playskin[411]
+			sfps : global.skinnumber[23]
 		}
 		);
 	}
@@ -31,7 +31,7 @@ if (global.playtime>endtime+125*global.judgesize){
 	instance_create_depth(640,0,-5000,showdetail,{
 		stime : global.playtime,
 		spr : global.playskin[173],
-		sfps : global.playskin[411]
+		sfps : global.skinnumber[23]
 	});
 	instance_destroy();
 }
@@ -44,20 +44,20 @@ if (global.playtime>endtime+125*global.judgesize){
 if (global.pressing[global.pressreal[key1]]==3||global.pressing[global.pressreal[key1-1]]==3){
 	if(exjudge==0){
 		global.judgelist[0]++;
-		instance_create_depth(global.playskin[70]*(key1-2.5)+640,global.playskin[71],-3000,showhitlighting,
+		instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 		{
 			stime : global.playtime,
 			spr : global.playskin[218+key1],
-			sfps : global.playskin[411]
+			sfps : global.skinnumber[23]
 		}
 		);
 	}
 	else{
-		instance_create_depth(global.playskin[70]*(key1-2.5)+640,global.playskin[71],-3000,showhitlighting,
+		instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 		{
 			stime : global.playtime,
 			spr : global.playskin[judge(endtime)*3+224+key1],
-			sfps : global.playskin[411]
+			sfps : global.skinnumber[23]
 		}
 		);
 		instance_create_depth(640+(global.playtime-endtime)/global.judgesize,global.settings[9],-5000,showhit);

@@ -231,9 +231,9 @@ else if chartloading==1{
 else if chartediting==1{
 	if modtype==0 {
 		if(global.chartrans==0){
-			global.playskin[69]=96;
-			global.playskin[70]=102;
-			global.playskin[71]=608;
+			global.skinnumber[0]=96;
+			global.skinnumber[1]=102;
+			global.skinnumber[2]=608;
 			room_goto(room_chartdesign);
 		}
 	}
@@ -316,10 +316,9 @@ else{
 	global.chromatic=[0,1.05];
 	
 	if(directory_exists(working_directory+"songlist/"+string(global.filelist[global.chart])+"/skin/")){
-		global.lastskinum=scr_loadskin("songlist/"+string(global.filelist[global.chart])+"/skin")
+		global.lastnum=scr_loadskin("songlist/"+string(global.filelist[global.chart])+"/skin")
 	}
-	else global.lastskinum=array_length(global.playskin)-1;
-	
+	else global.lastnum=[array_length(global.playskin)-1,array_length(global.playtext)-1];
 	if playtypemod!=0 global.playtype=playtypemod;
 
 	global.chartread=[];
