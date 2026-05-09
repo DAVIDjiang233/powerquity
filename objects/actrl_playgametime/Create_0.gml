@@ -1,2 +1,2 @@
 depth=-15000;
-playtext=["100.00"];
+global.playtextlist=["100.00"];

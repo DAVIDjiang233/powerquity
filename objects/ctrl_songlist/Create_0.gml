@@ -7,6 +7,8 @@ global.svenable=1;
 global.judgesize=1;
 global.mirror=0;
 global.autoplay=0;
+global.playtextlist=["100.00"];
+global.fontsize=36;
 if file_exists(working_directory + "settings.txt"){
 	var _file = file_text_open_read(working_directory + "settings.txt");
 	var i=0;

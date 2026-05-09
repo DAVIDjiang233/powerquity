@@ -2,7 +2,7 @@ function scr_stringset(_string){
 	return(
 	string(
 			_string,
-			actrl_playgametime.playtext[0],
+			global.playtextlist[0],
 			global.judgelist[0],
 			global.judgelist[1],
 			global.judgelist[2],

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_set_font",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_set_font",
+  "parent":{
+    "name":"脚本",
+    "path":"folders/脚本.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

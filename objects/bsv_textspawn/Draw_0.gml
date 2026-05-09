@@ -1,6 +1,6 @@
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
-draw_set_font(global.fontall[0]);
+scr_set_font(global.fontall[0]);
 draw_set_colour(txtcolor);
 draw_set_alpha(scr_tcscal(stime,etime,ma1,ma2,global.playtime,ea));
 

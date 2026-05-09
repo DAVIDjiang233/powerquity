@@ -1,7 +1,7 @@
 draw_set_halign(halign);
 draw_set_colour(color);
 draw_set_valign(fa_middle);
-draw_set_font(global.fontall[font]);
+scr_set_font(global.fontall[font]);
 
 var _mx,_my,_msx,_msy,_angle,_alpha;
 if(typeof(mx)=="array"){

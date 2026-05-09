@@ -77,7 +77,7 @@ function scr_calc(_rpnall,_x,error_result=0){
 			&&global.playtext[_cal[array_length(_cal)-1]]!=0){
 				_cal[array_length(_cal)-1]=
 				string_width(scr_stringset(global.playtext[_cal[array_length(_cal)-1]][4]))
-				/font_get_size(draw_get_font())*72;
+				/font_get_size(global.fontall[global.playtext[_cal[array_length(_cal)-1]][9]])*72;
 				_i++;
 			}
 			else return error_result;
