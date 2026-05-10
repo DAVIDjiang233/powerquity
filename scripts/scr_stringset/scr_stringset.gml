@@ -12,6 +12,10 @@ function scr_stringset(_string){
 			global.fileread[2],
 			global.fileread[global.level*2+4],
 			global.fileread[global.level*2+3],
+			string(global.playtextlist[1]),
+			string(global.playtextlist[2]),
+			string(global.playtextlist[3]),
+			global.playtextlist[4],
 			string_format(fps,0,0),
 			string(global.settings[17])
 		)

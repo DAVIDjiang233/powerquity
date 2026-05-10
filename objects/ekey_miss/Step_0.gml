@@ -4,6 +4,9 @@ x=xset(key1,endtime);
 if (global.playtime<endtime-15*global.judgesize) exit;
 //miss
 if (global.playtime>endtime+15*global.judgesize){
+	global.playtextlist[1]++;
+	global.playtextlist[2]++;
+	global.playtextlist[3]++;
 	global.judgelist[0]++;
 	instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 		{
@@ -19,6 +22,9 @@ if (global.playtime>endtime+15*global.judgesize){
 
 //press
 if global.pressing[global.pressreal[key1-1]]>=2{
+		global.playtextlist[1]=0;
+		global.playtextlist[2]=0;
+		global.playtextlist[3]=0;
 		global.judgelist[3]++;
 		instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 			{

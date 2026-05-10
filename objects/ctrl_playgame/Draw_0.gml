@@ -4,7 +4,7 @@ draw_set_colour(c_white);
 draw_set_alpha(1);
 
 
-var _fps="FPS: "+string_format(fps,0,0)
+//var _fps="FPS: "+string_format(fps,0,0)
 
 if debug_mode{
 	scr_draw_text(192, 300, string(global.playtime),0.2,0.2,0);

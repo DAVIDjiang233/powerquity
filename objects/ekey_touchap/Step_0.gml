@@ -5,6 +5,9 @@ if (global.playtime<endtime-150) exit;
 //miss
 if(global.autoplay==1){
 	if (global.playtime>endtime){
+	global.playtextlist[1]++;
+	global.playtextlist[2]++;
+	global.playtextlist[3]++;
 	global.judgelist[0]++;
 	instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 		{
@@ -17,6 +20,9 @@ if(global.autoplay==1){
 	}
 }
 else if (global.playtime>endtime+125){
+	global.playtextlist[1]=0;
+	global.playtextlist[2]=0;
+	global.playtextlist[3]=0;
 	global.judgelist[3]++;
 	instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 		{
@@ -40,6 +46,9 @@ if global.pressing[global.pressreal[key1-1]]>=2{
 	judged=1;
 }
 if(global.playtime>endtime&&judged==1){
+	global.playtextlist[1]++;
+	global.playtextlist[2]++;
+	global.playtextlist[3]++;
 	global.judgelist[0]++;
 	instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 		{
