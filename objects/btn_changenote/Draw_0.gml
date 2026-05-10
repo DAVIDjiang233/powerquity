@@ -134,9 +134,4 @@ if(scr_stringtreal(_typebase)>=1){
 if (_vist==0){
 	_text=_text+":"+string(_typebase);
 }
-if(string_width(_text)>550){
-	draw_text_transformed(x,y,_text,121/string_width(_text),121/string_width(_text),0);
-}
-else{
-	draw_text_transformed(x,y,_text,0.22,0.22,0);
-}
+scr_draw_text(x,y,_text,0.22,0.22,0,110);

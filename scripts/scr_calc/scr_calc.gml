@@ -75,10 +75,13 @@ function scr_calc(_rpnall,_x,error_result=0){
 			}
 			if(_cal[array_length(_cal)-1]<array_length(global.playtext)
 			&&global.playtext[_cal[array_length(_cal)-1]]!=0){
+				var _font=draw_get_font();
+				draw_set_font(global.fontall[global.playtext[_cal[array_length(_cal)-1]][9]]);
 				_cal[array_length(_cal)-1]=
 				string_width(scr_stringset(global.playtext[_cal[array_length(_cal)-1]][4]))
 				/font_get_size(global.fontall[global.playtext[_cal[array_length(_cal)-1]][9]])*72;
 				_i++;
+				draw_set_font(_font);
 			}
 			else return error_result;
 		}

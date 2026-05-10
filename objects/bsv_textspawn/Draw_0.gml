@@ -4,7 +4,7 @@ scr_set_font(global.fontall[0]);
 draw_set_colour(txtcolor);
 draw_set_alpha(scr_tcscal(stime,etime,ma1,ma2,global.playtime,ea));
 
-draw_text_transformed(
+scr_draw_text(
 	scr_tcscal(stime,etime,mx1,mx2,global.playtime,ex,-1000),
 	scr_tcscal(stime,etime,my1,my2,global.playtime,ey,-1000)+
 	scr_tcscal(stime,etime,mgy1,mgy2,global.playtime,egy,-1000)*global.globalspeed,

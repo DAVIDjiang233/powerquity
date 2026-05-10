@@ -6,4 +6,4 @@ draw_set_halign(fa_right);
 draw_set_valign(fa_middle);
 scr_set_font(global.fontall[0]);
 draw_set_colour(c_white);
-draw_text_transformed(x, y+5, string_split(global.filelist[global.chart+numb],".")[0],0.4,0.4,0);
+scr_draw_text(x, y+5, string_split(global.filelist[global.chart+numb],".")[0],0.4,0.4,0);

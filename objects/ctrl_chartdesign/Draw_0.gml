@@ -3,7 +3,7 @@ scr_set_font(global.fontall[0]);
 draw_set_colour(c_white);
 draw_set_alpha(1);
 if(debug_mode){
-	draw_text_transformed(0,20,fps_real,0.3,0.3,0);
+	scr_draw_text(0,20,fps_real,0.3,0.3,0);
 }
 
 var _zwrite = gpu_get_zwriteenable();
@@ -12,10 +12,10 @@ gpu_set_zwriteenable(true);
 gpu_set_ztestenable(true);
 var _depth = gpu_get_depth();
 
-//draw_text_transformed(50, 400,string(gametype),0.3,0.3,0);
-draw_text_transformed(64, 510,"流速:"+string(global.globalspeed),0.3,0.3,0);
-draw_text_transformed(64, 550,"timing:"+string(global.playtime),0.3,0.3,0);
-//draw_text_transformed(100, 550,string(global.list),0.3,0.3,0);
+//scr_draw_text(50, 400,string(gametype),0.3,0.3,0);
+scr_draw_text(64, 510,"流速:"+string(global.globalspeed),0.3,0.3,0);
+scr_draw_text(64, 550,"timing:"+string(global.playtime),0.3,0.3,0);
+//scr_draw_text(100, 550,string(global.list),0.3,0.3,0);
 
 if (designview==0){
 	gpu_set_depth(8266);
@@ -36,9 +36,9 @@ if (designview==0){
 				
 		draw_set_halign(fa_left);
 		if real(global.barlist[i][2])>=1
-		draw_text_transformed(730,_y,"  "+string(global.barlist[i][2]),0.23,0.23,0);
+		scr_draw_text(730,_y,"  "+string(global.barlist[i][2]),0.23,0.23,0);
 		else if real(global.barlist[i][2])>0 
-		draw_text_transformed(730,_y," "+string(global.barlist[i][2])+"/"+string(global.barline),0.2,0.2,0);
+		scr_draw_text(730,_y," "+string(global.barlist[i][2])+"/"+string(global.barline),0.2,0.2,0);
 	}
 	
 	
@@ -361,7 +361,7 @@ if (designview==0){
 			if (keyboard_check(vk_control)){
 				gpu_set_depth(-5000);
 				draw_set_color(c_white);
-				draw_text_transformed(
+				scr_draw_text(
 				257+102*real(global.chartread[_q][2]),
 				608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25,
 				string(global.chartread[_q][3]),0.22,0.22,0);
@@ -434,7 +434,7 @@ if (designview==0){
 			draw_set_alpha(1);
 			draw_set_color(#ffff00);
 			draw_set_halign(fa_left);
-			draw_text_transformed(32,600,"制谱器基础教程\n单击鼠标左键切换下一页",0.23,0.23,0);
+			scr_draw_text(32,600,"制谱器基础教程\n单击鼠标左键切换下一页",0.23,0.23,0);
 		}
 		else if(help==1){
 			draw_set_color(#000000);
@@ -443,27 +443,27 @@ if (designview==0){
 			draw_set_alpha(1);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_left);
-			draw_text_transformed(244,48,"←保存按钮，鼠标左键点击",0.23,0.23,0);
-			draw_text_transformed(244,128,"←切换游戏模式，鼠标左键点击\nMania模式为传统4K，QWERTYUIOP!!模式为2K+2K",0.23,0.23,0);
-			draw_text_transformed(244,208,"←音频延迟调整，鼠标左键点击",0.23,0.23,0);
-			draw_text_transformed(244,368,"←修改谱面信息，鼠标左键点击",0.23,0.23,0);
-			draw_text_transformed(800,592,"鼠标滚轮\n↓随机数调整",0.23,0.23,0);
+			scr_draw_text(244,48,"←保存按钮，鼠标左键点击",0.23,0.23,0);
+			scr_draw_text(244,128,"←切换游戏模式，鼠标左键点击\nMania模式为传统4K，QWERTYUIOP!!模式为2K+2K",0.23,0.23,0);
+			scr_draw_text(244,208,"←音频延迟调整，鼠标左键点击",0.23,0.23,0);
+			scr_draw_text(244,368,"←修改谱面信息，鼠标左键点击",0.23,0.23,0);
+			scr_draw_text(800,592,"鼠标滚轮\n↓随机数调整",0.23,0.23,0);
 			draw_set_halign(fa_middle);
-			draw_text_transformed(1104,96,"↑谱面流速&小节线↑\n鼠标左键点击",0.23,0.23,0);
-			draw_text_transformed(144,600,"基础控件",0.3,0.3,0);
+			scr_draw_text(1104,96,"↑谱面流速&小节线↑\n鼠标左键点击",0.23,0.23,0);
+			scr_draw_text(144,600,"基础控件",0.3,0.3,0);
 			draw_set_color(c_gray);
 			draw_sprite_ext(spr_btn,0,864,208,4,1,0,c_gray,1);
-			draw_text_transformed(864,208,"轨道",0.23,0.23,0);
+			scr_draw_text(864,208,"轨道",0.23,0.23,0);
 			draw_sprite_ext(spr_btn,0,1024,208,4,1,0,c_gray,1);
-			draw_text_transformed(1024,208,"时间",0.23,0.23,0);
+			scr_draw_text(1024,208,"时间",0.23,0.23,0);
 			draw_sprite_ext(spr_btn,0,1024,256,4,1,0,c_gray,1);
-			draw_text_transformed(1024,256,"特殊",0.23,0.23,0);
+			scr_draw_text(1024,256,"特殊",0.23,0.23,0);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_right);
-			draw_text_transformed(784,64,"谱面播放速度调整→\n鼠标滚轮，范围0.25~2.00",0.23,0.23,0);
-			draw_text_transformed(1184,160,"谱面进度条，可拖动↑",0.23,0.23,0);
-			draw_text_transformed(1184,288,"↑Note编辑，左键点击↑",0.23,0.23,0);
-			draw_text_transformed(1248,624,"鼠标滚轮或左键点击\n视图编辑↓",0.23,0.23,0);
+			scr_draw_text(784,64,"谱面播放速度调整→\n鼠标滚轮，范围0.25~2.00",0.23,0.23,0);
+			scr_draw_text(1184,160,"谱面进度条，可拖动↑",0.23,0.23,0);
+			scr_draw_text(1184,288,"↑Note编辑，左键点击↑",0.23,0.23,0);
+			scr_draw_text(1248,624,"鼠标滚轮或左键点击\n视图编辑↓",0.23,0.23,0);
 		}
 		else if(help==2){
 			draw_set_color(#000000);
@@ -472,9 +472,9 @@ if (designview==0){
 			draw_set_alpha(1);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_left);
-			draw_text_transformed(320,350,"Q：放置主要note\n按住W：放置hold\nE：放置假note\nR：放置QWERTYUIOP模式变轨提示\n\n鼠标左键：选择note\n鼠标左键+Ctrl：多选\n鼠标左键+Shift：框选\n\n鼠标右键：删除note\nDeleat：删除选中的note",0.3,0.3,0);
+			scr_draw_text(320,350,"Q：放置主要note\n按住W：放置hold\nE：放置假note\nR：放置QWERTYUIOP模式变轨提示\n\n鼠标左键：选择note\n鼠标左键+Ctrl：多选\n鼠标左键+Shift：框选\n\n鼠标右键：删除note\nDeleat：删除选中的note",0.3,0.3,0);
 			draw_set_halign(fa_middle);
-			draw_text_transformed(144,600,"note相关",0.3,0.3,0);
+			scr_draw_text(144,600,"note相关",0.3,0.3,0);
 			draw_set_halign(fa_right);
 		}
 		else if(help==3){
@@ -484,9 +484,9 @@ if (designview==0){
 			draw_set_alpha(1);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_left);
-			draw_text_transformed(320,350,"M 镜像\n\nCtrl+Z 撤销\nCtrl+Y 重做\nCtrl+C 复制\nCtrl+V 粘贴\nCtrl+X 剪切\n\nShift+鼠标滚轮：调节流速\nCtrl+鼠标滚轮：小节线密度×2/÷2\nCtrl+Shift+鼠标滚轮：小节线密度+1/-1\n\nESC+S 保存并退出\nESC+N 不保存退出",0.3,0.3,0);
+			scr_draw_text(320,350,"M 镜像\n\nCtrl+Z 撤销\nCtrl+Y 重做\nCtrl+C 复制\nCtrl+V 粘贴\nCtrl+X 剪切\n\nShift+鼠标滚轮：调节流速\nCtrl+鼠标滚轮：小节线密度×2/÷2\nCtrl+Shift+鼠标滚轮：小节线密度+1/-1\n\nESC+S 保存并退出\nESC+N 不保存退出",0.3,0.3,0);
 			draw_set_halign(fa_middle);
-			draw_text_transformed(144,600,"快捷键",0.3,0.3,0);
+			scr_draw_text(144,600,"快捷键",0.3,0.3,0);
 			draw_set_halign(fa_right);
 		}
 	}
@@ -510,9 +510,9 @@ else if (designview==1){
 		else draw_line_width(298,_y,724,_y,2);
 		draw_set_halign(fa_left);
 		if real(global.barlist[i][2])>=1
-		draw_text_transformed(730,_y,"  "+string(global.barlist[i][2]),0.23,0.23,0);
+		scr_draw_text(730,_y,"  "+string(global.barlist[i][2]),0.23,0.23,0);
 		else if real(global.barlist[i][2])>0 
-		draw_text_transformed(730,_y," "+string(global.barlist[i][2])+"/"+string(global.barline),0.2,0.2,0);
+		scr_draw_text(730,_y," "+string(global.barlist[i][2])+"/"+string(global.barline),0.2,0.2,0);
 	}
 	if(timinggroup>=0){
 		draw_set_halign(fa_middle);
@@ -533,7 +533,7 @@ else if (designview==1){
 				draw_rectangle(311,_y-12,406,_y,false);
 				draw_set_colour(#ffffff);
 				draw_set_alpha(1);
-				draw_text_transformed(359,_y,string(global.svchange[1][timinggroup][_svst][1]),0.22,0.22,0);
+				scr_draw_text(359,_y,string(global.svchange[1][timinggroup][_svst][1]),0.22,0.22,0);
 				if(_canread==1){
 					if(_y<mouse_y+30&&_y>mouse_y-30&&round((mouse_x-257)/102)==1){
 						draw_set_colour(c_green);
@@ -558,7 +558,7 @@ else if (designview==1){
 				draw_rectangle(413,_y-12,508,_y,false);
 				draw_set_colour(#ffffff);
 				draw_set_alpha(1);
-				draw_text_transformed(461,_y,string(global.svchange[2][timinggroup][_svst][1]),0.22,0.22,0);
+				scr_draw_text(461,_y,string(global.svchange[2][timinggroup][_svst][1]),0.22,0.22,0);
 				if(_canread==1){
 					if(_y<mouse_y+30&&_y>mouse_y-30&&round((mouse_x-257)/102)==2){
 						draw_set_colour(c_green);
@@ -583,7 +583,7 @@ else if (designview==1){
 				draw_rectangle(515,_y-12,610,_y,false);
 				draw_set_colour(#ffffff);
 				draw_set_alpha(1);
-				draw_text_transformed(563,_y,string(global.svchange[3][timinggroup][_svst][1]),0.22,0.22,0);
+				scr_draw_text(563,_y,string(global.svchange[3][timinggroup][_svst][1]),0.22,0.22,0);
 				if(_canread==1){
 					if(_y<mouse_y+30&&_y>mouse_y-30&&round((mouse_x-257)/102)==3){
 						draw_set_colour(c_green);
@@ -608,7 +608,7 @@ else if (designview==1){
 				draw_rectangle(617,_y-12,712,_y,false);
 				draw_set_colour(#ffffff);
 				draw_set_alpha(1);
-				draw_text_transformed(665,_y,string(global.svchange[4][timinggroup][_svst][1]),0.22,0.22,0);
+				scr_draw_text(665,_y,string(global.svchange[4][timinggroup][_svst][1]),0.22,0.22,0);
 				if(_canread==1){
 					if(_y<mouse_y+30&&_y>mouse_y-30&&round((mouse_x-257)/102)==4){
 						draw_set_colour(c_green);
@@ -640,9 +640,9 @@ else if (designview==1){
 				draw_set_alpha(1);
 				draw_set_colour(#ffffff);
 				if (!keyboard_check(vk_control)){
-					draw_text_transformed(359,_ydo,string(global.svchange[5][timinggroup][_svst][1]),0.22,0.22,0);
+					scr_draw_text(359,_ydo,string(global.svchange[5][timinggroup][_svst][1]),0.22,0.22,0);
 				}
-				else draw_text_transformed(359,_ydo,scr_easename(global.svchange[5][timinggroup][_svst][3]),0.22,0.22,0);
+				else scr_draw_text(359,_ydo,scr_easename(global.svchange[5][timinggroup][_svst][3]),0.22,0.22,0);
 				
 				if(_canread==1){
 					if(_ydo<mouse_y+30&&_ydo>mouse_y-30&&round((mouse_x-257)/102)==1&&!keyboard_check(vk_tab)){
@@ -675,9 +675,9 @@ else if (designview==1){
 				draw_set_colour(#ffffff);
 				draw_set_alpha(1);
 				if (!keyboard_check(vk_control)){
-				draw_text_transformed(461,_ydo,string(global.svchange[6][timinggroup][_svst][1]),0.22,0.22,0);
+				scr_draw_text(461,_ydo,string(global.svchange[6][timinggroup][_svst][1]),0.22,0.22,0);
 				}
-				else{draw_text_transformed(461,_ydo,scr_easename(global.svchange[6][timinggroup][_svst][3]),0.22,0.22,0);
+				else{scr_draw_text(461,_ydo,scr_easename(global.svchange[6][timinggroup][_svst][3]),0.22,0.22,0);
 				}
 				if(_canread==1){
 					if(_ydo<mouse_y+30&&_ydo>mouse_y-30&&round((mouse_x-257)/102)==2&&!keyboard_check(vk_tab)){
@@ -709,9 +709,9 @@ else if (designview==1){
 				draw_set_colour(#ffffff);
 				draw_set_alpha(1);
 				if (!keyboard_check(vk_control)){
-				draw_text_transformed(563,_ydo,string(global.svchange[7][timinggroup][_svst][1]),0.22,0.22,0);
+				scr_draw_text(563,_ydo,string(global.svchange[7][timinggroup][_svst][1]),0.22,0.22,0);
 				}
-				else{draw_text_transformed(563,_ydo,scr_easename(global.svchange[7][timinggroup][_svst][3]),0.22,0.22,0);}
+				else{scr_draw_text(563,_ydo,scr_easename(global.svchange[7][timinggroup][_svst][3]),0.22,0.22,0);}
 				if(_canread==1){
 					if(_ydo<mouse_y+30&&_ydo>mouse_y-30&&round((mouse_x-257)/102)==3&&!keyboard_check(vk_tab)){
 						draw_set_colour(c_green);
@@ -742,9 +742,9 @@ else if (designview==1){
 				draw_set_colour(#ffffff);
 				draw_set_alpha(1);
 				if (!keyboard_check(vk_control)){
-				draw_text_transformed(665,_ydo,string(global.svchange[8][timinggroup][_svst][1]),0.22,0.22,0);
+				scr_draw_text(665,_ydo,string(global.svchange[8][timinggroup][_svst][1]),0.22,0.22,0);
 				}
-				else{draw_text_transformed(665,_ydo,scr_easename(global.svchange[8][timinggroup][_svst][3]),0.22,0.22,0);}
+				else{scr_draw_text(665,_ydo,scr_easename(global.svchange[8][timinggroup][_svst][3]),0.22,0.22,0);}
 				if(_canread==1){
 					if(_ydo<mouse_y+30&&_ydo>mouse_y-30&&round((mouse_x-257)/102)==4&&!keyboard_check(vk_tab)){
 						draw_set_colour(c_green);
@@ -770,7 +770,7 @@ else if (designview==1){
 				draw_rectangle(209,_y-12,308,_y,false);
 				draw_set_colour(#ffffff);
 				draw_set_alpha(1);
-				draw_text_transformed(257,_y,string(global.svchange[0][timinggroup][_svst][1]),0.22,0.22,0);
+				scr_draw_text(257,_y,string(global.svchange[0][timinggroup][_svst][1]),0.22,0.22,0);
 				if(_canread==1){
 					if(_y<mouse_y+30&&_y>mouse_y-30&&round((mouse_x-257)/102)==0){
 						draw_set_colour(c_green);
@@ -784,26 +784,26 @@ else if (designview==1){
 			}
 		}
 		draw_set_color(c_black);
-		draw_text_transformed(259,642,"SV",0.3,0.3,0);
-		draw_text_transformed(361,642,"SF",0.3,0.3,0);
-		draw_text_transformed(463,642,"Y",0.3,0.3,0);
-		draw_text_transformed(565,642,"YG",0.3,0.3,0);
-		draw_text_transformed(667,642,"X",0.3,0.3,0);
-		draw_text_transformed(361,682,string(scr_svset(global.svchange[1][timinggroup],global.svchange[5][timinggroup],global.playtime)),0.22,0.22,0);
-		draw_text_transformed(463,682,string(scr_svset(global.svchange[2][timinggroup],global.svchange[6][timinggroup],global.playtime)),0.22,0.22,0);
-		draw_text_transformed(565,682,string(scr_svset(global.svchange[3][timinggroup],global.svchange[7][timinggroup],global.playtime)),0.22,0.22,0);
-		draw_text_transformed(667,682,string(scr_svset(global.svchange[4][timinggroup],global.svchange[8][timinggroup],global.playtime)),0.22,0.22,0);
+		scr_draw_text(259,642,"SV",0.3,0.3,0);
+		scr_draw_text(361,642,"SF",0.3,0.3,0);
+		scr_draw_text(463,642,"Y",0.3,0.3,0);
+		scr_draw_text(565,642,"YG",0.3,0.3,0);
+		scr_draw_text(667,642,"X",0.3,0.3,0);
+		scr_draw_text(361,682,string(scr_svset(global.svchange[1][timinggroup],global.svchange[5][timinggroup],global.playtime)),0.22,0.22,0);
+		scr_draw_text(463,682,string(scr_svset(global.svchange[2][timinggroup],global.svchange[6][timinggroup],global.playtime)),0.22,0.22,0);
+		scr_draw_text(565,682,string(scr_svset(global.svchange[3][timinggroup],global.svchange[7][timinggroup],global.playtime)),0.22,0.22,0);
+		scr_draw_text(667,682,string(scr_svset(global.svchange[4][timinggroup],global.svchange[8][timinggroup],global.playtime)),0.22,0.22,0);
 		draw_set_color(c_white);
-		draw_text_transformed(257,640,"SV",0.3,0.3,0);
-		draw_text_transformed(359,640,"SF",0.3,0.3,0);
-		draw_text_transformed(461,640,"Y",0.3,0.3,0);
-		draw_text_transformed(563,640,"YG",0.3,0.3,0);
-		draw_text_transformed(665,640,"X",0.3,0.3,0);
-		draw_text_transformed(359,680,string(scr_svset(global.svchange[1][timinggroup],global.svchange[5][timinggroup],global.playtime)),0.22,0.22,0);
-		draw_text_transformed(461,680,string(scr_svset(global.svchange[2][timinggroup],global.svchange[6][timinggroup],global.playtime)),0.22,0.22,0);
-		draw_text_transformed(563,680,string(scr_svset(global.svchange[3][timinggroup],global.svchange[7][timinggroup],global.playtime)),0.22,0.22,0);
-		draw_text_transformed(665,680,string(scr_svset(global.svchange[4][timinggroup],global.svchange[8][timinggroup],global.playtime)),0.22,0.22,0);
-		draw_text_transformed(257,680,string(scr_svset(global.svchange[0][timinggroup],[],global.playtime)),0.22,0.22,0);
+		scr_draw_text(257,640,"SV",0.3,0.3,0);
+		scr_draw_text(359,640,"SF",0.3,0.3,0);
+		scr_draw_text(461,640,"Y",0.3,0.3,0);
+		scr_draw_text(563,640,"YG",0.3,0.3,0);
+		scr_draw_text(665,640,"X",0.3,0.3,0);
+		scr_draw_text(359,680,string(scr_svset(global.svchange[1][timinggroup],global.svchange[5][timinggroup],global.playtime)),0.22,0.22,0);
+		scr_draw_text(461,680,string(scr_svset(global.svchange[2][timinggroup],global.svchange[6][timinggroup],global.playtime)),0.22,0.22,0);
+		scr_draw_text(563,680,string(scr_svset(global.svchange[3][timinggroup],global.svchange[7][timinggroup],global.playtime)),0.22,0.22,0);
+		scr_draw_text(665,680,string(scr_svset(global.svchange[4][timinggroup],global.svchange[8][timinggroup],global.playtime)),0.22,0.22,0);
+		scr_draw_text(257,680,string(scr_svset(global.svchange[0][timinggroup],[],global.playtime)),0.22,0.22,0);
 	}
 	if (mouse_x>209&&mouse_x<715&&_canread!=2){
 		draw_set_alpha(0.5);
@@ -830,7 +830,7 @@ else if (designview==1){
 	else{
 		draw_set_halign(fa_middle);
 		draw_set_color(c_white);
-		draw_text_transformed(512,330,"选择一个时间组以编辑",0.3,0.3,0);
+		scr_draw_text(512,330,"选择一个时间组以编辑",0.3,0.3,0);
 	}
 	
 	if (holdinput>=0){
@@ -863,7 +863,7 @@ else if (designview==1){
 			draw_set_alpha(1);
 			draw_set_color(#ffff00);
 			draw_set_halign(fa_left);
-			draw_text_transformed(32,600,"变速/特效教程\n单击鼠标左键切换下一页",0.23,0.23,0);
+			scr_draw_text(32,600,"变速/特效教程\n单击鼠标左键切换下一页",0.23,0.23,0);
 		}
 		else if(help==1){
 			draw_set_color(#000000);
@@ -872,10 +872,10 @@ else if (designview==1){
 			draw_set_alpha(1);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_middle);
-			draw_text_transformed(144,600,"变速效果",0.3,0.3,0);
+			scr_draw_text(144,600,"变速效果",0.3,0.3,0);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_left);
-			draw_text_transformed(300,350,"SV(灰)：区间变速\n\nSF(红)：全局变速\n\nY(黄)：调整Y坐标，Y>0时note判定位置在判定线下方\n受SF影响\n\nYG(绿)：调整Y坐标，Y>0时note判定位置在判定线下方\n不受SF影响\n\nX(蓝)：调整X坐标，X>0时note判定位置在原始位置右侧",0.3,0.3,0);
+			scr_draw_text(300,350,"SV(灰)：区间变速\n\nSF(红)：全局变速\n\nY(黄)：调整Y坐标，Y>0时note判定位置在判定线下方\n受SF影响\n\nYG(绿)：调整Y坐标，Y>0时note判定位置在判定线下方\n不受SF影响\n\nX(蓝)：调整X坐标，X>0时note判定位置在原始位置右侧",0.3,0.3,0);
 		}
 		else if(help==2){
 			draw_set_color(#000000);
@@ -884,9 +884,9 @@ else if (designview==1){
 			draw_set_alpha(1);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_left);
-			draw_text_transformed(320,350,"Q：放置瞬时变速\n按住W：放置持续变速\n\n鼠标左键：选择\n鼠标左键+Ctrl：多选\n鼠标左键+Shift：框选\n\n鼠标右键：删除变速\nDeleat：删除选中的变速\n\nCtrl+P：复制当前选中的SF到SV",0.3,0.3,0);
+			scr_draw_text(320,350,"Q：放置瞬时变速\n按住W：放置持续变速\n\n鼠标左键：选择\n鼠标左键+Ctrl：多选\n鼠标左键+Shift：框选\n\n鼠标右键：删除变速\nDeleat：删除选中的变速\n\nCtrl+P：复制当前选中的SF到SV",0.3,0.3,0);
 			draw_set_halign(fa_middle);
-			draw_text_transformed(144,600,"按键操作",0.3,0.3,0);
+			scr_draw_text(144,600,"按键操作",0.3,0.3,0);
 			draw_set_halign(fa_right);
 		}
 		else if(help==3){
@@ -896,15 +896,15 @@ else if (designview==1){
 			draw_set_alpha(1);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_left);
-			draw_text_transformed(320,340,"\nCtrl+右键点击“缓动”按钮，输入数学公式来定义任意缓动曲线\n其中x为缓动进度(0→1)，计算结果 y 为对应的值(建议0→1)\n\n在两个表达式中间插入数值，并且使用\",\"或\";\"分隔，可创建分段函数\n示例： x^2;0.5;2x-0.75;0.75;x\n\n特殊参数说明：\nlx1：轨道宽度，默认值96\nlx2：相邻轨道距离，默认值102\nspd：当前流速\nly：轨道y坐标，默认为608",0.3,0.3,0);
+			scr_draw_text(320,340,"\nCtrl+右键点击“缓动”按钮，输入数学公式来定义任意缓动曲线\n其中x为缓动进度(0→1)，计算结果 y 为对应的值(建议0→1)\n\n在两个表达式中间插入数值，并且使用\",\"或\";\"分隔，可创建分段函数\n示例： x^2;0.5;2x-0.75;0.75;x\n\n特殊参数说明：\nlx1：轨道宽度，默认值96\nlx2：相邻轨道距离，默认值102\nspd：当前流速\nly：轨道y坐标，默认为608",0.3,0.3,0);
 			draw_set_halign(fa_middle);
-			draw_text_transformed(144,600,"自定义缓动",0.3,0.3,0);
+			scr_draw_text(144,600,"自定义缓动",0.3,0.3,0);
 			draw_set_color(c_gray);
 			draw_sprite_ext(spr_btn,0,1024,256,4,1,0,c_gray,1);
-			draw_text_transformed(1024,256,"缓动",0.23,0.23,0);
+			scr_draw_text(1024,256,"缓动",0.23,0.23,0);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_right);
-			draw_text_transformed(956,248,"↘",0.3,0.3,0);
+			scr_draw_text(956,248,"↘",0.3,0.3,0);
 		}
 		else if(help==4){
 			draw_set_color(#000000);
@@ -913,10 +913,10 @@ else if (designview==1){
 			draw_set_alpha(1);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_middle);
-			draw_text_transformed(144,600,"未完成内容",0.3,0.3,0);
+			scr_draw_text(144,600,"未完成内容",0.3,0.3,0);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_left);
-			draw_text_transformed(300,350,"以下内容暂时无法在制谱器内编辑，需要手动编辑谱面文件：\n\nE：谱面结束时间\n格式：E,timing\n\nT：显示文字\n格式：T,timing,text,time,x1,y1,gy1,sx1,sy1,a1,r1,x2,y2,gy2,sx2,sy2,a2,\n             r2,xease,yease,gyease,sxease,syease,aease,rease,color,depth\n\nR：重置随机组\n格式：R,timing,randomgroup\n注：在相同timing下，note会比变速早4000ms加载",0.3,0.3,0);
+			scr_draw_text(300,350,"以下内容暂时无法在制谱器内编辑，需要手动编辑谱面文件：\n\nE：谱面结束时间\n格式：E,timing\n\nT：显示文字\n格式：T,timing,text,time,x1,y1,gy1,sx1,sy1,a1,r1,x2,y2,gy2,sx2,sy2,a2,\n             r2,xease,yease,gyease,sxease,syease,aease,rease,color,depth\n\nR：重置随机组\n格式：R,timing,randomgroup\n注：在相同timing下，note会比变速早4000ms加载",0.3,0.3,0);
 		}
 		else if(help==5){
 			draw_set_color(#000000);
@@ -925,10 +925,10 @@ else if (designview==1){
 			draw_set_alpha(1);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_middle);
-			draw_text_transformed(144,600,"未完成内容",0.3,0.3,0);
+			scr_draw_text(144,600,"未完成内容",0.3,0.3,0);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_left);
-			draw_text_transformed(300,350,"以下内容暂时无法在制谱器内编辑，需要手动编辑谱面文件：\n\nCA/CAN：chromatic特效\n格式：CAN,timing,a,type\nCA,timing,a,duration,type,ease\n\nCB/CBN：bloom特效\n格式：CBN,timing,a,type\nCB,timing,a,duration,type,ease",0.3,0.3,0);
+			scr_draw_text(300,350,"以下内容暂时无法在制谱器内编辑，需要手动编辑谱面文件：\n\nCA/CAN：chromatic特效\n格式：CAN,timing,a,type\nCA,timing,a,duration,type,ease\n\nCB/CBN：bloom特效\n格式：CBN,timing,a,type\nCB,timing,a,duration,type,ease",0.3,0.3,0);
 		}
 	}
 	gpu_set_depth(_depth);
@@ -1168,7 +1168,7 @@ else if (designview==2){
 		if (keyboard_check(vk_control)){
 				gpu_set_depth(-5000);
 				draw_set_color(c_white);
-				draw_text_transformed(
+				scr_draw_text(
 				_xy[0],
 				_xy[1],
 				string(global.chartread[_q][3]),0.22,0.22,0);
@@ -1208,9 +1208,9 @@ else if (designview==-1){
 				
 		draw_set_halign(fa_left);
 		if real(global.barlist[i][2])>=1
-		draw_text_transformed(730,_y,"  "+string(global.barlist[i][2]),0.23,0.23,0);
+		scr_draw_text(730,_y,"  "+string(global.barlist[i][2]),0.23,0.23,0);
 		else if real(global.barlist[i][2])>0 
-		draw_text_transformed(730,_y," "+string(global.barlist[i][2])+"/"+string(global.barline),0.2,0.2,0);
+		scr_draw_text(730,_y," "+string(global.barlist[i][2])+"/"+string(global.barline),0.2,0.2,0);
 	}
 	
 	
@@ -1259,7 +1259,7 @@ else if (designview==-1){
 			if (keyboard_check(vk_control)){
 				gpu_set_depth(-5000);
 				draw_set_color(c_white);
-				draw_text_transformed(
+				scr_draw_text(
 				359+102*real(global.chartread[_q][2]),
 				608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25,
 				string(global.chartread[_q][3]),0.22,0.22,0);
@@ -1315,7 +1315,7 @@ else if (designview==-1){
 			draw_set_alpha(1);
 			draw_set_color(#ffff00);
 			draw_set_halign(fa_left);
-			draw_text_transformed(32,600,"随机note教程\n单击鼠标左键切换下一页",0.23,0.23,0);
+			scr_draw_text(32,600,"随机note教程\n单击鼠标左键切换下一页",0.23,0.23,0);
 		}
 		else if(help==1){
 			draw_set_color(#000000);
@@ -1329,18 +1329,18 @@ else if (designview==-1){
 			draw_rectangle(206,0,308,1000,0);
 			draw_set_color(#ffffff);
 			draw_set_alpha(1);
-			draw_text_transformed(320,120,"←在note视图中，\"none\"表示为轨道左侧位置",0.23,0.23,0);
-			draw_text_transformed(320,420,"Q：放置随机Tap\nW：放置随机Drag\nE：放置随机地雷\nR：放置随机假note\n\n游戏在启动时会生成4个0~1之间的小数，分别对应随机组 0~3\n这4个数值在游戏过程中固定不变\n\n当轨道为\"none\"时，将不会生成该note\n在轨道输入框内输入\"none\"或\"n\"以设置为\"none\"",0.3,0.3,0);
+			scr_draw_text(320,120,"←在note视图中，\"none\"表示为轨道左侧位置",0.23,0.23,0);
+			scr_draw_text(320,420,"Q：放置随机Tap\nW：放置随机Drag\nE：放置随机地雷\nR：放置随机假note\n\n游戏在启动时会生成4个0~1之间的小数，分别对应随机组 0~3\n这4个数值在游戏过程中固定不变\n\n当轨道为\"none\"时，将不会生成该note\n在轨道输入框内输入\"none\"或\"n\"以设置为\"none\"",0.3,0.3,0);
 			draw_set_halign(fa_middle);
 			draw_set_color(c_gray);
 			draw_sprite_ext(spr_btn,0,864,208,4,1,0,c_gray,1);
-			draw_text_transformed(864,208,"轨道",0.23,0.23,0);
+			scr_draw_text(864,208,"轨道",0.23,0.23,0);
 			draw_set_color(#ffffff);
-			draw_text_transformed(144,600,"随机note",0.3,0.3,0);
+			scr_draw_text(144,600,"随机note",0.3,0.3,0);
 			draw_set_halign(fa_right);
-			draw_text_transformed(784,192,"轨道：定义了当随机数的值落在不同区间时\nnote会出现在哪个轨道→",0.23,0.23,0);
-			draw_text_transformed(1200,352,"随机项：决定了将区间[0,1)划分为多少份↑",0.23,0.23,0);
-			draw_text_transformed(784,688,"调整随机组数值以查看不同随机数下的谱面→",0.23,0.23,0);
+			scr_draw_text(784,192,"轨道：定义了当随机数的值落在不同区间时\nnote会出现在哪个轨道→",0.23,0.23,0);
+			scr_draw_text(1200,352,"随机项：决定了将区间[0,1)划分为多少份↑",0.23,0.23,0);
+			scr_draw_text(784,688,"调整随机组数值以查看不同随机数下的谱面→",0.23,0.23,0);
 		}
 		else if(help==2){
 			draw_set_color(#000000);
@@ -1349,10 +1349,10 @@ else if (designview==-1){
 			draw_set_alpha(1);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_middle);
-			draw_text_transformed(144,600,"未完成内容",0.3,0.3,0);
+			scr_draw_text(144,600,"未完成内容",0.3,0.3,0);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_left);
-			draw_text_transformed(300,350,"以下内容暂时无法在制谱器内编辑，需要手动编辑谱面文件：\n\nR：重置随机组\n格式：R,timing,randomgroup",0.3,0.3,0);
+			scr_draw_text(300,350,"以下内容暂时无法在制谱器内编辑，需要手动编辑谱面文件：\n\nR：重置随机组\n格式：R,timing,randomgroup",0.3,0.3,0);
 		}
 	}
 }
@@ -1376,9 +1376,9 @@ else if (designview==-2){
 				
 		draw_set_halign(fa_left);
 		if real(global.barlist[i][2])>=1
-		draw_text_transformed(730,_y,"  "+string(global.barlist[i][2]),0.23,0.23,0);
+		scr_draw_text(730,_y,"  "+string(global.barlist[i][2]),0.23,0.23,0);
 		else if real(global.barlist[i][2])>0 
-		draw_text_transformed(730,_y," "+string(global.barlist[i][2])+"/"+string(global.barline),0.2,0.2,0);
+		scr_draw_text(730,_y," "+string(global.barlist[i][2])+"/"+string(global.barline),0.2,0.2,0);
 	}
 	draw_set_halign(fa_middle);
 	draw_set_colour(c_white)
@@ -1400,7 +1400,7 @@ else if (designview==-2){
 			608+(global.playtime-real(global.bpmlist[_q][0]))*global.globalspeed*0.25
 		);
 		draw_set_alpha(1);
-		draw_text_transformed(511,
+		scr_draw_text(511,
 		602+(global.playtime-real(global.bpmlist[_q][0]))*global.globalspeed*0.25
 		,"  "+string(global.bpmlist[_q][1]),0.27,0.27,0);
 		if(_canread==1){
@@ -1447,7 +1447,7 @@ else if (designview==-2){
 			draw_set_alpha(1);
 			draw_set_color(#ffff00);
 			draw_set_halign(fa_left);
-			draw_text_transformed(32,600,"BPM教程\n我觉得不需要所以不写了",0.23,0.23,0);
+			scr_draw_text(32,600,"BPM教程\n我觉得不需要所以不写了",0.23,0.23,0);
 		}
 	}
 }
@@ -1461,11 +1461,11 @@ if (keyboard_check(vk_escape)){
 	draw_rectangle(358,226,922,510,false);
 	draw_set_color(c_white);
 	draw_set_halign(fa_middle);
-	draw_text_transformed(640,275,"退出编辑？",0.35,0.35,0);
-	draw_text_transformed(640,345,"保存并退出   ESC+S",0.30,0.30,0);
-	draw_text_transformed(640,375,"(谱面将保存至"+string(global.level)+".pqc，原谱面将保存至"+string(global.level)+"_Backup.pqc)",0.22,0.22,0);
-	draw_text_transformed(640,420,"不保存退出   ESC+N",0.30,0.30,0);
-	draw_text_transformed(640,450,"(谱面将保存至"+string(global.level)+"_Backup.pqc)",0.22,0.22,0);
+	scr_draw_text(640,275,"退出编辑？",0.35,0.35,0);
+	scr_draw_text(640,345,"保存并退出   ESC+S",0.30,0.30,0);
+	scr_draw_text(640,375,"(谱面将保存至"+string(global.level)+".pqc，原谱面将保存至"+string(global.level)+"_Backup.pqc)",0.22,0.22,0);
+	scr_draw_text(640,420,"不保存退出   ESC+N",0.30,0.30,0);
+	scr_draw_text(640,450,"(谱面将保存至"+string(global.level)+"_Backup.pqc)",0.22,0.22,0);
 	gpu_set_depth(_depth);
 }
 

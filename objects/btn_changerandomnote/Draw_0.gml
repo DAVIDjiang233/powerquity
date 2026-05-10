@@ -6,7 +6,7 @@ draw_set_colour(c_white)
 draw_set_halign(fa_middle);
 
 if (array_length(global.choose)==0){
-	draw_text_transformed(x,y,"随机项:"+string(randomnumber),0.22,0.22,0);
+	scr_draw_text(x,y,"随机项:"+string(randomnumber),0.22,0.22,0);
 }
 else{
 	var _j=4;
@@ -22,9 +22,9 @@ else{
 		}
 	}
 	if(_vist==0){
-		draw_text_transformed(x,y,"随机项:"+string(_ran),0.22,0.22,0);
+		scr_draw_text(x,y,"随机项:"+string(_ran),0.22,0.22,0);
 	}
 	else{
-		draw_text_transformed(x,y,"随机项",0.22,0.22,0);
+		scr_draw_text(x,y,"随机项",0.22,0.22,0);
 	}
 }

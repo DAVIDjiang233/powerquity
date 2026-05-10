@@ -3,4 +3,4 @@ draw_self();
 draw_set_colour(c_white)
 draw_set_halign(fa_middle);
 
-draw_text_transformed(x,y,"保存",0.22,0.22,0);
+scr_draw_text(x,y,"保存",0.22,0.22,0);

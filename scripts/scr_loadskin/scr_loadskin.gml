@@ -4,6 +4,7 @@ function scr_loadskin(_filein){
 	var _lastplayskinum=array_length(global.playskin)-1;
 	var _lastplaytextnum=array_length(global.playtext)-1;
 	var _lastplaypictnum=array_length(global.playsprite)-1;
+	var _lastfontnum=array_length(global.fontall)-1;
 	
 	//游玩界面
 	
@@ -25,7 +26,34 @@ function scr_loadskin(_filein){
 		file_text_close(_file);
 		
 		for(var _i=0;_i<array_length(_fileread);_i++){
-			if(_fileread[_i][0]=="N"){
+			if(_fileread[_i][0]=="F"){
+				array_delete(_fileread[_i],0,1);
+				if(_fileread[_i][0]<=-1){
+					_fileread[_i][0]=_lastfontnum-_fileread[_i][0];
+				}
+				if(real(_fileread[_i][0])<array_length(global.fontall)
+				&&global.fontall[real(_fileread[_i][0])]!=0){
+					font_delete(global.fontall[real(_fileread[_i][0])]);
+				}
+				if(scr_stringtreal(_fileread[_i][1])==1){
+					if(_fileread[_i][1]<=-1){
+						_fileread[_i][1]=_lastplayskinum-_fileread[_i][1];
+					}
+					if(real(_fileread[_i][5])>=0&&real(_fileread[_i][5])<=string_length(_fileread[_i][2])){
+						_fileread[_i][2]=string_insert(",",_fileread[_i][2],real(_fileread[_i][5]));
+					}
+					global.fontall[real(_fileread[_i][0])]=
+					font_add_sprite_ext(global.playskin[real(_fileread[_i][1])],
+					_fileread[_i][2],real(_fileread[_i][3]),real(_fileread[_i][4]));
+				}
+				else{
+					global.fontall[real(_fileread[_i][0])]=font_add(
+						working_directory+_filein+"/"+_fileread[_i][1]
+						, real(_fileread[_i][2]),0,0,32,128);
+				}
+				//global.fontall[0]=font_add(working_directory + "/skin/font.ttf",64,0,0,32,128);
+			}
+			else if(_fileread[_i][0]=="N"){
 				global.skinnumber[_fileread[_i][1]]=real(_fileread[_i][2]);
 			}
 			else if(_fileread[_i][0]=="T"){
@@ -47,6 +75,10 @@ function scr_loadskin(_filein){
 				global.playtext[real(_fileread[_i][0])][7]=scr_nibl2array(global.playtext[real(_fileread[_i][0])][7]);
 				global.playtext[real(_fileread[_i][0])][8]=scr_nibl2array(global.playtext[real(_fileread[_i][0])][8]);
 				global.playtext[real(_fileread[_i][0])][9]=scr_nibl2array(global.playtext[real(_fileread[_i][0])][9]);
+				
+				if(global.playtext[real(_fileread[_i][0])][10]<=-1){
+					global.playtext[real(_fileread[_i][0])][10]=_lastfontnum-global.playtext[real(_fileread[_i][0])][10];
+				}
 				array_delete(global.playtext[real(_fileread[_i][0])],0,1);
 			}
 			else if(_fileread[_i][0]=="TC"){
@@ -58,9 +90,13 @@ function scr_loadskin(_filein){
 				if(real(_fileread[_i][1])==4){
 					global.playtext[real(_fileread[_i][0])][real(_fileread[_i][1])]=_fileread[_i][2];
 				}
+				else if(real(_fileread[_i][1])==10&&real(_fileread[_i][2])<=1){
+					global.playtext[real(_fileread[_i][0])][10]=_lastfontnum-real(_fileread[_i][2]);
+				}
 				else{
 					global.playtext[real(_fileread[_i][0])][real(_fileread[_i][1])]=scr_nibl2array(_fileread[_i][2]);
 				}
+				
 			}
 			else if(_fileread[_i][0]=="P"){
 				array_delete(_fileread[_i],0,1);
@@ -84,7 +120,7 @@ function scr_loadskin(_filein){
 				global.playsprite[real(_fileread[_i][0])][7]=scr_nibl2array(global.playsprite[real(_fileread[_i][0])][7]);
 				global.playsprite[real(_fileread[_i][0])][8]=scr_nibl2array(global.playsprite[real(_fileread[_i][0])][8]);
 				array_delete(global.playsprite[real(_fileread[_i][0])],0,1);
-				show_debug_message(global.playsprite)
+				//show_debug_message(global.playsprite)
 			}
 			else if(_fileread[_i][0]=="PC"){
 				array_delete(_fileread[_i],0,1);

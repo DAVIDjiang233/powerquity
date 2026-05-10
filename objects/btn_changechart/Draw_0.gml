@@ -20,4 +20,4 @@ else if type==3{
 else if type==4{
 	_text="难度名";
 }
-draw_text_transformed(x,y,_text,0.22,0.22,0);
+scr_draw_text(x,y,_text,0.22,0.22,0);

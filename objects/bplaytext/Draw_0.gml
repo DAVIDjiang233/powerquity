@@ -38,4 +38,4 @@ if(global.mirror*mirror==1){
 
 
 draw_set_alpha(_alpha);
-draw_text_transformed(_mx,_my,scr_stringset(textshow),_msx,_msy,_angle);
+scr_draw_text(_mx,_my,scr_stringset(textshow),_msx,_msy,_angle);

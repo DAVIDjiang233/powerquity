@@ -14,9 +14,4 @@ else if type==1{
 	_text="BPM:"+string(global.bpmlist[global.choose[0]][1]);
 }
 
-if(string_width(_text)>550){
-	draw_text_transformed(x,y,_text,121/string_width(_text),121/string_width(_text),0);
-}
-else{
-	draw_text_transformed(x,y,_text,0.22,0.22,0);
-}
+scr_draw_text(x,y,_text,0.22,0.22,0,110);
