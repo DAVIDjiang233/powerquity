@@ -896,15 +896,14 @@ else if (designview==1){
 			draw_set_alpha(1);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_left);
-			scr_draw_text(320,340,"\nCtrl+右键点击“缓动”按钮，输入数学公式来定义任意缓动曲线\n其中x为缓动进度(0→1)，计算结果 y 为对应的值(建议0→1)\n\n在两个表达式中间插入数值，并且使用\",\"或\";\"分隔，可创建分段函数\n示例： x^2;0.5;2x-0.75;0.75;x\n\n特殊参数说明：\nlx1：轨道宽度，默认值96\nlx2：相邻轨道距离，默认值102\nspd：当前流速\nly：轨道y坐标，默认为608",0.3,0.3,0);
+			scr_draw_text(320,270,"Ctrl+右键点击“缓动”按钮，输入数学公式来定义任意缓动曲线\n其中x为缓动进度(0→1)，计算结果 y 为对应的值(建议0→1)\n\n在两个表达式中间插入数值，并且使用\",\"或\";\"分隔，可创建分段函数\n示例： x^2;0.5;2x-0.75;0.75;x\n\n",0.3,0.3,0);
+			scr_draw_text(320,500,"特殊参数说明：\nspd/speed：当前流速\ntext(n)：获取皮肤文本的宽度\nsknum(n)：获取皮肤数值，特殊数值包括：\n0：轨道宽度，默认值96\n1：相邻轨道距离，默认值102\n2：轨道y坐标，默认为608\n注：noteX的值会自动乘以sknum(1)/102，以匹配轨道间距",0.25,0.25,0);
 			draw_set_halign(fa_middle);
 			scr_draw_text(144,600,"自定义缓动",0.3,0.3,0);
 			draw_set_color(c_gray);
 			draw_sprite_ext(spr_btn,0,1024,256,4,1,0,c_gray,1);
 			scr_draw_text(1024,256,"缓动",0.23,0.23,0);
 			draw_set_color(#ffffff);
-			draw_set_halign(fa_right);
-			scr_draw_text(956,248,"↘",0.3,0.3,0);
 		}
 		else if(help==4){
 			draw_set_color(#000000);

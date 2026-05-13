@@ -196,6 +196,16 @@ function scr_nibl2str(_rpnall){
 				_cal[array_length(_cal)-1]=
 				"text("+_cal[array_length(_cal)-1]+")";
 			}
+			else if(_rpnall[0][_num][_i]=="skn"){
+				if(typeof(_cal[array_length(_cal)-1])=="array"){
+					_cal[array_length(_cal)-1]=
+					_cal[array_length(_cal)-1][0]
+					+_cal[array_length(_cal)-1][1]
+					+_cal[array_length(_cal)-1][2];
+				}
+				_cal[array_length(_cal)-1]=
+				"sknum("+_cal[array_length(_cal)-1]+")";
+			}
 			else if(_rpnall[0][_num][_i]=="sin"){
 				if(typeof(_cal[array_length(_cal)-1])=="array"){
 					_cal[array_length(_cal)-1]=
@@ -221,15 +231,6 @@ function scr_nibl2str(_rpnall){
 			}
 			else if(_rpnall[0][_num][_i]=="spd") {
 				array_push(_cal,"spd");
-			}
-			else if(_rpnall[0][_num][_i]=="ly") {
-				array_push(_cal,"ly");
-			}
-			else if(_rpnall[0][_num][_i]=="lx1") {
-				array_push(_cal,"lx1");
-			}
-			else if(_rpnall[0][_num][_i]=="lx2") {
-				array_push(_cal,"lx2");
 			}
 			else if(_rpnall[0][_num][_i]=="3.14159") {
 				array_push(_cal,"p");

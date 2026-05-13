@@ -239,68 +239,14 @@ while (!file_text_eof(_file))
 file_text_close(_file);
 //show_debug_message(global.svchange[9]);
 
-i = 0;
-while(i<array_length(global.svchange[0])){
-	array_sort(global.svchange[0][i],function(elm1, elm2){
-		return real(elm1[0])-real(elm2[0]);
-	});
-i++;
-}
-i = 0;
-while(i<array_length(global.svchange[5])){
-	array_sort(global.svchange[5][i],function(elm1, elm2){
-		return real(elm1[0])-real(elm2[0]);
-	});
-i++;
-}
-i = 0;
-while(i<array_length(global.svchange[8])){
-	array_sort(global.svchange[8][i],function(elm1, elm2){
-		return real(elm1[0])-real(elm2[0]);
-	});
-i++;
-}
-i = 0;
-while(i<array_length(global.svchange[7])){
-	array_sort(global.svchange[7][i],function(elm1, elm2){
-		return real(elm1[0])-real(elm2[0]);
-	});
-i++;
-}
-i = 0;
-while(i<array_length(global.svchange[7])){
-	array_sort(global.svchange[7][i],function(elm1, elm2){
-		return real(elm1[0])-real(elm2[0]);
-	});
-i++;
-}
-i = 0;
-while(i<array_length(global.svchange[1])){
-	array_sort(global.svchange[1][i],function(elm1, elm2){
-		return real(elm1[0])-real(elm2[0]);
-	});
-i++;
-}
-i = 0;
-while(i<array_length(global.svchange[4])){
-	array_sort(global.svchange[4][i],function(elm1, elm2){
-		return real(elm1[0])-real(elm2[0]);
-	});
-i++;
-}
-i = 0;
-while(i<array_length(global.svchange[3])){
-	array_sort(global.svchange[3][i],function(elm1, elm2){
-		return real(elm1[0])-real(elm2[0]);
-	});
-i++;
-}
-i = 0;
-while(i<array_length(global.svchange[3])){
-	array_sort(global.svchange[3][i],function(elm1, elm2){
-		return real(elm1[0])-real(elm2[0]);
-	});
-i++;
+for(var _j=0;_j<8;_j++){
+	i = 0;
+	while(i<array_length(global.svchange[_j])){
+		array_sort(global.svchange[_j][i],function(elm1, elm2){
+			return real(elm1[0])-real(elm2[0]);
+		});
+		i++;
+	}
 }
 array_sort(global.svchange[9],function(elm1, elm2){
 	return real(elm1[1])-real(elm2[1]);

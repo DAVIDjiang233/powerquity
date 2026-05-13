@@ -28,11 +28,13 @@ if(keyboard_check_pressed(global.pressext[1])){
 		gamepause=1;
 		pausestart=current_time;
 		audio_pause_all();
+		global.drawdepth[25]=1;
 	}
 	else if (gamepause==1){
 		gamepause=2;
 		alarmpause=current_time+1000;
 		alarm[1]=0;
+		global.drawdepth[25]=0;
 	}
 }
 
@@ -133,6 +135,25 @@ while(chartlist<512&&0<array_length(global.svread)){
 			global.chartmoveinspeed[real(global.svread[0][2])]=0;
 			global.chartmoveinglobal[real(global.svread[0][2])]=0;
 			global.chartxmove[real(global.svread[0][2])]=0;
+			array_delete(global.svread,0,1);
+		}
+		else if(global.svread[0][0]=="A"){
+			if global.svenable==1{
+			instance_create_depth(0,0,0,bsv_depthalpha,
+				{
+					stime: real(global.svread[0][1]),
+					oriamont : real(global.svread[0][2]),
+					setdepth : real(global.svread[0][4]),
+					movetype : scr_nibl2array(global.svread[0][5]),
+					etime: real(global.svread[0][1])+real(global.svread[0][3])
+				});
+			}
+			array_delete(global.svread,0,1);
+		}
+		else if(global.svread[0][0]=="AN"){
+			if global.svenable==1
+			global.drawdepth[real(global.svread[0][3])]=real(global.svread[0][2]);
+			else global.drawdepth[real(global.svread[0][3])]=1;
 			array_delete(global.svread,0,1);
 		}
 		else if(global.svread[0][0]=="S"){

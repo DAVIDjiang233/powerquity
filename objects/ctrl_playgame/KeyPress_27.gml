@@ -4,6 +4,7 @@ if gamepause==0{
 	gamepause=1;
 	pausestart=current_time;
 	audio_pause_all();
+	global.drawdepth[25]=1;
 }
 else if (gamepause==1) {
 	audio_destroy_stream(musicplay);

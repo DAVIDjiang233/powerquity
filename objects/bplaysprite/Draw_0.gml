@@ -1,4 +1,13 @@
-var _mx,_my,_msx,_msy,_angle,_alpha;
+var _alpha;
+
+if(depth<=15000&&depth>-15000){
+	if(global.drawdepth[floor((15000-depth)/1000)]<=0){
+		exit;
+	}
+	else _alpha=global.drawdepth[floor((15000-depth)/1000)];
+}
+
+var _mx,_my,_msx,_msy,_angle;
 if(typeof(mx)=="array"){
 	_mx=scr_calc(mx,global.playtime,-10000);
 }
@@ -21,9 +30,9 @@ if(typeof(angle)=="array"){
 else _angle=angle;
 
 if(typeof(alpha)=="array"){
-	_alpha=scr_calc(alpha,global.playtime);
+	_alpha*=scr_calc(alpha,global.playtime);
 }
-else _alpha=alpha;
+else _alpha*=alpha;
 
 if(global.mirror*mirror==1){
 	_mx=1280-_mx;

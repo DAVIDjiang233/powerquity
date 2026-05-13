@@ -1,4 +1,4 @@
-function scr_stringset(_string){
+function scr_stringplay(_string){
 	return(
 	string(
 			_string,
@@ -17,7 +17,9 @@ function scr_stringset(_string){
 			string(global.playtextlist[3]),
 			global.playtextlist[4],
 			string_format(fps,0,0),
-			string(global.settings[17])
+			string(global.settings[17]),
+			chr(global.pressext[0]),
+			chr(global.pressext[1])
 		)
 	);
 }

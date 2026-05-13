@@ -1,7 +1,11 @@
+var _alpha=scr_tcscal(stime,etime,ma1,ma2,global.playtime,ea);
+if(depth<=15000&&depth>-15000){
+	_alpha*=global.drawdepth[floor((15000-depth)/1000)]
+}
 draw_sprite_ext(spr,floor((global.playtime-stime)*sprfps/1000),
 	scr_tcscal(stime,etime,mx1,mx2,global.playtime,ex,-1000),
 	scr_tcscal(stime,etime,my1,my2,global.playtime,ey,-1000),
 	scr_tcscal(stime,etime,msx1,msx2,global.playtime,esx),
 	scr_tcscal(stime,etime,msy1,msy2,global.playtime,esy),
 	scr_tcscal(stime,etime,mr1,mr2,global.playtime,er),
-	sprcolor,scr_tcscal(stime,etime,ma1,ma2,global.playtime,ea));
+	sprcolor,_alpha);

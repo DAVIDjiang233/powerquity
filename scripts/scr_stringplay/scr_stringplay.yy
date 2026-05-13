@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_stringset",
+  "%Name":"scr_stringplay",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_stringset",
+  "name":"scr_stringplay",
   "parent":{
     "name":"脚本",
     "path":"folders/脚本.yy",

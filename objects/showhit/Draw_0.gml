@@ -4,7 +4,7 @@ else if(x<=765&&x>=515) draw_set_colour(#00ffff);
 else draw_set_colour(#ff0000);
 
 
-draw_set_alpha((time-current_time)/1000);
+draw_set_alpha(global.drawdepth[20]*(time-current_time)/1000);
 if(global.mirror==1){
 	draw_rectangle(1279-x,y-10,1281-x,y+10,false);
 }
