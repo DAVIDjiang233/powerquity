@@ -32,7 +32,7 @@ if (global.playtime>endtime+125*global.judgesize){
 		);
 	}
 	global.keytouchlist[key1]=keyamo+0.5;
-	instance_create_depth(640+(global.playtime-endtime)/global.judgesize,global.settings[9],-5000,showhit);
+	instance_create_depth((global.playtime-endtime)/global.judgesize,global.settings[9],-5000,showhit);
 	instance_destroy();
 }
 
@@ -61,9 +61,9 @@ if global.pressing[global.pressreal[key1-1]]==3{
 			sfps : global.skinnumber[23]
 		}
 		);
-		instance_create_depth(640+(global.playtime-endtime)/global.judgesize,global.settings[9],-5000,showhit);
+		instance_create_depth((global.playtime-endtime)/global.judgesize,global.settings[9],-5000,showhit);
 	}
 	global.keytouchlist[key1]=keyamo+0.5;
-	instance_create_depth(640+(global.playtime-endtime)/global.judgesize,global.settings[9],-5000,showhit);
+	instance_create_depth((global.playtime-endtime)/global.judgesize,global.settings[9],-5000,showhit);
 	instance_destroy();
 }

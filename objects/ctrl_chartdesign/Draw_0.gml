@@ -915,7 +915,7 @@ else if (designview==1){
 			scr_draw_text(144,600,"未完成内容",0.3,0.3,0);
 			draw_set_color(#ffffff);
 			draw_set_halign(fa_left);
-			scr_draw_text(300,350,"以下内容暂时无法在制谱器内编辑，需要手动编辑谱面文件：\n\nE：谱面结束时间\n格式：E,timing\n\nT：显示文字\n格式：T,timing,text,time,x1,y1,gy1,sx1,sy1,a1,r1,x2,y2,gy2,sx2,sy2,a2,\n             r2,xease,yease,gyease,sxease,syease,aease,rease,color,depth\n\nR：重置随机组\n格式：R,timing,randomgroup\n注：在相同timing下，note会比变速早4000ms加载",0.3,0.3,0);
+			scr_draw_text(300,350,"以下内容暂时无法在制谱器内编辑，需要手动编辑谱面文件：\n\nE：谱面结束时间\n格式：E,timing\n\nT：显示文字\n格式：T,timing,text,time,x1,y1,gy1,sx1,sy1,a1,r1,x2,y2,gy2,sx2,sy2,a2,\n             r2,xease,yease,gyease,sxease,syease,aease,rease,color,depth\n\nA/AN：设置某一深度范围内的alpha\n格式：AN,timing,alpha,depth\nA,timing,alpha,duration,depth,ease\n\nR：重置随机组\n格式：R,timing,randomgroup\n注：在相同timing下，note会比变速早4000ms加载",0.3,0.3,0);
 		}
 		else if(help==5){
 			draw_set_color(#000000);

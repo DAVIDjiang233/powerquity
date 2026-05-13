@@ -1,4 +1,4 @@
-if(x<600){
+if(x<-40){
 	instance_destroy(showdetail);
 	instance_create_depth(580,0,-5000,showdetail,{
 		stime : global.playtime,
@@ -6,7 +6,7 @@ if(x<600){
 		sfps : global.skinnumber[23]
 	});
 }
-else if(x>680){
+else if(x>40){
 	instance_destroy(showdetail);
 	instance_create_depth(700,0,-5000,showdetail,{
 		stime : global.playtime,

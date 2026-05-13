@@ -1,5 +1,5 @@
 if(sprite_get_number(spr)==1){
-	draw_sprite_ext(spr,0,1280*global.mirror,0,1,1,0,c_white,global.drawdepth[20]*(1-(global.playtime-stime)/(800*global.gamespeed)));
+	draw_sprite_ext(spr,0,1280*global.mirror,0,2*(0.5-global.mirror),1,0,c_white,global.drawdepth[20]*(1-(global.playtime-stime)/(800*global.gamespeed)));
 }
 else{
 	draw_set_alpha(global.drawdepth[20]);

@@ -38,7 +38,7 @@ if(typeof(alpha)=="array"){
 }
 else _alpha*=alpha;
 
-if(global.mirror*mirror==1){
+if(global.mirror*mirror>=0.5){
 	_mx=1280-_mx;
 	_msx=-_msx;
 	_angle=-_angle;

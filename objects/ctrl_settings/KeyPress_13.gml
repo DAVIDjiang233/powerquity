@@ -10,6 +10,18 @@ else{
 			if global.settings[7]==0 global.settings[7]=1;
 			else global.settings[7]=0;
 		}
+		else if settype==2{
+			if global.settings[8]==0 global.settings[8]=1;
+			else global.settings[8]=0;
+		}
+		else if settype==3{
+			if global.settings[9]==0 global.settings[9]=1;
+			else global.settings[9]=0;
+		}
+		else if settype==4{
+			if global.settings[10]==0 global.settings[10]=1;
+			else global.settings[10]=0;
+		}
 		else if settype==6{
 			url_open("https://github.com/DAVIDjiang233/powerquity");
 		}

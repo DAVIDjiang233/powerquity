@@ -51,31 +51,20 @@ else if(setbase<=3){
 	if global.settings[7]==0 scr_draw_text(170, 250, "显示判定详情: 关",0.3,0.3,0);
 	else scr_draw_text(170, 250, "显示判定详情: 开",0.3,0.3,0);
 
-	var _type;
-	if global.settings[8]<0 _type="(不显示)";
-	else if global.settings[8]<160 _type="(顶端)";
-	else if global.settings[8]<320 _type="(偏上)";
-	else if global.settings[8]<480 _type="(中心)";
-	else if global.settings[8]<640 _type="(偏下)";
-	else if global.settings[8]<736 _type="(底部)";
-	else _type="(不显示)";
-	scr_draw_text(170, 300, "准确率y坐标: "+string(global.settings[8])+_type,0.3,0.3,0);
-	if global.settings[9]<0 _type="(不显示)";
-	else if global.settings[9]<160 _type="(顶端)";
-	else if global.settings[9]<320 _type="(偏上)";
-	else if global.settings[9]<480 _type="(中心)";
-	else if global.settings[9]<640 _type="(偏下)";
-	else if global.settings[9]<736 _type="(底部)";
-	else _type="(不显示)";
-	scr_draw_text(170, 350, "打击量计y坐标: "+string(global.settings[9])+_type,0.3,0.3,0);
-	if global.settings[10]<0 _type="(不显示)";
-	else if global.settings[10]<160 _type="(顶端)";
-	else if global.settings[10]<320 _type="(偏上)";
-	else if global.settings[10]<480 _type="(中心)";
-	else if global.settings[10]<640 _type="(偏下)";
-	else if global.settings[10]<736 _type="(底部)";
-	else _type="(不显示)";
-	scr_draw_text(170, 400, "Early/Late指示器y坐标: "+string(global.settings[10])+_type,0.3,0.3,0);
+	if (global.settings[8]==0){
+		scr_draw_text(170, 300, "选曲界面谱面皮肤: 关",0.3,0.3,0);
+	}
+	else scr_draw_text(170, 300, "选曲界面谱面皮肤: 开",0.3,0.3,0);
+	
+	if (global.settings[9]==0){
+		scr_draw_text(170, 350, "游玩界面谱面皮肤: 关",0.3,0.3,0);
+	}
+	else scr_draw_text(170, 350, "游玩界面谱面皮肤: 开",0.3,0.3,0);
+	
+	if (global.settings[10]==0){
+		scr_draw_text(170, 400, "结算界面谱面皮肤: 关",0.3,0.3,0);
+	}
+	else scr_draw_text(170, 400, "结算界面谱面皮肤: 开",0.3,0.3,0);
 	scr_draw_text(170, 450, "限制帧率: "+string(global.settings[17]),0.3,0.3,0);
 	
 	

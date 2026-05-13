@@ -316,7 +316,7 @@ else{
 	global.chromatic=[0,1.05];
 	
 	if(directory_exists(working_directory+"songlist/"+string(global.filelist[global.chart])+"/skin/")){
-		global.lastnum=scr_loadskin("songlist/"+string(global.filelist[global.chart])+"/skin")
+		global.lastnum=scr_loadskin("songlist/"+string(global.filelist[global.chart])+"/skin",global.settings[9],global.settings[10])
 	}
 	else global.lastnum=[array_length(global.playskin)-1,array_length(global.playtext)-1];
 	if playtypemod!=0 global.playtype=playtypemod;

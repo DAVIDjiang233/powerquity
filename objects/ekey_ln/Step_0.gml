@@ -38,7 +38,7 @@ if keytouched==0{
 			}
 			);
 			global.keytouchlist[key1]=keyamo+0.5;
-			instance_create_depth(640+(global.playtime-startime)/global.judgesize,global.settings[9],-5000,showhit);
+			instance_create_depth((global.playtime-startime)/global.judgesize,global.settings[9],-5000,showhit);
 			instance_destroy();
 		}
 	}
@@ -65,7 +65,7 @@ if keytouched==0{
 				sfps : global.skinnumber[23]
 			}
 			);
-			instance_create_depth(640+(global.playtime-startime)/global.judgesize,global.settings[9],-5000,showhit);
+			instance_create_depth((global.playtime-startime)/global.judgesize,global.settings[9],-5000,showhit);
 		}
 		
 		global.keytouchlist[key1]=keyamo+0.5;
