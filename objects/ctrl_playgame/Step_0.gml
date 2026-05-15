@@ -768,6 +768,23 @@ for(var _i=0;_i<4;_i++){
 			
 		}
 		else if(autopress[_i][0][0]=="BP"){
+			/*
+			var _j=1,_k=_i,_n=[5000,5000,0,0];
+			//||(array_length(autopress[_k])>1&&autopress[_k][1][0]!="N"&&autopress[_k][1][1]-30<global.playtime))
+			for(var _q=1;_q>=0;_q--){
+				if(array_length(autopress[_k+_q])>(_q==0)&&autopress[_k+_q][(_q==0)][0]!="N"){
+					_n[_q]=autopress[_k+_q][(_q==0)][1];
+				}
+				if(global.pressing[global.pressreal[_k+_q]]>=2||autocooldown[_k+_q]>global.playtime)
+				{
+					_n[_q]=-1000;
+				}
+			}
+			//show_debug_message(_n)
+			if(_n[0]<_n[1]){
+				_k++;_j=0;
+			}
+			*/
 			var _j=1,_k=_i;
 			
 			if(global.pressing[global.pressreal[_k]]>=2||autocooldown[_k]>global.playtime||
