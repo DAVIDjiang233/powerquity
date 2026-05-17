@@ -166,6 +166,40 @@ function scr_nibl2str(_rpnall){
 				"pow("+_cal[array_length(_cal)-2]+","+_cal[array_length(_cal)-1]+")";
 				array_pop(_cal);
 			}
+			else if(_rpnall[0][_num][_i]=="min"){
+				if(typeof(_cal[array_length(_cal)-2])=="array"){
+					_cal[array_length(_cal)-2]=
+					_cal[array_length(_cal)-2][0]
+					+_cal[array_length(_cal)-2][1]
+					+_cal[array_length(_cal)-2][2];
+				}
+				if(typeof(_cal[array_length(_cal)-1])=="array"){
+					_cal[array_length(_cal)-1]=
+					_cal[array_length(_cal)-1][0]
+					+_cal[array_length(_cal)-1][1]
+					+_cal[array_length(_cal)-1][2];
+				}
+				_cal[array_length(_cal)-2]=
+				"min("+_cal[array_length(_cal)-2]+","+_cal[array_length(_cal)-1]+")";
+				array_pop(_cal);
+			}
+			else if(_rpnall[0][_num][_i]=="max"){
+				if(typeof(_cal[array_length(_cal)-2])=="array"){
+					_cal[array_length(_cal)-2]=
+					_cal[array_length(_cal)-2][0]
+					+_cal[array_length(_cal)-2][1]
+					+_cal[array_length(_cal)-2][2];
+				}
+				if(typeof(_cal[array_length(_cal)-1])=="array"){
+					_cal[array_length(_cal)-1]=
+					_cal[array_length(_cal)-1][0]
+					+_cal[array_length(_cal)-1][1]
+					+_cal[array_length(_cal)-1][2];
+				}
+				_cal[array_length(_cal)-2]=
+				"max("+_cal[array_length(_cal)-2]+","+_cal[array_length(_cal)-1]+")";
+				array_pop(_cal);
+			}
 			else if(_rpnall[0][_num][_i]=="abs"){
 				if(typeof(_cal[array_length(_cal)-1])=="array"){
 					_cal[array_length(_cal)-1]=
@@ -226,8 +260,26 @@ function scr_nibl2str(_rpnall){
 				_cal[array_length(_cal)-1]=
 				"cos("+_cal[array_length(_cal)-1]+")";
 			}
+			
 			else if(_rpnall[0][_num][_i]=="x") {
 				array_push(_cal,"x");
+			}
+			else if(_rpnall[0][_num][_i]=="spr"){
+				if(typeof(_cal[array_length(_cal)-2])=="array"){
+					_cal[array_length(_cal)-2]=
+					_cal[array_length(_cal)-2][0]
+					+_cal[array_length(_cal)-2][1]
+					+_cal[array_length(_cal)-2][2];
+				}
+				if(typeof(_cal[array_length(_cal)-1])=="array"){
+					_cal[array_length(_cal)-1]=
+					_cal[array_length(_cal)-1][0]
+					+_cal[array_length(_cal)-1][1]
+					+_cal[array_length(_cal)-1][2];
+				}
+				_cal[array_length(_cal)-2]=
+				"spr("+_cal[array_length(_cal)-2]+","+_cal[array_length(_cal)-1]+")";
+				array_pop(_cal);
 			}
 			else if(_rpnall[0][_num][_i]=="spd") {
 				array_push(_cal,"spd");

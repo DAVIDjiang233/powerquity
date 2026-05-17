@@ -56,11 +56,62 @@ function scr_calc(_rpnall,_x,error_result=0){
 			}
 			else return error_result;
 		}
+		else if(_rpn[_i]=="min"){
+			if(array_length(_cal)<2) return error_result;
+			if(_cal[array_length(_cal)-2]>_cal[array_length(_cal)-1]){
+				_cal[array_length(_cal)-2]=_cal[array_length(_cal)-1];
+			}
+			array_pop(_cal);
+			_i++;
+		}
+		else if(_rpn[_i]=="max"){
+			if(array_length(_cal)<2) return error_result;
+			if(_cal[array_length(_cal)-2]<_cal[array_length(_cal)-1]){
+				_cal[array_length(_cal)-2]=_cal[array_length(_cal)-1];
+			}
+			array_pop(_cal);
+			_i++;
+		}
+		else if(_rpn[_i]=="abs"){
+			_cal[array_length(_cal)-1]=abs(array_last(_cal));
+			_i++;
+		}
+		else if(_rpn[_i]=="flo"){
+			_cal[array_length(_cal)-1]=floor(array_last(_cal));
+			_i++;
+		}
+		else if(_rpn[_i]=="sin"){
+			_cal[array_length(_cal)-1]=sin(array_last(_cal));
+			_i++;
+		}
+		else if(_rpn[_i]=="cos"){
+			_cal[array_length(_cal)-1]=cos(array_last(_cal));
+			_i++;
+		}
 		else if(_rpn[_i]=="skn"){
 			_cal[array_length(_cal)-1]=floor(_cal[array_length(_cal)-1]);
 			if(_cal[array_length(_cal)-1]<array_length(global.skinnumber)&&_cal[array_length(_cal)-1]>=0){
 				_cal[array_length(_cal)-1]=
 				global.skinnumber[_cal[array_length(_cal)-1]];
+				_i++;
+			}
+			else return error_result;
+		}
+		else if(_rpn[_i]=="spr"){
+			show_debug_message(_cal)
+			_cal[array_length(_cal)-2]=floor(_cal[array_length(_cal)-2]);
+			if(_cal[array_length(_cal)-2]<=-1){
+				_cal[array_length(_cal)-2]=global.lastnum[0]-_cal[array_length(_cal)-2];
+			}
+			if(_cal[array_length(_cal)-2]<array_length(global.playskin)
+			&&global.playskin[_cal[array_length(_cal)-2]]!=0){
+				if(_cal[array_length(_cal)-1]<0.5){
+					_cal[array_length(_cal)-2]=sprite_get_width(global.playskin[_cal[array_length(_cal)-2]]);
+				}
+				else{
+					_cal[array_length(_cal)-2]=sprite_get_height(global.playskin[_cal[array_length(_cal)-2]]);
+				}
+				array_pop(_cal);
 				_i++;
 			}
 			else return error_result;
@@ -81,22 +132,6 @@ function scr_calc(_rpnall,_x,error_result=0){
 				draw_set_font(_font);
 			}
 			else return error_result;
-		}
-		else if(_rpn[_i]=="abs"){
-			_cal[array_length(_cal)-1]=abs(array_last(_cal));
-			_i++;
-		}
-		else if(_rpn[_i]=="flo"){
-			_cal[array_length(_cal)-1]=floor(array_last(_cal));
-			_i++;
-		}
-		else if(_rpn[_i]=="sin"){
-			_cal[array_length(_cal)-1]=sin(array_last(_cal));
-			_i++;
-		}
-		else if(_rpn[_i]=="cos"){
-			_cal[array_length(_cal)-1]=cos(array_last(_cal));
-			_i++;
 		}
 		else{
 			array_push(_cal,_rpn[_i]);
