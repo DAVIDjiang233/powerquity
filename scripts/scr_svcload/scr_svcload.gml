@@ -1,5 +1,24 @@
 function scr_svcload(_dir){
 	file_rename(_dir+file_find_first(_dir+"*.ogg",0),_dir+"base.ogg");
+	var _bg=file_find_first(_dir+"*.png",0);
+	if(_bg!=""){
+		if (!directory_exists(_dir + "/skin"))
+		{
+		    directory_create(_dir + "/skin");
+		}
+		file_rename(_dir+_bg,_dir+"skin/bg.png");
+	}
+	else {
+		_bg=file_find_first(_dir+"*.jpg",0);
+		if(_bg!=""){
+			if (!directory_exists(_dir + "/skin"))
+			{
+			    directory_create(_dir + "/skin");
+			}
+			file_rename(_dir+_bg,_dir+"skin/bg.jpg");
+		}
+	}
+	show_debug_message(_bg)
 	var _file = file_text_open_read(_dir+"vs-chart.json");
 	var i=0;
 	var _fileread="";

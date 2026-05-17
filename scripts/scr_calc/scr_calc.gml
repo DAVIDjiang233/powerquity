@@ -98,7 +98,6 @@ function scr_calc(_rpnall,_x,error_result=0){
 			else return error_result;
 		}
 		else if(_rpn[_i]=="spr"){
-			show_debug_message(_cal)
 			_cal[array_length(_cal)-2]=floor(_cal[array_length(_cal)-2]);
 			if(_cal[array_length(_cal)-2]<=-1){
 				_cal[array_length(_cal)-2]=global.lastnum[0]-_cal[array_length(_cal)-2];

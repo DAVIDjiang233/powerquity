@@ -316,6 +316,34 @@ else{
 	global.chromatic=[0,1.05];
 	
 	if(directory_exists(working_directory+"songlist/"+string(global.filelist[global.chart])+"/skin/")){
+		
+		if(global.settings[9]!=0){
+			var _bg=0;
+			if(file_exists(working_directory+"songlist/"+string(global.filelist[global.chart])+"/skin/bg.png")){
+				_bg=working_directory+"songlist/"+string(global.filelist[global.chart])+"/skin/bg.png";
+			}
+			else if(file_exists(working_directory+"songlist/"+string(global.filelist[global.chart])+"/skin/bg.jpg")){
+				_bg=working_directory+"songlist/"+string(global.filelist[global.chart])+"/skin/bg.jpg";
+			}
+			
+			if(_bg!=0){
+				if(string_starts_with(sprite_get_name(global.playskin[69]),"__")){
+					var _j=0
+					while(_j<array_length(global.playskin)){
+						if(global.playskin[69]==global.playskin[_j]
+							&&_j!=69){
+							break;
+						}
+						_j++
+					}
+					if(_j==array_length(global.playskin)){
+						sprite_delete(global.playskin[69]);
+					}
+				}
+				global.playskin[69]=sprite_add(_bg,1, false, false, 0,0);
+			}
+		}
+		
 		global.lastnum=scr_loadskin("songlist/"+string(global.filelist[global.chart])+"/skin",global.settings[9],global.settings[10])
 	}
 	else global.lastnum=[array_length(global.playskin)-1,array_length(global.playtext)-1];
