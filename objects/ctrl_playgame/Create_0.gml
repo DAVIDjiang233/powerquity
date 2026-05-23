@@ -128,7 +128,7 @@ file_text_close(_file);
 array_sort(global.chartread,function(elm1, elm2){
 	if real(elm1[1])>real(elm2[1]) return 1;
 	else if real(elm1[1])<real(elm2[1]) return -1;
-	else if elm1[0]="L" return 1;
+	else if elm1[0]="LN" return 1;
 	else return -1;
 });
 
