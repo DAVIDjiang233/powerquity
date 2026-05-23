@@ -321,7 +321,23 @@ if (designview==0){
 					draw_sprite_pos(spr_lnkey,0,_x-36,yup,_x+36,yup,_x+36,ydo,_x-36,ydo,0.3);
 				}
 				gpu_set_depth(_depth);
-				if(_canread==0) _canread=1;
+				if(_canread==0){
+					if(608+(global.playtime-real(global.chartread[_q][4]))*global.globalspeed*0.25<mouse_y+30
+					&&608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25>mouse_y-10
+					&&round((mouse_x-257)/102-real(global.chartread[_q][2]))>=0
+					&&round((mouse_x-257)/102-real(global.chartread[_q][2]))<=0){
+						draw_set_colour(c_green);
+						draw_set_alpha(0.5);
+						draw_rectangle(
+						205+102*real(global.chartread[_q][2]),
+						598+(global.playtime-real(global.chartread[_q][4]))*global.globalspeed*0.25,
+						308+102*real(global.chartread[_q][2]),
+						618+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25,0)
+						_canread=2;
+						draw_set_colour(c_white);
+						draw_set_alpha(1);
+					}
+				}
 			}
 			else if(global.chartread[_q][0]=="LN"){
 				var _x=257+102*real(global.chartread[_q][2]),
@@ -342,7 +358,23 @@ if (designview==0){
 					draw_sprite_pos(spr_lnkey,0,_x-36,yup,_x+36,yup,_x+36,ydo,_x-36,ydo,0.4);
 				}
 				gpu_set_depth(_depth);
-				if(_canread==0) _canread=1;
+				if(_canread==0){
+					if(608+(global.playtime-real(global.chartread[_q][4]))*global.globalspeed*0.25<mouse_y+30
+					&&608+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25>mouse_y-10
+					&&round((mouse_x-257)/102-real(global.chartread[_q][2]))>=0
+					&&round((mouse_x-257)/102-real(global.chartread[_q][2]))<=0){
+						draw_set_colour(c_green);
+						draw_set_alpha(0.5);
+						draw_rectangle(
+						205+102*real(global.chartread[_q][2]),
+						598+(global.playtime-real(global.chartread[_q][4]))*global.globalspeed*0.25,
+						308+102*real(global.chartread[_q][2]),
+						618+(global.playtime-real(global.chartread[_q][1]))*global.globalspeed*0.25,0)
+						_canread=2;
+						draw_set_colour(c_white);
+						draw_set_alpha(1);
+					}
+				}
 			}
 			else if(global.chartread[_q][0]=="P"){
 				var _x=257+102*real(global.chartread[_q][2]),
@@ -645,10 +677,10 @@ else if (designview==1){
 				else scr_draw_text(359,_ydo,scr_easename(global.svchange[5][timinggroup][_svst][3]),0.22,0.22,0);
 				
 				if(_canread==1){
-					if(_ydo<mouse_y+30&&_ydo>mouse_y-30&&round((mouse_x-257)/102)==1&&!keyboard_check(vk_tab)){
+					if(_yup<mouse_y+30&&_ydo>mouse_y-30&&round((mouse_x-257)/102)==1){
 						draw_set_colour(c_green);
 						draw_set_alpha(0.5);
-						draw_rectangle(225+102,_ydo-18,288+102,_ydo+6,0)
+						draw_rectangle(225+102,_yup-6,288+102,_ydo+6,0)
 						_canread=2;
 						draw_set_colour(c_white);
 						draw_set_alpha(1);
@@ -680,10 +712,10 @@ else if (designview==1){
 				else{scr_draw_text(461,_ydo,scr_easename(global.svchange[6][timinggroup][_svst][3]),0.22,0.22,0);
 				}
 				if(_canread==1){
-					if(_ydo<mouse_y+30&&_ydo>mouse_y-30&&round((mouse_x-257)/102)==2&&!keyboard_check(vk_tab)){
+					if(_yup<mouse_y+30&&_ydo>mouse_y-30&&round((mouse_x-257)/102)==2){
 						draw_set_colour(c_green);
 						draw_set_alpha(0.5);
-						draw_rectangle(225+204,_ydo-18,288+204,_ydo+6,0)
+						draw_rectangle(225+204,_yup-6,288+204,_ydo+6,0)
 						_canread=2;
 						draw_set_colour(c_white);
 						draw_set_alpha(1);
@@ -713,10 +745,10 @@ else if (designview==1){
 				}
 				else{scr_draw_text(563,_ydo,scr_easename(global.svchange[7][timinggroup][_svst][3]),0.22,0.22,0);}
 				if(_canread==1){
-					if(_ydo<mouse_y+30&&_ydo>mouse_y-30&&round((mouse_x-257)/102)==3&&!keyboard_check(vk_tab)){
+					if(_yup<mouse_y+30&&_ydo>mouse_y-30&&round((mouse_x-257)/102)==3){
 						draw_set_colour(c_green);
 						draw_set_alpha(0.5);
-						draw_rectangle(225+306,_ydo-18,288+306,_ydo+6,0)
+						draw_rectangle(225+306,_yup-6,288+306,_ydo+6,0)
 						_canread=2;
 						draw_set_colour(c_white);
 						draw_set_alpha(1);
@@ -746,10 +778,10 @@ else if (designview==1){
 				}
 				else{scr_draw_text(665,_ydo,scr_easename(global.svchange[8][timinggroup][_svst][3]),0.22,0.22,0);}
 				if(_canread==1){
-					if(_ydo<mouse_y+30&&_ydo>mouse_y-30&&round((mouse_x-257)/102)==4&&!keyboard_check(vk_tab)){
+					if(_yup<mouse_y+30&&_ydo>mouse_y-30&&round((mouse_x-257)/102)==4){
 						draw_set_colour(c_green);
 						draw_set_alpha(0.5);
-						draw_rectangle(225+408,_ydo-18,288+408,_ydo+6,0)
+						draw_rectangle(225+408,_yup-6,288+408,_ydo+6,0)
 						_canread=2;
 						draw_set_colour(c_white);
 						draw_set_alpha(1);

@@ -24,7 +24,8 @@ function scr_getmousesvex(timinggroup,_type){
 				while(_svst<_svet){
 					_svst++;
 					var _ydo=(global.playtime-global.svchange[_track+4][timinggroup][_svst][0])*0.25*global.globalspeed+610;
-					if(_ydo<mouse_y+30&&_ydo>mouse_y-30){
+					var _yup=(global.playtime-global.svchange[_track+4][timinggroup][_svst][0]-global.svchange[_track+4][timinggroup][_svst][2])*0.25*global.globalspeed+610;
+					if(_yup<mouse_y+30&&_ydo>mouse_y-30){
 						return([_track+4,_svst])
 					}
 				}
@@ -48,7 +49,9 @@ function scr_getmousesvex(timinggroup,_type){
 				while(_svst<_svet){
 					_svst++;
 					var _ydo=(global.playtime-global.svchange[_track+4][timinggroup][_svst][0])*0.25*global.globalspeed+610;
-					if(_ydo<mouse_y+30&&_ydo>mouse_y-30){
+					var _yup=(global.playtime-global.svchange[_track+4][timinggroup][_svst][0]-global.svchange[_track+4][timinggroup][_svst][2])*0.25*global.globalspeed+610;
+					
+					if(_yup<mouse_y+30&&_ydo>mouse_y-30){
 						return([_track+4,_svst])
 					}
 				}
