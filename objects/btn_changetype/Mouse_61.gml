@@ -12,3 +12,10 @@ if type==0{
 		else if (global.notetype[0]=="B") global.notetype[0]="QP";
 	}
 }
+else if(type==2){
+	if (array_length(global.choose)!=0) {
+		exit;
+	}
+	global.notetype[2]-=1;
+	if(global.notetype[2]<0) global.notetype[2]=0;
+}

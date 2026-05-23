@@ -90,3 +90,11 @@ if type==0{
 		scr_cancelchart();
 	}
 }
+else if(type==2){
+	if (array_length(global.choose)!=0) {
+		exit;
+	}
+	global.notetype[2]+=1;
+	if(global.notetype[2]>1) global.notetype[2]=0;
+}
+	

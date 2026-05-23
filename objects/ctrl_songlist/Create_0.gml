@@ -87,7 +87,7 @@ global.skinnumber=[
 	spr_grondboard,spr_grondboard,spr_grondboard,spr_grondboard,
 	spr_grondboard,spr_grondboard,spr_grondboard,spr_grondboard,
 	spr_grondboard,spr_grondboard,spr_grondboard,spr_grondboard,
-	spr_blackbg,spr_blackbg,608,
+	spr_blackbg,spr_blackbg,spr_barline,
 	#ff6666,#ff9966,#66cc66,#6666ff,#ff3333,#ff7733,#33aa33,#3333ff,
 	#440000,#442200,#003300,#000044,#ff0000,#ff9900,#00cc00,#0000ff,#ff0000,#ffff00,#00ff00,#0000ff,
 	spr_presschange,spr_presschange,spr_presschange,spr_presschange,

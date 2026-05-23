@@ -25,10 +25,10 @@ gpu_set_depth(-1000);
 
 
 
-if changebar=="1" draw_sprite_ext(global.playskin[87+(key1*4)+real(changebar)],0,x,y,1,1,0,global.skinnumber[19],global.drawdepth[16]);
-if changebar=="2" draw_sprite_ext(global.playskin[87+(key1*4)+real(changebar)],0,x,y,1,1,0,global.skinnumber[20],global.drawdepth[16]);
-if changebar=="3" draw_sprite_ext(global.playskin[87+(key1*4)+real(changebar)],0,x,y,1,1,0,global.skinnumber[21],global.drawdepth[16]);
-if changebar=="4" draw_sprite_ext(global.playskin[87+(key1*4)+real(changebar)],0,x,y,1,1,0,global.skinnumber[22],global.drawdepth[16]);
+if changebar=="1" draw_sprite_ext(global.playskin[87+(key1*4)+real(changebar)],floor((global.playtime-endtime)*global.skinnumber[23]/(1000*global.gamespeed)),x,y,1,1,0,global.skinnumber[19],global.drawdepth[16]);
+if changebar=="2" draw_sprite_ext(global.playskin[87+(key1*4)+real(changebar)],floor((global.playtime-endtime)*global.skinnumber[23]/(1000*global.gamespeed)),x,y,1,1,0,global.skinnumber[20],global.drawdepth[16]);
+if changebar=="3" draw_sprite_ext(global.playskin[87+(key1*4)+real(changebar)],floor((global.playtime-endtime)*global.skinnumber[23]/(1000*global.gamespeed)),x,y,1,1,0,global.skinnumber[21],global.drawdepth[16]);
+if changebar=="4" draw_sprite_ext(global.playskin[87+(key1*4)+real(changebar)],floor((global.playtime-endtime)*global.skinnumber[23]/(1000*global.gamespeed)),x,y,1,1,0,global.skinnumber[22],global.drawdepth[16]);
 
 //draw_text(x, y-10, string(keyamo));
 gpu_set_depth(_depth);

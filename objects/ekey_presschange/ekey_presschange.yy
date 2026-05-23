@@ -37,8 +37,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_barline",
-    "path":"sprites/spr_barline/spr_barline.yy",
+    "name":"spr_presschange",
+    "path":"sprites/spr_presschange/spr_presschange.yy",
   },
   "spriteMaskId":null,
   "visible":true,

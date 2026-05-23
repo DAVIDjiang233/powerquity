@@ -103,7 +103,7 @@ if (designview==0){
 					array_push(global.chartread,[
 					string(global.notetype[0]),
 					scr_barfind(global.barlist,global.mousetime),
-					round((mouse_x-257)/102),_tg,1]
+					round((mouse_x-257)/102),_tg,global.notetype[2]]
 					);
 					if (global.chartread[array_length(global.chartread)-1][0]=="BP"&&global.chartread[array_length(global.chartread)-1][2]>3){
 						global.chartread[array_length(global.chartread)-1][2]=3;
@@ -147,7 +147,7 @@ if (designview==0){
 					array_push(global.chartread,[
 					string(global.notetype[0]),
 					round(global.mousetime),
-					round((mouse_x-257)/102),_tg,1]
+					round((mouse_x-257)/102),_tg,global.notetype[2]]
 					);
 					if (global.chartread[array_length(global.chartread)-1][0]=="BP"&&global.chartread[array_length(global.chartread)-1][2]>3){
 						global.chartread[array_length(global.chartread)-1][2]=3;
@@ -363,7 +363,7 @@ if (designview==0){
 			if yup>0{
 				var _tg=timinggroup;
 				if(_tg<0){_tg=0;}
-				array_push(global.chartread,[string(global.notetype[1]),holdinput,holdtrack,_tg,yup,1]);
+				array_push(global.chartread,[string(global.notetype[1]),holdinput,holdtrack,_tg,yup,global.notetype[2]]);
 				array_sort(global.chartread,function(elm1, elm2){
 					if real(elm1[1])>real(elm2[1]) return 1;
 					else if real(elm1[1])<real(elm2[1]) return -1;

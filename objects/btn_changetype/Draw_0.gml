@@ -2,10 +2,10 @@ if (ctrl_chartdesign.designview>0) exit;
 if (ctrl_chartdesign.designview<-1) exit;
 if (ctrl_chartdesign.designview==-1&&array_length(global.choose)==0) exit;
 
-draw_set_alpha(1);
-draw_self();
-draw_set_halign(fa_middle);
 if type==0{
+	draw_set_alpha(1);
+	draw_self();
+	draw_set_halign(fa_middle);
 	if (array_length(global.choose)==0){
 	
 	if (global.notetype[0]=="T"){
@@ -143,4 +143,14 @@ if type==0{
 			scr_draw_text(x,y,"Note类型",0.22,0.22,0);
 		}
 	}
+}
+else if(type==2){
+	if (array_length(global.choose)!=0) {
+		exit;
+	}
+	draw_set_alpha(1);
+	draw_self();
+	draw_set_halign(fa_middle);
+	draw_set_color(#00ffff);
+	scr_draw_text(x,y,"判定:"+string(global.notetype[2]),0.22,0.22,0);
 }

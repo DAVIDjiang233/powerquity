@@ -65,7 +65,7 @@ else{
 
 global.mousetime=0;
 
-global.notetype=["T","LN"];
+global.notetype=["T","LN",1];
 global.mouseonbtn=0;
 
 musicplay=audio_create_stream(working_directory + "songlist/"+string(global.filelist[global.chart])+"/base.ogg");
