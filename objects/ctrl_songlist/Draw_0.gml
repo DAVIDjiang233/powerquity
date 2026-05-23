@@ -50,6 +50,9 @@ if chartrue==1{
 		if(global.chartrans=="sv"){
 			scr_draw_text(992, 638, "转谱类型: stary/vivify",0.3,0.3,0);
 		}
+		if(global.chartrans=="sv2"){
+			scr_draw_text(992, 638, "转谱类型: stary/vivify",0.3,0.3,0);
+		}
 	}
 	if(global.highscore[global.level]>=600){
 		draw_set_colour(c_yellow);

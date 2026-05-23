@@ -120,6 +120,9 @@ else{
 	if(delay[0]="sv"){
 		global.chartread=scr_sv2pqc(working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+delay[1]);
 	}
+	else if(delay[0]="sv2"){
+		global.chartread=scr_sv22pqc(working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+delay[1]);
+	}
 	delay=0;
 }
 file_text_close(_file);

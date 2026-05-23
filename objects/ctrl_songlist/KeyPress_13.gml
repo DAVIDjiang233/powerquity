@@ -26,6 +26,26 @@ else if chartloading==1{
 				scr_svcload(working_directory + "songlist/"+filename_change_ext(filename_name(loadchart),"")+"/");
 				scr_restart();
 			}
+			else if(filename_ext(loadchart)==".zip"){
+				var _tempnumber=string(get_timer());
+				show_debug_message(temp_directory + _tempnumber + "/");
+				directory_create(temp_directory + _tempnumber + "/");
+				var q=zip_unzip(loadchart, temp_directory + _tempnumber + "/");
+				if(file_exists(temp_directory + _tempnumber + "/info.json")){
+					q=zip_unzip(loadchart, working_directory + "songlist/" + filename_change_ext(filename_name(loadchart),"")+"/");
+					scr_svzipload(working_directory + "songlist/" + filename_change_ext(filename_name(loadchart),"")+"/");
+				}
+				else{
+					var _dictname = file_find_first(temp_directory + _tempnumber + "/*", fa_directory);
+
+					q=zip_unzip(loadchart, working_directory + "songlist/");
+					if(file_exists(working_directory + "songlist/" + _dictname + "/info.json")){
+						scr_svzipload(working_directory + "songlist/" + _dictname + "/");
+					}
+				}
+				directory_destroy(temp_directory + _tempnumber + "/");
+				scr_restart();
+			}
 			else{
 				var q=zip_unzip(loadchart, working_directory + "songlist/");
 				scr_restart();
