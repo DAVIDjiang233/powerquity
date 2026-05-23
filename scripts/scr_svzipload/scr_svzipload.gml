@@ -93,10 +93,10 @@ function scr_svzipload(_dir){
 		file_rename(_dir+"finale.vsc",_dir+"FINALE.vsc");
 	}
 	if(file_exists(_dir+"FINALE.vsc")){
-		if(_fileread.note_designer_2==""){
-			_fileread.note_designer_2="gunmu"
+		if(_fileread.note_designer_3==""){
+			_fileread.note_designer_3="gunmu"
 		}
-		file_text_write_string(_file,_fileread.note_designer_2+"\nFinale "+_fileread.difficulty_display_2);
+		file_text_write_string(_file,_fileread.note_designer_3+"\nFinale "+_fileread.difficulty_display_3);
 		var _filechart = file_text_open_write(_dir + string(_diff)+".pqc");
 		file_text_write_string(_filechart,"sv2,FINALE.vsc\n1");
 		file_text_close(_filechart);
@@ -112,10 +112,10 @@ function scr_svzipload(_dir){
 		file_rename(_dir+"encore.vsc",_dir+"ENCORE.vsc");
 	}
 	if(file_exists(_dir+"ENCORE.vsc")){
-		if(_fileread.note_designer_2==""){
-			_fileread.note_designer_2="gunmu"
+		if(_fileread.note_designer_4==""){
+			_fileread.note_designer_4="gunmu"
 		}
-		file_text_write_string(_file,_fileread.note_designer_2+"\nEncore "+_fileread.difficulty_display_2);
+		file_text_write_string(_file,_fileread.note_designer_4+"\nEncore "+_fileread.difficulty_display_4);
 		var _filechart = file_text_open_write(_dir + string(_diff)+".pqc");
 		file_text_write_string(_filechart,"sv2,ENCORE.vsc\n1");
 		file_text_close(_filechart);
