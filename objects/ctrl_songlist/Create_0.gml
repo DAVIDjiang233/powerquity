@@ -1,4 +1,5 @@
 game_set_speed(60, gamespeed_fps);
+keyboard_virtual_hide();
 depth=-8266;
 global.gamespeed=1;
 global.settings=[];
