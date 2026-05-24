@@ -10,5 +10,5 @@ for(var _i=5;_i<9;_i++){
 }
 if ((_a==0&&_b==0)||(_a==1&&type>=3)) exit;
 
-global.mouseonbtn=0;
+global.mouseonbtn=0; window_set_cursor(cr_default);
 mouseonbtn=0;

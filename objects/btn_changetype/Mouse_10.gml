@@ -4,5 +4,5 @@ if (ctrl_chartdesign.designview==-1&&array_length(global.choose)==0) exit;
 
 if(type==2&&array_length(global.choose)!=0) exit;
 
-global.mouseonbtn=1;
+global.mouseonbtn=1; window_set_cursor(cr_handpoint);
 mouseonbtn=1;

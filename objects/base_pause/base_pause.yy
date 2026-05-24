@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_dlt",
-    "path":"sprites/spr_dlt/spr_dlt.yy",
+    "name":"gunmu",
+    "path":"sprites/gunmu/gunmu.yy",
   },
   "spriteMaskId":null,
   "visible":true,

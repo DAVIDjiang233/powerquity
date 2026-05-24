@@ -1,3 +1,10 @@
+cursor_sprite=global.playskin[91];
+if(global.playskin[91]==gunmu){
+	window_set_cursor(cr_default);
+}
+else{
+	window_set_cursor(cr_none);
+}
 game_set_speed(60, gamespeed_fps);
 acc=100*(global.judgelist[0]+global.judgelist[1]*0.75+global.judgelist[2]*0.5)
   /(global.judgelist[0]+global.judgelist[1]+global.judgelist[2]+global.judgelist[3]);

@@ -61,7 +61,10 @@ global.skinnumber=[
 	#ff6666,#ff9966,#66cc66,#6666ff,#ff3333,#ff7733,#33aa33,#3333ff,
 	#440000,#442200,#003300,#000044,#ff0000,#ff9900,#00cc00,#0000ff,#ff0000,#ffff00,#00ff00,#0000ff,
 	60,200,
-	352,640,10,1,1,#808080,#bbff00,#00ffff,#ff0000
+	352,640,10,1,1,#808080,#bbff00,#00ffff,#ff0000,
+	475,537,565,537,655,537,745,537,
+	481,591,529,591,637,591,739,591,
+	#ff3333,#ff7733,#33aa33,#3333ff
 ];
 }
 /*playskin*/{
@@ -88,8 +91,12 @@ global.skinnumber=[
 	spr_grondboard,spr_grondboard,spr_grondboard,spr_grondboard,
 	spr_grondboard,spr_grondboard,spr_grondboard,spr_grondboard,
 	spr_blackbg,spr_blackbg,spr_barline,
-	#ff6666,#ff9966,#66cc66,#6666ff,#ff3333,#ff7733,#33aa33,#3333ff,
-	#440000,#442200,#003300,#000044,#ff0000,#ff9900,#00cc00,#0000ff,#ff0000,#ffff00,#00ff00,#0000ff,
+	spr_dlt,
+	spr_lamp1,spr_lamp1,spr_lamp1,spr_lamp1,
+	spr_lamp2,spr_lamp2,spr_lamp2,spr_lamp2,
+	spr_lamp3,spr_lamp3,spr_lamp3,spr_lamp3,
+	spr_lamp4,spr_lamp4,spr_lamp4,spr_lamp4,
+	gunmu,gunmu_cr,gunmu,
 	spr_presschange,spr_presschange,spr_presschange,spr_presschange,
 	spr_presschange,spr_presschange,spr_presschange,spr_presschange,
 	spr_presschange,spr_presschange,spr_presschange,spr_presschange,
@@ -101,22 +108,22 @@ global.skinnumber=[
 	spr_tap_judge,spr_tap_judge,spr_tap_judge,spr_tap_judge,
 	spr_lnkey,spr_lnkey,spr_lnkey,spr_lnkey,
 	gunmu,gunmu,gunmu,gunmu,
+	spr_bumper,spr_bumper,spr_bumper,
 	gunmu,gunmu,gunmu,
 	gunmu,gunmu,gunmu,
-	gunmu,gunmu,gunmu,
+	spr_triper,spr_triper,
 	gunmu,gunmu,
 	gunmu,gunmu,
-	gunmu,gunmu,
+	spr_quader,
 	gunmu,
 	gunmu,
-	gunmu,
+	spr_bumper_judge,spr_bumper_judge,spr_bumper_judge,
 	gunmu,gunmu,gunmu,
 	gunmu,gunmu,gunmu,
-	gunmu,gunmu,gunmu,
+	spr_triper_judge,spr_triper_judge,
 	gunmu,gunmu,
 	gunmu,gunmu,
-	gunmu,gunmu,
-	gunmu,
+	spr_quader_judge,
 	gunmu,
 	gunmu,
 	spr_lightoff,spr_lighton,
@@ -229,7 +236,8 @@ global.skinnumber=[
 	gunmu,gunmu,
 	
 	gunmu,gunmu,gunmu,gunmu,gunmu,
-	gunmu,gunmu,gunmu,gunmu,gunmu,gunmu,gunmu,gunmu
+	gunmu,gunmu,gunmu,gunmu,gunmu,gunmu,gunmu,gunmu,
+	spr_presser1,spr_presser2,spr_presser3,spr_presser4,spr_presser5,spr_presser6,spr_presser7,spr_presser8
 	];
 }
 /*playtext*/{
@@ -282,7 +290,13 @@ if(array_length(global.fontall)==0||global.fontall[0]==0){
 	else if (file_exists(working_directory + "/skin/font.otf")) global.fontall[0]=font_add(working_directory + "/skin/font.otf",64,0,0,32,128);
 	else global.fontall[0]=font_add("deng",64,0,0,32,128);
 }
-
+cursor_sprite=global.playskin[89];
+if(global.playskin[89]==gunmu){
+	window_set_cursor(cr_default);
+}
+else{
+	window_set_cursor(cr_none);
+}
 //show_debug_message(array_length(global.playskin));
 //show_debug_message(global.playskin[412])
 global.fileread=[];

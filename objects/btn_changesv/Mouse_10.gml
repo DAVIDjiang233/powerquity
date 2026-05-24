@@ -10,5 +10,5 @@ for(var _i=5;_i<9;_i++){
 }
 if ((_a==0&&_b==0)||(_a==1&&type>=3)) exit;
 
-global.mouseonbtn=1;
+global.mouseonbtn=1; window_set_cursor(cr_handpoint);
 mouseonbtn=1;

@@ -1,3 +1,10 @@
+cursor_sprite=global.playskin[90];
+if(global.playskin[90]==gunmu){
+	window_set_cursor(cr_default);
+}
+else{
+	window_set_cursor(cr_none);
+}
 game_set_speed(global.settings[17], gamespeed_fps);
 audio_stop_all();
 timingdelay=real(global.settings[6])*global.gamespeed;
@@ -92,7 +99,7 @@ if(scr_stringtreal(delay)==1){
 	if (global.mirror==1&&!instance_exists(shad_mirror)){
 		instance_create_depth(114,514,-9999,shad_mirror);
 	}
-	if global.playtype==2 keyboard_key_press(ord("1"));
+	if global.playtype==2 global.pressing[0]=2;
 
 	if (global.autoplay==1) global.judgesize=0.001;
 	else if(global.autoplay==2){

@@ -25,3 +25,4 @@ scr_savechart(
 	working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+"_sv.pqc",
 	working_directory + "songlist/"+string(global.filelist[global.chart])+"/bpmlist.pqc"
 );
+window_set_cursor(cr_default);

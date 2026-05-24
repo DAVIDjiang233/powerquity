@@ -24,6 +24,13 @@ if(keyboard_check_pressed(global.pressext[0])){
 if(keyboard_check_pressed(global.pressext[1])){
 	if alarm[1]>0 exit;
 	if gamepause==0{
+		cursor_sprite=global.playskin[91];
+		if(global.playskin[91]==gunmu){
+			window_set_cursor(cr_default);
+		}
+		else{
+			window_set_cursor(cr_none);
+		}
 		alarm[1]=fps;
 		gamepause=1;
 		pausestart=current_time;
@@ -31,6 +38,13 @@ if(keyboard_check_pressed(global.pressext[1])){
 		global.drawdepth[25]=1;
 	}
 	else if (gamepause==1){
+		cursor_sprite=global.playskin[90];
+		if(global.playskin[90]==gunmu){
+			window_set_cursor(cr_default);
+		}
+		else{
+			window_set_cursor(cr_none);
+		}
 		gamepause=2;
 		alarmpause=current_time+1000;
 		alarm[1]=0;

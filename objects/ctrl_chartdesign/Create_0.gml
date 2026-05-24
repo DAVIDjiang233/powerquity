@@ -1,4 +1,5 @@
-
+window_set_cursor(cr_default);
+cursor_sprite=gunmu;
 game_set_speed(global.settings[17], gamespeed_fps);
 while(lastmin<current_time/300000) lastmin++;
 global.chartread=[];
@@ -66,7 +67,7 @@ else{
 global.mousetime=0;
 
 global.notetype=["T","LN",1];
-global.mouseonbtn=0;
+global.mouseonbtn=0; window_set_cursor(cr_default);
 
 musicplay=audio_create_stream(working_directory + "songlist/"+string(global.filelist[global.chart])+"/base.ogg");
 

@@ -194,7 +194,9 @@ function scr_loadskin(_filein,_play=1,_end=1){
 								sprite_merge(global.playskin[real(_fileread[_i][0])],_sprtemp);
 								sprite_delete(_sprtemp);
 								_num++;
+								//show_debug_message(_num)
 							}
+							
 						}
 					}
 				}
