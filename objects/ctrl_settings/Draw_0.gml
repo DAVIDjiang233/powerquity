@@ -48,8 +48,9 @@ else if(setbase<=3){
 	draw_set_halign(fa_left);
 	scr_draw_text(170, 200, "屏幕分辨率: "+string(320*real(global.settings[1]))+"*"+string(184*real(global.settings[1])),0.3,0.3,0);
 	
-	if global.settings[7]==0 scr_draw_text(170, 250, "显示判定详情: 关",0.3,0.3,0);
-	else scr_draw_text(170, 250, "显示判定详情: 开",0.3,0.3,0);
+	/*if global.settings[7]==0 scr_draw_text(170, 250, "显示判定详情: 关",0.3,0.3,0);
+	else scr_draw_text(170, 250, "显示判定详情: 开",0.3,0.3,0);*/
+	scr_draw_text(170, 250, "皮肤: "+skinlist[usingskinnum],0.3,0.3,0);
 
 	if (global.settings[8]==0){
 		scr_draw_text(170, 300, "选曲界面谱面皮肤: 关",0.3,0.3,0);

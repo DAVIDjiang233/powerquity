@@ -8,5 +8,9 @@ while(_q<array_length(global.settings)){
 }
 file_text_close(_file);
 
+_file = file_text_open_write(working_directory + "/skin/settings.txt");
+file_text_write_string(_file,skinlist[usingskinnum]);
+file_text_close(_file);
+
 scr_restart();
 

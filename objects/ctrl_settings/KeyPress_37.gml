@@ -11,6 +11,10 @@ else{
 		window_set_size(320*real(global.settings[1]), 184*real(global.settings[1]));
 		window_set_position(window_get_x()+160,window_get_y()+92)
 	}
+	else if (setbase==2&&settype==1){
+		usingskinnum-=1;
+		if(usingskinnum<0) usingskinnum=array_length(skinlist)-1
+	}
 	else if (setbase==2&&settype==5){
 		global.settings[17]-=1;
 		if !keyboard_check(vk_control) {

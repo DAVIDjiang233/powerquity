@@ -6,11 +6,12 @@ else{
 		changekey=1;
 	}
 	else if(setbase==2){
-		if settype==1{
+		/*if settype==1{
 			if global.settings[7]==0 global.settings[7]=1;
 			else global.settings[7]=0;
 		}
-		else if settype==2{
+		else */
+		if settype==2{
 			if global.settings[8]==0 global.settings[8]=1;
 			else global.settings[8]=0;
 		}
