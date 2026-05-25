@@ -41,6 +41,22 @@ function scr_nibl(_string){
 			_lastnum=1;
 			_strnum++;
 		}
+		else if(string_char_at(_string,_strnum+1)=="="){
+			if(_lastnum=1){
+				while(array_length(_sym)>0&&
+				(_sym[array_length(_sym)-1]=="+"||_sym[array_length(_sym)-1]=="-"
+				||_sym[array_length(_sym)-1]=="*"||_sym[array_length(_sym)-1]=="/"
+				||_sym[array_length(_sym)-1]=="^"||_sym[array_length(_sym)-1]=="=")
+				){
+					array_push(_rpn,_sym[array_length(_sym)-1]);
+					array_pop(_sym);
+				}
+				array_push(_sym,string_char_at(_string,_strnum+1));
+				_lastnum=0;
+				_strnum++;
+			}
+			else return[[[0]],[]];
+		}
 		//处理-+
 		else if(string_char_at(_string,_strnum+1)=="+"||string_char_at(_string,_strnum+1)=="-"){
 			if(_lastnum=1){

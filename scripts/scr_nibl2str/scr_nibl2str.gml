@@ -4,7 +4,7 @@ function scr_nibl2str(_rpnall){
 	for(_num=0;_num<array_length(_rpnall[0]);_num++){
 		var _cal=[];
 		for(var _i=0;_i<array_length(_rpnall[0][_num]);_i++){
-			if(_rpnall[0][_num][_i]=="+"){
+			if(_rpnall[0][_num][_i]=="="){
 				if(typeof(_cal[array_length(_cal)-2])=="array"){
 					_cal[array_length(_cal)-2]=
 					_cal[array_length(_cal)-2][0]
@@ -12,10 +12,51 @@ function scr_nibl2str(_rpnall){
 					+_cal[array_length(_cal)-2][2];
 				}
 				if(typeof(_cal[array_length(_cal)-1])=="array"){
+					if(_cal[array_length(_cal)-1][1]=="="){
+					_cal[array_length(_cal)-1]=
+					"("+_cal[array_length(_cal)-1][0]
+					+_cal[array_length(_cal)-1][1]
+					+_cal[array_length(_cal)-1][2]+")";
+					}
+					else{
 					_cal[array_length(_cal)-1]=
 					_cal[array_length(_cal)-1][0]
 					+_cal[array_length(_cal)-1][1]
 					+_cal[array_length(_cal)-1][2];
+					}
+				}
+				_cal[array_length(_cal)-2]=
+				[_cal[array_length(_cal)-2],"=",_cal[array_length(_cal)-1]];
+				array_pop(_cal);
+			}
+			else if(_rpnall[0][_num][_i]=="+"){
+				if(typeof(_cal[array_length(_cal)-2])=="array"){
+					if(_cal[array_length(_cal)-2][1]=="="){
+						_cal[array_length(_cal)-2]=
+						"("+_cal[array_length(_cal)-2][0]
+						+_cal[array_length(_cal)-2][1]
+						+_cal[array_length(_cal)-2][2]+")";
+					}
+					else{
+						_cal[array_length(_cal)-2]=
+						_cal[array_length(_cal)-2][0]
+						+_cal[array_length(_cal)-2][1]
+						+_cal[array_length(_cal)-2][2];
+					}
+				}
+				if(typeof(_cal[array_length(_cal)-1])=="array"){
+					if(_cal[array_length(_cal)-1][1]=="="){
+					_cal[array_length(_cal)-1]=
+					"("+_cal[array_length(_cal)-1][0]
+					+_cal[array_length(_cal)-1][1]
+					+_cal[array_length(_cal)-1][2]+")";
+					}
+					else{
+					_cal[array_length(_cal)-1]=
+					_cal[array_length(_cal)-1][0]
+					+_cal[array_length(_cal)-1][1]
+					+_cal[array_length(_cal)-1][2];
+					}
 				}
 				_cal[array_length(_cal)-2]=
 				[_cal[array_length(_cal)-2],"+",_cal[array_length(_cal)-1]];
@@ -23,13 +64,22 @@ function scr_nibl2str(_rpnall){
 			}
 			else if(_rpnall[0][_num][_i]=="-"){
 				if(typeof(_cal[array_length(_cal)-2])=="array"){
-					_cal[array_length(_cal)-2]=
-					_cal[array_length(_cal)-2][0]
-					+_cal[array_length(_cal)-2][1]
-					+_cal[array_length(_cal)-2][2];
+					if(_cal[array_length(_cal)-2][1]=="="){
+						_cal[array_length(_cal)-2]=
+						"("+_cal[array_length(_cal)-2][0]
+						+_cal[array_length(_cal)-2][1]
+						+_cal[array_length(_cal)-2][2]+")";
+					}
+					else{
+						_cal[array_length(_cal)-2]=
+						_cal[array_length(_cal)-2][0]
+						+_cal[array_length(_cal)-2][1]
+						+_cal[array_length(_cal)-2][2];
+					}
 				}
 				if(typeof(_cal[array_length(_cal)-1])=="array"){
-					if(_cal[array_length(_cal)-1][1]=="+"||_cal[array_length(_cal)-1][1]=="-"){
+					if(_cal[array_length(_cal)-1][1]=="+"||_cal[array_length(_cal)-1][1]=="-"
+					||_cal[array_length(_cal)-1][1]=="="){
 					_cal[array_length(_cal)-1]=
 					"("+_cal[array_length(_cal)-1][0]
 					+_cal[array_length(_cal)-1][1]
@@ -48,7 +98,8 @@ function scr_nibl2str(_rpnall){
 			}
 			else if(_rpnall[0][_num][_i]=="*"){
 				if(typeof(_cal[array_length(_cal)-2])=="array"){
-					if(_cal[array_length(_cal)-2][1]=="+"||_cal[array_length(_cal)-2][1]=="-"){
+					if(_cal[array_length(_cal)-2][1]=="+"||_cal[array_length(_cal)-2][1]=="-"
+					||_cal[array_length(_cal)-1][1]=="="){
 						_cal[array_length(_cal)-2]=
 						"("+_cal[array_length(_cal)-2][0]
 						+_cal[array_length(_cal)-2][1]
@@ -62,7 +113,8 @@ function scr_nibl2str(_rpnall){
 					}
 				}
 				if(typeof(_cal[array_length(_cal)-1])=="array"){
-					if(_cal[array_length(_cal)-1][1]=="+"||_cal[array_length(_cal)-1][1]=="-"){
+					if(_cal[array_length(_cal)-1][1]=="+"||_cal[array_length(_cal)-1][1]=="-"
+					||_cal[array_length(_cal)-1][1]=="="){
 					_cal[array_length(_cal)-1]=
 					"("+_cal[array_length(_cal)-1][0]
 					+_cal[array_length(_cal)-1][1]
@@ -81,7 +133,8 @@ function scr_nibl2str(_rpnall){
 			}
 			else if(_rpnall[0][_num][_i]=="/"){
 				if(typeof(_cal[array_length(_cal)-2])=="array"){
-					if(_cal[array_length(_cal)-2][1]=="+"||_cal[array_length(_cal)-2][1]=="-"){
+					if(_cal[array_length(_cal)-2][1]=="+"||_cal[array_length(_cal)-2][1]=="-"
+					||_cal[array_length(_cal)-1][1]=="="){
 						_cal[array_length(_cal)-2]=
 						"("+_cal[array_length(_cal)-2][0]
 						+_cal[array_length(_cal)-2][1]
@@ -96,7 +149,8 @@ function scr_nibl2str(_rpnall){
 				}
 				if(typeof(_cal[array_length(_cal)-1])=="array"){
 					if(_cal[array_length(_cal)-1][1]=="+"||_cal[array_length(_cal)-1][1]=="-"
-					||_cal[array_length(_cal)-1][1]=="*"||_cal[array_length(_cal)-1][1]=="/"){
+					||_cal[array_length(_cal)-1][1]=="*"||_cal[array_length(_cal)-1][1]=="/"
+					||_cal[array_length(_cal)-1][1]=="="){
 					_cal[array_length(_cal)-1]=
 					"("+_cal[array_length(_cal)-1][0]
 					+_cal[array_length(_cal)-1][1]
@@ -117,7 +171,7 @@ function scr_nibl2str(_rpnall){
 				if(typeof(_cal[array_length(_cal)-2])=="array"){
 					if(_cal[array_length(_cal)-2][1]=="+"||_cal[array_length(_cal)-2][1]=="-"
 					||_cal[array_length(_cal)-2][1]=="*"||_cal[array_length(_cal)-2][1]=="/"
-					||_cal[array_length(_cal)-2][1]=="^"){
+					||_cal[array_length(_cal)-2][1]=="^"||_cal[array_length(_cal)-1][1]=="="){
 						_cal[array_length(_cal)-2]=
 						"("+_cal[array_length(_cal)-2][0]
 						+_cal[array_length(_cal)-2][1]
@@ -132,7 +186,8 @@ function scr_nibl2str(_rpnall){
 				}
 				if(typeof(_cal[array_length(_cal)-1])=="array"){
 					if(_cal[array_length(_cal)-1][1]=="+"||_cal[array_length(_cal)-1][1]=="-"
-					||_cal[array_length(_cal)-1][1]=="*"||_cal[array_length(_cal)-1][1]=="/"){
+					||_cal[array_length(_cal)-1][1]=="*"||_cal[array_length(_cal)-1][1]=="/"
+					||_cal[array_length(_cal)-1][1]=="="){
 					_cal[array_length(_cal)-1]=
 					"("+_cal[array_length(_cal)-1][0]
 					+_cal[array_length(_cal)-1][1]

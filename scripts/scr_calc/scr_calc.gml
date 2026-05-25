@@ -44,6 +44,16 @@ function scr_calc(_rpnall,_x,error_result=0){
 			}
 			else return error_result;
 		}
+		else if(_rpn[_i]=="="){
+			_cal[array_length(_cal)-2]-=array_pop(_cal);
+			if(array_last(_cal)==0){
+				_cal[array_length(_cal)-1]=1;
+			}
+			else{
+				_cal[array_length(_cal)-1]=0;
+			}
+			_i++;
+		}
 		else if(_rpn[_i]=="pow"){
 			if(array_length(_cal)<2) return error_result;
 			if(_cal[array_length(_cal)-2]>0
