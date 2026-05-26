@@ -1,3 +1,5 @@
+global.playtime=0;
+endtime=current_time;
 cursor_sprite=global.playskin[91];
 if(global.playskin[91]==gunmu){
 	window_set_cursor(cr_default);
@@ -6,8 +8,7 @@ else{
 	window_set_cursor(cr_none);
 }
 game_set_speed(60, gamespeed_fps);
-acc=100*(global.judgelist[0]+global.judgelist[1]*0.75+global.judgelist[2]*0.5)
-  /(global.judgelist[0]+global.judgelist[1]+global.judgelist[2]+global.judgelist[3]);
+acc=global.textlist[20];
   
 if acc>100 result="?"
 else if acc==100 result="wow";
@@ -20,7 +21,7 @@ else if acc<=0 result="X";
 else result="D";
 
 color=0
-if(global.judgelist[3]==0){
+if(global.textlist[13]==0){
 	color=200
 	if(global.maxel[1]-global.maxel[0]<80*global.judgesize){
 		color=600

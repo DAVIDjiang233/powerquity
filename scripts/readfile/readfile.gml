@@ -28,6 +28,15 @@ function readfile(){
 		i++;
 	}
 	file_text_close(_file);
+	
+	
+	global.textlist[5]=global.fileread[0];
+	global.textlist[6]=global.fileread[1];
+	global.textlist[7]=global.fileread[2];
+	global.textlist[8]=global.fileread[global.level*2+4];
+	global.textlist[9]=global.fileread[global.level*2+3];
+	
+	
 	_file = file_text_open_read(working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+string(global.level)+".pqc");
 	global.chartrans=file_text_read_string(_file);
 	if(scr_stringtreal(global.chartrans)==1){

@@ -16,7 +16,16 @@ if(keyboard_check_pressed(global.pressext[0])){
 	global.playtime=-2000;
 	global.keylist=[0,0,0,0,0,0];
 	global.keytouchlist=[0,0,0,0,0,0];
-	global.judgelist=[0,0,0,0];
+	global.textlist[2]=0;
+	global.textlist[3]=0;
+	global.textlist[4]=0;
+	global.textlist[10]=0;
+	global.textlist[11]=0;
+	global.textlist[12]=0;
+	global.textlist[13]=0;
+	global.textlist[16]="0.00";
+	global.textlist[17]="0.000";
+	global.textlist[20]="0.000";
 
 	room_restart();
 }

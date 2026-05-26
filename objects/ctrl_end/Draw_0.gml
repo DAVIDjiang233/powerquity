@@ -52,17 +52,17 @@ scr_draw_text(832, 260, _mods,0.25,0.25,0);
 draw_set_valign(fa_middle);
 draw_set_colour(c_white);
 
-scr_draw_text(832, 350, "Perfect:"+string(global.judgelist[0]),0.5,0.5,0);
-scr_draw_text(832, 430, "Great:"+string(global.judgelist[1]),0.5,0.5,0);
-scr_draw_text(832, 510, "Good:"+string(global.judgelist[2]),0.5,0.5,0);
+scr_draw_text(832, 350, "Perfect:"+string(global.textlist[10]),0.5,0.5,0);
+scr_draw_text(832, 430, "Great:"+string(global.textlist[11]),0.5,0.5,0);
+scr_draw_text(832, 510, "Good:"+string(global.textlist[12]),0.5,0.5,0);
 
-if(global.judgelist[3]==0){
+if(global.textlist[13]==0){
 	var _qq="",_qw="";
 	if(global.maxel[0]>=0) _qq="+"
 	if(global.maxel[1]>=0) _qw="+"
 	scr_draw_text(832, 590, "Early:"+_qq+string(global.maxel[0]/global.gamespeed)+"ms    Late:"+_qw+string(global.maxel[1]/global.gamespeed)+"ms",0.4,0.4,0);
 }
-else scr_draw_text(832, 590, "Miss:"+string(global.judgelist[3]),0.5,0.5,0);
+else scr_draw_text(832, 590, "Miss:"+string(global.textlist[13]),0.5,0.5,0);
 
 
 if global.timingcnt>=0

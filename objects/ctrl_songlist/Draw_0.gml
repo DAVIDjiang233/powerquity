@@ -23,17 +23,17 @@ if chartrue==1{
 	
 	if array_length(global.fileread)==0 exit;
 	
-	scr_draw_text(992, 160, string(global.fileread[0]),0.5,0.5,0,550);
-	scr_draw_text(992, 218, string(global.fileread[1]),0.4,0.4,0,500);
+	scr_draw_text(992, 160, string(global.textlist[5]),0.5,0.5,0,550);
+	scr_draw_text(992, 218, string(global.textlist[6]),0.4,0.4,0,500);
 	
-	scr_draw_text(992, 398, "BPM: "+string(global.fileread[2]),0.3,0.3,0);
+	scr_draw_text(992, 398, "BPM: "+string(global.textlist[7]),0.3,0.3,0);
 	scr_draw_text(992, 458, "谱面id: "+string(global.level),0.3,0.3,0);
 
 	if global.level!=0 draw_triangle(882,458,897,443,897,473,false);
 	if global.level*2!=array_length(global.fileread)-5 draw_triangle(1102,458,1087,443,1087,473,false);
 
-	scr_draw_text(992, 518, "难度: "+string(global.fileread[global.level*2+4]),0.3,0.3,0);
-	scr_draw_text(992, 578, "谱师: "+string(global.fileread[global.level*2+3]),0.3,0.3,0);
+	scr_draw_text(992, 518, "难度: "+string(global.textlist[8]),0.3,0.3,0);
+	scr_draw_text(992, 578, "谱师: "+string(global.textlist[9]),0.3,0.3,0);
 	if(global.chartrans==0){
 		if playtypemod==0{
 			if global.playtype==1 scr_draw_text(992, 638, "游玩类型: Mania",0.3,0.3,0);

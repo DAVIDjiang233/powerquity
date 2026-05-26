@@ -1,8 +1,11 @@
+global.textlist[14]=string_format(fps,0,0);
 if ctrl_playgame.gamepause!=0 exit; 
 with(ctrl_playgame){
 	global.playtime=(current_time-startime-pausetime-1500)*global.gamespeed-500;
 }
-if(global.judgelist[0]+global.judgelist[1]+global.judgelist[2]+global.judgelist[3]!=0){
-	global.playtextlist[0]=string_format(100*(global.judgelist[0]+global.judgelist[1]*0.75+global.judgelist[2]*0.5)
-		  /(global.judgelist[0]+global.judgelist[1]+global.judgelist[2]+global.judgelist[3]),0,2);
+if(global.textlist[10]+global.textlist[11]+global.textlist[12]+global.textlist[13]!=0){
+	global.textlist[20]=100*(global.textlist[10]+global.textlist[11]*0.75+global.textlist[12]*0.5)
+		  /(global.textlist[10]+global.textlist[11]+global.textlist[12]+global.textlist[13]);
+	global.textlist[16]=string_format(global.textlist[20],0,2);
+	global.textlist[17]=string_format(global.textlist[20],0,3);
 }

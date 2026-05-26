@@ -11,10 +11,10 @@ if keytouched==0{
 	//miss
 	if (global.playtime>startime+125*global.judgesize){
 		if(global.autoplay==1) {
-			global.playtextlist[1]++;
-			global.playtextlist[2]++;
-			global.playtextlist[3]++;
-			global.judgelist[0]++;
+			global.textlist[2]++;
+			global.textlist[3]++;
+			global.textlist[4]++;
+			global.textlist[10]++;
 			instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 			{
 				stime : global.playtime,
@@ -26,10 +26,10 @@ if keytouched==0{
 			keytouched=3;
 		}
 		else{
-			global.playtextlist[1]=0;
-			global.playtextlist[2]=0;
-			global.playtextlist[3]=0;
-			global.judgelist[3]+=2;
+			global.textlist[2]=0;
+			global.textlist[3]=0;
+			global.textlist[4]=0;
+			global.textlist[13]+=2;
 			instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 			{
 				stime : global.playtime,
@@ -45,10 +45,10 @@ if keytouched==0{
 	
 	if global.pressing[global.pressreal[key1-1]]==3{
 		if(exjudge==0){
-			global.playtextlist[1]++;
-			global.playtextlist[2]++;
-			global.playtextlist[3]++;
-			global.judgelist[0]++;
+			global.textlist[2]++;
+			global.textlist[3]++;
+			global.textlist[4]++;
+			global.textlist[10]++;
 			instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 			{
 				stime : global.playtime,
@@ -76,10 +76,10 @@ if keytouched==0{
 else if(keytouched==3){
 	ydo=global.skinnumber[2];
 	if endtime<global.playtime {
-		global.playtextlist[1]++;
-		global.playtextlist[2]++;
-		global.playtextlist[3]++;
-		global.judgelist[0]++;
+		global.textlist[2]++;
+		global.textlist[3]++;
+		global.textlist[4]++;
+		global.textlist[10]++;
 		instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 		{
 			stime : global.playtime,
@@ -95,10 +95,10 @@ else{
 	if global.pressing[global.pressreal[key1-1]]>=2{
 		ydo=global.skinnumber[2];
 		if endtime<global.playtime {
-			global.playtextlist[1]++;
-			global.playtextlist[2]++;
-			global.playtextlist[3]++;
-			global.judgelist[0]++;
+			global.textlist[2]++;
+			global.textlist[3]++;
+			global.textlist[4]++;
+			global.textlist[10]++;
 			instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 			{
 				stime : global.playtime,
@@ -111,10 +111,10 @@ else{
 	}
 	else{
 		if endtime-125*global.judgesize<global.playtime {
-			global.playtextlist[1]++;
-			global.playtextlist[2]++;
-			global.playtextlist[3]++;
-			global.judgelist[0]++;
+			global.textlist[2]++;
+			global.textlist[3]++;
+			global.textlist[4]++;
+			global.textlist[10]++;
 			instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 			{
 				stime : global.playtime,
@@ -125,10 +125,10 @@ else{
 			instance_destroy();
 		}
 		else {
-			global.playtextlist[1]=0;
-			global.playtextlist[2]=0;
-			global.playtextlist[3]=0;
-			global.judgelist[3]++;
+			global.textlist[2]=0;
+			global.textlist[3]=0;
+			global.textlist[4]=0;
+			global.textlist[13]++;
 			instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 			{
 				stime : global.playtime,
