@@ -182,6 +182,18 @@ function scr_nibl(_string){
 			}
 			_strnum++;
 		}
+		//处理num
+		else if(string_char_at(_string,_strnum+1)=="n"){
+			if(string_pos_ext("um(", _string, _strnum+1)==_strnum+2){
+				if(_lastnum=1){
+					array_push(_sym,"*");
+					_lastnum=0;
+				}
+				array_push(_sym,"num");
+				_strnum+=3;
+			}
+			_strnum++;
+		}
 		//处理pow pi
 		else if(string_char_at(_string,_strnum+1)=="p"){
 			if(string_pos_ext("ow(", _string, _strnum+1)==_strnum+2){
@@ -255,7 +267,7 @@ function scr_nibl(_string){
 				&&_sym[array_length(_sym)-1]!="pow"&&_sym[array_length(_sym)-1]!="flo"
 				&&_sym[array_length(_sym)-1]!="txt"&&_sym[array_length(_sym)-1]!="skn"
 				&&_sym[array_length(_sym)-1]!="min"&&_sym[array_length(_sym)-1]!="max"
-				&&_sym[array_length(_sym)-1]!="spr"
+				&&_sym[array_length(_sym)-1]!="spr"&&_sym[array_length(_sym)-1]!="num"
 				){
 					if(_sym[array_length(_sym)-1]=="gunmu"){
 						array_pop(_sym);
@@ -270,7 +282,7 @@ function scr_nibl(_string){
 					if(_gunmu==0){
 						if(_sym[array_length(_sym)-1]!="("&&_sym[array_length(_sym)-1]!="abs"
 						&&_sym[array_length(_sym)-1]!="sin"&&_sym[array_length(_sym)-1]!="cos"
-						&&_sym[array_length(_sym)-1]!="flo"
+						&&_sym[array_length(_sym)-1]!="flo"&&_sym[array_length(_sym)-1]!="num"
 						&&_sym[array_length(_sym)-1]!="txt"&&_sym[array_length(_sym)-1]!="skn"
 						){
 							return[[[0]],[]];
@@ -324,7 +336,8 @@ function scr_nibl(_string){
 					||_sym[array_length(_sym)-1]=="sin"||_sym[array_length(_sym)-1]=="cos"
 					||_sym[array_length(_sym)-1]=="pow"||_sym[array_length(_sym)-1]=="flo"
 					||_sym[array_length(_sym)-1]=="min"||_sym[array_length(_sym)-1]=="max"
-					||_sym[array_length(_sym)-1]=="skn"||_sym[array_length(_sym)-1]=="spr"){
+					||_sym[array_length(_sym)-1]=="skn"||_sym[array_length(_sym)-1]=="spr"
+					||_sym[array_length(_sym)-1]=="num"){
 						return[[[0]],[]];
 					}
 					array_push(_rpn,_sym[array_length(_sym)-1]);
@@ -353,6 +366,7 @@ function scr_nibl(_string){
 			||_sym[array_length(_sym)-1]=="txt"||_sym[array_length(_sym)-1]=="skn"
 			||_sym[array_length(_sym)-1]=="min"||_sym[array_length(_sym)-1]=="max"
 			||_sym[array_length(_sym)-1]=="abs"||_sym[array_length(_sym)-1]=="spr"
+			||_sym[array_length(_sym)-1]=="num"
 		){
 			return[[[0]],[]];
 		}

@@ -98,6 +98,20 @@ function scr_calc(_rpnall,_x,error_result=0){
 			_cal[array_length(_cal)-1]=cos(array_last(_cal));
 			_i++;
 		}
+		else if(_rpn[_i]=="num"){
+			_cal[array_length(_cal)-1]=floor(array_last(_cal));
+			if(array_last(_cal)<array_length(global.textlist)&&array_last(_cal)>=0){
+				if(typeof(global.textlist[array_last(_cal)])=="string"){
+					if(global.textlist[array_last(_cal)]==""){
+						_cal[array_length(_cal)-1]=0;
+					}
+					else _cal[array_length(_cal)-1]=1;
+				}
+				else _cal[array_length(_cal)-1]=global.textlist[array_last(_cal)];
+				_i++;
+			}
+			else return error_result;
+		}
 		else if(_rpn[_i]=="skn"){
 			_cal[array_length(_cal)-1]=floor(_cal[array_length(_cal)-1]);
 			if(_cal[array_length(_cal)-1]<array_length(global.skinnumber)&&_cal[array_length(_cal)-1]>=0){

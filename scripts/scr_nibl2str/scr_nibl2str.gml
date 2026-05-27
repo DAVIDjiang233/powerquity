@@ -265,6 +265,16 @@ function scr_nibl2str(_rpnall){
 				_cal[array_length(_cal)-1]=
 				"abs("+_cal[array_length(_cal)-1]+")";
 			}
+			else if(_rpnall[0][_num][_i]=="num"){
+				if(typeof(_cal[array_length(_cal)-1])=="array"){
+					_cal[array_length(_cal)-1]=
+					_cal[array_length(_cal)-1][0]
+					+_cal[array_length(_cal)-1][1]
+					+_cal[array_length(_cal)-1][2];
+				}
+				_cal[array_length(_cal)-1]=
+				"num("+_cal[array_length(_cal)-1]+")";
+			}
 			else if(_rpnall[0][_num][_i]=="flo"){
 				if(typeof(_cal[array_length(_cal)-1])=="array"){
 					_cal[array_length(_cal)-1]=

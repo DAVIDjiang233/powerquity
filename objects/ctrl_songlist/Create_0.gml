@@ -8,7 +8,6 @@ global.svenable=1;
 global.judgesize=1;
 global.mirror=0;
 global.autoplay=0;
-global.playtextlist=["100.00",0,0,0,"wow"];
 global.fontsize=36;
 if file_exists(working_directory + "settings.txt"){
 	var _file = file_text_open_read(working_directory + "settings.txt");
@@ -275,6 +274,11 @@ global.playsprite=[
 	[-10000,0,0,70,2000,2000,0,0.4,16777215,1,0]
 ];
 }
+/*resulttext*/
+/*resultsprite*/
+/*selecttext*/
+/*selectsprite*/
+
 global.drawdepth=[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1];
 global.basenum=[array_length(global.playskin)-1,array_length(global.playtext)-1];
 var _file = file_text_open_read(working_directory + "/skin/settings.txt");
@@ -291,7 +295,7 @@ if(array_length(global.fontall)==0||global.fontall[0]==0){
 	else if (file_exists(working_directory + "/skin/font.otf")) global.fontall[0]=font_add(working_directory + "/skin/font.otf",64,0,0,32,128);
 	else global.fontall[0]=font_add("deng",64,0,0,32,128);
 }
-global.textlist=["\n","{",0,0,0,"","","","","",0,0,0,0,0,global.settings[17],"0.00","0.000",chr(global.pressext[1]),chr(global.pressext[0]),0];
+global.textlist=["\n","{",0,0,0,"","","","","",0,0,0,0,"0",global.settings[17],"0.00","0.000",chr(global.pressext[1]),chr(global.pressext[0]),0];
 cursor_sprite=global.playskin[89];
 if(global.playskin[89]==gunmu){
 	window_set_cursor(cr_default);
