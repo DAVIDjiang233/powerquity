@@ -14,7 +14,7 @@ startime=current_time+9999999;
 pausetime=0;
 gamepause=0;
 alarmpause=-999999;
-global.timingcnt=0;
+global.textlist[28]=0;
 global.tapcnt=0;
 autopress=[[],[],[],[]];
 autopress2=[[],[],[],[]];
@@ -176,6 +176,11 @@ while (!file_text_eof(_file))
 			array_insert(global.chartspeedtime,array_length(global.chartspeedtime),[]);
 		}
 		array_insert(global.chartspeedtime[global.svread[i][2]],0,[1,real(global.svread[i][1])]);
+	}
+	else if (global.svread[i][0]=="E") {
+		if(real(global.svread[i][1])<global.textlist[29]){
+			global.textlist[29]=real(global.svread[i][1]);
+		}
 	}
     file_text_readln(_file);
 	i++;

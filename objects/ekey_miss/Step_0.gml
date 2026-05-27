@@ -38,7 +38,8 @@ if global.pressing[global.pressreal[key1-1]]>=2{
 		stime : global.playtime,
 		spr : global.playskin[173],
 		sfps : global.skinnumber[23]
-	});
+		});
+		global.textlist[26]++;
 		instance_destroy();
 }
 

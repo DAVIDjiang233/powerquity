@@ -9,7 +9,7 @@ draw_set_alpha(1);
 if debug_mode{
 	scr_draw_text(192, 300, string(global.playtime),0.2,0.2,0);
 	scr_draw_text(888, 616, "keylist"+string(global.keylist),0.2,0.2,0);
-	scr_draw_text(888, 676, "keytouchlist"+string(global.keytouchlist),0.2,0.2,0);
+	scr_draw_text(888, 676, "keytouchlist"+string(global.textlist[21])+","+string(global.textlist[22])+","+string(global.textlist[23])+","+string(global.textlist[24]),0.2,0.2,0);
 	//scr_draw_text(888, 676, string(global.chartmoveinspeed[0]),0.2,0.2,0);
 	
 	

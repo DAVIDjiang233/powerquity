@@ -373,8 +373,7 @@ else{
 	global.svread=[];
 	global.presschangeread=[];
 	global.playtime=-2000;
-	global.keylist=[0,0,0,0,0,0];
-	global.keytouchlist=[0,0,0,0,0,0];
+	global.keylist=[0,0,0,0];
 	global.textlist[10]=0;
 	global.textlist[11]=0;
 	global.textlist[12]=0;

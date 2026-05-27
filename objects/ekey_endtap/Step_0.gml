@@ -1,7 +1,7 @@
 y=yset(endtime);
 x=xset(key1,endtime);
 
-if(global.keytouchlist[key1]!=keyamo) exit;
+if(global.textlist[20+key1]!=keyamo) exit;
 
 if (global.playtime<endtime-150*global.judgesize) exit;
 //miss
@@ -32,7 +32,7 @@ if (global.playtime>endtime+125*global.judgesize){
 		}
 		);
 	}
-	global.keytouchlist[key1]=keyamo+0.5;
+	global.textlist[20+key1]=keyamo+0.5;
 	instance_create_depth((global.playtime-endtime)/global.judgesize,global.settings[9],-5000,showhit);
 	instance_destroy();
 }
@@ -50,15 +50,16 @@ if (global.playtime>endtime+125*global.judgesize){
 			sfps : global.skinnumber[23]
 		}
 		);
-		global.keytouchlist[key1]=keyamo+0.5;
+		global.textlist[20+key1]=keyamo+0.5;
 		instance_destroy(showdetail);
 		instance_create_depth(640,0,-5000,showdetail,{
 		stime : global.playtime,
 		spr : global.playskin[173],
 		sfps : global.skinnumber[23]
-	});
-		instance_destroy();
-	}
+		});
+		global.textlist[26]++;
+			instance_destroy();
+		}
 
 
 //relerase
@@ -70,7 +71,7 @@ if global.pressing[global.pressreal[key1-1]]==1{
 			sfps : global.skinnumber[23]
 		}
 		);
-	global.keytouchlist[key1]=keyamo+0.5;
+	global.textlist[20+key1]=keyamo+0.5;
 	instance_create_depth((global.playtime-endtime)/global.judgesize,global.settings[9],-5000,showhit);
 	instance_destroy();
 }

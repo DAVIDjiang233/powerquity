@@ -37,6 +37,7 @@ else if (global.playtime>endtime+125){
 		spr : global.playskin[173],
 		sfps : global.skinnumber[23]
 	});
+	global.textlist[26]++;
 	instance_destroy();
 }
 

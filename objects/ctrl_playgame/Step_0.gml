@@ -14,8 +14,8 @@ if(keyboard_check_pressed(global.pressext[0])){
 	global.svread=[];
 	global.presschangeread=[];
 	global.playtime=-2000;
-	global.keylist=[0,0,0,0,0,0];
-	global.keytouchlist=[0,0,0,0,0,0];
+	global.keylist=[0,0,0,0];
+	//global.keytouchlist=[0,0,0,0,0,0];
 	global.textlist[2]=0;
 	global.textlist[3]=0;
 	global.textlist[4]=0;
@@ -25,7 +25,14 @@ if(keyboard_check_pressed(global.pressext[0])){
 	global.textlist[13]=0;
 	global.textlist[16]="0.00";
 	global.textlist[17]="0.000";
-	global.textlist[20]="0.000";
+	global.textlist[20]=0;
+	global.textlist[21]=0;
+	global.textlist[22]=0;
+	global.textlist[23]=0;
+	global.textlist[24]=0;
+	global.textlist[25]=0;
+	global.textlist[26]=0;
+	global.textlist[27]=0;
 
 	room_restart();
 }
@@ -117,12 +124,10 @@ if(alarmpause<current_time&&alarmpause>-10000){
 
 if gamepause!=0 exit; 
 
-global.keytouchlist[0]=ceil(global.keytouchlist[0]);
-global.keytouchlist[1]=ceil(global.keytouchlist[1]);
-global.keytouchlist[2]=ceil(global.keytouchlist[2]);
-global.keytouchlist[3]=ceil(global.keytouchlist[3]);
-global.keytouchlist[4]=ceil(global.keytouchlist[4]);
-global.keytouchlist[5]=ceil(global.keytouchlist[5]);
+global.textlist[21]=ceil(global.textlist[21]);
+global.textlist[22]=ceil(global.textlist[22]);
+global.textlist[23]=ceil(global.textlist[23]);
+global.textlist[24]=ceil(global.textlist[24]);
 
 
 if global.playtype==1 scr_normal_ctrl();
@@ -471,10 +476,10 @@ while(chartlist<64&&0<array_length(global.chartread)){
 				endtime : real(global.chartread[0][1]),
 				key1 : real(global.chartread[0][2]),
 				timinggroup : real(global.chartread[0][3]),
-				keyamo : global.keylist[real(global.chartread[0][2])],
+				keyamo : global.keylist[real(global.chartread[0][2])-1],
 				exjudge : real(global.chartread[0][4])
 			});
-			global.keylist[global.chartread[0][2]]++;
+			global.keylist[real(global.chartread[0][2])-1]++;
 			array_delete(global.chartread,0,1);
 		}
 		//bumper
@@ -503,12 +508,12 @@ while(chartlist<64&&0<array_length(global.chartread)){
 				endtime : real(global.chartread[0][1]),
 				key1 : real(global.chartread[0][2]),
 				timinggroup : real(global.chartread[0][3]),
-				keyamo : global.keylist[real(global.chartread[0][2])],
-				keyamo2 : global.keylist[real(global.chartread[0][2])+1],
+				keyamo : global.keylist[real(global.chartread[0][2])-1],
+				keyamo2 : global.keylist[real(global.chartread[0][2])],
 				exjudge : real(global.chartread[0][4])
 			});
-			global.keylist[global.chartread[0][2]]++;
-			global.keylist[real(global.chartread[0][2])+1]++;
+			global.keylist[real(global.chartread[0][2])-1]++;
+			global.keylist[real(global.chartread[0][2])]++;
 			array_delete(global.chartread,0,1);
 		}
 		//triper
@@ -537,14 +542,14 @@ while(chartlist<64&&0<array_length(global.chartread)){
 				endtime : real(global.chartread[0][1]),
 				key1 : real(global.chartread[0][2]),
 				timinggroup : real(global.chartread[0][3]),
-				keyamo : global.keylist[real(global.chartread[0][2])],
-				keyamo2 : global.keylist[real(global.chartread[0][2])+1],
-				keyamo3 : global.keylist[real(global.chartread[0][2])+2],
+				keyamo : global.keylist[real(global.chartread[0][2])-1],
+				keyamo2 : global.keylist[real(global.chartread[0][2])],
+				keyamo3 : global.keylist[real(global.chartread[0][2])+1],
 				exjudge : real(global.chartread[0][4])
 			});
-			global.keylist[global.chartread[0][2]]++;
+			global.keylist[real(global.chartread[0][2])-1]++;
+			global.keylist[real(global.chartread[0][2])]++;
 			global.keylist[real(global.chartread[0][2])+1]++;
-			global.keylist[real(global.chartread[0][2])+2]++;
 			array_delete(global.chartread,0,1);
 		}
 		//quader
@@ -573,16 +578,16 @@ while(chartlist<64&&0<array_length(global.chartread)){
 				endtime : real(global.chartread[0][1]),
 				key1 : real(global.chartread[0][2]),
 				timinggroup : real(global.chartread[0][3]),
-				keyamo : global.keylist[real(global.chartread[0][2])],
-				keyamo2 : global.keylist[real(global.chartread[0][2])+1],
-				keyamo3 : global.keylist[real(global.chartread[0][2])+2],
-				keyamo4 : global.keylist[real(global.chartread[0][2])+3],
+				keyamo : global.keylist[real(global.chartread[0][2])-1],
+				keyamo2 : global.keylist[real(global.chartread[0][2])],
+				keyamo3 : global.keylist[real(global.chartread[0][2])+1],
+				keyamo4 : global.keylist[real(global.chartread[0][2])+2],
 				exjudge : real(global.chartread[0][4])
 			});
-			global.keylist[global.chartread[0][2]]++;
+			global.keylist[real(global.chartread[0][2])-1]++;
+			global.keylist[real(global.chartread[0][2])]++;
 			global.keylist[real(global.chartread[0][2])+1]++;
 			global.keylist[real(global.chartread[0][2])+2]++;
-			global.keylist[real(global.chartread[0][2])+3]++;
 			array_delete(global.chartread,0,1);
 		}
 		//fake
@@ -626,9 +631,9 @@ while(chartlist<64&&0<array_length(global.chartread)){
 				endtime : real(global.chartread[0][1]),
 				key1 : real(global.chartread[0][2]),
 				timinggroup : real(global.chartread[0][3]),
-				keyamo : global.keylist[real(global.chartread[0][2])]
+				keyamo : global.keylist[real(global.chartread[0][2])-1]
 			});
-			global.keylist[global.chartread[0][2]]++;
+			global.keylist[real(global.chartread[0][2])-1]++;
 			array_delete(global.chartread,0,1);
 		}
 		//miss
@@ -698,10 +703,10 @@ while(chartlist<64&&0<array_length(global.chartread)){
 				key1 : real(global.chartread[0][2]),
 				timinggroup : real(global.chartread[0][3]),
 				endtime : real(global.chartread[0][4]),
-				keyamo : global.keylist[real(global.chartread[0][2])],
+				keyamo : global.keylist[real(global.chartread[0][2])-1],
 				exjudge : real(global.chartread[0][5])
 			});
-				global.keylist[global.chartread[0][2]]++;
+				global.keylist[real(global.chartread[0][2])-1]++;
 				array_delete(global.chartread,0,1);
 			}
 		//presschange

@@ -13,7 +13,7 @@ function judge(_time){
 		global.textlist[4]=0;
 		global.textlist[3]=0;
 		global.textlist[12]++;
-		global.timingcnt+=global.playtime-_time;
+		global.textlist[28]+=global.playtime-_time;
 		global.tapcnt++;
 		if(global.playtime-_time>global.maxel[1]){
 			global.maxel[1]=global.playtime-_time;
@@ -27,7 +27,7 @@ function judge(_time){
 	else if (global.playtime<_time-40*global.judgesize||global.playtime>_time+40*global.judgesize) {
 		global.textlist[4]=0;
 		global.textlist[11]++;
-		global.timingcnt+=global.playtime-_time;
+		global.textlist[28]+=global.playtime-_time;
 		global.tapcnt++;
 		if(global.playtime-_time>global.maxel[1]){
 			global.maxel[1]=global.playtime-_time;
@@ -40,7 +40,7 @@ function judge(_time){
 	}
 	else {
 		global.textlist[10]++;
-		global.timingcnt+=global.playtime-_time;
+		global.textlist[28]+=global.playtime-_time;
 		global.tapcnt++;
 		if(global.playtime-_time>global.maxel[1]){
 			global.maxel[1]=global.playtime-_time;

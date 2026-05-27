@@ -5,6 +5,7 @@ if(x<-40){
 		spr : global.playskin[172],
 		sfps : global.skinnumber[23]
 	});
+	global.textlist[25]++;
 }
 else if(x>40){
 	instance_destroy(showdetail);
@@ -13,5 +14,6 @@ else if(x>40){
 		spr : global.playskin[174],
 		sfps : global.skinnumber[23]
 	});
+	global.textlist[27]++;
 }
 time=current_time+800;

@@ -65,10 +65,10 @@ if(global.textlist[13]==0){
 else scr_draw_text(832, 590, "Miss:"+string(global.textlist[13]),0.5,0.5,0);
 
 
-if global.timingcnt>=0
-scr_draw_text(832, 670, "平均打击延迟: +"+string(global.timingcnt/(global.tapcnt*global.gamespeed))+"ms",0.3,0.3,0);
+if global.textlist[28]>=0
+scr_draw_text(832, 670, "平均打击延迟: +"+string(global.textlist[28]/(global.tapcnt*global.gamespeed))+"ms",0.3,0.3,0);
 else
-scr_draw_text(832, 670, "平均打击延迟: "+string(global.timingcnt/(global.tapcnt*global.gamespeed))+"ms",0.3,0.3,0);
+scr_draw_text(832, 670, "平均打击延迟: "+string(global.textlist[28]/(global.tapcnt*global.gamespeed))+"ms",0.3,0.3,0);
 
 scr_draw_text(300, 380, string(global.fileread[0]),0.5,0.5,0,550);
 scr_draw_text(300, 440, string(global.fileread[1]),0.4,0.4,0,500);
