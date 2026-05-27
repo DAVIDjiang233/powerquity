@@ -23,10 +23,10 @@ else result="D";
 color=0
 if(global.textlist[13]==0){
 	color=200
-	if(global.maxel[1]-global.maxel[0]<80*global.judgesize){
+	if(global.textlist[31]-global.textlist[30]<80*global.judgesize){
 		color=600
 	}
-	else if(global.maxel[1]-global.maxel[0]<160*global.judgesize){
+	else if(global.textlist[31]-global.textlist[30]<160*global.judgesize){
 		color=400;
 	}
 }

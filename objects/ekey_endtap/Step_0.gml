@@ -1,4 +1,4 @@
-y=yset(endtime);
+y=scr_yset(endtime);
 x=xset(key1,endtime);
 
 if(global.textlist[20+key1]!=keyamo) exit;
@@ -67,7 +67,7 @@ if global.pressing[global.pressreal[key1-1]]==1{
 	instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 		{
 			stime : global.playtime,
-			spr : global.playskin[judge(endtime)*4+260+key1],
+			spr : global.playskin[scr_judge(endtime)*4+260+key1],
 			sfps : global.skinnumber[23]
 		}
 		);

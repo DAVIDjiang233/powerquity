@@ -1,4 +1,4 @@
-function yset(_time){
+function scr_yset(_time){
 	
 	var _speed=0;
 	

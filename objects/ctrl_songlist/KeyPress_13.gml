@@ -57,7 +57,7 @@ else if chartloading==1{
 		else {
 			if (file_exists(working_directory+"highscore/"+string(global.filelist[global.chart])+".pqc")) 
 				file_delete(working_directory+"highscore/"+string(global.filelist[global.chart])+".pqc");
-			readfile();
+			scr_readfile();
 			confirmt=0;
 			}
 		
@@ -367,8 +367,12 @@ else{
 		global.lastnum=scr_loadskin("songlist/"+string(global.filelist[global.chart])+"/skin",global.settings[9],global.settings[10])
 	}
 	else global.lastnum=[array_length(global.playskin)-1,array_length(global.playtext)-1];
+	
+	global.currenttext=global.playtext;
+	global.currentsprite=global.playsprite;
+	
 	if playtypemod!=0 global.playtype=playtypemod;
-
+	
 	global.chartread=[];
 	global.svread=[];
 	global.presschangeread=[];

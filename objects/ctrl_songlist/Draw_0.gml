@@ -54,17 +54,17 @@ if chartrue==1{
 			scr_draw_text(992, 638, "转谱类型: stary/vivify",0.3,0.3,0);
 		}
 	}
-	if(global.highscore[global.level]>=600){
+	if(global.textlist[38]==3){
 		draw_set_colour(c_yellow);
 	}
-	else if(global.highscore[global.level]>=400){
+	else if(global.textlist[38]==2){
 		draw_set_colour(c_lime);
 	}
-	else if(global.highscore[global.level]>=200){
+	else if(global.textlist[38]==1){
 		draw_set_colour(c_aqua);
 	}
 	else draw_set_colour(c_white);
-	scr_draw_text(992, 328, "最高分: "+string_format(global.highscore[global.level]%200,0,3)+"%",0.3,0.3,0);
+	scr_draw_text(992, 328, "最高分: "+global.textlist[34]+"%",0.3,0.3,0);
 }
 else {
 	draw_set_colour(c_red);

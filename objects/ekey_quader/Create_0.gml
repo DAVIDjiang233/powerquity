@@ -1,4 +1,4 @@
-y=yset(endtime);
+y=scr_yset(endtime);
 x=xset(key1,endtime);
 if(exjudge==0){
 	sprite_index=global.playskin[18];

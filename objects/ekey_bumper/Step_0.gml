@@ -1,4 +1,4 @@
-y=yset(endtime);
+y=scr_yset(endtime);
 x=xset(key1,endtime);
 if(global.textlist[20+key1]!=keyamo||global.textlist[21+key1]!=keyamo2) exit;
 
@@ -66,7 +66,7 @@ if (global.pressing[global.pressreal[key1]]==3||global.pressing[global.pressreal
 		instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 		{
 			stime : global.playtime,
-			spr : global.playskin[judge(endtime)*3+224+key1],
+			spr : global.playskin[scr_judge(endtime)*3+224+key1],
 			sfps : global.skinnumber[23]
 		}
 		);

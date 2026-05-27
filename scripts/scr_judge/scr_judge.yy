@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"judge",
+  "%Name":"scr_judge",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"judge",
+  "name":"scr_judge",
   "parent":{
     "name":"脚本",
     "path":"folders/脚本.yy",

@@ -1,7 +1,7 @@
 x=xset(key1,startime);
 
-yup=yset(endtime);
-ydo=yset(startime);
+yup=scr_yset(endtime);
+ydo=scr_yset(startime);
 
 
 
@@ -61,7 +61,7 @@ if keytouched==0{
 			instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 			{
 				stime : global.playtime,
-				spr : global.playskin[judge(startime)*4+300+key1],
+				spr : global.playskin[scr_judge(startime)*4+300+key1],
 				sfps : global.skinnumber[23]
 			}
 			);

@@ -1,4 +1,4 @@
-function readfile(){
+function scr_readfile(){
 	chartrue=0;
 	global.fileread=[];
 	
@@ -77,4 +77,12 @@ function readfile(){
 		}
 	}
 	chartrue=1;
+	
+	global.textlist[32]=global.highscore[global.level]%200;
+	global.textlist[33]=string_format(global.textlist[32],0,2);
+	global.textlist[34]=string_format(global.textlist[32],0,3);
+	
+	global.textlist[38]=floor(global.highscore[global.level]/200);
+	
+	
 }

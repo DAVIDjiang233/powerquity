@@ -17,5 +17,5 @@ else{
 	global.chart--;
 	global.level=0;
 
-	readfile();
+	scr_readfile();
 }

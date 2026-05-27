@@ -1,4 +1,4 @@
-y=yset(endtime);
+y=scr_yset(endtime);
 x=xset(key1,endtime);
 depth=depth+0.1;
 //dest

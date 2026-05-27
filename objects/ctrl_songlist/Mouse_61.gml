@@ -15,6 +15,6 @@ if global.chart==array_length(global.filelist)-1 exit;
 
 global.chart++;
 global.level=0;
-readfile();
+scr_readfile();
 
 }

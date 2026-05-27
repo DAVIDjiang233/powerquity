@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"readfile",
+  "%Name":"scr_readfile",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"readfile",
+  "name":"scr_readfile",
   "parent":{
     "name":"脚本",
     "path":"folders/脚本.yy",

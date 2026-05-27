@@ -13,5 +13,5 @@ else{
 	if global.chart==0 exit;
 	global.chart--;
 	global.level=0;
-	readfile();
+	scr_readfile();
 }

@@ -35,5 +35,5 @@ if global.level==0 exit;
 
 
 global.level--;
-readfile();
+scr_readfile();
 }

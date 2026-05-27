@@ -8,4 +8,13 @@ if(global.textlist[10]+global.textlist[11]+global.textlist[12]+global.textlist[1
 		  /(global.textlist[10]+global.textlist[11]+global.textlist[12]+global.textlist[13]);
 	global.textlist[16]=string_format(global.textlist[20],0,2);
 	global.textlist[17]=string_format(global.textlist[20],0,3);
+	global.textlist[35]=global.textlist[20]-global.textlist[32];
+	if(global.textlist[35]>=0){
+		global.textlist[36]="+"+string_format(global.textlist[35],0,2);
+		global.textlist[37]="+"+string_format(global.textlist[35],0,3);
+	}
+	else{
+		global.textlist[36]=string_format(global.textlist[35],0,2);
+		global.textlist[37]=string_format(global.textlist[35],0,3);
+	}
 }

@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"xset",
+  "%Name":"scr_yset",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"xset",
+  "name":"scr_yset",
   "parent":{
     "name":"脚本",
     "path":"folders/脚本.yy",

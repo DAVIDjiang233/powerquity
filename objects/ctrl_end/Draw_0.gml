@@ -58,9 +58,9 @@ scr_draw_text(832, 510, "Good:"+string(global.textlist[12]),0.5,0.5,0);
 
 if(global.textlist[13]==0){
 	var _qq="",_qw="";
-	if(global.maxel[0]>=0) _qq="+"
-	if(global.maxel[1]>=0) _qw="+"
-	scr_draw_text(832, 590, "Early:"+_qq+string(global.maxel[0]/global.gamespeed)+"ms    Late:"+_qw+string(global.maxel[1]/global.gamespeed)+"ms",0.4,0.4,0);
+	if(global.textlist[30]>=0) _qq="+"
+	if(global.textlist[31]>=0) _qw="+"
+	scr_draw_text(832, 590, "Early:"+_qq+string(global.textlist[30]/global.gamespeed)+"ms    Late:"+_qw+string(global.textlist[31]/global.gamespeed)+"ms",0.4,0.4,0);
 }
 else scr_draw_text(832, 590, "Miss:"+string(global.textlist[13]),0.5,0.5,0);
 

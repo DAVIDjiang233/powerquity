@@ -21,7 +21,8 @@ autopress2=[[],[],[],[]];
 autorelease=[[],[],[],[]];
 autocooldown=[-5000,-5000,-5000,-5000];
 global.drawdepth=[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1];
-global.maxel=[2880,-2880];
+global.textlist[30]=1000
+global.textlist[31]=-1000
 
 global.taptiming=[[-5,-5],[-5,-5],[-5,-5],[-5,-5]];
 global.effecttiming=[0,0,0,0];
@@ -48,43 +49,43 @@ global.releasetiming=[[7000,9000],[7000,9000],[7000,9000],[7000,9000]];
 global.cooldowntiming=[[6000,8000],[6000,8000],[6000,8000],[6000,8000]];
 */
 
-for(var _i=0;_i<array_length(global.playtext);_i++){
-	if(global.playtext[_i]!=0){
+for(var _i=0;_i<array_length(global.currenttext);_i++){
+	if(global.currenttext[_i]!=0){
 		instance_create_depth(
-			0,0,global.playtext[_i][1],bplaytext,
+			0,0,global.currenttext[_i][1],bplaytext,
 			{
-				halign : global.playtext[_i][0],
-				mx : global.playtext[_i][2],
-				my : global.playtext[_i][3],
-				textshow : global.playtext[_i][4],
-				msx : global.playtext[_i][5],
-				msy : global.playtext[_i][6],
-				angle : global.playtext[_i][7],
-				alpha : global.playtext[_i][8],
-				font : global.playtext[_i][9],
-				color : global.playtext[_i][10],
-				maxsize : global.playtext[_i][11],
-				mirror : global.playtext[_i][12]
+				halign : global.currenttext[_i][0],
+				mx : global.currenttext[_i][2],
+				my : global.currenttext[_i][3],
+				textshow : global.currenttext[_i][4],
+				msx : global.currenttext[_i][5],
+				msy : global.currenttext[_i][6],
+				angle : global.currenttext[_i][7],
+				alpha : global.currenttext[_i][8],
+				font : global.currenttext[_i][9],
+				color : global.currenttext[_i][10],
+				maxsize : global.currenttext[_i][11],
+				mirror : global.currenttext[_i][12]
 			}
 		);
 	}
 }
 
-for(var _i=0;_i<array_length(global.playsprite);_i++){
-	if(global.playsprite[_i]!=0){
+for(var _i=0;_i<array_length(global.currentsprite);_i++){
+	if(global.currentsprite[_i]!=0){
 		instance_create_depth(
-			0,0,global.playsprite[_i][0],bplaysprite,
+			0,0,global.currentsprite[_i][0],bplaysprite,
 			{
-				mx : global.playsprite[_i][1],
-				my : global.playsprite[_i][2],
-				spr : global.playskin[global.playsprite[_i][3]],
-				msx : global.playsprite[_i][4],
-				msy : global.playsprite[_i][5],
-				angle : global.playsprite[_i][6],
-				alpha : global.playsprite[_i][7],
-				color : global.playsprite[_i][8],
-				sprfps : global.playsprite[_i][9],
-				mirror : global.playsprite[_i][10]
+				mx : global.currentsprite[_i][1],
+				my : global.currentsprite[_i][2],
+				spr : global.playskin[global.currentsprite[_i][3]],
+				msx : global.currentsprite[_i][4],
+				msy : global.currentsprite[_i][5],
+				angle : global.currentsprite[_i][6],
+				alpha : global.currentsprite[_i][7],
+				color : global.currentsprite[_i][8],
+				sprfps : global.currentsprite[_i][9],
+				mirror : global.currentsprite[_i][10]
 			}
 		);
 	}
