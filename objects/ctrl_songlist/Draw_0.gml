@@ -34,25 +34,13 @@ if chartrue==1{
 
 	scr_draw_text(992, 518, "难度: "+string(global.textlist[8]),0.3,0.3,0);
 	scr_draw_text(992, 578, "谱师: "+string(global.textlist[9]),0.3,0.3,0);
-	if(global.chartrans==0){
-		if playtypemod==0{
-			if global.playtype==1 scr_draw_text(992, 638, "游玩类型: Mania",0.3,0.3,0);
-			if global.playtype==2 scr_draw_text(992, 638, "游玩类型: QWERTYUIOP!!",0.3,0.3,0);
-		}
-		else{
-			draw_set_colour(c_yellow);
-			if playtypemod==1 scr_draw_text(992, 638, "游玩类型: Mania",0.3,0.3,0);
-			if playtypemod==2 scr_draw_text(992, 638, "游玩类型: QWERTYUIOP!!",0.3,0.3,0);
-			draw_set_colour(c_white);
-		}
+	if playtypemod==0{
+		scr_draw_text(992, 638, "游玩类型: "+global.textlist[46],0.3,0.3,0);
 	}
 	else{
-		if(global.chartrans=="sv"){
-			scr_draw_text(992, 638, "转谱类型: stary/vivify",0.3,0.3,0);
-		}
-		if(global.chartrans=="sv2"){
-			scr_draw_text(992, 638, "转谱类型: stary/vivify",0.3,0.3,0);
-		}
+		draw_set_colour(c_yellow);
+		scr_draw_text(992, 638, "游玩类型: "+global.textlist[47],0.3,0.3,0);
+		draw_set_colour(c_white);
 	}
 	if(global.textlist[38]==3){
 		draw_set_colour(c_yellow);

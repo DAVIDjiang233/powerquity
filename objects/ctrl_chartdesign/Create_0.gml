@@ -255,6 +255,9 @@ array_sort(global.svchange[9],function(elm1, elm2){
 scr_cancelchart();
 scr_cancelsv();
 scr_listchange(1);
-//show_debug_message(global.svchange)
+show_debug_message(global.svchange[5])
+show_debug_message(global.svchange[6])
+show_debug_message(global.svchange[7])
+show_debug_message(global.svchange[8])
 
 

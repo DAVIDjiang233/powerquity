@@ -46,4 +46,4 @@ if(global.mirror*mirror>=0.5){
 
 
 draw_set_alpha(_alpha);
-scr_draw_text(_mx,_my,string_ext(textshow,global.textlist),_msx,_msy,_angle);
+scr_draw_text(_mx,_my,string_ext(textshow,global.textlist),_msx,_msy,_angle,maxsize);

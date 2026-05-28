@@ -2,6 +2,15 @@ if moding==1{
 	if modtype==0 {
 		if playtypemod!=2 playtypemod++;
 		else playtypemod=0;
+		if playtypemod==0{
+			global.textlist[47]="";
+		}
+		else if playtypemod==1{
+			global.textlist[47]="Mania";
+		}
+		else if playtypemod==2{
+			global.textlist[47]="QWERTYUIOP!!";
+		}
 	}
 	else if modtype==1 {
 		if global.svenable==0 global.svenable=1;

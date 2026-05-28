@@ -5,6 +5,9 @@ function scr_loadskin(_filein,_play=1,_end=1){
 	var _lastplaytextnum=array_length(global.playtext)-1;
 	var _lastplaypictnum=array_length(global.playsprite)-1;
 	var _lastfontnum=array_length(global.fontall)-1;
+	var _lastresulttextnum=array_length(global.resulttext)-1;
+	var _lastresultpictnum=array_length(global.resultsprite)-1;
+	
 	
 	//游玩界面
 	
@@ -130,6 +133,9 @@ function scr_loadskin(_filein,_play=1,_end=1){
 				if(_fileread[_i][0]<=-1){
 					_fileread[_i][0]=_lastplaypictnum-_fileread[_i][0];
 				}
+				if(real(_fileread[_i][1])==3&&_fileread[_i][2]<=-1){
+					_fileread[_i][2]=_lastplayskinum-_fileread[_i][2];
+				}
 				global.playsprite[real(_fileread[_i][0])][real(_fileread[_i][1])]=scr_nibl2array(_fileread[_i][2]);
 			}
 			else if(_fileread[_i][0]=="S"){
@@ -204,5 +210,104 @@ function scr_loadskin(_filein,_play=1,_end=1){
 		}
 	}
 	
+	//结算界面
+	if (file_exists(working_directory + _filein + "/0result.txt")){
+		var _file = file_text_open_read(working_directory + _filein + "/0result.txt");
+		var i=0;
+		while (!file_text_eof(_file))
+		{
+		    _fileread[i] = string_split(file_text_read_string(_file),",");
+			while (_fileread[i]==""&&!file_text_eof(_file)){
+				array_delete(_fileread,i,1);
+				file_text_readln(_file);
+				_fileread[i] = string_split(file_text_read_string(_file),",");
+			}
+			if (_fileread[i]=="") array_delete(_fileread,i,1);
+		    file_text_readln(_file);
+			i++;
+		}
+		file_text_close(_file);
+		
+		for(var _i=0;_i<array_length(_fileread);_i++){
+			if(_fileread[_i][0]=="T"&&_play!=0){
+				array_delete(_fileread[_i],0,1);
+				
+				if(_fileread[_i][0]<=-1){
+					_fileread[_i][0]=_lastresulttextnum-_fileread[_i][0];
+				}
+				global.resulttext[real(_fileread[_i][0])]=_fileread[_i];
+				global.resulttext[real(_fileread[_i][0])][1]=real(global.resulttext[real(_fileread[_i][0])][1]);
+				global.resulttext[real(_fileread[_i][0])][2]=real(global.resulttext[real(_fileread[_i][0])][2]);
+				global.resulttext[real(_fileread[_i][0])][10]=real(global.resulttext[real(_fileread[_i][0])][10]);
+				global.resulttext[real(_fileread[_i][0])][11]=real(global.resulttext[real(_fileread[_i][0])][11]);
+				global.resulttext[real(_fileread[_i][0])][12]=real(global.resulttext[real(_fileread[_i][0])][12]);
+				global.resulttext[real(_fileread[_i][0])][13]=real(global.resulttext[real(_fileread[_i][0])][13]);
+				global.resulttext[real(_fileread[_i][0])][3]=scr_nibl2array(global.resulttext[real(_fileread[_i][0])][3]);
+				global.resulttext[real(_fileread[_i][0])][4]=scr_nibl2array(global.resulttext[real(_fileread[_i][0])][4]);
+				global.resulttext[real(_fileread[_i][0])][6]=scr_nibl2array(global.resulttext[real(_fileread[_i][0])][6]);
+				global.resulttext[real(_fileread[_i][0])][7]=scr_nibl2array(global.resulttext[real(_fileread[_i][0])][7]);
+				global.resulttext[real(_fileread[_i][0])][8]=scr_nibl2array(global.resulttext[real(_fileread[_i][0])][8]);
+				global.resulttext[real(_fileread[_i][0])][9]=scr_nibl2array(global.resulttext[real(_fileread[_i][0])][9]);
+				
+				if(global.resulttext[real(_fileread[_i][0])][10]<=-1){
+					global.resulttext[real(_fileread[_i][0])][10]=_lastfontnum-global.resulttext[real(_fileread[_i][0])][10];
+				}
+				array_delete(global.resulttext[real(_fileread[_i][0])],0,1);
+			}
+			else if(_fileread[_i][0]=="TC"&&_play!=0){
+				array_delete(_fileread[_i],0,1);
+				
+				if(_fileread[_i][0]<=-1){
+					_fileread[_i][0]=_lastresulttextnum-_fileread[_i][0];
+				}
+				if(real(_fileread[_i][1])==4){
+					global.resulttext[real(_fileread[_i][0])][real(_fileread[_i][1])]=_fileread[_i][2];
+				}
+				else if(real(_fileread[_i][1])==10&&real(_fileread[_i][2])<=1){
+					global.resulttext[real(_fileread[_i][0])][10]=_lastfontnum-real(_fileread[_i][2]);
+				}
+				else{
+					global.resulttext[real(_fileread[_i][0])][real(_fileread[_i][1])]=scr_nibl2array(_fileread[_i][2]);
+				}
+				
+			}
+			else if(_fileread[_i][0]=="P"&&_play!=0){
+				array_delete(_fileread[_i],0,1);
+				
+				if(_fileread[_i][0]<=-1){
+					_fileread[_i][0]=_lastresultpictnum-_fileread[_i][0];
+				}
+				if(_fileread[_i][4]<=-1){
+					_fileread[_i][4]=_lastplayskinum-_fileread[_i][4];
+				}
+				global.resultsprite[real(_fileread[_i][0])]=_fileread[_i];
+				global.resultsprite[real(_fileread[_i][0])][1]=real(global.resultsprite[real(_fileread[_i][0])][1]);
+				global.resultsprite[real(_fileread[_i][0])][4]=real(global.resultsprite[real(_fileread[_i][0])][4]);
+				global.resultsprite[real(_fileread[_i][0])][9]=real(global.resultsprite[real(_fileread[_i][0])][9]);
+				global.resultsprite[real(_fileread[_i][0])][10]=real(global.resultsprite[real(_fileread[_i][0])][10]);
+				global.resultsprite[real(_fileread[_i][0])][11]=real(global.resultsprite[real(_fileread[_i][0])][11]);
+				global.resultsprite[real(_fileread[_i][0])][2]=scr_nibl2array(global.resultsprite[real(_fileread[_i][0])][2]);
+				global.resultsprite[real(_fileread[_i][0])][3]=scr_nibl2array(global.resultsprite[real(_fileread[_i][0])][3]);
+				global.resultsprite[real(_fileread[_i][0])][5]=scr_nibl2array(global.resultsprite[real(_fileread[_i][0])][5]);
+				global.resultsprite[real(_fileread[_i][0])][6]=scr_nibl2array(global.resultsprite[real(_fileread[_i][0])][6]);
+				global.resultsprite[real(_fileread[_i][0])][7]=scr_nibl2array(global.resultsprite[real(_fileread[_i][0])][7]);
+				global.resultsprite[real(_fileread[_i][0])][8]=scr_nibl2array(global.resultsprite[real(_fileread[_i][0])][8]);
+				array_delete(global.resultsprite[real(_fileread[_i][0])],0,1);
+				//show_debug_message(global.resultsprite)
+			}
+			else if(_fileread[_i][0]=="PC"&&_play!=0){
+				array_delete(_fileread[_i],0,1);
+				
+				if(_fileread[_i][0]<=-1){
+					_fileread[_i][0]=_lastresultpictnum-_fileread[_i][0];
+				}
+				if(real(_fileread[_i][1])==3&&_fileread[_i][2]<=-1){
+					_fileread[_i][2]=_lastplayskinum-_fileread[_i][2];
+				}
+				global.resultsprite[real(_fileread[_i][0])][real(_fileread[_i][1])]=scr_nibl2array(_fileread[_i][2]);
+			}
+		}
+	}
+	show_debug_message(global.resultsprite)
 	return([_lastplayskinum,_lastplaytextnum]);
 }

@@ -84,5 +84,18 @@ function scr_readfile(){
 	
 	global.textlist[38]=floor(global.highscore[global.level]/200);
 	
+	if(global.chartrans==0){
+		if (global.playtype==1) global.textlist[46]="Mania";
+		else if (global.playtype==1) global.textlist[46]="QWERTYUIOP!!";
+	}
+	else{
+		if(global.chartrans=="sv"){
+			global.textlist[46]="stary/vivify";
+		}
+		if(global.chartrans=="sv2"){
+			global.textlist[46]="stary/vivify";
+		}
+	}
+	
 	
 }

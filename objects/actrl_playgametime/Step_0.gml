@@ -17,4 +17,32 @@ if(global.textlist[10]+global.textlist[11]+global.textlist[12]+global.textlist[1
 		global.textlist[36]=string_format(global.textlist[35],0,2);
 		global.textlist[37]=string_format(global.textlist[35],0,3);
 	}
+	if(global.textlist[30]>=0){
+		global.textlist[43]="+"+string(global.textlist[30]/global.gamespeed);
+	}
+	else{
+		global.textlist[43]=string(global.textlist[30]/global.gamespeed);
+	}
+	if(global.textlist[31]>=0){
+		global.textlist[44]="+"+string(global.textlist[31]/global.gamespeed);
+	}
+	else{
+		global.textlist[44]=string(global.textlist[31]/global.gamespeed);
+	}
+	if(global.textlist[28]>=0){
+		global.textlist[45]="+"+string(global.textlist[28]/(global.tapcnt*global.gamespeed));
+	}
+	else{
+		global.textlist[45]=string(global.textlist[28]/(global.tapcnt*global.gamespeed));
+	}
+	if(global.textlist[13]==0){
+		global.textlist[42]=1
+		if(global.textlist[31]-global.textlist[30]<80*global.judgesize){
+			global.textlist[42]=3
+		}
+		else if(global.textlist[31]-global.textlist[30]<160*global.judgesize){
+			global.textlist[42]=2;
+		}
+	}
+	else global.textlist[42]=0;
 }
