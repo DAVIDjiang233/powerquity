@@ -22,7 +22,7 @@ if file_exists(working_directory + "settings.txt"){
 }
 else{
 	var _file = file_text_open_write(working_directory + "settings.txt");
-	file_text_write_string(_file,"5\n4\n83\n68\n74\n75\n0\n1\1\1\1\n1\n0\n83\n68\n74\n75\n240\n82\n80");
+	file_text_write_string(_file,"5\n4\n83\n68\n74\n75\n0\n1\n1\n1\n1\n1\n0\n83\n68\n74\n75\n240\n82\n80");
 	file_text_close(_file);
 	global.settings=[5,4,83,68,74,75,0,1,1,1,1,1,0,83,68,74,75,240,82,80];
 }
@@ -414,5 +414,5 @@ while(_amon<array_length(global.filelist)){
 	
 if array_length(global.filelist)==0 exit;
 scr_readfile();
-
+//show_debug_message(font_get_info(global.fontall[2]))
 msg=0;
