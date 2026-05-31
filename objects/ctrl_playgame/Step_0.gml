@@ -33,7 +33,10 @@ if(keyboard_check_pressed(global.pressext[0])){
 	global.textlist[25]=0;
 	global.textlist[26]=0;
 	global.textlist[27]=0;
-
+	global.textlist[39]=0;
+	global.textlist[40]=0;
+	global.textlist[41]=0;
+	
 	room_restart();
 }
 

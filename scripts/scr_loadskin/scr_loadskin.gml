@@ -103,6 +103,9 @@ function scr_loadskin(_filein,_play=1,_end=1){
 				}
 				
 			}
+			else if(_fileread[_i][0]=="TN"&&_play!=0){
+				global.playtext=[];
+			}
 			else if(_fileread[_i][0]=="P"&&_play!=0){
 				array_delete(_fileread[_i],0,1);
 				
@@ -137,6 +140,9 @@ function scr_loadskin(_filein,_play=1,_end=1){
 					_fileread[_i][2]=_lastplayskinum-_fileread[_i][2];
 				}
 				global.playsprite[real(_fileread[_i][0])][real(_fileread[_i][1])]=scr_nibl2array(_fileread[_i][2]);
+			}
+			else if(_fileread[_i][0]=="PN"&&_play!=0){
+				global.playsprite=[];
 			}
 			else if(_fileread[_i][0]=="S"){
 				array_delete(_fileread[_i],0,1);
@@ -271,6 +277,9 @@ function scr_loadskin(_filein,_play=1,_end=1){
 				}
 				
 			}
+			else if(_fileread[_i][0]=="TN"&&_play!=0){
+				global.resulttext=[];
+			}
 			else if(_fileread[_i][0]=="P"&&_play!=0){
 				array_delete(_fileread[_i],0,1);
 				
@@ -305,6 +314,9 @@ function scr_loadskin(_filein,_play=1,_end=1){
 					_fileread[_i][2]=_lastplayskinum-_fileread[_i][2];
 				}
 				global.resultsprite[real(_fileread[_i][0])][real(_fileread[_i][1])]=scr_nibl2array(_fileread[_i][2]);
+			}
+			else if(_fileread[_i][0]=="PN"&&_play!=0){
+				global.resultsprite=[];
 			}
 		}
 	}

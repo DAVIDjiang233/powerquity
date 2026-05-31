@@ -14,6 +14,9 @@ if keytouched==0{
 			global.textlist[2]++;
 			global.textlist[3]++;
 			global.textlist[4]++;
+			if(global.textlist[2]>global.textlist[39]) global.textlist[39]=global.textlist[2];
+			if(global.textlist[3]>global.textlist[40]) global.textlist[40]=global.textlist[3];
+			if(global.textlist[4]>global.textlist[41]) global.textlist[41]=global.textlist[4];
 			global.textlist[10]++;
 			instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 			{
@@ -48,6 +51,9 @@ if keytouched==0{
 			global.textlist[2]++;
 			global.textlist[3]++;
 			global.textlist[4]++;
+			if(global.textlist[2]>global.textlist[39]) global.textlist[39]=global.textlist[2];
+			if(global.textlist[3]>global.textlist[40]) global.textlist[40]=global.textlist[3];
+			if(global.textlist[4]>global.textlist[41]) global.textlist[41]=global.textlist[4];
 			global.textlist[10]++;
 			instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 			{
@@ -79,6 +85,9 @@ else if(keytouched==3){
 		global.textlist[2]++;
 		global.textlist[3]++;
 		global.textlist[4]++;
+		if(global.textlist[2]>global.textlist[39]) global.textlist[39]=global.textlist[2];
+		if(global.textlist[3]>global.textlist[40]) global.textlist[40]=global.textlist[3];
+		if(global.textlist[4]>global.textlist[41]) global.textlist[41]=global.textlist[4];
 		global.textlist[10]++;
 		instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 		{
@@ -98,6 +107,9 @@ else{
 			global.textlist[2]++;
 			global.textlist[3]++;
 			global.textlist[4]++;
+			if(global.textlist[2]>global.textlist[39]) global.textlist[39]=global.textlist[2];
+			if(global.textlist[3]>global.textlist[40]) global.textlist[40]=global.textlist[3];
+			if(global.textlist[4]>global.textlist[41]) global.textlist[41]=global.textlist[4];
 			global.textlist[10]++;
 			instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 			{
@@ -114,6 +126,9 @@ else{
 			global.textlist[2]++;
 			global.textlist[3]++;
 			global.textlist[4]++;
+			if(global.textlist[2]>global.textlist[39]) global.textlist[39]=global.textlist[2];
+			if(global.textlist[3]>global.textlist[40]) global.textlist[40]=global.textlist[3];
+			if(global.textlist[4]>global.textlist[41]) global.textlist[41]=global.textlist[4];
 			global.textlist[10]++;
 			instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 			{

@@ -9,6 +9,9 @@ if (global.playtime>endtime+125*global.judgesize){
 		global.textlist[2]++;
 		global.textlist[3]++;
 		global.textlist[4]++;
+		if(global.textlist[2]>global.textlist[39]) global.textlist[39]=global.textlist[2];
+		if(global.textlist[3]>global.textlist[40]) global.textlist[40]=global.textlist[3];
+		if(global.textlist[4]>global.textlist[41]) global.textlist[41]=global.textlist[4];
 		global.textlist[10]++;
 		instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 		{
@@ -56,6 +59,9 @@ if (global.pressing[global.pressreal[key1-1]]==3||global.pressing[global.pressre
 		global.textlist[2]++;
 		global.textlist[3]++;
 		global.textlist[4]++;
+		if(global.textlist[2]>global.textlist[39]) global.textlist[39]=global.textlist[2];
+		if(global.textlist[3]>global.textlist[40]) global.textlist[40]=global.textlist[3];
+		if(global.textlist[4]>global.textlist[41]) global.textlist[41]=global.textlist[4];
 		global.textlist[10]++;
 		instance_create_depth(global.skinnumber[1]*(key1-2.5)+640,global.skinnumber[2],-3000,showhitlighting,
 		{
