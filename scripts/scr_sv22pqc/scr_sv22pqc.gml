@@ -41,6 +41,5 @@ function scr_sv22pqc(_file){
 			array_push(_chart,["BP",real(_chartread[_i][0]),real(_chartread[_i][2])+1,0,1]);
 		}
 	}
-	
 	return _chart;
 }

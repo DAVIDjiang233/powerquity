@@ -127,9 +127,15 @@ else{
 	delay=string_split(delay,",")
 	if(delay[0]="sv"){
 		global.chartread=scr_sv2pqc(working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+delay[1]);
+		if(file_exists(working_directory + "songlist/"+string(global.filelist[global.chart])+"/savechart")){
+			scr_savechart(working_directory + "songlist/"+string(global.filelist[global.chart])+"/savechart","","",1);
+		}
 	}
 	else if(delay[0]="sv2"){
 		global.chartread=scr_sv22pqc(working_directory + "songlist/"+string(global.filelist[global.chart])+"/"+delay[1]);
+		if(file_exists(working_directory + "songlist/"+string(global.filelist[global.chart])+"/savechart")){
+			scr_savechart(working_directory + "songlist/"+string(global.filelist[global.chart])+"/savechart","","",1);
+		}
 	}
 	delay=0;
 }
