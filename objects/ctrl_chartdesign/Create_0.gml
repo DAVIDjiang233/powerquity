@@ -2,6 +2,7 @@ window_set_cursor(cr_default);
 cursor_sprite=gunmu;
 game_set_speed(global.settings[17], gamespeed_fps);
 while(lastmin<current_time/300000) lastmin++;
+hitsound=0;
 global.chartread=[];
 global.cancelchart=[];
 global.cancelsv=[];
@@ -15,6 +16,8 @@ global.copy=[];
 global.svchoose=[[],[],[],[],[],[],[],[],[],[]];
 global.rand=[0,0,0,0];
 global.svchange=[[],[],[],[],[],[],[],[],[],[]];
+
+global.chartingplay=[-1,-1,-1,-1];
 
 global.chartspeed=[1,1,1,1,1,1];
 global.chartxmove=[0,0,0,0,0,0];
@@ -34,7 +37,7 @@ global.svchange[2]=[[],[],[],[],[],[]];
 global.svchange[3]=[[],[],[],[],[],[]];
 
 global.svchange[9]=[];
-
+global.bpmlist=[];
 if(file_exists(working_directory + "songlist/"+string(global.filelist[global.chart])+"/bpmlist.pqc")){
 	var i=0,_file=file_text_open_read(working_directory + "songlist/"+string(global.filelist[global.chart])+"/bpmlist.pqc");
 	while (!file_text_eof(_file))

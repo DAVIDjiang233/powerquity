@@ -6,7 +6,7 @@ global.mousetime=(global.playtime-(mouse_y-608)*4/global.globalspeed);
 if chartplay==1{
 	global.playtime=(current_time-starttime)*global.musicspeed;
 	scr_listchange(1);
-	if (!audio_is_playing(musicplay)&&global.playtime>0){
+	if (!audio_is_playing(musicplay)&&global.playtime>delay){
 	audio_play_sound_ext({sound:musicplay,gain: 1,pitch: global.musicspeed,offset:((global.playtime-delay)/1000)});
 }
 }
@@ -93,6 +93,77 @@ if (designview==0){
 	
 	
 	if (global.mouseonbtn==0){
+		
+		if (chartplay==100){
+			if (keyboard_check_pressed(68)){
+				global.chartingplay[0]=global.playtime;
+			}
+			if (keyboard_check_pressed(86)){
+				global.chartingplay[1]=global.playtime;
+			}
+			if (keyboard_check_pressed(188)){
+				global.chartingplay[2]=global.playtime;
+			}
+			if (keyboard_check_pressed(186)){
+				global.chartingplay[3]=global.playtime;
+			}
+			if (keyboard_check_released(68)){
+				if(global.chartingplay[0]!=-1){
+					array_push(global.chartread,[string(global.notetype[1]),global.chartingplay[0],1,1,global.playtime,global.notetype[2]]);
+					array_sort(global.chartread,function(elm1, elm2){
+						if real(elm1[1])>real(elm2[1]) return 1;
+						else if real(elm1[1])<real(elm2[1]) return -1;
+						else if elm1[0]="L" return 1;
+						else return -1;
+					});
+					scr_cancelchart();
+					scr_listchange(1);
+				}
+				global.chartingplay[0]=-1;
+			}
+			if (keyboard_check_released(86)){
+				if(global.chartingplay[1]!=-1){
+					array_push(global.chartread,[string(global.notetype[1]),global.chartingplay[1],2,1,global.playtime,global.notetype[2]]);
+					array_sort(global.chartread,function(elm1, elm2){
+						if real(elm1[1])>real(elm2[1]) return 1;
+						else if real(elm1[1])<real(elm2[1]) return -1;
+						else if elm1[0]="L" return 1;
+						else return -1;
+					});
+					scr_cancelchart();
+					scr_listchange(1);
+				}
+				global.chartingplay[1]=-1;
+			}
+			if (keyboard_check_released(188)){
+				if(global.chartingplay[2]!=-1){
+					array_push(global.chartread,[string(global.notetype[1]),global.chartingplay[2],3,1,global.playtime,global.notetype[2]]);
+					array_sort(global.chartread,function(elm1, elm2){
+						if real(elm1[1])>real(elm2[1]) return 1;
+						else if real(elm1[1])<real(elm2[1]) return -1;
+						else if elm1[0]="L" return 1;
+						else return -1;
+					});
+					scr_cancelchart();
+					scr_listchange(1);
+				}
+				global.chartingplay[2]=-1;
+			}
+			if (keyboard_check_released(186)){
+			if(global.chartingplay[3]!=-1){
+				array_push(global.chartread,[string(global.notetype[1]),global.chartingplay[3],4,1,global.playtime,global.notetype[2]]);
+				array_sort(global.chartread,function(elm1, elm2){
+					if real(elm1[1])>real(elm2[1]) return 1;
+					else if real(elm1[1])<real(elm2[1]) return -1;
+					else if elm1[0]="L" return 1;
+					else return -1;
+				});
+				scr_cancelchart();
+				scr_listchange(1);
+			}
+			global.chartingplay[3]=-1;
+		}
+		}
 	
 		if (keyboard_check_pressed(ord("Q"))){
 			var _tg=timinggroup;
@@ -370,7 +441,7 @@ if (designview==0){
 					else if elm1[0]="L" return 1;
 					else return -1;
 				});
-					scr_cancelchart();
+				scr_cancelchart();
 				scr_listchange(1);
 					if(array_length(global.svchange[1][_tg])==0){
 						global.svchange[1][_tg]=[[-9999,1]];
