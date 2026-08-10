@@ -590,7 +590,7 @@ else if (designview==1){
 				draw_rectangle(413,_y-12,508,_y,false);
 				draw_set_colour(#ffffff);
 				draw_set_alpha(1);
-				scr_draw_text(461,_y,string(global.svchange[2][timinggroup][_svst][1]),0.22,0.22,0);
+				scr_draw_text(461,_y,string(global.svchange[2][timinggroup][_svst][1]*4),0.22,0.22,0);
 				if(_canread==1){
 					if(_y<mouse_y+30&&_y>mouse_y-30&&round((mouse_x-257)/102)==2){
 						draw_set_colour(c_green);
@@ -707,7 +707,7 @@ else if (designview==1){
 				draw_set_colour(#ffffff);
 				draw_set_alpha(1);
 				if (!keyboard_check(vk_control)){
-				scr_draw_text(461,_ydo,string(global.svchange[6][timinggroup][_svst][1]),0.22,0.22,0);
+				scr_draw_text(461,_ydo,string(global.svchange[6][timinggroup][_svst][1]*4),0.22,0.22,0);
 				}
 				else{scr_draw_text(461,_ydo,scr_easename(global.svchange[6][timinggroup][_svst][3]),0.22,0.22,0);
 				}
@@ -822,7 +822,7 @@ else if (designview==1){
 		scr_draw_text(565,642,"YG",0.3,0.3,0);
 		scr_draw_text(667,642,"X",0.3,0.3,0);
 		scr_draw_text(361,682,string(scr_svset(global.svchange[1][timinggroup],global.svchange[5][timinggroup],global.playtime)),0.22,0.22,0);
-		scr_draw_text(463,682,string(scr_svset(global.svchange[2][timinggroup],global.svchange[6][timinggroup],global.playtime)),0.22,0.22,0);
+		scr_draw_text(463,682,string(4*scr_svset(global.svchange[2][timinggroup],global.svchange[6][timinggroup],global.playtime)),0.22,0.22,0);
 		scr_draw_text(565,682,string(scr_svset(global.svchange[3][timinggroup],global.svchange[7][timinggroup],global.playtime)),0.22,0.22,0);
 		scr_draw_text(667,682,string(scr_svset(global.svchange[4][timinggroup],global.svchange[8][timinggroup],global.playtime)),0.22,0.22,0);
 		draw_set_color(c_white);
@@ -832,7 +832,7 @@ else if (designview==1){
 		scr_draw_text(563,640,"YG",0.3,0.3,0);
 		scr_draw_text(665,640,"X",0.3,0.3,0);
 		scr_draw_text(359,680,string(scr_svset(global.svchange[1][timinggroup],global.svchange[5][timinggroup],global.playtime)),0.22,0.22,0);
-		scr_draw_text(461,680,string(scr_svset(global.svchange[2][timinggroup],global.svchange[6][timinggroup],global.playtime)),0.22,0.22,0);
+		scr_draw_text(461,680,string(4*scr_svset(global.svchange[2][timinggroup],global.svchange[6][timinggroup],global.playtime)),0.22,0.22,0);
 		scr_draw_text(563,680,string(scr_svset(global.svchange[3][timinggroup],global.svchange[7][timinggroup],global.playtime)),0.22,0.22,0);
 		scr_draw_text(665,680,string(scr_svset(global.svchange[4][timinggroup],global.svchange[8][timinggroup],global.playtime)),0.22,0.22,0);
 		scr_draw_text(257,680,string(scr_svset(global.svchange[0][timinggroup],[],global.playtime)),0.22,0.22,0);

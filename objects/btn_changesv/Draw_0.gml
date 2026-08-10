@@ -38,13 +38,26 @@ else if type==2{
 	
 	var _num="q";
 	for(var _i=0;_i<9;_i++){
-		for(var _j=0;_j<array_length(global.svchoose[_i]);_j++){
-			if(_num=="q"){
-				_num=real(global.svchange[_i][ctrl_chartdesign.timinggroup][global.svchoose[_i][_j]][1]);
+		if(_i==2||_i==6){
+			for(var _j=0;_j<array_length(global.svchoose[_i]);_j++){
+				if(_num=="q"){
+					_num=4*real(global.svchange[_i][ctrl_chartdesign.timinggroup][global.svchoose[_i][_j]][1]);
+				}
+				else if(_num!=4*real(global.svchange[_i][ctrl_chartdesign.timinggroup][global.svchoose[_i][_j]][1])){
+					_num="w";
+					break;
+				}
 			}
-			else if(_num!=real(global.svchange[_i][ctrl_chartdesign.timinggroup][global.svchoose[_i][_j]][1])){
-				_num="w";
-				break;
+		}
+		else{
+			for(var _j=0;_j<array_length(global.svchoose[_i]);_j++){
+				if(_num=="q"){
+					_num=real(global.svchange[_i][ctrl_chartdesign.timinggroup][global.svchoose[_i][_j]][1]);
+				}
+				else if(_num!=real(global.svchange[_i][ctrl_chartdesign.timinggroup][global.svchoose[_i][_j]][1])){
+					_num="w";
+					break;
+				}
 			}
 		}
 	}
