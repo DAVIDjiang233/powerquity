@@ -3,7 +3,9 @@ function scr_nibl2str(_rpnall){
 	var _num=0;
 	for(_num=0;_num<array_length(_rpnall[0]);_num++){
 		var _cal=[];
+		show_debug_message(_rpnall);
 		for(var _i=0;_i<array_length(_rpnall[0][_num]);_i++){
+			show_debug_message(_cal);
 			if(_rpnall[0][_num][_i]=="="){
 				if(typeof(_cal[array_length(_cal)-2])=="array"){
 					_cal[array_length(_cal)-2]=
@@ -99,7 +101,7 @@ function scr_nibl2str(_rpnall){
 			else if(_rpnall[0][_num][_i]=="*"){
 				if(typeof(_cal[array_length(_cal)-2])=="array"){
 					if(_cal[array_length(_cal)-2][1]=="+"||_cal[array_length(_cal)-2][1]=="-"
-					||_cal[array_length(_cal)-1][1]=="="){
+					||_cal[array_length(_cal)-2][1]=="="){
 						_cal[array_length(_cal)-2]=
 						"("+_cal[array_length(_cal)-2][0]
 						+_cal[array_length(_cal)-2][1]
@@ -134,7 +136,7 @@ function scr_nibl2str(_rpnall){
 			else if(_rpnall[0][_num][_i]=="/"){
 				if(typeof(_cal[array_length(_cal)-2])=="array"){
 					if(_cal[array_length(_cal)-2][1]=="+"||_cal[array_length(_cal)-2][1]=="-"
-					||_cal[array_length(_cal)-1][1]=="="){
+					||_cal[array_length(_cal)-2][1]=="="){
 						_cal[array_length(_cal)-2]=
 						"("+_cal[array_length(_cal)-2][0]
 						+_cal[array_length(_cal)-2][1]
@@ -171,7 +173,7 @@ function scr_nibl2str(_rpnall){
 				if(typeof(_cal[array_length(_cal)-2])=="array"){
 					if(_cal[array_length(_cal)-2][1]=="+"||_cal[array_length(_cal)-2][1]=="-"
 					||_cal[array_length(_cal)-2][1]=="*"||_cal[array_length(_cal)-2][1]=="/"
-					||_cal[array_length(_cal)-2][1]=="^"||_cal[array_length(_cal)-1][1]=="="){
+					||_cal[array_length(_cal)-2][1]=="^"||_cal[array_length(_cal)-2][1]=="="){
 						_cal[array_length(_cal)-2]=
 						"("+_cal[array_length(_cal)-2][0]
 						+_cal[array_length(_cal)-2][1]
